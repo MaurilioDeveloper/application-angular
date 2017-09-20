@@ -1,0 +1,47 @@
+<div fxLayout="column" fxFlex.xs="100%" fxFlex.gt-sm="100%" fxFlex.sm="100%" [ngStyle]="{'padding': '2%'}">
+
+    <form #ff="ngForm" *ngIf="controlDynamicStepsIn == 19">
+        <div fxLayout="row">
+            <div fxFlex.sm="50%" fxFlex.gt-sm="50%">
+                <!-- NOME COMPLETO REF. 1 -->
+                <md-input-container fxFlex.gt-sm="80%" fxFlex.sm="70%">
+                    <input mdInput type="text" maxlength="50" placeholder="NOME COMPLETO REF. 1" name="fullNameRef1Guarantor2" [required]="getSimulation().client.guarantor2.isRequired"
+                        [(ngModel)]="getSimulation().client.guarantor2.reference1.name">
+                </md-input-container>
+            </div>
+            <div fxFlex.sm="50%" fxFlex.gt-sm="50%">
+                <!-- NUMERO -->
+                <md-input-container fxFlex.gt-sm="80%" fxFlex.sm="70%">
+                    <input mdInput type="text" customphone maxlength="15" placeholder="NUMERO" name="numeroRef1Guarantor2" [required]="getSimulation().client.guarantor2.isRequired"
+                        [(ngModel)]="getSimulation().client.guarantor2.reference1.phone">
+                </md-input-container>
+            </div>
+        </div>
+
+        <div fxLayout="row">
+            <div fxFlex.sm="50%" fxFlex.gt-sm="50%">
+                <!-- NOME COMPLETO REF. 2 -->
+                <md-input-container fxFlex.gt-sm="80%" fxFlex.sm="70%">
+                    <input mdInput type="text" maxlength="50" placeholder="NOME COMPLETO REF. 2" name="fullNameRef2Guarantor2" 
+                    [(ngModel)]="getSimulation().client.guarantor2.reference2.name">
+                </md-input-container>
+            </div>
+            <div fxFlex.sm="50%" fxFlex.gt-sm="50%">
+                <!-- NUMERO -->
+                <md-input-container fxFlex.gt-sm="80%" fxFlex.sm="70%">
+                    <input mdInput type="text" customphone maxlength="15" placeholder="NUMERO" name="numeroRef2Guarantor2" 
+                    [(ngModel)]="getSimulation().client.guarantor2.reference2.phone">
+                </md-input-container>
+            </div>
+        </div>
+
+        <div fxLayout="row">
+            <div fxFlex.sm="50%" fxFlex.gt-sm="50%" fxLayoutAlign="end none">
+            </div>
+            <div fxFlex.sm="50%" fxFlex.gt-sm="50%" fxLayoutAlign="center center" [ngStyle]="{'padding-top':'15px'}">
+                <button type="button" fxFlex.xs="100%" (click)="nextStep()" [disabled]="!ff.form.valid" fxFlex.xs="100%" fxFlex.gt-sm="64%" fxFlex.sm="100%" md-raised-button color="primary">REFERENCIA BANCARIA AVALISTA 2</button>
+            </div>
+        </div>
+
+    </form>
+</div>

@@ -1,0 +1,49 @@
+<calculation [enable]="enable"  (compare)="compare($event)" *ngIf="enable" fxFlex.gt-sm="100%"  [enable]="true" [calculationID]="0"></calculation> 
+<div fxFlex.xs="100%" *ngIf="enable && calculationID === 0 && simulation.reviewContractSimulation === false && simulation.detailSimulation === false"
+    [ngStyle]="{'border': '1px solid #fff', 'margin-top': '2%', 'margin-bottom': '18%'}">
+    <md-card fxFlex.xs="100%" [class.calculationselected]="calculationSelected">
+        <div fxLayout="column" [ngStyle.xs]="{'padding': '4%'}">
+            <div fxLayoutAlign="start none" fxLayout="row">
+                <h4 (click)="showDetailSimulation()" class="icon">{{'lb-call-condition' | translate | uppercase}}</h4>
+            </div>
+            <div fxLayout="row">
+                <div fxLayoutAlign="start none" fxFlex.xs="80%">
+                    <label>{{'lb-total-funded' | translate}}</label>
+                </div>
+                <div fxLayoutAlign="end none" fxFlex.xs="20%">
+                    <label>{{ simulation.calculations[calculationID].totalValue  | money }}</label>
+                </div>
+            </div>
+            <hr [ngStyle]="{'border': '1px solid #f1f1f1', 'width': '100%'}">
+            <div fxLayout="row">
+                <div fxLayoutAlign="start none" fxFlex.xs="80%">
+                    <label>{{'lb-monthly' | translate}}</label>
+                </div>
+                <div fxLayoutAlign="end none" fxFlex.xs="20%">
+                    <label>{{ simulation.calculations[calculationID].term }}x  {{ simulation.calculations[calculationID].instalmentAmount | money }}</label>
+                </div>
+            </div>
+            <div fxLayout="row">
+                <md-toolbar *ngIf="financialTableSelected && !calculationSelected" (click)="contract()" class="mobileButtonCalc">
+                    {{'lb-contract' | translate | uppercase}}
+                </md-toolbar>
+
+                <md-toolbar *ngIf="calculationSelected" (click)="contract()" class="mobileButtonCalc">
+                    {{'lb-contracted' | translate | uppercase}}
+                    <span style="font-size: 11px !important;"> {{'lb-contracted-sub' | translate | uppercase}}</span>
+                </md-toolbar>
+            </div>
+        </div>
+    </md-card>
+
+</div>
+
+<div fxFlex.xs="100%" *ngIf="!enabled && calculationID > 0 && simulation.reviewContractSimulation === false && simulation.detailSimulation === false"
+    [ngStyle]="{'border': '1px solid #fff', 'margin-top': '6%', 'background-color': '#f1f1f1'}">
+    <div [ngStyle]="{'text-align': 'center'}">
+        <a (click)="addSimulation()" class="linkicon">
+            <p><i class="material-icons">add_circle_outline</i><br> {{'lb-add-new' | translate}}<br> {{'lb-simulation' | translate}}
+            </p>
+        </a>
+    </div>
+</div>

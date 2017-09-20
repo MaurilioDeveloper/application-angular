@@ -1,0 +1,260 @@
+<div fxLayout="row">
+    <div fxFlex.gt-sm="100%" fxFlex.xs="100%" fxLayoutAlign="center center" fxLayoutGap="3%" class="spaceCard">
+        <div fxFlex.gt-sm="99%" fxFlex.xs="100%">
+            <h3 [ngStyle]="{'font-weight': '700'}">Notícia</h3>
+            <div [ngStyle]="{'border': '1px solid #ccc', 'padding': '20px'}">
+                <div>
+                    <div fxLayout="row">
+
+                        <p [ngClass]="fonte" fxFlex.xs="100%" fxFlex.gt-sm="15%">
+                            <label>{{'lb-create-by' | translate}}: </label>
+                        </p>
+                        <p>
+                            <label [ngClass]="fonte"> {{user.name}} </label>
+                        </p>
+
+                    </div>
+                    <div fxLayout="row">
+
+                        <p [ngClass]="fonte" fxFlex.xs="100%" fxFlex.gt-sm="15%">
+                            <label>{{'lb-creation-date' | translate}}: </label>
+                        </p>
+                        <p>
+                            <label [ngClass]="fonte"> {{currentDate | date:'dd/MM/yyyy'}} </label>
+                        </p>
+
+                    </div>
+                    <div fxLayout="row">
+
+                        <p [ngClass]="fonte" fxFlex.xs="100%" fxFlex.gt-sm="15%">
+                            <label>{{'lb-financial-brands' | translate}}: </label>
+                        </p>
+
+
+                        <div fxFlex.gt-sm="15%" *ngFor="let fb of listFinancialBrand">
+                            <p>
+                                <md-checkbox [(ngModel)]="fb.checked" (change)="addFinancialBrand($event,fb.id)">
+                                    {{fb.description}}
+                                </md-checkbox>
+                            </p>
+                        </div>
+
+                    </div>
+                    <div fxLayout="row">
+
+                        <p [ngClass]="fonte" fxFlex.xs="100%" fxFlex.gt-sm="15%">
+                            <label>{{'lb-publish' | translate}}: </label>
+                        </p>
+
+                        <div>
+                            <p>
+                                <md-checkbox  [(ngModel)]="publish"></md-checkbox>
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div fxLayout="row">
+    <div fxFlex.gt-sm="100%" fxFlex.xs="100%" class="spaceCard">
+
+        <div [ngStyle]="{'border': '1px solid #ccc', 'padding': '20px'}">
+
+            <input [ngStyle]="{'width': '99%', 'padding': '5px'}" [(ngModel)]='title' placeholder="Título" />
+
+            <quill-editor [(ngModel)]='notice' placeholder="Inserir notícia aqui...">
+                <div quill-editor-toolbar toolbar="true" class="selectable">
+                    <span class="ql-formats">
+                        <select class="ql-size">
+                            <option value="small"></option>
+                            <option selected></option>
+                            <option value="large">Heading 2</option>
+                            <option value="huge">Heading 1</option>
+                        </select>
+                        <select class="ql-font">
+                            <option selected="arial"></option>
+                            <option value="serif"></option>
+                            <option value="monospace"></option>
+                        </select>
+                    </span>
+                    <span class="ql-formats">
+                        <button class="ql-bold" [title]="'Bold'"></button>
+                    </span>
+                    <span class="ql-formats">
+                        <select class="ql-align" [title]="'Aligment'">
+                            <option selected></option>
+                            <option value="center"></option>
+                            <option value="right"></option>
+                            <option value="justify"></option>
+                        </select>
+                    </span>
+                    <span class="ql-formats">
+                        <button class="ql-italic" [title]="'Italic'"></button>
+                    </span>
+                    <span class="ql-formats">
+                        <button class="ql-underline" [title]="'Underline'"></button>
+                    </span>
+                    <span class="ql-formats">
+                        <button class="ql-strike" [title]="'Strike'"></button>
+                    </span>
+
+                    <span class="ql-formats">
+                <select title="Text Color" class="ql-color">
+                    <option value="rgb(0, 0, 0)" label="rgb(0, 0, 0)" selected=""></option>
+                    <option value="rgb(230, 0, 0)" label="rgb(230, 0, 0)"></option>
+                    <option value="rgb(255, 153, 0)" label="rgb(255, 153, 0)"></option>
+                    <option value="rgb(255, 255, 0)" label="rgb(255, 255, 0)"></option>
+                    <option value="rgb(0, 138, 0)" label="rgb(0, 138, 0)"></option>
+                    <option value="rgb(0, 102, 204)" label="rgb(0, 102, 204)"></option>
+                    <option value="rgb(153, 51, 255)" label="rgb(153, 51, 255)"></option>
+                    <option value="rgb(255, 255, 255)" label="rgb(255, 255, 255)"></option>
+                    <option value="rgb(250, 204, 204)" label="rgb(250, 204, 204)"></option>
+                    <option value="rgb(255, 235, 204)" label="rgb(255, 235, 204)"></option>
+                    <option value="rgb(255, 255, 204)" label="rgb(255, 255, 204)"></option>
+                    <option value="rgb(204, 232, 204)" label="rgb(204, 232, 204)"></option>
+                    <option value="rgb(204, 224, 245)" label="rgb(204, 224, 245)"></option>
+                    <option value="rgb(235, 214, 255)" label="rgb(235, 214, 255)"></option>
+                    <option value="rgb(187, 187, 187)" label="rgb(187, 187, 187)"></option>
+                    <option value="rgb(240, 102, 102)" label="rgb(240, 102, 102)"></option>
+                    <option value="rgb(255, 194, 102)" label="rgb(255, 194, 102)"></option>
+                    <option value="rgb(255, 255, 102)" label="rgb(255, 255, 102)"></option>
+                    <option value="rgb(102, 185, 102)" label="rgb(102, 185, 102)"></option>
+                    <option value="rgb(102, 163, 224)" label="rgb(102, 163, 224)"></option>
+                    <option value="rgb(194, 133, 255)" label="rgb(194, 133, 255)"></option>
+                    <option value="rgb(136, 136, 136)" label="rgb(136, 136, 136)"></option>
+                    <option value="rgb(161, 0, 0)" label="rgb(161, 0, 0)"></option>
+                    <option value="rgb(178, 107, 0)" label="rgb(178, 107, 0)"></option>
+                    <option value="rgb(178, 178, 0)" label="rgb(178, 178, 0)"></option>
+                    <option value="rgb(0, 97, 0)" label="rgb(0, 97, 0)"></option>
+                    <option value="rgb(0, 71, 178)" label="rgb(0, 71, 178)"></option>
+                    <option value="rgb(107, 36, 178)" label="rgb(107, 36, 178)"></option>
+                    <option value="rgb(68, 68, 68)" label="rgb(68, 68, 68)"></option>
+                    <option value="rgb(92, 0, 0)" label="rgb(92, 0, 0)"></option>
+                    <option value="rgb(102, 61, 0)" label="rgb(102, 61, 0)"></option>
+                    <option value="rgb(102, 102, 0)" label="rgb(102, 102, 0)"></option>
+                    <option value="rgb(0, 55, 0)" label="rgb(0, 55, 0)"></option>
+                    <option value="rgb(0, 41, 102)" label="rgb(0, 41, 102)"></option>
+                    <option value="rgb(61, 20, 102)" label="rgb(61, 20, 102)"></option>
+                </select>
+                    <span class="ql-format-separator"></span>
+                    <select title="Background Color" class="ql-background">
+                <option value="rgb(0, 0, 0)" label="rgb(0, 0, 0)"></option>
+                <option value="rgb(230, 0, 0)" label="rgb(230, 0, 0)"></option>
+                <option value="rgb(255, 153, 0)" label="rgb(255, 153, 0)"></option>
+                <option value="rgb(255, 255, 0)" label="rgb(255, 255, 0)"></option>
+                <option value="rgb(0, 138, 0)" label="rgb(0, 138, 0)"></option>
+                <option value="rgb(0, 102, 204)" label="rgb(0, 102, 204)"></option>
+                <option value="rgb(153, 51, 255)" label="rgb(153, 51, 255)"></option>
+                <option value="rgb(255, 255, 255)" label="rgb(255, 255, 255)" selected=""></option>
+                <option value="rgb(250, 204, 204)" label="rgb(250, 204, 204)"></option>
+                <option value="rgb(255, 235, 204)" label="rgb(255, 235, 204)"></option>
+                <option value="rgb(255, 255, 204)" label="rgb(255, 255, 204)"></option>
+                <option value="rgb(204, 232, 204)" label="rgb(204, 232, 204)"></option>
+                <option value="rgb(204, 224, 245)" label="rgb(204, 224, 245)"></option>
+                <option value="rgb(235, 214, 255)" label="rgb(235, 214, 255)"></option>
+                <option value="rgb(187, 187, 187)" label="rgb(187, 187, 187)"></option>
+                <option value="rgb(240, 102, 102)" label="rgb(240, 102, 102)"></option>
+                <option value="rgb(255, 194, 102)" label="rgb(255, 194, 102)"></option>
+                <option value="rgb(255, 255, 102)" label="rgb(255, 255, 102)"></option>
+                <option value="rgb(102, 185, 102)" label="rgb(102, 185, 102)"></option>
+                <option value="rgb(102, 163, 224)" label="rgb(102, 163, 224)"></option>
+                <option value="rgb(194, 133, 255)" label="rgb(194, 133, 255)"></option>
+                <option value="rgb(136, 136, 136)" label="rgb(136, 136, 136)"></option>
+                <option value="rgb(161, 0, 0)" label="rgb(161, 0, 0)"></option>
+                <option value="rgb(178, 107, 0)" label="rgb(178, 107, 0)"></option>
+                <option value="rgb(178, 178, 0)" label="rgb(178, 178, 0)"></option>
+                <option value="rgb(0, 97, 0)" label="rgb(0, 97, 0)"></option>
+                <option value="rgb(0, 71, 178)" label="rgb(0, 71, 178)"></option>
+                <option value="rgb(107, 36, 178)" label="rgb(107, 36, 178)"></option>
+                <option value="rgb(68, 68, 68)" label="rgb(68, 68, 68)"></option>
+                <option value="rgb(92, 0, 0)" label="rgb(92, 0, 0)"></option>
+                <option value="rgb(102, 61, 0)" label="rgb(102, 61, 0)"></option>
+                <option value="rgb(102, 102, 0)" label="rgb(102, 102, 0)"></option>
+                <option value="rgb(0, 55, 0)" label="rgb(0, 55, 0)"></option>
+                <option value="rgb(0, 41, 102)" label="rgb(0, 41, 102)"></option>
+                <option value="rgb(61, 20, 102)" label="rgb(61, 20, 102)"></option>
+            </select>
+                    </span>
+                    <span class="ql-formats">
+                        <button class="ql-image"></button>
+                    </span>
+                    <span class="ql-formats">
+                        <button class="ql-link" title="Link"></button>
+                    </span>
+                    <span class="ql-formats">
+                        <button class="ql-header" value="1" type="button"></button>
+                        <button class="ql-header" value="2" type="button"></button>
+                        <button class="ql-blockquote" type="button"></button>
+                        <button class="ql-code-block ql-active" type="button"></button>
+                        <button class="ql-video" type="button"></button>
+                        <button class="ql-indent" value="-1" type="button"></button>
+                        <button class="ql-indent" value="+1" type="button"></button>
+                        <button class="ql-list" value="ordered" type="button"></button>
+                        <button class="ql-list" value="bullet" type="button"></button>
+                    </span>
+                </div>
+            </quill-editor>
+            <div [ngStyle]="{'margin-top': '5%'}" fxLayoutAlign="end none" fxLayout="row">
+                <button md-raised-button color="primary" (click)="saveNotice()"><i class="fa fa-save"></i> {{ 'btn-save-news' | translate }}</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div fxLayout="row">
+    <div fxFlex.gt-sm="100%" fxFlex.xs="100%" fxLayoutAlign="center center" fxLayoutGap="3%" class="spaceCard">
+        <div fxFlex.gt-sm="99%" fxFlex.xs="100%">
+            <h3 [ngStyle]="{'font-weight': '700'}">{{'lb-list-of-registered-news' | translate}}</h3>
+            <div [ngStyle]="{'border': '1px solid #ccc', 'padding': '25px'}">
+                <ngx-datatable #table fxFlex="100" class='material' [rows]="listNotices" [headerHeight]="50" [limit]="20" 
+                    [footerHeight]="'auto'" [rowHeight]="'auto'" 
+                    [messages]="{emptyMessage: 'Não há notícias cadastradas'}" 
+                    [columnMode]="'force'" >
+
+                    <ngx-datatable-column name="{{'lb-new-title' | translate}}">
+                        <ng-template let-column="column" ngx-datatable-header-template>
+		                   {{'lb-new-title' | translate}}
+		                </ng-template>
+                        <ng-template let-row="row" ngx-datatable-cell-template>
+                            {{ row.title }}
+                        </ng-template>
+                    </ngx-datatable-column>
+
+                    <ngx-datatable-column name="{{'lb-create-by' | translate}}">
+                        <ng-template let-column="column" ngx-datatable-header-template>
+		                   {{'lb-create-by' | translate}}
+		                </ng-template>
+                        <ng-template let-row="row" ngx-datatable-cell-template>
+                            {{ row.name }}
+                        </ng-template>
+                    </ngx-datatable-column>
+
+                    <ngx-datatable-column name="{{'lb-creation-date' | translate}}">
+                      	<ng-template let-column="column" ngx-datatable-header-template>
+		                   {{'lb-creation-date' | translate}}
+		                </ng-template>
+                        <ng-template let-row="row" ngx-datatable-cell-template>
+                            {{ row.dtInsert | datex }}
+                        </ng-template>
+                    </ngx-datatable-column>
+
+                    <ngx-datatable-column name="{{'lb-actions' | translate}}">
+                         <ng-template let-column="column" ngx-datatable-header-template>
+		                   {{'lb-actions' | translate}}
+		                </ng-template>
+                        <ng-template let-row="row" ngx-datatable-cell-template>
+                            <button [ngStyle.gt-sm]="{'margin-right': '5px'}" (click)="editNotice(row)" fxFlex.xs="100%" md-raised-button color="primary"> <i class="fa fa-edit"></i> {{'btn-edit' | translate}}</button>
+                            <button fxFlex.xs="100%" md-raised-button color="primary" (click)="deleteNotice(row)"> <i class="fa fa-trash"></i> {{'btn-delete' | translate}}</button>
+                        </ng-template>
+                    </ngx-datatable-column>
+
+                </ngx-datatable>
+
+            </div>
+        </div>
+    </div>
+</div>

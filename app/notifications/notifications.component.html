@@ -1,0 +1,94 @@
+<div class="" fxFlex="100">
+    <!--   <md-content class="md-padding" layout-xs="column" layout="row">
+
+    </md-content>-->
+    <div class="spaceCard" fxLayout="row" fxLayoutAlign="center center">    
+        <md-card fxFlex.gt-sm="90" fxFlex="100">
+            <!--<md-card-header [ngStyle]="{'padding': '3%'}">-->
+            <!--<span>{{'lb-notifications' | translate}}</span>-->
+            <!--</md-card-header>-->
+            
+            <md-card-content fxLayoutWrap>
+
+
+                <ngx-datatable [trackByProp]="'read'" fxFlex="100" #datatableTeaching class='material' [rows]="listNotifications" [columnMode]="'force'"
+                    [headerHeight]="40" [footerHeight]="40" [rowHeight]="'auto'" [rowClass]="rowClass" [limit]="20">
+               
+                    <ngx-datatable-column [cellClass]="getCellClass" name="{{'lb-name' | translate}}" [width]="300">
+                        <ng-template let-column="column" ngx-datatable-header-template>
+                            <!--<div class="paintLine">-->
+                            {{'lb-change-date' | translate | uppercase}}
+                            <!--</div>-->
+                        </ng-template>
+                            <ng-template let-row="row" ngx-datatable-cell-template>
+                                {{row.changeData | datex}}
+                            </ng-template>
+                    </ngx-datatable-column>
+                    <ngx-datatable-column [cellClass]="getCellClass" name="{{'lb-name' | translate}}" [width]="300">
+                        <ng-template let-column="column" ngx-datatable-header-template>
+                            {{'lb-proposal' | translate | uppercase}}
+                        </ng-template>
+                            <ng-template let-row="row" ngx-datatable-cell-template>
+                                {{row.proposal}}
+                            </ng-template>
+                    </ngx-datatable-column>
+                    <ngx-datatable-column [cellClass]="getCellClass" name="{{'lb-name' | translate}}" [width]="300">
+                        <ng-template let-column="column" ngx-datatable-header-template>
+                            {{'lb-proposal-adp-number' | translate | uppercase}}
+                        </ng-template>
+                        <ng-template let-row="row" ngx-datatable-cell-template>
+                            {{row.proposalAdpNmber}}
+                        </ng-template>
+                    </ngx-datatable-column>
+                    <ngx-datatable-column [cellClass]="getCellClass" name="{{'lb-name' | translate}}" [width]="300">
+                        <ng-template let-column="column" ngx-datatable-header-template>
+                            {{'lb-cpf-cnpj' | translate | uppercase}}
+                        </ng-template>
+                        <ng-template let-row="row" ngx-datatable-cell-template>
+                            {{(row.cpfCnpj.length == 11 ? (row.cpfCnpj | cpfMask) : (row.cpfCnpj | cnpjMask))}}
+                        </ng-template>
+                    </ngx-datatable-column>
+                    <ngx-datatable-column [cellClass]="getCellClass" name="{{'lb-name' | translate}}" [width]="300">
+                        <ng-template let-column="column" ngx-datatable-header-template>
+                            {{'lb-client-name' | translate | uppercase}}
+                        </ng-template>
+                        <ng-template let-row="row" ngx-datatable-cell-template>
+                            {{row.clientName}}
+                        </ng-template>
+                    </ngx-datatable-column>
+                    <ngx-datatable-column [cellClass]="getCellClass" name="{{'lb-name' | translate}}" [width]="250">
+                        <ng-template let-column="column" ngx-datatable-header-template>
+                            {{'lb-status' | translate | uppercase}}
+                        </ng-template>
+                        <ng-template let-row="row" ngx-datatable-cell-template>
+                            {{row.status}}
+                        </ng-template>
+                    </ngx-datatable-column>
+                    <ngx-datatable-column [cellClass]="getCellClass" name="{{'lb-name' | translate}}" [width]="250">
+                        <ng-template let-column="column" ngx-datatable-header-template>
+                            {{'lb-salesman' | translate | uppercase}}
+                        </ng-template>
+                        <ng-template let-row="row" ngx-datatable-cell-template>
+                            {{row.salesman}}
+                        </ng-template>
+                    </ngx-datatable-column>
+                    <ngx-datatable-column [cellClass]="getCellClass" name="{{'lb-mandatory-services' | translate}}" [width]="180">
+                        <ng-template let-column="column" ngx-datatable-header-template>
+                            {{'lb-read' | translate | uppercase}}
+                        </ng-template>
+                        <ng-template let-row="row" ngx-datatable-cell-template>
+                            <md-checkbox (change)="changeRead($event, row)" [ngModel]="row.read"></md-checkbox>
+                        </ng-template>
+                    </ngx-datatable-column>
+                    <ngx-datatable-column [cellClass]="getCellClass"  name=" "  [width]="210">
+						<ng-template let-row="row" ngx-datatable-cell-template>
+							<a (click)="changeReadClick($event, row)" [routerLink]="['/simulation', row.dossierId]">
+								<md-icon>play_circle_outline</md-icon>
+							</a>
+						</ng-template>
+					</ngx-datatable-column>
+                </ngx-datatable>
+            </md-card-content>
+        </md-card>
+    </div>
+</div>

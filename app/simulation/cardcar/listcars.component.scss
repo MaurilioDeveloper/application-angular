@@ -1,0 +1,27 @@
+@import '../../theme/app-theme.scss';
+
+.borderCar {
+  box-sizing: border-box;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .26);
+  margin: 8px;
+  padding: 10px;
+  font-family: "Exo 2";
+  text-align:center;
+  font-size:20px
+/* float: left;*/
+}
+
+
+
+
+
+.borderCar:after {
+     visibility: hidden;
+     display: block;
+     font-size: 0;
+     content: " ";
+     clear: both;
+     height: 0;
+     }
+.borderCar { display: inline-block; }
+

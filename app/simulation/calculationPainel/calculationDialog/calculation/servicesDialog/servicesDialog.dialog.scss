@@ -1,0 +1,38 @@
+.mat-input-container, .mat-select {
+  width: 95%;
+  height: 66px;
+}
+
+/* In general, top-margin is used to set the vertical position of the element's
+ * baseline with left/right neighbors. Height is used to set vertical position
+ * of the next element down the page. Each element's overall height is 66px here.
+ */
+.mat-select {
+  margin-top: 16px;
+  height: 50px;
+}
+.divlong{
+  min-height: 75px;
+}
+.mat-radio-group, .checkbox-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.mat-checkbox {
+  display: inline-block;
+  margin-right: 16px;
+  margin-top: 18px;
+  height: 48px;
+}
+.mat-radio-button {
+  margin-right: 16px;
+  margin-top: 20px;
+  height: 46px;
+}
+
+.mat-slider-horizontal {
+  width: 95%;
+  margin-top: 21px;
+  height: 45px;
+}

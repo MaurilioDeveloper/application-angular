@@ -1,0 +1,1 @@
+{"version":3,"file":"Calculation.dto.js","sourceRoot":"","sources":["../../../simulation/dto/Calculation.dto.ts"],"names":[],"mappings":";;AAGA,2DAAsD;AACtD,yDAAoD;AAIpD;IAoBI;QACI,IAAI,CAAC,aAAa,GAAG,IAAI,iCAAa,EAAE,CAAC;QACzC,IAAI,CAAC,cAAc,GAAG,IAAI,mCAAc,EAAE,CAAC;QAC3C,IAAI,CAAC,UAAU,GAAG,CAAC,CAAC;IACxB,CAAC;IACL,kBAAC;AAAD,CAAC,AAzBD,IAyBC;AAzBY,kCAAW"}

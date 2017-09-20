@@ -1,0 +1,164 @@
+<!-- MOBILE -->
+<div *ngIf="media.isActive('xs') && getSimulation().showResumMobile === false" fxFlex.xs="100%" fxLayout="column">
+    <div *ngIf="getSimulation().step == 6" fxLayout="column" fxFlex.xs="100%">
+        <div fxFlex.xs="15%" [ngStyle.xs]="{'height': '55px'}" class="stepCustomer">
+            <label>{{'lb-submission' | translate | uppercase}}</label>
+        </div>
+        <submission-mobile [steep]="getSimulation().step" (changeStep)="changeStep($event)" fxLayoutAlign="center center" fxFlex.xs="100%"
+            (countClient)="countClient($event)" (controlDynamicStepsM)="controlDynamicStepsM($event)" [controlDynamicStepsIn]="getControlDynamicSteps()">
+        </submission-mobile>
+    </div>
+
+    <div *ngIf="getSimulation().step == 7" fxLayout="column" fxFlex.xs="100%">
+        <div fxFlex.xs="15%" [ngStyle.xs]="{'height': '55px'}" class="stepCustomer">
+            <label>{{'lb-custumer-data' | translate | uppercase}}</label>
+        </div>
+        <client-data-mobile  (changeSpouse)="changeSpouse($event)" class="spaceCard" fxFlex.xs="100%" (controlDynamicStepsM)="controlDynamicStepsM($event)" [controlDynamicStepsIn]="getControlDynamicSteps()"
+            (countClient)="countClient($event)">
+        </client-data-mobile>
+    </div>
+    <div *ngIf="getSimulation().step == 8" fxLayout="column" fxFlex.xs="100%">
+        <div fxFlex.xs="15%" [ngStyle.xs]="{'height': '55px'}" class="stepCustomer">
+            <label>{{'lb-residential-data' | translate | uppercase}}</label>
+        </div>
+        <address-data-mobile [showSpouse]="getShowSpouse()" fxFlex.xs="100%" fxFlex.gt-sm="100%" fxFlex.sm="100%" (controlDynamicStepsM)="controlDynamicStepsM($event)"
+            [controlDynamicStepsIn]="getControlDynamicSteps()" (countClient)="countClient($event)">
+        </address-data-mobile>
+    </div>
+    <div *ngIf="getSimulation().step == 9 && getShowSpouse() && isPhysicalPerson()" fxLayout="column" fxFlex.xs="100%">
+        <div fxFlex.xs="15%" [ngStyle.xs]="{'height': '55px'}" class="stepCustomer">
+            <label>  {{'lb-spouse' | translate | uppercase}}</label>
+        </div>
+        <spouse-mobile fxFlex.xs="100%" (controlDynamicStepsM)="controlDynamicStepsM($event)" [controlDynamicStepsIn]="getControlDynamicSteps()"
+            (countClient)="countClient($event)">
+        </spouse-mobile>
+    </div>
+    <div *ngIf="getSimulation().step == 10 && isPhysicalPerson()" fxLayout="column" fxFlex.xs="100%">
+        <div fxFlex.xs="15%" [ngStyle.xs]="{'height': '55px'}" class="stepCustomer">
+            <label> {{'lb-professional-data' | translate | uppercase}}</label>
+        </div>
+        <professional-data-mobile fxFlex.xs="100%" fxFlex.gt-sm="100%" fxFlex.sm="100%" (controlDynamicStepsM)="controlDynamicStepsM($event)"
+            [controlDynamicStepsIn]="getControlDynamicSteps()" (countClient)="countClient($event)">
+        </professional-data-mobile>
+    </div>
+    <div *ngIf="isPhysicalPerson() && getSimulation().step == 11" fxLayout="column" fxFlex.xs="100%">
+        <div fxFlex.xs="15%" [ngStyle.xs]="{'height': '55px'}" class="stepCustomer">
+            <label> {{'lb-personal-references' | translate | uppercase}}</label>
+        </div>
+        <person-data-mobile fxFlex.xs="100%" fxFlex.gt-sm="100%" fxFlex.sm="100%" (controlDynamicStepsM)="controlDynamicStepsM($event)"
+            [controlDynamicStepsIn]="getControlDynamicSteps()" (countClient)="countClient($event)">
+        </person-data-mobile>
+    </div>
+    <div *ngIf="getSimulation().step == 12" fxLayout="column" fxFlex.xs="100%">
+        <div fxFlex.xs="15%" [ngStyle.xs]="{'height': '55px'}" class="stepCustomer">
+            <label> {{'lb-banking-references' | translate | uppercase}}</label>
+        </div>
+        <banking-references-mobile fxFlex.xs="100%" fxFlex.gt-sm="100%" fxFlex.sm="100%" (countClient)="countClient($event)" (controlDynamicStepsM)="controlDynamicStepsM($event)"
+            [controlDynamicStepsIn]="getControlDynamicSteps()">
+        </banking-references-mobile>
+    </div>
+    <div *ngIf="getSimulation().step == 13" fxLayout="column" fxFlex.xs="100%">
+        <div fxFlex.xs="15%" [ngStyle.xs]="{'height': '55px'}" class="stepCustomer">
+            <label> {{'lb-vehicle-data' | translate | uppercase}}</label>
+        </div>
+        <vehicle-data-mobile fxFlex.xs="100%" fxFlex.gt-sm="100%" fxFlex.sm="100%" (countClient)="countClient($event)" (controlDynamicStepsM)="controlDynamicStepsM($event)"
+            [controlDynamicStepsIn]="getControlDynamicSteps()">
+        </vehicle-data-mobile>
+    </div>
+    <div *ngIf="getSimulation().step == 14" fxLayout="column" fxFlex.xs="100%">
+        <div fxFlex.xs="15%" [ngStyle.xs]="{'height': '55px'}" class="stepCustomer">
+            <label> {{'lb-guarantor-data' | translate | uppercase}} - {{'lb-guarantor' | translate | uppercase}} 1</label>
+        </div>
+        <guarantor-1-client-mobile (changeGuarantor1)="changeGuarantor1($event)" (changeSpouseGuarantor1)="changeSpouseGuarantor1($event)" fxFlex.xs="100%" fxFlex.gt-sm="100%" fxFlex.sm="100%" (countClient)="countClient($event)" (controlDynamicStepsM)="controlDynamicStepsM($event)"
+            [controlDynamicStepsIn]="getControlDynamicSteps()">
+        </guarantor-1-client-mobile>
+    </div>
+    <div *ngIf="getShowGuarantor1() && getSimulation().step == 15" fxLayout="column" fxFlex.xs="100%">
+        <div fxFlex.xs="15%" [ngStyle.xs]="{'height': '55px'}" class="stepCustomer">
+            <label> {{'lb-residential-data' | translate | uppercase}} - {{'lb-guarantor' | translate | uppercase}} 1</label>
+        </div>
+        <guarantor-1-address-mobile [showSpouseGuarantor1]="getShowSpouseGuarantor1()" fxFlex.xs="100%" fxFlex.gt-sm="100%" fxFlex.sm="100%" (countClient)="countClient($event)" (controlDynamicStepsM)="controlDynamicStepsM($event)"
+            [controlDynamicStepsIn]="getControlDynamicSteps()">
+        </guarantor-1-address-mobile>
+    </div>
+    <div *ngIf="getSimulation().step == 16 && getVerifyPhysicalSpouseGuarantor1()" fxLayout="column" fxFlex.xs="100%">
+        <div fxFlex.xs="15%" [ngStyle.xs]="{'height': '55px'}" class="stepCustomer">
+            <label> {{'lb-spouse' | translate | uppercase}} - {{'lb-guarantor' | translate | uppercase}} 1</label>
+        </div>
+        <guarantor-1-spouse-mobile fxFlex.xs="100%" fxFlex.gt-sm="100%" fxFlex.sm="100%" (countClient)="countClient($event)" (controlDynamicStepsM)="controlDynamicStepsM($event)"
+            [controlDynamicStepsIn]="getControlDynamicSteps()">
+        </guarantor-1-spouse-mobile>
+    </div>
+    <div *ngIf="getSimulation().step == 17 && getShowGuarantor1()" fxLayout="column" fxFlex.xs="100%">
+        <div fxFlex.xs="15%" [ngStyle.xs]="{'height': '55px'}" class="stepCustomer">
+            <label> {{'lb-professional-data' | translate | uppercase}} - {{'lb-guarantor' | translate | uppercase}} 1</label>
+        </div>
+        <guarantor-1-professional-mobile fxFlex.xs="100%" fxFlex.gt-sm="100%" fxFlex.sm="100%" (countClient)="countClient($event)"
+            (controlDynamicStepsM)="controlDynamicStepsM($event)" [controlDynamicStepsIn]="getControlDynamicSteps()">
+        </guarantor-1-professional-mobile>
+    </div>
+    <div *ngIf="getSimulation().step == 18 && getShowGuarantor1()" fxLayout="column" fxFlex.xs="100%">
+        <div fxFlex.xs="15%" [ngStyle.xs]="{'height': '55px'}" class="stepCustomer">
+            <label> {{'lb-personal-references' | translate | uppercase}} - {{'lb-guarantor' | translate | uppercase}} 1</label>
+        </div>
+        <guarantor-1-person-mobile fxFlex.xs="100%" fxFlex.gt-sm="100%" fxFlex.sm="100%" (countClient)="countClient($event)" (controlDynamicStepsM)="controlDynamicStepsM($event)"
+            [controlDynamicStepsIn]="getControlDynamicSteps()">
+        </guarantor-1-person-mobile>
+    </div>
+    <div *ngIf="getSimulation().step == 19 && getShowGuarantor1()" fxLayout="column" fxFlex.xs="100%">
+        <div fxFlex.xs="15%" [ngStyle.xs]="{'height': '55px'}" class="stepCustomer">
+            <label> {{'lb-bank-data' | translate | uppercase}} - {{'lb-guarantor' | translate | uppercase}} 1</label>
+        </div>
+        <guarantor-1-banking-mobile fxFlex.xs="100%" fxFlex.gt-sm="100%" fxFlex.sm="100%" (countClient)="countClient($event)" (controlDynamicStepsM)="controlDynamicStepsM($event)"
+            [controlDynamicStepsIn]="getControlDynamicSteps()">
+        </guarantor-1-banking-mobile>
+    </div>
+    <div *ngIf="getSimulation().step == 20" fxLayout="column" fxFlex.xs="100%">
+        <div fxFlex.xs="15%" [ngStyle.xs]="{'height': '55px'}" class="stepCustomer">
+            <label> {{'lb-guarantor-data' | translate | uppercase}} - {{'lb-guarantor' | translate | uppercase}} 2</label>
+        </div>
+        <guarantor-2-client-mobile (changeGuarantor2)="changeGuarantor2($event)" (changeSpouseGuarantor2)="changeSpouseGuarantor2($event)" fxFlex.xs="100%" fxFlex.gt-sm="100%" fxFlex.sm="100%" (countClient)="countClient($event)" (controlDynamicStepsM)="controlDynamicStepsM($event)"
+            [controlDynamicStepsIn]="getControlDynamicSteps()">
+        </guarantor-2-client-mobile>
+    </div>
+    <div *ngIf="getSimulation().step == 21 && getShowGuarantor2()" fxLayout="column" fxFlex.xs="100%">
+        <div fxFlex.xs="15%" [ngStyle.xs]="{'height': '55px'}" class="stepCustomer">
+            <label> {{'lb-residential-data' | translate | uppercase}} - {{'lb-guarantor' | translate | uppercase}} 2</label>
+        </div>
+        <guarantor-2-address-mobile [showSpouseGuarantor2]="getShowSpouseGuarantor2()" fxFlex.xs="100%" fxFlex.gt-sm="100%" fxFlex.sm="100%" (countClient)="countClient($event)" (controlDynamicStepsM)="controlDynamicStepsM($event)"
+            [controlDynamicStepsIn]="getControlDynamicSteps()">
+        </guarantor-2-address-mobile>
+    </div>
+    <div *ngIf="getSimulation().step == 22 && getVerifyPhysicalSpouseGuarantor2()" fxLayout="column" fxFlex.xs="100%">
+        <div fxFlex.xs="15%" [ngStyle.xs]="{'height': '55px'}" class="stepCustomer">
+            <label> {{'lb-spouse' | translate | uppercase}} - {{'lb-guarantor' | translate | uppercase}} 2</label>
+        </div>
+        <guarantor-2-spouse-mobile fxFlex.xs="100%" fxFlex.gt-sm="100%" fxFlex.sm="100%" (countClient)="countClient($event)" (controlDynamicStepsM)="controlDynamicStepsM($event)"
+            [controlDynamicStepsIn]="getControlDynamicSteps()">
+        </guarantor-2-spouse-mobile>
+    </div>
+    <div *ngIf="getSimulation().step == 23 && getShowGuarantor2()" fxLayout="column" fxFlex.xs="100%">
+        <div fxFlex.xs="15%" [ngStyle.xs]="{'height': '55px'}" class="stepCustomer">
+            <label> {{'lb-professional-data' | translate | uppercase}} - {{'lb-guarantor' | translate | uppercase}} 2</label>
+        </div>
+        <guarantor-2-professional-mobile fxFlex.xs="100%" fxFlex.gt-sm="100%" fxFlex.sm="100%" (countClient)="countClient($event)"
+            (controlDynamicStepsM)="controlDynamicStepsM($event)" [controlDynamicStepsIn]="getControlDynamicSteps()">
+        </guarantor-2-professional-mobile>
+    </div>
+    <div *ngIf="getSimulation().step == 24 && getShowGuarantor2()" fxLayout="column" fxFlex.xs="100%">
+        <div fxFlex.xs="15%" [ngStyle.xs]="{'height': '55px'}" class="stepCustomer">
+            <label> {{'lb-personal-references' | translate | uppercase}} - {{'lb-guarantor' | translate | uppercase}} 2</label>
+        </div>
+        <guarantor-2-person-mobile fxFlex.xs="100%" fxFlex.gt-sm="100%" fxFlex.sm="100%" (countClient)="countClient($event)" (controlDynamicStepsM)="controlDynamicStepsM($event)"
+            [controlDynamicStepsIn]="getControlDynamicSteps()">
+        </guarantor-2-person-mobile>
+    </div>
+    <div *ngIf="getSimulation().step == 25 && getShowGuarantor2()" fxLayout="column" fxFlex.xs="100%">
+        <div fxFlex.xs="15%" [ngStyle.xs]="{'height': '55px'}" class="stepCustomer">
+            <label> {{'lb-banking-references' | translate | uppercase}} - {{'lb-guarantor' | translate | uppercase}} 2</label>
+        </div>
+        <guarantor-2-banking-mobile (saveDossier)="saveDossier()" (changeStep)="changeStep($event)" fxFlex.xs="100%" fxFlex.gt-sm="100%" fxFlex.sm="100%" (countClient)="countClient($event)"
+            (controlDynamicStepsM)="controlDynamicStepsM($event)" [controlDynamicStepsIn]="getControlDynamicSteps()">
+        </guarantor-2-banking-mobile>
+    </div>
+</div>

@@ -1,0 +1,200 @@
+<div class="" fxFlex="100">
+	<div fxLayoutAlign="center center" class="spaceCard" >
+		<md-card fxFlex.gt-sm="80%" fxFlex.sm="100%" fxFlex.xs="100%" >
+			<md-card-header id="card-menu-proposta" class="header-title" fxLayoutAlign="start center">
+				<span class="mozilaMargin text-title" >{{'lb-my-agreements' | translate}}</span>
+			</md-card-header>
+
+			<md-card-content class="layouts">
+				<form>
+					<div fxLayout="row" fxLayoutWrap fxLayoutAlign="space-around stretch" class="space-component">
+
+						<md-input-container fxFlex.xs="100%" fxFlex.gt-sm="45%">
+							<input mdInput placeholder="{{'lb-proposal-number' | translate}}" name="idDossier" [(ngModel)]="filter.idDossier">
+						</md-input-container>
+
+						<md-input-container fxFlex.xs="100%" fxFlex.gt-sm="45%">
+							<input mdInput placeholder="{{'lb-proposal' | translate}} ADP Nº" name="adp" [(ngModel)]="filter.adp">
+						</md-input-container>
+
+						<md-select placeholder="{{'lb-customer-type' | translate}}" fxFlex.xs="100%" fxFlex.gt-sm="45%" name="typePerson" [(ngModel)]="filter.typePerson">
+							<md-option *ngFor="let personType of listPersonType" [value]="personType.name">
+								{{ personType.description }}
+								
+							</md-option>
+						</md-select>
+
+						<md-input-container *ngIf="filter.typePerson == 'PF'" fxFlex.xs="100%" fxFlex.gt-sm="45%">
+							<input mdInput type="text" placeholder="CPF" omegamask="999.999.999-99" name="cpf" [(ngModel)]="filter.cpfCnpj">
+						</md-input-container>
+
+						<md-input-container *ngIf="filter.typePerson == 'PJ'" fxFlex.xs="100%" fxFlex.gt-sm="45%">
+							<input mdInput type="text" placeholder="CNPJ" omegamask="99.999.999/9999-99" name="cnpj" [(ngModel)]="filter.cpfCnpj">
+						</md-input-container>
+
+						<md-input-container fxFlex.xs="100%" fxFlex.gt-sm="45%">
+							<input mdInput placeholder="{{'lb-name' | translate}}" name="nameClient" [(ngModel)]="filter.nameClient">
+						</md-input-container>
+
+						<md-select placeholder="{{'lb-status-proposal' | translate}}" fxFlex.xs="100%" fxFlex.gt-sm="45%" name="proposedStatus" [(ngModel)]="filter.proposedStatus">
+							<md-option *ngFor="let dossierStatus of listDossierStatus" [value]="dossierStatus.dossierStatusId">
+								{{ dossierStatus.description }}
+							</md-option>
+						</md-select>
+
+						<md-select placeholder="{{'lb-sale-type' | translate}}" fxFlex.xs="100%" fxFlex.gt-sm="45%" name="saleTypeId" [(ngModel)]="filter.saleTypeId">
+							<md-option *ngFor="let saleType of listSaleType" [value]="saleType.id">
+								{{ saleType.description}}
+							</md-option>
+						</md-select>
+
+						<div fxFlex.xs="100%" fxFlex.gt-sm="45%" fxLayoutWrap fxLayoutAlign="space-around stretch">
+
+							<md-input-container fxFlex.gt-sm="45%" fxFlex.xs="100%">
+								<input mdInput [mdDatepicker]="picker" placeholder="{{'lb-date-initial-creation' | translate}}" name="dateCreationInit" [(ngModel)]="filter.dateCreationInit">
+								<md-datepicker-toggle mdSuffix [for]="picker"></md-datepicker-toggle>
+							</md-input-container>
+							<md-datepicker #picker></md-datepicker>
+
+							<md-input-container fxFlex.gt-sm="45%" fxFlex.xs="100%">
+								<input mdInput [mdDatepicker]="picker2" placeholder="{{'lb-date-final-creation' | translate}}" name="dateCreationEnd" [(ngModel)]="filter.dateCreationEnd">
+								<md-datepicker-toggle mdSuffix [for]="picker2"></md-datepicker-toggle>
+							</md-input-container>
+							<md-datepicker #picker2></md-datepicker>
+
+						</div>
+
+						<div fxFlex.xs="100%" fxFlex.gt-sm="45%" fxLayoutWrap fxLayoutAlign="space-around stretch">
+							<md-input-container fxFlex.gt-sm="45%" fxFlex.xs="100%">
+								<input mdInput [mdDatepicker]="picker3" placeholder="{{'lb-date-initial-validate' | translate}}" name="dateExpirationInit"
+								 [(ngModel)]="filter.dateExpirationInit">
+								<md-datepicker-toggle mdSuffix [for]="picker3"></md-datepicker-toggle>
+							</md-input-container>
+
+							<md-datepicker #picker3></md-datepicker>
+
+							<md-input-container fxFlex.gt-sm="45%" fxFlex.xs="100%">
+								<input mdInput [mdDatepicker]="picker4" placeholder="{{'lb-date-final-validate' | translate}}" name="dateExpirationEnd" [(ngModel)]="filter.dateExpirationEnd">
+								<md-datepicker-toggle mdSuffix [for]="picker4"></md-datepicker-toggle>
+							</md-input-container>
+
+							<md-datepicker #picker4></md-datepicker>
+						</div>
+
+						<md-select *ngIf="appService.hasRole('COMBO_CONCESSIONARIA')" placeholder="{{'lb-dealership' | translate}}" fxFlex.xs="100%" fxFlex.gt-sm="45%" name="dealership" [(ngModel)]="filter.dealership"
+						 (ngModelChange)="loadSalesman(filter.dealership)">
+							<md-option *ngFor="let structure of listStructure" [value]="structure.structureId">
+								{{ structure.description }}
+							</md-option>
+						</md-select>
+
+						<md-select placeholder="{{'lb-salesman' | translate}}" *ngIf="filter.dealership != null && appService.hasRole('COMBO_CONCESSIONARIA')" fxFlex.xs="100%" fxFlex.gt-sm="45%"
+						 name="salesman" [(ngModel)]="filter.salesman">
+							<md-option *ngFor="let salesman of listSalesman" [value]="salesman.personId">
+								{{ salesman.name }}
+							</md-option>
+						</md-select>
+						<md-checkbox *ngIf="appService.hasRole('REGIONAL')" fxFlex.gt-sm="45%" fxFlex.xs="100%" [(ngModel)]="filter.taxTc" name="taxTc">{{'lb-exemption' | translate}} TC</md-checkbox>
+					</div>
+
+					<!--BUTTONS-->
+					<div fxLayout="row" fxLayoutAlign="end none" fxLayoutWrap fxLayoutGap.gt-sm="3%">
+						<div fxFlex.gt-sm="20%" fxFlex.xs="100%">
+							<button fxFlex.xs="100%" [ngStyle.xs]="{'margin-top.px':10, 'margin-bottom.px':10}" [ngStyle.gt-sm]="{'margin-top.px':10, 'margin-bottom.px':10}" (click)="clearMyAgreement()"
+							 md-raised-button color="primary"  class="text-title">{{'btn-reset' | translate}}</button>
+						</div>
+						<div fxFlex.gt-sm="20%" fxFlex.xs="100%">
+							<button fxFlex.xs="100%" [ngStyle.xs]="{'margin-top.px':10, 'margin-bottom.px':10, 'margin-right.px':10}" 
+							[ngStyle.gt-sm]="{'margin-top.px':10, 'margin-bottom.px':10, 'margin-right.px':10}" (click)="consult(filter)"
+							 md-raised-button color="primary"  class="text-title">{{'btn-search' | translate}}</button>
+						</div>
+					</div>
+
+				</form>
+			</md-card-content>
+			<md-card-content [ngStyle]="{'padding': '1%'}" *ngIf="showConsult">
+				<ngx-datatable #table class="material my-agreement" 
+				[rows]="listDossiers"
+				 [columnMode]="'force'"
+				 [headerHeight]="'auto'" 
+				 [footerHeight]="'auto'"
+				 [rowHeight]="'auto'" [limit]="20" [messages]="{emptyMessage: 'Nenhum resultado para esses critérios.'}">
+					<ngx-datatable-column *ngIf="!media.isActive('xs')" name="{{'lb-salesman' | translate}}">
+						<ng-template let-column="column" >
+							{{'lb-salesman' | translate | uppercase}}
+						</ng-template>
+						<ng-template let-row="row" ngx-datatable-cell-template>
+							{{row.nameSalesman}}
+						</ng-template>
+					</ngx-datatable-column>
+					<ngx-datatable-column *ngIf="!media.isActive('xs')" name="{{'lb-sale-type'  | translate}}">
+						<ng-template let-column="column" ngx-datatable-header-template>
+							{{'lb-sale-type' | translate | uppercase}}
+						</ng-template>
+						<ng-template let-row="row" ngx-datatable-cell-template>
+							{{row.saleType}}
+						</ng-template>
+					</ngx-datatable-column>
+					<ngx-datatable-column name="{{'lb-proposal' | translate}}">
+						<ng-template let-column="column" ngx-datatable-header-template>
+							{{'lb-proposal' | translate | uppercase}}
+						</ng-template>
+						<ng-template let-row="row" ngx-datatable-cell-template>
+							{{row.numDossier}}
+						</ng-template>
+					</ngx-datatable-column>
+					<ngx-datatable-column *ngIf="!media.isActive('xs')" name="ADP Nº">
+						<ng-template let-row="row" ngx-datatable-cell-template>
+							{{row.adp}}
+						</ng-template>
+					</ngx-datatable-column>
+					<ngx-datatable-column name="CPF/CNPJ">
+						<ng-template let-row="row" ngx-datatable-cell-template>
+							<label *ngIf="row.cpfCnpj.length === 11">{{row.cpfCnpj | cpfMask}}</label>
+							<label *ngIf="row.cpfCnpj.length > 11">{{row.cpfCnpj | cnpjMask}}</label>
+						</ng-template>
+					</ngx-datatable-column>
+					<ngx-datatable-column *ngIf="!media.isActive('xs')" name="{{'lb-client' | translate}}">
+						<ng-template let-column="column" ngx-datatable-header-template>
+							{{'lb-client' | translate | uppercase}}
+						</ng-template>
+						<ng-template let-row="row" ngx-datatable-cell-template>
+							{{row.nameClient}}
+						</ng-template>
+					</ngx-datatable-column>
+					<ngx-datatable-column name="{{'lb-status' | translate}}">
+						<ng-template let-column="column" ngx-datatable-header-template>
+							{{'lb-status' | translate | uppercase}}
+						</ng-template>
+						<ng-template let-row="row" ngx-datatable-cell-template>
+							{{row.status}}
+						</ng-template>
+					</ngx-datatable-column>
+					<ngx-datatable-column *ngIf="!media.isActive('xs')" name="{{'lb-validate' | translate}}">
+						<ng-template let-column="column" ngx-datatable-header-template>
+							{{'lb-validate' | translate | uppercase}}
+						</ng-template>
+						<ng-template let-row="row" ngx-datatable-cell-template>
+							{{row.expirationDate | date : 'dd/MM/yyyy'}}
+						</ng-template>
+					</ngx-datatable-column>
+					<ngx-datatable-column *ngIf="!media.isActive('xs')" name="{{'lb-model' | translate}}">
+						<ng-template let-column="column" ngx-datatable-header-template>
+							{{'lb-model' | translate | uppercase}}
+						</ng-template>
+						<ng-template let-row="row" ngx-datatable-cell-template>
+							{{row.vehicleModel}}
+						</ng-template>
+					</ngx-datatable-column>
+					<ngx-datatable-column name=" ">
+						<ng-template let-row="row" ngx-datatable-cell-template>
+							<a [routerLink]="['/simulation', row.dossierId]">
+								<md-icon>play_circle_outline</md-icon>
+							</a>
+						</ng-template>
+					</ngx-datatable-column>
+				</ngx-datatable>
+			</md-card-content>
+		</md-card>
+	</div>
+</div>

@@ -1,0 +1,32 @@
+<md-tab-group class="tabcenter">
+    <md-tab label="{{'tab-car' | translate | uppercase }}" position="0">
+        <div [ngStyle]="{'max-width': '100%', 'margin-bottom': '50px'}" class="container" layout="row" flex fxLayout="center center">
+            <div (click)="select($event, car)" class="borderCar cursorPointer" *ngFor="let car of cars" 
+                [style.xs]="{'max-width': '100%','max-height':'80%', 'width': '43%'}"
+                [style.sm]="{'max-width': '45%'}" 
+                [style.md]="{'width': '220px','height':'130px'}" 
+                [style.lg]="{'width': '220px','height':'130px'}"
+                [ngClass]="{'selectedcar' : car.selected}">
+                <img [ngStyle]="{'object-fit': 'container'}" height="80%" width="95%" [src]="appService.getURLS3()+car.url">
+                <div class="black-color font-bold">
+                    {{car.description | uppercase}}
+                </div>
+            </div>
+        </div>
+    </md-tab>
+    <md-tab label="{{'tab-utility-car' | translate | uppercase }}" position="0">
+        <div class="container" layout="row" flex>
+            <div (click)="select($event, car)" class="borderCar cursorPointer" *ngFor="let car of utilitarios" 
+                [style.xs]="{'max-width': '100%','max-height':'80%', 'width': '43%'}"
+                [style.sm]="{'max-width': '45%'}" 
+                [style.md]="{'width': '220px','height':'130px'}" 
+                [style.lg]="{'width': '220px','height':'130px'}"
+                [ngClass]="{'selectedcar' : car.selected}">
+                <img height="80%" width="95%" [src]="appService.getURLS3()+car.url">
+                <div class="black-color font-bold">
+                    {{car.description | uppercase}}
+                </div>
+            </div>
+        </div>
+    </md-tab>
+</md-tab-group>

@@ -1,0 +1,46 @@
+<div fxLayout="column" fxFlex.xs="100%" fxFlex.gt-sm="100%" fxFlex.sm="100%" [ngStyle]="{'padding': '2%'}">
+
+    <form #ff="ngForm" *ngIf="controlDynamicStepsIn == 13">
+
+        <div fxLayout="row">
+            <div fxFlex.sm="50%" fxFlex.gt-sm="50%">
+                <!-- NOME COMPLETO REF. 1 -->
+                <md-input-container fxFlex.gt-sm="80%" fxFlex.sm="70%">
+                    <input mdInput type="text" maxlength="50" placeholder="NOME COMPLETO REF. 1" [required]="getSimulation().client.guarantor1.isRequired" 
+                    name="fullNameRef1Guarantor1" [(ngModel)]="getSimulation().client.guarantor1.reference1.name">
+                </md-input-container>
+            </div>
+            <div fxFlex.sm="50%" fxFlex.gt-sm="50%">
+                <!-- NUMERO -->
+                <md-input-container fxFlex.gt-sm="80%" fxFlex.sm="70%">
+                    <input mdInput type="text" customphone maxlength="15" placeholder="NUMERO" name="numeroRef1Guarantor1" [required]="getSimulation().client.guarantor1.isRequired"
+                        [(ngModel)]="getSimulation().client.guarantor1.reference1.phone">
+                </md-input-container>
+            </div>
+        </div>
+
+        <div fxLayout="row">
+            <div fxFlex.sm="50%" fxFlex.gt-sm="50%">
+                <!-- NOME COMPLETO REF. 2 -->
+                <md-input-container fxFlex.gt-sm="80%" fxFlex.sm="70%">
+                    <input mdInput type="text" maxlength="50" placeholder="NOME COMPLETO REF. 2" name="fullNameRef2Guarantor1" [(ngModel)]="getSimulation().client.guarantor1.reference2.name">
+                </md-input-container>
+            </div>
+            <div fxFlex.sm="50%" fxFlex.gt-sm="50%">
+                <!-- NUMERO -->
+                <md-input-container fxFlex.gt-sm="80%" fxFlex.sm="70%">
+                    <input mdInput type="text" customphone maxlength="15" placeholder="NUMERO" name="numeroRef2Guarantor1" [(ngModel)]="getSimulation().client.guarantor1.reference2.phone">
+                </md-input-container>
+            </div>
+        </div>
+
+        <div fxLayout="row">
+            <div fxFlex.gt-sm="50%" fxFlex.sm="50%" fxLayoutAlign="end none">
+            </div>
+            <div fxFlex.gt-sm="50%" fxFlex.sm="50%" fxLayoutAlign="center center" [ngStyle]="{'padding-top':'15px'}">
+                <button type="button" fxFlex.xs="100%" fxFlex.gt-sm="64%" fxFlex.sm="60%" [disabled]="!ff.form.valid" (click)="nextStep()" md-raised-button color="primary">REFERENCIA BANCARIA AVALISTA 1</button>
+            </div>
+        </div>
+
+    </form>
+</div>

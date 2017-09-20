@@ -1,0 +1,75 @@
+<div fxFlex.gt-sm="100%" class="spaceCard" fxLayoutAlign="center center">
+    <div fxFlex.gt-sm="100%" fxflex.sm="100%">
+        <md-card-content>
+            <div fxLayout="row">
+                <h3>{{ 'msg-send-santander-confirmation' | translate }}</h3>
+            </div>
+ 
+            <div fxLauyout="row" [ngStyle]="{'padding-top':'7%'}" fxLayoutWrap.sm>
+                <div fxFlex.gt-sm="50%" 
+                     fxFlex.sm="100%" 
+                     fxFlex.md="50%" 
+                     fxLayoutAlign="start none" 
+                     [ngStyle]="{'padding-top':'1%'}"> 
+                    <button type="button" md-raised-button color="primary" 
+                            fxFlex.gt-sm="85%" 
+                            fxFlex.sm="100%"
+                            (click)="dialogRef.close(true)"
+                            fxFlex.md="80%">{{ 'true' | translate | uppercase }}</button>
+                </div>
+                <div fxFlex.gt-sm="50%" 
+                     fxFlex.sm="100%" 
+                     fxFlex.md="50%" 
+                     fxLayoutAlign="end none" 
+                     [ngStyle]="{'padding-top':'1%'}">
+                    <button type="button" (click)="dialogRef.close(false)"
+                            md-raised-button color="primary" 
+                            fxFlex.gt-sm="80%" 
+                            fxFlex.sm="100%" 
+                            fxFlex.md="80%">{{ 'false' | translate | uppercase}}</button>
+                </div>
+            </div>
+        </md-card-content>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,8 @@
+<md-toolbar fxLayout="row" fxFlex.xs="100%" class="mobileHeader">
+        <h4 [ngStyle.xs]="{'font-size': '17px'}" [ngClass]="simulation.step == 0 ? 'margin-top-mobile' : ''" > <b>
+                 <button *ngIf="simulation.step != 0" (click)="change(false)"  [ngStyle.xs]="{'min-width': '40px', 'background-color': 'transparent', 'border': 'none', 'margin-top': '4%'}">
+                         <!--<i class="fa fa-arrow-left"></i>-->
+                         <img src="/assets/images/arrow_three.png" width="21px" height="17px" style="object-fit: cover; margin-top: 13px" alt="">
+                </button> <label for="" [ngStyle]="{'margin-top': '6%'}">{{backStep | translate | uppercase}}</label></b>
+        </h4>
+</md-toolbar>

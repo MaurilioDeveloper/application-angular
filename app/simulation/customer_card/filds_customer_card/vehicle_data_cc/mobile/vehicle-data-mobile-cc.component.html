@@ -1,0 +1,89 @@
+<div fxLayout="column" fxFlex.xs="100%" [ngStyle]="{'padding': '2%'}">
+
+    <form #ff="ngForm">
+
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                <!-- NUMERO DO CHASSI -->
+                <md-input-container fxFlex.xs="100%">
+                    <input mdInput type="text" maxlength="20" placeholder="{{'lb-chassis-number' | translate | uppercase}}" name="numberChassi"
+                        [(ngModel)]="getSimulation().client.carDetails.chassiNumber">
+                </md-input-container>
+            </div>
+        </div>
+
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                <!-- NUMERO DO REGISTRO -->
+                <md-input-container fxFlex.xs="100%">
+                    <input mdInput type="text" maxlength="7" placeholder="{{'lb-register-number' | translate | uppercase}}" name="registerNumber"
+                        [(ngModel)]="getSimulation().client.carDetails.registerNumber">
+                </md-input-container>
+            </div>
+        </div>
+
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                <!-- ESTADO DE REGISTRO -->
+                <md-select fxFlex.gt-sm="80%" fxFlex.sm="70%" class="bug-input" placeholder="{{'lb-registration-province' | translate | uppercase}}" name="registrationProvince"
+                    [(ngModel)]="getSimulation().client.carDetails.registrationProvince.id">
+                    <md-option *ngFor="let lrp of getListRegistrationProvince()" [value]="lrp.id">
+                        {{ lrp.description }}
+                    </md-option>
+                </md-select>
+            </div>
+        </div>
+
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                <!-- ESTADO DE LICENCIAMENTO -->
+                <md-select fxFlex.gt-sm="80%" fxFlex.sm="70%" class="bug-input" placeholder="{{'lb-licensing-province' | translate | uppercase}}" name="licensingProvince"
+                    [(ngModel)]="getSimulation().client.carDetails.licensingProvince.id">
+                    <md-option *ngFor="let llp of getListLicensingProvince()" [value]="llp.id">
+                        {{ llp.description }}
+                    </md-option>
+                </md-select>
+            </div>
+        </div>
+
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+               <!-- COR -->
+                <md-select fxFlex.gt-sm="80%" fxFlex.sm="70%" class="bug-input" placeholder="{{'lb-color' | translate | uppercase}}" name="vehicleColor" [(ngModel)]="getSimulation().client.carDetails.vehicleColor">
+                    <md-option *ngFor="let lvc of getListVehicleColor()" [value]="lvc.description">
+                        {{ lvc.description }}
+                    </md-option>
+                </md-select>
+            </div>
+        </div>
+
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                <!-- RENAVAM -->
+                <md-input-container fxFlex.xs="100%">
+                    <input mdInput type="text" maxlength="10" placeholder="RENAVAM" name="renavam" [(ngModel)]="getSimulation().client.carDetails.renavam">
+                </md-input-container>
+            </div>
+        </div>
+
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                <!-- ORIGEM -->
+                <md-select placeholder="{{'lb-origin' | translate | uppercase}}" fxFlex.gt-sm="80%" fxFlex.sm="70%" class="bug-input" required name="vehicleOrigin"
+                    [(ngModel)]="getSimulation().client.carDetails.vehicleOrigin">
+                    <md-option *ngFor="let lvo of getListVehicleOrigin()" [value]="lvo.value">
+                        {{ lvo.description }}
+                    </md-option>
+                </md-select>
+            </div>
+        </div>
+
+        
+        <div fxLayout="row">
+            <md-toolbar (click)="nextStep()" class="buttonMobileFooter">
+                {{'btn-guarantor' | translate | uppercase}} 1
+            </md-toolbar>
+        </div>
+
+    </form>
+</div>

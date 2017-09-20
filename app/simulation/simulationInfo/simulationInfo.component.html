@@ -1,0 +1,36 @@
+<div *ngIf="simulation.client" [ngStyle.xs]="{'margin-left': '-5%', 'margin-right': '-5%'}">
+
+    <div fxFlex.xs="100%" fxFlex.gt-sm="100%" fxLayoutAlign="center center" class="spaceCard">
+        <md-card fxFlex.gt-sm="100%" fxFlex.sm="100%" fxFlex.xs="100%" class="no-border">
+            
+            <!-- Component -->
+            <!--<resum-mobile [simulation]="simulation"></resum-mobile>-->
+           <div fxHide.xs="true" fxLayout="row" fxFlex.gt-sm="100%" fxFlex.sm="100%" fxFlex.xs="100%" fxLayoutWrap>
+                <div fxFlex.gt-sm="100%" fxFlex.sm="100%" fxFlex.xs="100%">
+                    <div fxLayout="row" fxLayoutGap="1%">
+                        <button md-raised-button color="primary" class="btnHideModel" (click)="clicked()">
+                            <i class="material-icons">{{varBtnMarca}}</i>
+                        </button>
+                        <h4 class="black-color">{{'lb-proposal-number' | translate | uppercase}}: {{ simulation.dossierNumber }}</h4>
+                    </div>
+                    <div fxLayout="row">
+                        <hr class="color-border-default" [ngStyle]="{'margin-top': '-2px'}" fxFlex.gt-sm="100%" />
+                    </div>
+                </div>
+                <div fxLayout="row" *ngIf="simulation.client && drop==false" fxFlex.gt-sm="100%" fxFlex.sm="100%" fxFlex.xs="100%">
+                    <painel-proposal fxFlex.gt-sm="100%"></painel-proposal>
+                </div>
+                <div fxLayout="row" fxFlex.gt-sm="100%" *ngIf="drop==false" fxFlex.sm="100%" fxFlex.xs="100%">
+                    <div fxFlex.gt-sm="35%" [ngStyle]="{'padding-top': '5px'}">
+                        <label class="black-color font-bold">{{'lb-state' | translate}}</label><br>
+                        <label>{{ simulation.client.address.province.description }}</label>
+                    </div>
+                </div>
+            </div>
+            <!--<div fxHide.xs="false" fxHide fxFlex.xs="100%" [ngStyle.xs]="{'margin-top': '-18px'}">-->
+                <!--<resum-mobile fxFlex.xs="100%" fxLayout="column" [simulation]="simulation"></resum-mobile>-->
+            <!--</div>-->
+        </md-card>
+
+    </div>
+</div>

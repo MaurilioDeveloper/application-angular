@@ -1,0 +1,51 @@
+<div fxLayout="column" fxFlex.xs="100%" [ngStyle]="{'padding': '2%'}">
+
+    <form #ff="ngForm">
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                <!-- NOME COMPLETO REF. 1 -->
+                <md-input-container fxFlex.gt-sm="80%" fxFlex.sm="70%">
+                    <input mdInput type="text" maxlength="50" placeholder="NOME COMPLETO REF. 1" name="fullNameRef1Guarantor2" [required]="getSimulation().client.guarantor2.isRequired"
+                        [(ngModel)]="getSimulation().client.guarantor2.reference1.name">
+                </md-input-container>
+            </div>
+        </div>
+
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                 <!-- NUMERO -->
+                <md-input-container fxFlex.gt-sm="80%" fxFlex.sm="70%">
+                    <input mdInput type="text" maxlength="10" placeholder="NUMERO" name="numeroRef1Guarantor2" [required]="getSimulation().client.guarantor2.isRequired"
+                        [(ngModel)]="getSimulation().client.guarantor2.reference1.phone">
+                </md-input-container>
+            </div>
+        </div>
+
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                 <!-- NOME COMPLETO REF. 2 -->
+                <md-input-container fxFlex.gt-sm="80%" fxFlex.sm="70%">
+                    <input mdInput type="text" maxlength="50" placeholder="NOME COMPLETO REF. 2" name="fullNameRef2Guarantor2" 
+                    [(ngModel)]="getSimulation().client.guarantor2.reference2.name">
+                </md-input-container>   
+            </div>
+        </div>
+
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                 <!-- NUMERO -->
+                <md-input-container fxFlex.gt-sm="80%" fxFlex.sm="70%">
+                    <input mdInput type="text" maxlength="10" placeholder="NUMERO" name="numeroRef2Guarantor2" 
+                    [(ngModel)]="getSimulation().client.guarantor2.reference2.phone">
+                </md-input-container>
+            </div>
+        </div>
+
+        <div fxLayout="row">
+            <md-toolbar (click)="nextStep()" class="buttonMobileFooter">
+                REFERENCIA BANCARIA AVALISTA 2
+            </md-toolbar>
+        </div>
+
+    </form>
+</div>

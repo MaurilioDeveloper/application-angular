@@ -1,0 +1,25 @@
+<div fxLayout="row" fxHide.xs="true" fxFlex.gt-sm="100%" fxFlex.sm="100%">
+    <div fxFlex.xs="100%" fxFlex.gt-sm="100%">
+        <label class="black-color font-bold">{{'lb-client-name' | translate}}</label><br>
+        <label>{{ simulation.client.name }}</label>
+    </div>
+    <div fxFlex.xs="100%" fxFlex.gt-sm="100%">
+        <label class="black-color font-bold">{{cpfCnpj}}</label><br>
+        <label *ngIf="simulation.client.cpfCnpj.length === 11">{{simulation.client.cpfCnpj | cpfMask}}</label>
+        <label *ngIf="simulation.client.cpfCnpj.length === 14">{{simulation.client.cpfCnpj | cnpjMask}}</label>
+    </div>
+    <div fxFlex.xs="100%" fxFlex.gt-sm="100%">
+        <label class="black-color font-bold">{{'lb-customer-type' | translate}}</label><br>
+        <label>{{ person }}</label>
+    </div>
+    <div fxFlex.xs="100%" fxFlex.gt-sm="100%">
+        <label class="black-color font-bold">{{'lb-sale-type' | translate}}</label><br>
+        <label>{{ simulation.saleType.description }}</label>
+    </div>
+    <div fxFlex.xs="100%" fxFlex.gt-sm="100%">
+        <label class="black-color font-bold">
+                                <b><a (click)="openDialog()">{{'lb-client' | translate | uppercase}} {{'lb-with' | translate | uppercase}} {{'lb-exemption' | translate | uppercase}}<i class="material-icons" [ngStyle]="{'font-size': '14px'}">help</i></a></b>
+                                </label><br>
+        <label>{{ exempt }}</label>
+    </div>
+</div>

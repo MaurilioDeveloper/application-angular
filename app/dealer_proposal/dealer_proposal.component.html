@@ -1,0 +1,92 @@
+<div fxFlex="100%" fxLayoutAlign="center center" class="spaceCard">
+    <md-card fxFlex.gt-sm="80%" fxFlex.xs="100%" >
+        <md-card-header id="card-menu-proposta" class="header-title"  fxLayoutAlign="start center">
+            <span class="mozilaMargin text-title" >{{'lb-dealer-proposal' | translate}}</span>
+        </md-card-header>
+        <md-card-content [ngStyle]="{'padding': '1%'}">
+            <ngx-datatable class="material my-agreement" [rows]="listDossiers" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50"
+                [rowHeight]="'auto'" [limit]="20">
+                <ngx-datatable-column *ngIf="!media.isActive('xs')" name="{{'lb-salesman' | translate}}">
+                    <ng-template let-column="column" ngx-datatable-header-template  >
+                        {{'lb-salesman' | translate | uppercase}}
+                    </ng-template>
+                    <ng-template let-row="row" ngx-datatable-cell-template>
+                        {{row.nameSalesman}}
+                    </ng-template>
+                </ngx-datatable-column>
+                <ngx-datatable-column name="{{'lb-proposal' | translate}}">
+                    <ng-template let-column="column" ngx-datatable-header-template>
+                        {{'lb-proposal' | translate | uppercase}}
+                    </ng-template>
+                    <ng-template let-row="row" ngx-datatable-cell-template>
+                        {{row.numDossier}}
+                    </ng-template>
+                </ngx-datatable-column>
+                <ngx-datatable-column *ngIf="!media.isActive('xs')" name="ADP Nº">
+                    <ng-template let-row="row" ngx-datatable-cell-template>
+                        {{row.adp}}
+                    </ng-template>
+                </ngx-datatable-column>
+                <ngx-datatable-column name="CPF/CNPJ">
+                    <ng-template let-row="row" ngx-datatable-cell-template>
+                        <label *ngIf="row.cpfCnpj.length === 11">{{row.cpfCnpj | cpfMask}}</label>
+                        <label *ngIf="row.cpfCnpj.length > 11">{{row.cpfCnpj | cnpjMask}}</label>
+                    </ng-template>
+                </ngx-datatable-column>
+                <ngx-datatable-column *ngIf="!media.isActive('xs')" name="{{'lb-client' | translate}}">
+                    <ng-template let-column="column" ngx-datatable-header-template>
+                        {{'lb-client' | translate | uppercase}}
+                    </ng-template>
+                    <ng-template let-row="row" ngx-datatable-cell-template>
+                        {{row.nameClient}}
+                    </ng-template>
+                </ngx-datatable-column>
+                <ngx-datatable-column name="STATUS">
+                    <ng-template let-column="column" ngx-datatable-header-template>
+                        {{'lb-status' | translate | uppercase}}
+                    </ng-template>
+                    <ng-template let-row="row" ngx-datatable-cell-template>
+                        {{row.status}}
+                    </ng-template>
+                </ngx-datatable-column>
+                <ngx-datatable-column *ngIf="!media.isActive('xs')" name="{{'lb-validate' | translate}}">
+                    <ng-template let-column="column" ngx-datatable-header-template>
+                        {{'lb-validate' | translate | uppercase}}
+                    </ng-template>
+                    <ng-template let-row="row" ngx-datatable-cell-template>
+                        {{row.expirationDate | date : 'dd/MM/yyyy'}}
+                    </ng-template>
+                </ngx-datatable-column>
+                <ngx-datatable-column *ngIf="!media.isActive('xs')" name="{{'lb-model' | translate}}">
+                    <ng-template let-column="column" ngx-datatable-header-template>
+                        {{'lb-model' | translate | uppercase}}
+                    </ng-template>
+                    <ng-template let-row="row" ngx-datatable-cell-template>
+                        {{row.vehicleModel}}
+                    </ng-template>
+                </ngx-datatable-column>
+                <ngx-datatable-column *ngIf="!media.isActive('xs')" name="{{'lb-financed' | translate}}">
+                    <ng-template let-column="column" ngx-datatable-header-template>
+                        {{'lb-financed' | translate | uppercase}}
+                    </ng-template>
+                    <ng-template let-row="row" ngx-datatable-cell-template>
+                        {{row.financedAmount | money}}
+                    </ng-template>
+                </ngx-datatable-column>
+                <ngx-datatable-column *ngIf="!media.isActive('xs')" name="{{'lb-table' | translate}}">
+                     <ng-template let-column="column" ngx-datatable-header-template>
+                        {{'lb-table' | translate | uppercase}}
+                    </ng-template>
+                    <ng-template let-row="row" ngx-datatable-cell-template>
+                        {{row.productId}}
+                    </ng-template>
+                </ngx-datatable-column>
+                <ngx-datatable-column name=" ">
+                    <ng-template let-row="row" ngx-datatable-cell-template>
+                        <a [routerLink]="['/dealer_proposal_detail', row.dossierId]">{{'lk-reassign' | translate}}</a>
+                    </ng-template>
+                </ngx-datatable-column>
+            </ngx-datatable>
+        </md-card-content>
+    </md-card>
+</div>

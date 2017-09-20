@@ -1,0 +1,69 @@
+<div fxLayout="column" fxHide.xs="false" [ngStyle]="{'padding': '5%'}" fxFlex.gt-sm="100%" fxFlex.sm="100%">
+    <div>
+        <h4 class="black-color">{{'lb-proposal-number' | translate | uppercase}}: {{ simulation.dossierNumber }}</h4>
+    </div>
+    <div fxLayout="row">
+        <hr class="color-border-default" [ngStyle]="{'margin-top': '-2px'}" fxFlex.gt-sm="100%" />
+    </div>
+    <div [ngStyle]="{'margin-top': '5%'}" fxLayout="column" fxFlex.xs="100%">
+        <div fxFlex.xs="100%" fxFlex.gt-sm="100%">
+            <label class="black-color">{{'lb-client-name' | translate}}</label><br>
+            <label>{{ simulation.client.name }}</label>
+        </div>
+    </div>
+    <div [ngStyle]="{'margin-top': '5%'}" fxLayout="column" fxFlex.xs="100%">
+        <div fxFlex.xs="100%" fxFlex.gt-sm="100%">
+            <label class="black-color">{{cpfCnpj}}</label><br>
+            <label *ngIf="simulation.client.cpfCnpj.length === 11">{{simulation.client.cpfCnpj | cpfMask}}</label>
+            <label *ngIf="simulation.client.cpfCnpj.length === 14">{{simulation.client.cpfCnpj | cnpjMask}}</label>
+        </div>
+    </div>
+    <div [ngStyle]="{'margin-top': '5%'}" fxFlex.xs="100%" fxFlex.gt-sm="100%">
+        <label class="black-color">{{'lb-customer-type' | translate}}</label><br>
+        <label>{{ person }}</label>
+    </div>
+    <div [ngStyle]="{'margin-top': '5%'}" fxFlex.xs="100%" fxFlex.gt-sm="100%">
+        <label class="black-color">{{'lb-sale-type' | translate}}</label><br>
+        <label>{{ simulation.saleType.description }}</label>
+    </div>
+    <div [ngStyle]="{'margin-top': '5%'}" fxFlex.xs="100%" fxFlex.gt-sm="100%">
+        <label class="black-color">
+                                <a (click)="openDialog()">{{'lb-client' | translate | uppercase}} {{'lb-with' | translate | uppercase}} {{'lb-exemption' | translate | uppercase}}<i class="material-icons" [ngStyle]="{'font-size': '14px'}">help</i></a>
+                                </label><br>
+        <label>{{ exempt }}</label>
+    </div>
+    <div [ngStyle]="{'margin-top': '5%'}" *ngIf="simulation.calculationSelected" fxLayout="row" class="space-mozila flexBasisIE" fxFlex.gt-sm="100%" fxFlex.sm="100%"
+        fxFlex.xs="100">
+        <div fxFlex.xs="100%" fxFlex.gt-sm="40%">
+            <label class="black-color">{{'lb-vehicle' | translate}}</label><br>
+            <label>{{ simulation.car.version.description }}</label>
+        </div>
+        <div fxFlex.xs="100%" fxFlex.gt-sm="20%" [ngStyle]="{'text-align':'right'}">
+            <label class="black-color">{{'lb-manufacturing-year' | translate}}</label><br>
+            <label>{{ simulation.car.version.yearManufacture }}</label>
+        </div>
+    </div>
+    <div [ngStyle]="{'margin-top': '5%'}" *ngIf="simulation.calculationSelected" fxLayout="row" class="space-mozila flexBasisIE" fxFlex.gt-sm="100%" fxFlex.sm="100%"
+        fxFlex.xs="100">
+         <div fxFlex.xs="100%" fxFlex.gt-sm="20%">
+            <label class="black-color">{{'lb-model-year' | translate}}</label><br>
+            <label>{{ simulation.car.version.yearModel }}</label>
+        </div>
+        <div fxFlex.xs="100%" fxFlex.gt-sm="20%" [ngStyle]="{'text-align':'right'}">
+            <label class="black-color">{{'lb-vehicle-type' | translate}}</label><br>
+            <label>{{ simulation.car.gender }}</label>
+        </div>
+    </div>
+    <div *ngIf="simulation.calculationSelected" fxLayout="row" fxFlex.gt-sm="100%" fxFlex.sm="100%" fxFlex.xs="100%" [ngStyle]="{'margin-top': '7%'}"
+        [ngStyle.sm]="{'padding-top':'4%'}" class="flexBasisIE">
+        <div fxFlex.xs="100%" fxFlex.gt-sm="50%" [ngStyle]="{'text-align': 'left'}">
+            <label class="black-color">{{'lb-value-car' | translate}}</label><br>
+            <label>{{ simulation.car.version.price | money }}</label>
+        </div>
+        <div fxFlex.xs="100%" fxFlex.gt-sm="41%" [ngStyle]="{'text-align':'right'}">
+            <label class="black-color">{{'lb-total-value' | translate}}<i class="material-icons" [ngStyle]="{'font-size': '14px'}">help</i></label><br>
+            <label>{{ simulation.calculationSelected.totalValue | money }}</label>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,58 @@
+<div fxLayoutAlign="center center" class="top-over">
+	<md-card fxFlex.gt-sm="80%" fxFlex.xs="100%" class="no-border" [ngStyle]="{'margin-top':'5%'}" [ngStyle.sm]="{'margin-top':'25%'}">
+		<div fxLayout="row" fxLayoutAlign.xs="center center" fxLayoutAlign.sm="center center" [ngStyle.xs]="{'padding-top': '30%'}">
+			<div id="logo-login"></div>
+		</div>
+		<md-card-content id="login" [ngStyle.xs]="{'margin-top':'20px'}" [ngStyle]="{'padding-top':'2%'}">  
+			<div fxHide.xs="true" fxHide.sm="true" [ngStyle.gt-sm]="{'max-height.px': 510, 'width': '100%', 'height': '90%'}">
+				<div id="logo-theme">
+					<div style="height: 53%" fxFlex.gt-sm="40%" fxFlex.xs="100%" [ngStyle.gt-sm]="{'position': 'relative','bottom':'-40%', 'left.px': '10'}">
+						<form-login></form-login>
+					</div>
+				</div>
+			</div>
+			<div fxHide.xs="false" fxHide.sm="false" fxHide>
+				<div>
+					<form-login></form-login>
+				</div>
+			</div>
+		</md-card-content>
+	</md-card>
+</div>
+
+<!--
+<section class="app-content">
+	<form #f="ngForm">
+		<!-- we will place our fields here 
+		<!--name
+		<md-card>
+			<md-input-container> 
+				<!--bind name to ngModel, it's required with minimum 5 characters
+				<input mdInput placeholder="{{ 'login-lb-user' | translate }}" type="text" name="user" [(ngModel)]="login.user"
+					#name="ngModel" required minlength="5">
+			</md-input-container>
+		</md-card>
+		<md-card>
+			<md-input-container> 
+				<label>{{ 'login-lb-password' | translate }}</label>
+				<!--bind name to ngModel, it's required with minimum 5 characters
+				<input mdInput placeholder="{{ 'login-lb-password' | translate }}" type="text" name="password" [(ngModel)]="login.password"
+					#name="ngModel" required>
+			</md-input-container>
+		</md-card>
+
+  		<md-card>
+			<button type="button" md-raised-button color="primary" (click)="doLogin(login)">Login</button>
+            <button md-raised-button color="warn"   (click)="doTest(login)">Sair</button>
+            {{msg}}
+		</md-card>
+	</form>
+	
+	<div class="flexDemoContainer">
+  <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxFlex>
+    <div fxFlex> I'm above on mobile, and left on larger devices. </div>
+    <div fxFlex> I'm below on mobile, and right on larger devices. </div>
+  </div>
+</div>
+</section>
+-->

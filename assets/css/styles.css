@@ -1,0 +1,56 @@
+.navbar-nav a.active {
+	background-color: #e7e7e7 !important;
+	color: #555 !important;
+}
+
+.app-content {
+	padding: 20px;
+}
+
+.app-content md-card {
+	margin: 20px;
+}
+
+.flexDemoContainer {
+  border: solid 1px red;
+  box-sizing: content-box !important;
+}
+.ngx-datatable.my-agreement{
+	font-size: smaller;
+}
+.datatable-body-cell{
+	background-color: white;
+}
+
+
+/*
+.transparent-block  {  
+	 background-color: rgba(0,0,0,2) ;
+}
+*/
+
+
+.spinner_transparent > .mat-dialog-container{  
+	 background-color: rgba(255,255,255,0) !important;
+	 padding: 0px !important;
+	 margin: 0px !important;
+	 box-shadow : none;
+}
+
+
+
+.calculation > .mat-dialog-container{  
+	 /*background-color: rgba(255,255,255,0) !important;*/
+	 padding: 1px !important;
+	 margin-left: 11% !important;
+}
+
+.calculation { 
+	/*transform: translate(11%, -3%);*/
+	
+}
+
+.paintLine {
+	background-color: #FFEC8B;
+}
+

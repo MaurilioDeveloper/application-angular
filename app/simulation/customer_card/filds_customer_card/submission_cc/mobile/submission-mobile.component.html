@@ -1,0 +1,47 @@
+<div fxLayout="column"  *ngIf="getCertifiedAgentSelected()" fxFlex.xs="100%" [ngStyle]="{'padding': '2%'}">
+    <form  #xx="ngForm">
+        <div fxLayout="row" class="spaceCard">
+            <div fxFlex.xs="100%">
+                <!-- NOME AGENTE CERTIFICADO -->
+                <md-select class="bug-input" placeholder="{{'lb-name-certified-agent' | translate | uppercase}}" 
+                    fxFlex.gt-sm="80%" fxFlex.sm="90%" name="nameAgent" [(ngModel)]="getSimulation().certifiedAgent" required>
+                    <md-option *ngFor="let lnca of getListCertifiedAgent()" [value]="lnca.id" >
+                        {{ lnca.nome }}
+                    </md-option>
+                </md-select>
+            </div>
+        </div>
+        <div fxLayout="row" class="spaceCard">
+            <div fxFlex.xs="100%">
+                <!-- CPF -->
+                <md-input-container fxFlex.xs="90%" fxFlex.gt-sm="80%" fxFlex.sm="80%">
+                    <input mdInput ng-disabled="true" customcpfcnpj type="text" placeholder="CPF" readonly name="cpfAgent" [(ngModel)]="getCertifiedAgentSelected().numCpf">
+                </md-input-container>
+            </div>
+        </div>
+        <div fxLayout="row" class="spaceCard">
+            <div fxFlex.xs="100%">
+               <!-- NUMERO CERTIFICADO -->
+                <md-input-container fxFlex.xs="90%" fxFlex.gt-sm="80%" fxFlex.sm="80%">
+                    <input mdInput ng-disabled="true" type="text" placeholder="{{'lb-certified-number' | translate | uppercase}}" readonly name="certificateNumber"
+                            [(ngModel)]="getCertifiedAgentSelected().numCertificado">
+                </md-input-container>
+            </div>
+        </div>
+        <div fxLayout="row" class="spaceCard">
+            <div fxFlex.xs="100%">
+                 <!-- DATA VALIDADE CERTIFICADO -->
+                <md-input-container fxFlex.xs="90%" fxFlex.gt-sm="80%" fxFlex.sm="80%">
+                    <input mdInput ng-disabled="true" type="text" placeholder="{{'lb-certified-valid-date' | translate | uppercase}}" readonly name="certificateExpirationDate" 
+                            [value]="getCertifiedAgentSelected().dtValidadeCert | date: 'dd/MM/yyyy'">
+                </md-input-container>
+            </div>
+        </div>
+
+        <div fxLayout="row" class="spaceMobileButton">
+            <md-toolbar (click)="nextStep()" class="buttonMobileFooter">
+                {{'btn-customer-data' | translate | uppercase}}
+            </md-toolbar>
+        </div>
+    </form>
+</div>

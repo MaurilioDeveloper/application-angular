@@ -1,0 +1,309 @@
+<div fxLayout="column" fxFlex.xs="100%" [ngStyle]="{'padding': '2%'}">
+
+    <form #ff="ngForm">
+
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                <!-- TIPO DE AVALISTA -->
+                <md-select placeholder="TIPO DE AVALISTA" fxFlex.gt-sm="80%" fxFlex.sm="70%" class="bug-input" (change)="selectGuarantorType($event)"
+                    name="typeGuarantor1" [(ngModel)]="getSimulation().client.guarantor1.guarantorType.id">
+                    <md-option value="0">{{'lb-select-guarantor-type' | translate}}</md-option>
+                    <md-option *ngFor="let ltg of getListTypeGuarantor()" [value]="ltg.id">
+                        {{ ltg.description }}
+                    </md-option>
+                </md-select>
+            </div>
+        </div>
+
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                 <!-- GRAU DE PARENTESCO -->
+                <md-select placeholder="GRAU DE PARENTESCO" fxFlex.gt-sm="80%" fxFlex.sm="70%" class="bug-input" [required]="getSimulation().client.guarantor1.isRequired"
+                    name="degreeOfKinshipGuarantor1" [(ngModel)]="getSimulation().client.guarantor1.kinshipType.id">
+                    <md-option *ngFor="let ldk of getListDegreeOfKinship()" (click)="validDegreeKinship(ldk.id)" [value]="ldk.id">
+                        {{ ldk.description }}
+                    </md-option>
+                </md-select>
+            </div>
+        </div>
+
+        <div fxLayout="row" *ngIf="getIsPhysicalPerson()">
+            <div fxFlex.xs="100%">
+                <!-- TIPO DE RELACIONAMENTO EMPRESA -->
+                <md-select placeholder="TIPO DE RELACIONAMENTO EMPRESA" fxFlex.gt-sm="80%" fxFlex.sm="70%" class="bug-input" [required]="getSimulation().client.guarantor1.isRequired"
+                    name="companyRelationshipTypeGuarantor1" [(ngModel)]="getSimulation().client.guarantor1.businessRelashionshipType.id" (change)="changeSpouseData()">
+                    <md-option *ngFor="let lcrt of getListCompanyRelationshipType()" [value]="lcrt.id">
+                        {{ lcrt.description }}
+                    </md-option>
+                </md-select>
+            </div>
+        </div>
+
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                <!-- NOME -->
+                <md-input-container fxFlex.gt-sm="90%" fxFlex.sm="90%">
+                    <input mdInput type="text" maxlength="60" placeholder="NOME DO CLIENTE" name="nameClientGuarantor1" [required]="getSimulation().client.guarantor1.isRequired"
+                        [(ngModel)]="getSimulation().client.guarantor1.name" (change)="changeSpouseData()">
+                </md-input-container>
+            </div>
+        </div>
+
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                 <!-- CPF -->
+                <md-input-container fxFlex.gt-sm="80%" fxFlex.sm="70%">
+                    <input mdInput type="text" customcpfcnpj maxlength="14" placeholder="CPF" name="cpfGuarantor1" [required]="getSimulation().client.guarantor1.isRequired" 
+                    [(ngModel)]="getSimulation().client.guarantor1.cpf" (change)="changeSpouseData()">
+                </md-input-container>
+            </div>
+        </div>
+
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+               <!-- SEXO -->
+                <md-select placeholder="SEXO" fxFlex.gt-sm="80%" fxFlex.sm="70%" class="bug-input" name="sexGuarantor1" [required]="getSimulation().client.guarantor1.isRequired"
+                    [(ngModel)]="getSimulation().client.guarantor1.sex" (change)="changeSpouseData()">
+                    <md-option *ngFor="let ls of getListSex()" [value]="ls.name">
+                        {{ ls.name }}
+                    </md-option>
+                </md-select>
+            </div>
+        </div>
+
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                 <!-- DATA DE NASCIMENTO -->
+                <md-input-container fxFlex.gt-sm="80%" fxFlex.sm="70%">
+                    <input mdInput [mdDatepicker]="picker" placeholder="DATA DE NASCIMENTO" [required]="getSimulation().client.guarantor1.isRequired"
+                        name="dateBirthdayGuarantor1" [(ngModel)]="getSimulation().client.guarantor1.birthDate" (change)="changeSpouseData()">
+                    <md-datepicker-toggle mdSuffix [for]="picker"></md-datepicker-toggle>
+                </md-input-container>
+                <md-datepicker #picker></md-datepicker>
+            </div>
+        </div>
+
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                <!-- ESTADO CIVIL -->
+                <md-select placeholder="ESTADO CIVIL" fxFlex.gt-sm="80%" fxFlex.sm="70%" class="bug-input" [required]="getSimulation().client.guarantor1.isRequired"
+                    name="civilStateGuarantor1" [(ngModel)]="getSimulation().client.guarantor1.civilState.id" (change)="onChangeSpouse($event)">
+                    <md-option *ngFor="let lcs of getListCivilState()" [value]="lcs.id">
+                        {{ lcs.description }}
+                    </md-option>
+                </md-select>
+            </div>
+        </div>
+
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                <!-- TELEFONE RESIDENCIAL -->
+                <md-input-container fxFlex.gt-sm="80%" fxFlex.sm="70%">
+                    <input mdInput ngControl maxlength="10" placeholder="{{'lb-residencial-number' | translate}}" [required]="getSimulation().client.guarantor1.isRequired"
+                         type="text" name="FixPhoneGuarantor1" customphone [(ngModel)]="getSimulation().client.guarantor1.fixPhone.number"
+                        (change)="changeSpouseData()"/>
+                </md-input-container>
+            </div>
+        </div>
+
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                <!-- TIPO DE TELEFONE -->
+                <md-select placeholder="TIPO DE TELEFONE" fxFlex.gt-sm="80%" fxFlex.sm="70%" class="bug-input" [required]="getSimulation().client.guarantor1.fixPhoneType"
+                    name="typePhoneGuarantor1" [(ngModel)]="getSimulation().client.guarantor1.fixPhoneType" (change)="changeSpouseData()">
+                    <md-option *ngFor="let ltp of getListTypePhone()" [value]="ltp.name">
+                        {{ ltp.name }}
+                    </md-option>
+                </md-select>
+            </div>
+        </div>
+
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                <!-- TELEFONE CELULAR -->
+                <md-input-container fxFlex.gt-sm="80%" fxFlex.sm="70%">
+                    <input mdInput ngControl placeholder="{{'lb-cel-phone' | translate}}" [required]="getSimulation().client.guarantor1.isRequired"
+                     type="text" name="phoneGuarantor1" customphone maxlength="15"  [(ngModel)]="getSimulation().client.guarantor1.cellphone.number" (change)="changeSpouseData()"/>
+                </md-input-container>
+            </div>
+        </div>
+
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                <!-- E-MAIL -->
+                <md-input-container fxFlex.gt-sm="80%" fxFlex.sm="70%">
+                    <input mdInput ngControl maxlength="60" placeholder="E-MAIL" type="email" [required]="getSimulation().client.guarantor1.isRequired" name="emailGuarantor1"
+                         [(ngModel)]="getSimulation().client.guarantor1.email" (change)="changeSpouseData()"/>
+                </md-input-container>
+            </div>
+        </div>
+
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                <!-- NACIONALIDADE -->
+                <md-select placeholder="NACIONALIDADE" fxFlex.gt-sm="80%" fxFlex.sm="70%" class="bug-input" [required]="getSimulation().client.guarantor1.isRequired"
+                    name="countryGuarantor1" [(ngModel)]="getSimulation().client.guarantor1.country.id" (change)="changeSpouseData()">
+                    <md-option *ngFor="let lc of getListCountry()" [value]="lc.id">
+                        {{ lc.description }}
+                    </md-option>
+                </md-select>
+            </div>
+        </div>
+
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+               <!-- UF NATURALIDADE -->
+                <md-select placeholder="UF (NATURALIDADE)" fxFlex.gt-sm="80%" fxFlex.sm="70%" class="bug-input" [required]="getSimulation().client.guarantor1.isRequired"
+                    name="provinceGuarantor1" [(ngModel)]="getSimulation().client.guarantor1.province.id" (change)="changeSpouseData()">
+                    <md-option *ngFor="let lp of getListProvince()" [value]="lp.id">
+                        {{ lp.description }}
+                    </md-option>
+                </md-select>
+            </div>
+        </div>
+
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                 <!-- NATURALIDADE -->
+                <md-input-container fxFlex.gt-sm="80%" fxFlex.sm="70%">
+                    <input mdInput type="text" maxlength="40" placeholder="NATURALIDADE" name="provinceCountryGuarantor1" [required]="getSimulation().client.guarantor1.isRequired"
+                        [(ngModel)]="getSimulation().client.guarantor1.naturalness" >
+                </md-input-container>
+            </div>
+        </div>
+
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                <!-- PESSOA POLITICAMENTE EXPOSTA -->
+                <md-select placeholder="PESSOA POLITICAMENTE EXPOSTA" fxFlex.gt-sm="80%" fxFlex.sm="70%" class="bug-input" [required]="getSimulation().client.guarantor1.isRequired"
+                    name="politicalExpositionGuarantor1" [(ngModel)]="getSimulation().client.guarantor1.politicalExposition.id">
+                    <md-option *ngFor="let lpe of getListPoliticalExposition()" [value]="lpe.id">
+                        {{ lpe.description }}
+                    </md-option>
+                </md-select>
+            </div>
+        </div>
+
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+               <!-- GRAU DE INSTITUIÇÃO -->
+                <md-select placeholder="GRAU DE INSTITUIÇÃO" fxFlex.gt-sm="80%" fxFlex.sm="70%" class="bug-input" [required]="getSimulation().client.guarantor1.isRequired"
+                    name="educationDegreeGuarantor1" [(ngModel)]="getSimulation().client.guarantor1.educationDegree.id">
+                    <md-option *ngFor="let led of getListEducationDegree()" [value]="led.id">
+                        {{ led.description }}
+                    </md-option>
+                </md-select>
+            </div>
+        </div>
+
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                <!-- DEFICIENCIA FISICA -->
+                <md-select placeholder="DEFICIENCIA FISICA" fxFlex.gt-sm="80%" fxFlex.sm="70%" class="bug-input" [required]="getSimulation().client.guarantor1.isRequired"
+                    name="handicappedGuarantor1" [(ngModel)]="getSimulation().client.guarantor1.handicapped">
+                    <md-option *ngFor="let lhp of getListHandicapped()" [value]="lhp.status">
+                        {{ lhp.description }}
+                    </md-option>
+                </md-select>
+            </div>
+        </div>
+
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                <!-- NOME DO PAI -->
+                <md-input-container fxFlex.gt-sm="80%" fxFlex.sm="70%">
+                    <input mdInput type="text" maxlength="60" placeholder="NOME DO PAI" name="nameFatherGuarantor1" [required]="getSimulation().client.guarantor1.isRequired"
+                        [(ngModel)]="getSimulation().client.guarantor1.fathersName">
+                </md-input-container>
+            </div>
+        </div>
+
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                <!-- NOME DA MÃE -->
+                <md-input-container fxFlex.gt-sm="80%" fxFlex.sm="70%">
+                    <input mdInput type="text" maxlength="60" placeholder="NOME DA MÃE" name="nameMotherGuarantor1" [required]="getSimulation().client.guarantor1.isRequired"
+                        [(ngModel)]="getSimulation().client.guarantor1.mothersName">
+                </md-input-container>
+            </div>
+        </div>
+
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                <!-- TIPO DE DOCUMENTO -->
+                <md-select placeholder="TIPO DE DOCUMENTO" fxFlex.gt-sm="80%" fxFlex.sm="70%" class="bug-input" [required]="getSimulation().client.guarantor1.isRequired"
+                    name="documentTypeGuarantor1" [(ngModel)]="getSimulation().client.guarantor1.documentType.id">
+                    <md-option *ngFor="let ldt of getListDocumentType()" [value]="ldt.id">
+                        {{ ldt.description }}
+                    </md-option>
+                </md-select>
+            </div>
+        </div>
+
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                <!-- NUMERO DO DOCUMENTO -->
+                <md-input-container fxFlex.gt-sm="80%" fxFlex.sm="70%">
+                    <input mdInput type="text" maxlength="20" placeholder="NUMERO DO DOCUMENTO" [required]="getSimulation().client.guarantor1.isRequired" name="numberDocumentGuarantor1"
+                        [(ngModel)]="getSimulation().client.guarantor1.numberDocument" (change)="changeSpouseData()">
+                </md-input-container>
+            </div>
+        </div>
+
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                <!-- PAIS DOCUMENTO -->
+                <md-select placeholder="PAIS DO DOCUMENTO" fxFlex.gt-sm="80%" fxFlex.sm="70%" class="bug-input" [required]="getSimulation().client.guarantor1.isRequired"
+                    name="countryDocumentGuarantor1" [(ngModel)]="getSimulation().client.guarantor1.countryDocument.id">
+                    <md-option *ngFor="let lc of getListCountry()" [value]="lc.id" (change)="changeSpouseData()">
+                        {{ lc.description }}
+                    </md-option>
+                </md-select>
+            </div>
+        </div>
+
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                <!-- UF DO DOCUMENTO -->
+                <md-select placeholder="UF DO DOCUMENTO" fxFlex.gt-sm="80%" fxFlex.sm="70%" class="bug-input" [required]="getSimulation().client.guarantor1.isRequired"
+                    name="provinceDocumentGuarantor1" [(ngModel)]="getSimulation().client.guarantor1.provinceDocument.id">
+                    <md-option *ngFor="let lp of getListProvince()" [value]="lp.id">
+                        {{ lp.description }}
+                    </md-option>
+                </md-select>
+            </div>
+        </div>
+
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                <!-- DATA DA EMISSAO -->
+                <md-input-container fxFlex.gt-sm="80%" fxFlex.sm="70%">
+                    <input mdInput [mdDatepicker]="picker2" placeholder="DATA DA EMISSAO" [required]="getSimulation().client.guarantor1.isRequired"
+                        name="dateIssueGuarantor1" [(ngModel)]="getSimulation().client.guarantor1.dateIssueDocument" (change)="changeSpouseData()">
+                    <md-datepicker-toggle mdSuffix [for]="picker2"></md-datepicker-toggle>
+                </md-input-container>
+                <md-datepicker #picker2></md-datepicker>
+            </div>
+        </div>
+
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                <!-- ÔRGÃO EMISSOR -->
+                <md-select placeholder="ÔRGÃO EMISSOR" fxFlex.gt-sm="80%" fxFlex.sm="70%" class="bug-input" [required]="getSimulation().client.guarantor1.isRequired"
+                    name="issuingBodyGuarantor1" [(ngModel)]="getSimulation().client.guarantor1.issuingBodyDocument.id" (change)="changeSpouseData()">
+                    <md-option *ngFor="let lib of getListIssuingBody()" [value]="lib.id">
+                        {{ lib.description }}
+                    </md-option>
+                </md-select>
+            </div>
+        </div>
+
+        <div fxLayout="row">
+            <md-toolbar (click)="nextStep()" class="buttonMobileFooter">
+                <span *ngIf="getSimulation().client.guarantor1.guarantorType.id != '0'">DADOS RESIDENCIAIS AVALISTA 1</span>
+                <span *ngIf="getSimulation().client.guarantor1.guarantorType.id == '0'">DADOS AVALISTA 2</span>
+            </md-toolbar>
+        </div>
+        
+    </form>
+</div>

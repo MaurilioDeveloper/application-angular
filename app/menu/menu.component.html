@@ -1,0 +1,71 @@
+<div class="column header" [ngStyle.xs]="{'box-shadow': '0 3px 2px -2px grey'}">
+    <div fxFlex.gt-sm="100" fxFlex.xs="100">
+        <div fxHide fxHide.xs="false" fxLayoutAlign="start none" fxFlex.xs="10%" [ngStyle.xs]="{'margin-top': '4%'}">
+            <button [ngStyle.xs]="{'min-width': '50px'}" md-button  [mdMenuTriggerFor]="menuCollapse" class="ic-menu"></button>
+             <md-menu #menuCollapse="mdMenu">
+                <button color="primary" md-menu-item routerLink="./simulation" routerLinkActive="active"><md-icon>queue</md-icon>{{ 'btn-new-simulation' | translate | uppercase }}</button>
+                <button md-menu-item routerLink="/my_agreement" routerLinkActive="active"><md-icon>library_books</md-icon>{{ 'btn-my-proposals' | translate | uppercase }}</button>
+                <button md-button routerLink="/login" routerLinkActive="active"><md-icon>assignment_ind</md-icon> {{ 'btn-login' | translate  | uppercase }}</button>
+                <button md-button routerLink="/perfil" routerLinkActive="active"><md-icon>account_circle</md-icon>{{ 'btn-my-profile' | translate | uppercase }}</button>
+             </md-menu>
+        </div>
+        <div fxFlex.xs="40">
+            <button md-button routerLink="/home"><div id="bradge"></div></button>
+        </div>
+
+        <div fxLayoutAlign="end none" fxFlex.gt-sm="40" fxHide.xs="true" [ngStyle.gt-sm]="{'margin-top': '0.4%'}">
+            <h5 [innerHtml]="msgCurrentUser"></h5>
+        </div>
+
+        <div fxLayout="column">
+
+            <div fxFlex.gt-sm="10" fxFlex.xs="100"   fxLayoutAlign.xs="end none">
+                <div class="btn-group" fxFlex.xs="50" class="buttons-IE"  [ngStyle]="{'flex-basis': 'auto !important'}" [ngStyle.gt-sm]="{'margin-top': '7%'}" [ngStyle.xs]="{'margin-top': '14%'}">
+                   
+                   <md-button-toggle-group multiple id='toggleGroup' class="btnGroupMozila" [ngStyle.xs]="{'margin-left': '40%'}">
+                        <md-button-toggle [ngStyle.xs]="{'min-width': '55px'}" (click)="notificationClick()"><md-icon class="icone">notifications</md-icon> <span   fxHide [fxHide.gt-sm]="false" class="mozilaMenu">{{ 'btn-notifications' | translate }}</span></md-button-toggle>
+                        <button [ngStyle.xs]="{'display': 'table', 'min-width': '60px'}" md-button (click)="dialogPerfil()"><md-icon class="icone">account_circle</md-icon> <span  fxHide [fxHide.gt-sm]="false" class="mozilaMenu">{{ 'btn-my-profile' | translate }}</span></button>
+                   </md-button-toggle-group>
+                </div>
+
+                
+            </div>
+        </div>
+    </div>
+    <salesman_communication [notificationHide]="notificationHide"></salesman_communication>
+</div>
+
+<div fxLayout="row" fxHide.xs="true">
+    <md-toolbar fxHide.xs="true"  [ngStyle]="{'background-color': 'rgba(241, 241, 241, 0.8)', 'z-index': '1', 'position': 'absolute', 'left': 0, 'right': 0, 'top': '0'}" [ngStyle.sm]="{'top': 0}" class="space" fxLayoutAlign.gt-sm="center center">
+        <!-- This fills the remaining space of the current row -->
+        <span class="fill-remaining-space"></span>
+        <div fxLayout="row" fxShow="false" fxShow.gt-sm>
+
+            <!--<button style="width: 18%" md-button routerLink="/"><div id="bradge"></div></button>-->
+            <button md-button *ngIf="appService.hasRole('VIEW_SIMULATION')" routerLink="./simulation" routerLinkActive="active"><md-icon class="icon">queue</md-icon> {{ 'btn-new-simulation' | translate | uppercase}}</button>
+            <button md-button *ngIf="appService.hasRole('VIEW_MY_AGREEMENT')" routerLink="./my_agreement" routerLinkActive="active"><md-icon  class="icon">library_books</md-icon> {{ 'btn-my-proposals' | translate | uppercase }}</button>
+            <button md-button *ngIf="appService.hasRole('ADMINISTRADOR')" [mdMenuTriggerFor]="administracao"><md-icon  class="icon">settings<!-- account_box--></md-icon> {{'btn-administration' | translate | uppercase}}</button>
+                <md-menu #administracao="mdMenu">
+                    <button md-menu-item *ngIf="appService.hasRole('VIEW_AVAILABLE')" routerLink="./available" routerLinkActive="active">{{'btn-deactivation-of-services' | translate | uppercase}}</button>
+                    <button md-menu-item *ngIf="appService.hasRole('VIEW_MANDATORY')" routerLink="./mandatory" routerLinkActive="active">{{'btn-services-configuration-required' | translate | uppercase}}</button>
+                    <button md-menu-item *ngIf="appService.hasRole('VIEW_DEALER_PROPOSAL')" routerLink="./dealer_proposal" routerLinkActive="active">{{'btn-dealer-proposal' | translate | uppercase}}</button>
+                    <button md-menu-item *ngIf="appService.hasRole('VIEW_COMMISSION_LEVEL')" routerLink="./commission_level" routerLinkActive="active">{{'btn-commission-level' | translate | uppercase}}</button>
+                    <button md-menu-item *ngIf="appService.hasRole('VIEW_SUBMISSAO')" routerLink="./submissao" routerLinkActive="active">{{'btn-submission-process-configuration' | translate | uppercase}}</button>
+                    <button md-menu-item *ngIf="appService.hasRole('VIEW_NEWS_ADMIN')" routerLink="./news_admin" routerLinkActive="active">{{'btn-news-administration' | translate | uppercase}}</button>
+                    <button md-menu-item *ngIf="appService.hasRole('VIEW_PROMOTIONAL_IMAGES')" routerLink="./promotional_images" routerLinkActive="active">{{'btn-promotional-images' | translate | uppercase}}</button>
+                    <button md-menu-item *ngIf="appService.hasRole('VIEW_MODEL')" routerLink="./model" routerLinkActive="active">{{'btn-models' | translate | uppercase}}</button>
+                </md-menu>
+            
+        </div>
+        <button md-button [md-menu-trigger-for]="menu" fxHide="false" fxHide.gt-sm>
+     <md-icon>menu</md-icon>
+    </button>
+
+    </md-toolbar>
+    <md-menu  fxLayoutAlign="end none" x-position="before" #menu="mdMenu">
+        <button   color="primary" md-menu-item routerLink="./simulation" routerLinkActive="active"><md-icon>queue</md-icon>{{ 'btn-new-simulation' | translate }}</button>
+        <button md-menu-item routerLink="/my_agreement" routerLinkActive="active"><md-icon>library_books</md-icon>{{ 'btn-my-proposals' | translate }}</button>
+        <button md-button routerLink="/login" routerLinkActive="active"><md-icon>assignment_ind</md-icon> {{ 'btn-login' | translate }}</button>
+        <button md-button routerLink="/perfil" routerLinkActive="active"><md-icon>account_circle</md-icon>{{ 'btn-my-profile' | translate }}</button>
+    </md-menu>
+</div>

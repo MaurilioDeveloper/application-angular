@@ -1,0 +1,214 @@
+<div fxLayout="column"  fxFlex.xs="100%" fxFlex.gt-sm="100%" fxFlex.sm="100%" [ngStyle]="{'padding': '2%'}">
+    
+    <form #ff="ngForm" *ngIf="controlDynamicStepsIn == 5">
+        <div fxLayout="row">
+            <div fxFlex.sm="100%" fxFlex.gt-sm="100%">
+                <!-- NOME DA EMPRESA -->
+                <md-input-container fxFlex.gt-sm="90%" fxFlex.sm="90%">
+                    <input mdInput maxlength="40" type="text" placeholder="{{'lb-company-name' | translate | uppercase}}" required name="nameCompany" [(ngModel)]="getSimulation().client.company.name">
+                </md-input-container>
+            </div>
+        </div>
+
+        <div fxLayout="row">
+            <div fxFlex.gt-sm="50%" fxFlex.sm="50%">
+                <!-- OCUPACAO -->
+                <md-select placeholder="{{'lb-occupation' | translate | uppercase}}" fxFlex.gt-sm="80%" fxFlex.sm="70%" class="bug-input"
+                    required name="occupationProf" [(ngModel)]="getSimulation().client.company.occupation.id">
+                    <md-option *ngFor="let lo of getListOccupation()" [value]="lo.id">
+                        {{ lo.description }}
+                    </md-option>
+                </md-select>
+            </div>
+            <div fxFlex.gt-sm="50%" fxFlex.sm="50%">
+                <!-- CARGO / FUNCAO -->
+                <md-select placeholder="{{'lb-office' | translate | uppercase}} / {{'role' | translate | uppercase}}" required fxFlex.gt-sm="80%"
+                    fxFlex.sm="70%" class="bug-input" name="positionFunctionProf" [(ngModel)]="getSimulation().client.company.profession.id">
+                    <md-option *ngFor="let lpf of getListPositionFunction()" [value]="lpf.id">
+                        {{ lpf.description }}
+                    </md-option>
+                </md-select>
+            </div>
+        </div>
+
+        <div fxLayout="row">
+            <div fxFlex.sm="50%" fxFlex.gt-sm="50%">
+                <!-- CNPJ -->
+                <md-input-container fxFlex.gt-sm="80%" fxFlex.sm="70%">
+                    <input mdInput type="text" maxlength="18" placeholder="CNPJ" customcnpj [required]="getIsRequiredCNPJ()" name="cnpj"
+                        [(ngModel)]="getSimulation().client.company.cnpj">
+                </md-input-container>
+            </div>
+            <div fxFlex.gt-sm="50%" fxFlex.sm="50%">
+                <!-- CEP -->
+                <md-input-container fxFlex.gt-sm="80%" fxFlex.sm="70%">
+                    <input mdInput type="text" maxlength="10" placeholder="CEP" omegamask="99.999-999" name="cepProf" required [(ngModel)]="getSimulation().client.company.address.cep">
+                </md-input-container>
+            </div>
+        </div>
+        <div fxLayout="row">
+            <div fxFlex.gt-sm="50%" fxFlex.sm="50%">
+                <!-- ENDERECO -->
+                <md-input-container fxFlex.gt-sm="80%" fxFlex.sm="70%">
+                    <input mdInput type="text" maxlength="50" placeholder="{{'lb-address' | translate | uppercase}}" required name="enderecoProf" [(ngModel)]="getSimulation().client.company.address.address">
+                </md-input-container>
+            </div>
+            <div fxFlex.gt-sm="50%" fxFlex.sm="50%">
+                <!-- NUMERO -->
+                <md-input-container fxFlex.gt-sm="80%" fxFlex.sm="70%">
+                    <input mdInput type="text" maxlength="5" placeholder="{{'lb-number' | translate | uppercase}}" required name="numeroProf" [(ngModel)]="getSimulation().client.company.address.number">
+                </md-input-container>
+            </div>
+        </div>
+        <div fxLayout="row">
+            <div fxFlex.gt-sm="50%" fxFlex.sm="50%">
+                <!-- COMPLEMENTO -->
+                <md-input-container fxFlex.gt-sm="80%" fxFlex.sm="70%">
+                    <input mdInput type="text" maxlength="20" placeholder="{{'lb-complement' | translate | uppercase}}" name="complementoProf" [(ngModel)]="getSimulation().client.company.address.complement">
+                </md-input-container>
+            </div>
+            <div fxFlex.gt-sm="50%" fxFlex.sm="50%">
+                <!-- BAIRRO -->
+                <md-input-container fxFlex.gt-sm="80%" fxFlex.sm="70%">
+                    <input mdInput type="text" maxlength="20" placeholder="{{'lb-neighborhood' | translate | uppercase}}" required name="bairroProf" [(ngModel)]="getSimulation().client.company.address.neighborhood">
+                </md-input-container>
+            </div>
+        </div>
+
+        <div fxLayout="row">
+            <div fxFlex.gt-sm="50%" fxFlex.sm="50%">
+                <!-- CIDADE -->
+                <md-input-container fxFlex.gt-sm="80%" fxFlex.sm="70%">
+                    <input mdInput type="text" maxlength="40" placeholder="{{'lb-city' | translate | uppercase}}" required name="cidadeProf" [(ngModel)]="getSimulation().client.company.address.city">
+                </md-input-container>
+            </div>
+            <div fxFlex.gt-sm="50%" fxFlex.sm="50%">
+                <!-- UF NATURALIDADE -->
+                <md-select placeholder="UF ({{'lb-naturalness' | translate | uppercase}})" required name="provinceProf" fxFlex.gt-sm="80%"
+                    fxFlex.sm="70%" class="bug-input" [(ngModel)]="getSimulation().client.company.address.province.id">
+                    <md-option *ngFor="let lp of getListProvince()" [value]="lp.id">
+                        {{ lp.description }}
+                    </md-option>
+                </md-select>
+            </div>
+        </div>
+        
+        <div fxLayout="row">
+            <div fxFlex.gt-sm="50%" fxFlex.sm="50%">
+                <!-- TELEFONE COMERCIAL -->
+                <md-input-container fxFlex.gt-sm="80%" fxFlex.sm="70%">
+                    <input mdInput ngControl maxlength="15" customphone placeholder="{{'lb-comercial-phone' | translate | uppercase}}"
+                        type="text" name="phoneProf" [(ngModel)]="getSimulation().client.company.comercialPhone.number" required/>
+                </md-input-container>
+            </div>
+            <div fxFlex.gt-sm="50%" fxFlex.sm="50%">
+                <!--RAMAL -->
+                <md-input-container fxFlex.gt-sm="80%" fxFlex.sm="70%">
+                    <input mdInput type="text" maxlength="4" placeholder="{{'lb-telephone-extension' | translate | uppercase}}" name="extesionPhoneProf" [(ngModel)]="getSimulation().client.company.comercialPhone.extension">
+                </md-input-container>
+            </div>
+        </div>
+
+        <div fxLayout="row">
+           <div fxFlex.gt-sm="50%" fxFlex.sm="50%">
+                <!-- GRUPOS ATIVIDADE ECONOMICA -->
+                <md-select placeholder="{{'lb-groups-activity-economic' | translate | uppercase}}" fxFlex.gt-sm="80%" fxFlex.sm="70%" class="bug-input"
+                    name="economicActivityGroupProf" [(ngModel)]="getSimulation().client.company.economicActivityGroup.id">
+                    <md-option *ngFor="let leag of getListEconomicActivityGroup()" [value]="leag.id">
+                        {{ leag.description }}
+                    </md-option>
+                </md-select>
+            </div>
+            <div fxFlex.gt-sm="50%" fxFlex.sm="50%">
+                <!-- ATIVIDADE ECONOMICA -->
+                <md-select placeholder="{{'lb-activity-economic' | translate | uppercase}}" fxFlex.gt-sm="80%" fxFlex.sm="70%" class="bug-input"
+                    name="economicActivityProf" [(ngModel)]="getSimulation().client.company.economicActivity.id">
+                    <md-option *ngFor="let lea of getListEconomicActivity()" [value]="lea.id">
+                        {{ lea.description }}
+                    </md-option>
+                </md-select>
+            </div>
+        </div>
+
+        <div fxLayout="row">
+            <div fxFlex.gt-sm="50%" fxFlex.sm="50%">
+                <!-- PORTE -->
+                <md-select placeholder="{{'lb-size-company' | translate | uppercase}}" fxFlex.gt-sm="80%" fxFlex.sm="70%" class="bug-input"
+                    name="sizeCompanyProf" [(ngModel)]="getSimulation().client.company.size.id">
+                    <md-option *ngFor="let lsc of getListSizeCompany()" [value]="lsc.id">
+                        {{ lsc.description }}
+                    </md-option>
+                </md-select>
+            </div>
+            <div fxFlex.gt-sm="50%" fxFlex.sm="50%">
+                <!-- DATA DE ADMISSAO -->
+                <md-input-container fxFlex.gt-sm="80%" fxFlex.sm="70%">
+                    <input mdInput [mdDatepicker]="picker2" placeholder="{{'lb-admission-date' | translate | uppercase}}" required name="admissionDateProf"
+                        [(ngModel)]="getSimulation().client.company.admissionDate">
+                    <md-datepicker-toggle mdSuffix [for]="picker2"></md-datepicker-toggle>
+                </md-input-container>
+                <md-datepicker #picker2></md-datepicker>
+            </div>
+
+        </div>
+        <div fxLayout="row">
+            <div fxFlex.gt-sm="50%" fxFlex.sm="50%">
+                <!--PATRIMONIO -->
+                <md-input-container fxFlex.gt-sm="80%" fxFlex.sm="70%">
+                    <input mdInput type="text" currencyMask placeholder="{{'lb-patrimony' | translate | uppercase}}" required name="patrimonyProf" [(ngModel)]="getSimulation().client.company.patrimony">
+                </md-input-container>
+            </div>
+            <div fxFlex.gt-sm="50%" fxFlex.sm="50%">
+                <!-- TIPO DE RENDA -->
+                <md-select placeholder="{{'lb-type-of-income' | translate | uppercase}}" fxFlex.gt-sm="80%" fxFlex.sm="70%" class="bug-input"
+                    required name="typeOfIncomeProf" [(ngModel)]="getSimulation().client.company.incomeType.id">
+                    <md-option *ngFor="let lti of getListTypeOfIncome()" [value]="lti.id">
+                        {{ lti.description }}
+                    </md-option>
+                </md-select>
+            </div>
+        </div>
+        <div fxLayout="row">
+            <div fxFlex.gt-sm="50%" fxFlex.sm="50%">
+                <!-- TIPO DE COMPROVACAO DE RENDA -->
+                <md-select placeholder="{{'lb-type-of-income-report' | translate | uppercase}}" fxFlex.gt-sm="80%" fxFlex.sm="70%" class="bug-input"
+                    required name="typeProofOfIncomeProf" [(ngModel)]="getSimulation().client.company.proofIncomeType.id">
+                    <md-option *ngFor="let ltpi of getListTypeProofOfIncome()" [value]="ltpi.id">
+                        {{ ltpi.description }}
+                    </md-option>
+                </md-select>
+            </div>
+            <div fxFlex.gt-sm="50%" fxFlex.sm="50%">
+                <!--RENDA MENSAL -->
+                <md-input-container fxFlex.gt-sm="80%" fxFlex.sm="70%">
+                    <input mdInput type="text" currencyMask placeholder="{{'lb-monthly-income' | translate | uppercase}}" required name="monthlyIncomeProf"
+                        [(ngModel)]="getSimulation().client.company.monthlyIncome">
+                </md-input-container>
+            </div>
+        </div>
+        <div fxLayout="row">
+            <div fxFlex.gt-sm="50%" fxFlex.sm="50%">
+                <!--OUTRAS RENDA -->
+                <md-input-container fxFlex.gt-sm="80%" fxFlex.sm="70%">
+                    <input mdInput type="text" currencyMask placeholder="{{'lb-others-icome' | translate | uppercase}}" name="othersIncomeProf" [(ngModel)]="getSimulation().client.company.otherIncomes">
+                </md-input-container>
+            </div>
+            <div fxFlex.gt-sm="50%" fxFlex.sm="50%">
+            </div>
+        </div>
+        <div fxLayout="row">
+            <div fxFlex.gt-sm="50%" fxFlex.sm="50%" fxLayoutAlign="end none">
+            </div>
+            <div fxFlex.gt-sm="50%" fxFlex.sm="50%" fxLayoutAlign="center center" >
+                 <button type="button"
+                         (click)="nextStep()" 
+                         fxFlex.xs="100%" 
+                         [disabled]="!ff.form.valid"
+                         fxFlex.gt-sm="50%"
+                         fxFlex.sm="100%"
+                         md-raised-button color="primary">{{'lb-personal-references' | translate | uppercase}}
+                </button>
+            </div>
+        </div>
+    </form>
+</div>

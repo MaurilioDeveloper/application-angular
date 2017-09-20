@@ -1,0 +1,6 @@
+<p style="text-align:right"><a (click)="dialogRef.close()" [ngStyle]="{'cursor': 'pointer'}"> <b>{{'lb-close' | translate}}</b></a> </p>
+
+<md-radio-group (change)="changeTc(tc)" [(ngModel)]="tc">
+  <md-radio-button [value]=false name="tcfalse" >{{'lb-dont-exempt-registration-fee' | translate}}</md-radio-button><br>
+  <md-radio-button [value]=true name="tctrue" >{{'lb-exempt-customer-registration-fee' | translate}}</md-radio-button>
+</md-radio-group>

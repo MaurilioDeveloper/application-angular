@@ -1,0 +1,16 @@
+<div fxLayout.gt-sm="row" fxLayout.xs="column" fxLayout.sm="column">
+  <div fxLayout.gt-sm="column" [ngStyle.gt-sm]="{'width': '33%'}">
+    <calculation  fxFlex.gt-sm="100%" [enable]="calculationqta > 0" [calculationID]="0" (contratado)="contratado($event)"></calculation>
+  </div>
+  <div  fxLayout.gt-sm="column" [ngStyle.gt-sm]="{'width': '33%'}">
+    <calculation fxFlex.gt-sm="100%" [enable]="calculationqta > 1" [calculationID]="1" (contratado)="contratado($event)"></calculation>
+  </div>
+  <div   fxLayout.gt-sm="column" [ngStyle.gt-sm]="{'width': '34%'}">
+    <calculation fxFlex.gt-sm="100%" [enable]="calculationqta > 2" [calculationID]="2" (contratado)="contratado($event)"></calculation>
+  </div>
+</div>
+<div style="position: fixed;top: -2%;right:2%; z-index: 99;">
+  <h2 [ngStyle]="{'cursor': 'pointer'}"><i class="material-icons" [ngStyle]="{'font-size': '40px'}" (click)="this.dialogRef.close()">close</i></h2>
+</div>
+
+

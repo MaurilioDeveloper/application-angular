@@ -1,0 +1,152 @@
+<div class="space-component" fxFlex.gt-sm="100%">
+    <div fxLayout="row" [ngStyle]="{'float': 'right'}">
+        <div fxLayoutAlign="end start" fxFlex="100%">
+            <h2 [ngStyle]="{'cursor': 'pointer'}"><i class="material-icons" (click)="dialogRef.close(true)">close</i></h2>
+        </div>
+    </div>
+    <div fxLayout="column">
+        <div fxLayout="row" class="space-component" fxLayoutAlign="start end" fxLayoutWrap>
+            <div fxFlex.xs="100%" fxFlex.sm="40%" fxFlex.gt-sm="40%">
+                <div>{{simulation.car.url}}
+                    <img [src]="appService.getURLS3()+(simulation.car.version.url?simulation.car.version.url:simulation.car.url)" style="width:92%">
+                </div>
+                <div fxLayout="row" fxLayoutAlign="start end">
+                        <div fxFlex.xs="100%" fxFlex.sm="30%" fxFlex.gt-sm="30%" fxLayoutGap="4%">
+                            <md-input-container fxFlex.gt-sm="100%">
+                                <input mdInput ngControl currencyMask placeholder="{{'lb-vehicle-value' | translate}}" type="text" [ngModel]="simulation.car.version.price "
+                                    #name="ngModel"  (ngModelChange)="updateTotal($event)" name="valor" />
+                            </md-input-container>
+                        </div>
+                    </div>
+            </div>
+
+            <div fxFlex.xs="100%" fxFlex.sm="60%" fxFlex.gt-sm="60%">
+                <div fxLayout="row">
+                    <b>Renault {{simulation.car.description | uppercase}} </b>
+                </div>
+                <div fxLayout="row">
+                    <p class="textsmall"> {{simulation.car.version.description}}</p>
+                </div>
+                <div fxLayout="row" style="margin-top: 7%">
+                    <b>{{'lb-model-selected' | translate}}</b>
+                </div>
+                <div fxLayout="row">
+                    <p class="textsmall"> {{simulation.car.version.description}}</p>
+                </div>
+            </div>
+            <!--</div>-->
+        </div>
+    </div>
+
+
+    <md-card>
+        <md-card-content>
+            <div fxFlex.xs="100%" fxFlex.sm="50%" fxFlex.gt-sm="50%" style="padding: 10px; border-right: 1px solid #ccc">
+                <div>
+                    <b class="black-color font-bold"> {{'lb-optional' | translate}}</b><br><br>
+                </div>
+                <div>
+                    <div *ngFor="let option of optionList">
+                        <div>
+                            <div style="width: 75%" fxFlex.xs="50%" fxFlex.sm="50%" fxFlex.gt-sm="50%">
+                                <md-checkbox class="example-margin" (change)="updateCheckedOptions(option, $event)" [(ngModel)]="option.selected">{{option.description}}</md-checkbox>
+                            </div>
+
+                            <div style="margin-top: 1%" fxFlex.xs="50%" fxFlex.sm="50%" fxFlex.gt-sm="50%">
+                                <span>{{option.amount | money}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div fxFlex.xs="100%" fxFlex.sm="50%" fxFlex.gt-sm="50%" style="padding: 10px; margin-left: 4%">
+                <div>
+                    <b class="black-color font-bold"> {{'lb-accessories' | translate}}</b><br><br>
+                </div>
+
+                <div fxLayout="row" style="display: inline-flex" *ngFor="let acess of simulation.car.version.acessories">
+                    <md-input-container fxFlex.xs="100%" fxFlex.gt-sm="40%">
+                        <input [disabled]="true" mdInput [(ngModel)]="acess.description" placeholder="{{'lb-accessorie' | translate}}" type="text"
+                        />
+                    </md-input-container>
+                    <md-input-container style="width: 35%; margin-left: 5%" fxFlex.xs="100%" fxFlex.gt-sm="40%">
+                        <input [disabled]="true" mdInput min="0" [ngModel]="acess.value | money" placeholder="{{'lb-value' | translate}}" type="text" 
+                        />
+                    </md-input-container>
+                    <button (click)="delAcessorio(acess)" md-mini-fab color="primary">
+                            <md-icon class="white-text">remove</md-icon>
+                        </button>
+                </div>
+
+                <div fxLayout="row" style="display: inline-flex">
+                    <md-input-container fxFlex.xs="100%" fxFlex.gt-sm="40%">
+                        <input mdInput [(ngModel)]="acessorio.description" name="acessValueAdd" placeholder="{{'lb-accessorie' | translate}}" type="text"
+                        />
+                    </md-input-container>
+                    <md-input-container style="width: 35%; margin-left: 5%" fxFlex.xs="100%" fxFlex.gt-sm="40%">
+                        <input mdInput min="0" [(ngModel)]="acessorio.value" #name="ngModel" name="acessValueAdd" placeholder="{{'lb-value' | translate}}"
+                            type="text" currencyMask />
+                    </md-input-container>
+                    <button (click)="addAcessorio(acessorio)" [disabled]="!acessorio.value || !acessorio.description " md-mini-fab color="primary">
+                            <md-icon class="white-text">add</md-icon>
+                        </button>
+                </div>
+
+            </div>
+        </md-card-content>
+    </md-card>
+    <div fxLayout="row" class="space-component" fxLayoutAlign="start none" fxLayoutWrap>
+        <div class="space-component" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.gt-sm="100%" fxLayoutGap="4%">
+            <div fxFlex.xs="22%" fxFlex.sm="22%" fxFlex.gt-sm="24%">
+                <span><b class="black-color font-bold">{{'lb-vehicle-value' | translate}}</b></span>
+            </div>
+            <div fxFlex.xs="22%" fxFlex.sm="22%" fxFlex.gt-sm="24%">
+                <span><b class="black-color font-bold">{{'lb-subtotal-options' | translate}}</b></span>
+            </div>
+            <div fxFlex.xs="22%" fxFlex.sm="22%" fxFlex.gt-sm="26%">
+                <span><b class="black-color font-bold">{{'lb-subtotal-accessories' | translate}}</b></span>
+            </div>
+            <div fxFlex.xs="22%" fxFlex.sm="22%" fxFlex.gt-sm="24%">
+                <span><b class="black-color font-bold">{{'lb-total' | translate}}</b></span>
+            </div>
+        </div>
+    </div>
+
+    <div fxLayout="row" class="space-component" fxLayoutAlign="start none" fxLayoutWrap>
+        <div fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.gt-sm="100%" fxLayoutGap="4%">
+
+            <md-input-container fxFlex.xs="100%" fxFlex.sm="19%" fxFlex.gt-sm="19%">
+                <input [disabled]="true" ngControl mdInput  placeholder="{{'lb-vehicle-value' | translate}}" type="text" name="totalVehicle"
+                    [ngModel]="simulation.car.version.price | money" #name="ngModel" />
+            </md-input-container>
+            <div fxLayoutAlign="end none" fxFlex.sm="3%" fxFlex.gt-sm="3%">
+                <button md-mini-fab color="primary" [ngStyle]="{'cursor': 'initial'}" disabled>
+                        <md-icon class="white-text">add</md-icon>
+                    </button>
+            </div>
+            <md-input-container fxFlex.xs="100%" fxFlex.sm="19%" fxFlex.gt-sm="19%">
+                <input [disabled]="true"  mdInput ngControl placeholder="{{'lb-subtotal-options' | translate}}" type="text" name="subtotalOpcionais"
+                    [ngModel]="subtotalOpcionais | money" #name="ngModel" />
+            </md-input-container>
+            <div fxLayoutAlign="end none" fxFlex.sm="3%" fxFlex.gt-sm="3%">
+                <button md-mini-fab color="primary" [ngStyle]="{'cursor': 'initial'}" disabled>
+                        <md-icon class="white-text">add</md-icon>
+                    </button>
+            </div>
+            <md-input-container fxFlex.xs="100%" fxFlex.sm="19" fxFlex.gt-sm="19%">
+                <input [disabled]="true"   mdInput ngControl placeholder="{{'lb-subtotal-accessories' | translate}}" type="text"
+                    name="subtotalAcessorios" [ngModel]="subtotalAcessorios | money" #name="ngModel" />
+            </md-input-container>
+            <div fxLayoutAlign="end none" fxFlex.sm="3%" fxFlex.gt-sm="3%">
+                <button md-mini-fab color="primary" [ngStyle]="{'cursor': 'initial'}" disabled>
+                        =
+                    </button>
+            </div>
+            <md-input-container fxFlex.xs="100%" fxFlex.sm="19%" fxFlex.gt-sm="19%">
+                <input [disabled]="true" mdInput ngControl placeholder="{{'lb-total' | translate}}" type="text" name="total" [ngModel]="total | money"
+                    #name="ngModel" />
+            </md-input-container>
+        </div>
+    </div>
+</div>

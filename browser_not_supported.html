@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Omega2</title>
+<link rel="shortcut icon" href="assets/images/favicon.ico" />
+</head>
+<body>
+	<div style="text-align: center">
+        	<img id="imageBrowserNotSupported" />
+	</div>
+
+<script type="text/javascript">
+	var theme = window.localStorage.omega2_local_theme;
+	var image;
+	if(theme == "renault"){
+		image = "assets/images/background_browser_not_supported_renault.png";
+	}else{
+		image = "assets/images/background_browser_not_supported_nissan.png";
+	}
+	document.getElementById("imageBrowserNotSupported").src = image;
+</script>
+
+</body>
+</html>

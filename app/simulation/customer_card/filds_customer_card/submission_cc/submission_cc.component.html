@@ -1,0 +1,45 @@
+<div fxLayout="column" *ngIf="getSimulation()"  fxFlex.xs="100%" fxFlex.gt-sm="100%" fxFlex.sm="100%" [ngStyle]="{'padding': '2%'}">
+    <form *ngIf="controlDynamicStepsIn == 1" #xx="ngForm">
+        <div fxLayout="row">
+            <div fxFlex.gt-sm="50%" fxFlex.sm="50%">
+                <!-- NOME AGENTE CERTIFICADO -->
+                <md-select class="bug-input" placeholder="{{'lb-name-certified-agent' | translate | uppercase}}" 
+                    fxFlex.gt-sm="80%" fxFlex.sm="90%" name="nameAgent" [(ngModel)]="getSimulation().certifiedAgent" required>
+                    <md-option *ngFor="let lnca of getListCertifiedAgent()" [value]="lnca.id" >
+                        {{ lnca.nome }}
+                    </md-option>
+                </md-select>
+            </div>
+            <div fxFlex.gt-sm="50%" fxFlex.sm="50%">
+                <!-- CPF -->
+                <md-input-container fxFlex.xs="90%" fxFlex.gt-sm="80%" fxFlex.sm="80%">
+                    <input mdInput ng-disabled="true" customcpfcnpj type="text" placeholder="CPF" readonly name="cpfAgent" 
+                           [(ngModel)]="getCertifiedAgentSelected().numCpf">
+                </md-input-container>
+            </div>
+        </div>
+        <div fxLayout="row">
+            <div fxFlex.gt-sm="50%" fxFlex.sm="50%">
+                <!-- NUMERO CERTIFICADO -->
+                <md-input-container fxFlex.xs="90%" fxFlex.gt-sm="80%" fxFlex.sm="80%">
+                    <input mdInput ng-disabled="true" type="text" placeholder="{{'lb-certified-number' | translate | uppercase}}" readonly name="certificateNumber"
+                            [(ngModel)]="getCertifiedAgentSelected().numCertificado">
+                </md-input-container>
+            </div>
+            <div fxFlex.gt-sm="50%" fxFlex.sm="50%">
+                <!-- DATA VALIDADE CERTIFICADO -->
+                <md-input-container fxFlex.xs="90%" fxFlex.gt-sm="80%" fxFlex.sm="80%">
+                    <input mdInput ng-disabled="true" type="text" placeholder="{{'lb-certified-valid-date' | translate | uppercase}}" readonly name="certificateExpirationDate" 
+                            [value]="getCertifiedAgentSelected().dtValidadeCert | date: 'dd/MM/yyyy'">
+                </md-input-container>
+            </div>
+        </div>
+        <div fxLayout="row">
+            <div fxFlex.gt-sm="50%" fxFlex.sm="50%" fxLayoutAlign="end none">
+            </div>
+            <div fxFlex.gt-sm="50%" fxFlex.sm="50%" fxLayoutAlign="center center" [ngStyle]="{'padding-top':'15px'}">
+                <button type="button" fxFlex.xs="100%" [disabled]="!xx.form.valid" fxFlex.gt-sm="50%" fxFlex.sm="100%" (click)="nextStep()" md-raised-button color="primary">{{'btn-customer-data' | translate | uppercase}}</button>
+            </div>
+        </div>
+    </form>
+</div>

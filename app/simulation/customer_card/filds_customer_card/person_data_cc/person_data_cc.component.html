@@ -1,0 +1,45 @@
+<div fxLayout="column" fxFlex.xs="100%" [ngStyle]="{'padding': '2%'}">
+    <form #ff="ngForm" *ngIf="controlDynamicStepsIn == 6">
+        <div fxLayout="row">
+            <div fxFlex.gt-sm="50%" fxFlex.sm="50%">
+                <!-- NOME COMPLETO REF. 1 -->
+                <md-input-container fxFlex.gt-sm="80%" fxFlex.sm="80%">
+                    <input mdInput type="text" required maxlength="50" placeholder="{{'lb-full-name' | translate | uppercase}} REF. 1" name="fullNameRef1"
+                        [(ngModel)]="getSimulation().client.reference1.name">
+                </md-input-container>
+            </div>
+            <div fxFlex.gt-sm="50%" fxFlex.sm="50%">
+                <!-- NUMERO -->
+                <md-input-container fxFlex.gt-sm="80%" fxFlex.sm="80%">
+                    <input mdInput type="text" required customphone maxlength="15" placeholder="{{'lb-number' | translate | uppercase}}" name="numeroRef1"
+                        [(ngModel)]="getSimulation().client.reference1.phone">
+                </md-input-container>
+            </div>
+        </div>
+        <div fxLayout="row">
+            <div fxFlex.gt-sm="50%" fxFlex.sm="50%">
+                <!-- NOME COMPLETO REF. 2 -->
+                <md-input-container fxFlex.gt-sm="80%" fxFlex.sm="80%">
+                    <input mdInput type="text" maxlength="50" placeholder="{{'lb-full-name' | translate | uppercase}} REF. 2" name="fullNameRef2"
+                        [(ngModel)]="getSimulation().client.reference2.name">
+                </md-input-container>
+            </div>
+            <div fxFlex.gt-sm="50%" fxFlex.sm="50%">
+                <!-- NUMERO -->
+                <md-input-container fxFlex.gt-sm="80%" fxFlex.sm="80%">
+                    <input mdInput type="text" customphone maxlength="15" placeholder="{{'lb-number' | translate | uppercase}}" name="numeroRef2"
+                     [(ngModel)]="getSimulation().client.reference2.phone">
+                </md-input-container>
+            </div>
+        </div>
+        <div fxLayout="row">
+            <div fxFlex.gt-sm="50%" fxFlex.sm="50%" fxLayoutAlign="end none">
+            </div>
+            <div fxFlex.gt-sm="50%" fxFlex.sm="50%" fxLayoutAlign="center center" [ngStyle]="{'padding-top':'15px'}">
+                <button type="button" fxFlex.xs="100%" fxFlex.gt-sm="62%" [disabled]="!ff.form.valid" fxFlex.sm="100%" (click)="nextStep()" md-raised-button
+                    color="primary">{{'btn-banking-reference' | translate | uppercase}}
+                </button>
+            </div>
+        </div>
+    </form>
+</div>

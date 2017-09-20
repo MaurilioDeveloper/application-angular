@@ -1,0 +1,35 @@
+<div fxLayout="row" class="space-mozila flexBasisIE" fxFlex.gt-sm="100%" fxFlex.sm="100%" fxFlex.xs="100">
+    <div fxFlex.xs="100%" fxFlex.gt-sm="40%">
+        <label class="black-color font-bold">{{'lb-vehicle' | translate}}</label><br>
+        <label>{{ simulation.car.version.description }}</label>
+    </div>
+    <div fxFlex.xs="100%" fxFlex.gt-sm="20%">
+        <label class="black-color font-bold">{{'lb-manufacturing-year' | translate}}</label><br>
+        <label>{{ simulation.car.version.yearManufacture }}</label>
+    </div>
+    <div fxFlex.xs="100%" fxFlex.gt-sm="20%">
+        <label class="black-color font-bold">{{'lb-model-year' | translate}}</label><br>
+        <label>{{ simulation.car.version.yearModel }}</label>
+    </div>
+    <div fxFlex.xs="100%" fxFlex.gt-sm="20%">
+        <label class="black-color font-bold">{{'lb-vehicle-type' | translate}}</label><br>
+        <label>{{ simulation.car.gender }}</label>
+    </div>
+</div>
+<div fxLayout="row" fxFlex.gt-sm="100%" fxFlex.sm="100%" fxFlex.xs="100%" [ngStyle]="{'padding-top':'4%'}" [ngStyle.sm]="{'padding-top':'4%'}"
+    class="flexBasisIE">
+    <div fxFlex.xs="100%" fxFlex.gt-sm="50%" [ngStyle]="{'text-align': 'left'}">
+        <label class="black-color font-bold">{{'lb-value-car' | translate}}</label>
+    </div>
+    <div fxFlex.xs="100%" fxFlex.gt-sm="39%" [ngStyle]="{'text-align':'right'}">
+        <label class="black-color font-bold">{{'lb-total-value' | translate}}<i class="material-icons" [ngStyle]="{'font-size': '14px'}">help</i></label>
+    </div>
+</div>
+<div fxLayout="row" fxFlex.gt-sm="100%" fxFlex.sm="100%" fxFlex.xs="100%">
+    <div fxFlex.xs="100%" fxFlex.gt-sm="50%" [ngStyle]="{'text-align': 'left', 'padding-top':'2%'}">
+        <label>{{ simulation.car.version.price | money }}</label>
+    </div>
+    <div fxFlex.xs="100%" fxFlex.gt-sm="39%" [ngStyle]="{'text-align':'right', 'padding-top':'2%'}">
+        <label>{{ simulation.calculationSelected.totalValue | money }}</label>
+    </div>
+</div>

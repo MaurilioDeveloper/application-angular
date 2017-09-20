@@ -1,0 +1,115 @@
+<div fxLayout="column" fxFlex.xs="100%" fxFlex.gt-sm="100%" fxFlex.sm="100%" [ngStyle]="{'padding': '2%'}">
+    <form #ff="ngForm" fxLayout="column">
+
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                <!-- CEP -->
+                <md-input-container fxFlex.xs="100%">
+                    <input mdInput type="text" maxlength="10" placeholder="CEP" omegamask="99.999-999" name="cep" required [(ngModel)]="getSimulation().client.address.cep">
+                </md-input-container>
+            </div>
+        </div>
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                <!-- NUMERO -->
+                <md-input-container fxFlex.xs="100%">
+                    <input mdInput type="text" maxlength="5" placeholder="{{'lb-number' | translate | uppercase}}" required name="numeroGuarantor1"
+                        [(ngModel)]="getSimulation().client.address.number">
+                </md-input-container>
+            </div>
+        </div>
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                <!-- ENDERECO -->
+                <md-input-container fxFlex.xs="100%">
+                    <input mdInput type="text" maxlength="50" placeholder="{{'lb-address' | translate | uppercase}}" required name="enderecoGuarantor1"
+                        [(ngModel)]="getSimulation().client.address.address">
+                </md-input-container>
+            </div>
+        </div>
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                <!-- COMPLEMENTO -->
+                <md-input-container fxFlex.xs="100%">
+                    <input mdInput type="text" maxlength="20" placeholder="{{'lb-complement' | translate | uppercase}}" name="complementoGuarantor1"
+                        [(ngModel)]="getSimulation().client.address.complement">
+                </md-input-container>
+            </div>
+        </div>
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                <!-- BAIRRO -->
+                <md-input-container fxFlex.xs="100%">
+                    <input mdInput type="text" maxlength="20" placeholder="{{'lb-neighborhood' | translate | uppercase}}" required name="bairroGuarantor1"
+                        [(ngModel)]="getSimulation().client.address.neighborhood">
+                </md-input-container>
+            </div>
+        </div>
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                <!-- CIDADE -->
+                <md-input-container fxFlex.xs="100%">
+                    <input mdInput type="text" maxlength="40" placeholder="{{'lb-city' | translate | uppercase}}" required name="cidadeGuarantor1"
+                        [(ngModel)]="getSimulation().client.address.city">
+                </md-input-container>
+            </div>
+        </div>
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                <!-- UF NATURALIDADE -->
+                <md-select placeholder="UF ({{'lb-naturalness' | translate | uppercase}})" fxFlex.xs="100%" class="bug-input" name="province"
+                    [(ngModel)]="getSimulation().client.address.province.id" required>
+                    <md-option *ngFor="let lp of getListProvince()" [value]="lp.id">
+                        {{ lp.description }}
+                    </md-option>
+                </md-select>
+            </div>
+        </div>
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                <!-- TIPO DE RESIDENCIA -->
+                <md-select placeholder="{{'lb-type-of-residence' | translate | uppercase}}" fxFlex.xs="100%" class="bug-input" name="typeResidence"
+                    [(ngModel)]="getSimulation().client.address.residenceType.id" required>
+                    <md-option *ngFor="let ltr of getListTypeResidence()" [value]="ltr.id">
+                        {{ ltr.description }}
+                    </md-option>
+                </md-select>
+            </div>
+        </div>
+
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                <!-- RESIDE NO ENDERECO DESDE -->
+                <md-input-container fxFlex.xs="100%">
+                    <input mdInput [mdDatepicker]="picker1" placeholder="{{'lb-lives-in-address-since' | translate | uppercase}}" name="residesInAddressFrom"
+                        [(ngModel)]="getSimulation().client.address.residesInAddressSince" required>
+                    <md-datepicker-toggle mdSuffix [for]="picker1"></md-datepicker-toggle>
+                </md-input-container>
+                <md-datepicker #picker1></md-datepicker>
+            </div>
+        </div>
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                <!-- ENDERECO DE CORRESPONDENCIA -->
+                <md-select placeholder="{{'lb-mailing-address' | translate | uppercase}}" fxFlex.xs="100%" class="bug-input" name="mailingAddress"
+                    [(ngModel)]="getSimulation().client.address.mailingAddress.id" required>
+                    <md-option *ngFor="let lma of getListMailingAddress()" [value]="lma.id">
+                        {{ lma.description }}
+                    </md-option>
+                </md-select>
+            </div>
+        </div>
+        <div *ngIf="isPhysicalPerson() && showSpouse"
+            fxLayout="row" fxFlex.xs="100%">
+            <md-toolbar (click)="nextStep()" class="buttonMobileFooter">
+                {{'lb-spouse' | translate | uppercase}}
+            </md-toolbar>
+        </div>
+        <div *ngIf="!isPhysicalPerson() || !showSpouse"
+            fxFlex.xs="100%" fxLayout="row">
+            <md-toolbar (click)="nextStep()" class="buttonMobileFooter">
+                {{'lb-professional-data' | translate | uppercase}}
+            </md-toolbar>
+        </div>
+    </form>
+</div>

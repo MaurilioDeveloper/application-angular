@@ -1,0 +1,103 @@
+<div class="" fxFlex="100" *ngIf="dossier">
+    <div fxLayoutAlign="center center" style="margin-top: 2%;">
+        <md-card fxFlex.gt-sm="75%" fxFlex.xs="100%" class="dealer-space">
+
+            <md-card-header id="card-menu-proposta">
+                <span [ngStyle]="{'padding-top':'2%'}">{{'lb-detailing' | translate}} – {{'lb-reassign' | translate}} {{'lb-proposal' | translate}}</span>
+            </md-card-header>
+
+            <md-card-content class="layouts">
+
+                <!--<div fxLayout="column" [ngStyle]="{'padding-top':'1%','padding-left': '1%'}">-->
+
+                    <div >
+                        <div fxLayout="row">
+                            <label [ngClass]="fonte" style="font-weight :bold;" fxFlex.xs="100%" fxFlex.gt-sm="40%">{{'lb-proposal' | translate}}: </label>
+                            <label [ngClass]="fonte"> {{ dossier.numDossier }} </label>
+                        </div>
+                        <div fxLayout="row">
+                            <label [ngClass]="fonte" style="font-weight :bold;" fxFlex.xs="100%" fxFlex.gt-sm="40%">{{'lb-proposal' | translate}} ADP Nº: </label>
+                            <label [ngClass]="fonte"> {{ dossier.adp }} </label>
+                        </div>
+                        <div fxLayout="row">
+                            <label [ngClass]="fonte" style="font-weight :bold;" fxFlex.xs="100%" fxFlex.gt-sm="40%">CPF / CNPJ: </label>
+                            <label [ngClass]="fonte"> {{ dossier.cpfCnpj }} </label>
+                        </div>
+                        <div fxLayout="row">
+                            <label [ngClass]="fonte" style="font-weight :bold;" fxFlex.xs="100%" fxFlex.gt-sm="40%">{{'lb-client-name' | translate}}: </label>
+                            <label [ngClass]="fonte"> {{ dossier.nameClient }} </label>
+                        </div>
+                        <div fxLayout="row">
+                            <label [ngClass]="fonte" style="font-weight :bold;" fxFlex.xs="100%" fxFlex.gt-sm="40%">{{'lb-status' | translate}}: </label>
+                            <label [ngClass]="fonte"> {{ dossier.status }} </label>
+                        </div>
+                        <div fxLayout="row">
+                            <label [ngClass]="fonte" style="font-weight :bold;" fxFlex.xs="100%" fxFlex.gt-sm="40%">{{'lb-validate-date' | translate}}: </label>
+                            <label [ngClass]="fonte"> {{ dossier.expirationDate | date:'dd/MM/yyyy' }} </label>
+                        </div>
+                        <div fxLayout="row">
+                            <label [ngClass]="fonte" style="font-weight :bold;" fxFlex.xs="100%" fxFlex.gt-sm="40%">{{'lb-model' | translate}}: </label>
+                            <label [ngClass]="fonte"> {{ dossier.vehicleModel }} </label>
+                        </div>
+                        <div fxLayout="row">
+                            <label [ngClass]="fonte" style="font-weight :bold;" fxFlex.xs="100%" fxFlex.gt-sm="40%">{{'lb-amount-financed' | translate}}: </label>
+                            <label [ngClass]="fonte"> {{ dossier.financedAmount | money }} </label>
+                        </div>
+                        <div fxLayout="row">
+                            <label [ngClass]="fonte" style="font-weight :bold;" fxFlex.xs="100%" fxFlex.gt-sm="40%">{{'lb-table' | translate}}: </label>
+                            <label [ngClass]="fonte"> {{ dossier.productId }} </label>
+                        </div>
+                    </div>
+                    <br/>
+                    <div fxLayout="row">
+                        <hr align="center" width="100%" size="1" color=lightgray>
+                    </div>
+                    <br/>
+                    <div>
+
+                        <div fxLayout="row">
+                            <label [ngClass]="fonte" style="font-weight :bold;" fxFlex.xs="100%" fxFlex.gt-sm="40%">{{'lb-previous-concessionaire' | translate}}: </label>
+                            <label [ngClass]="fonte"> {{ dossier.bir }} - {{dossier.nameSalesman }} </label>
+                        </div>
+
+                        <div fxLayout="row">
+                            <p fxFlex.gt-sm="40%">
+                                <label [ngClass]="fonte" style="font-weight :bold;" fxFlex.xs="100%">{{'lb-new-concessionaire' | translate}}: </label>
+                            </p>
+                            <section fxFlex.gt-sm="60%" fxFlex.xs="50%">
+                                <md-select class="dealerClass" fxFlex.gt-sm="70%" 
+                                    [(ngModel)]="structureDealershipSelected" (ngModelChange)="loadSalesmanDealership(structureDealershipSelected)">
+                                    <md-option *ngFor="let str of listStructureDealership" [value]="str.structureId" [ngClass]="fonte">
+                                        {{ str.byr }} - {{ str.tab }} - {{ str.description }}
+                                    </md-option>
+                                </md-select>
+                            </section>
+                        </div>
+
+                        <div fxLayout="row">
+                            <p fxFlex.gt-sm="40%">
+                                <label [ngClass]="fonte" style="font-weight :bold;" fxFlex.xs="100%">{{'lb-salesman' | translate}}: </label>
+                            </p>
+                            <section fxFlex.gt-sm="60%" fxFlex.xs="50%" >
+                                <md-select fxFlex.gt-sm="70%" [(ngModel)]="salesmanDealershipSelected" >
+                                    <md-option *ngFor="let slm of listSalesmanDealership" [value]="slm.personId" [ngClass]="fonte">
+                                        {{ slm.name }}
+                                    </md-option>
+                                </md-select>
+                            </section>
+                        </div>
+                    </div>
+
+                    <div fxLayout="row" fxLayoutAlign="end">
+                        <div fxFlex.gt-sm="15%" fxFlex.xs="100%">
+                            <button md-raised-button (click)="reassignProposal()" [ngStyle]="{'margin-right':'20%','margin-bottom':'20%','margin-top':'20%'}" fxFlex.xs="100%" color="primary">{{'btn-reassign' | translate}}</button>
+                        </div>
+                    </div>
+
+                <!--</div>-->
+
+            </md-card-content>
+
+        </md-card>
+    </div>
+</div>

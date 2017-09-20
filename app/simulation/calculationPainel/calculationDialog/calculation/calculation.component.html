@@ -1,0 +1,165 @@
+<div fxFlex.gt-sm="100%" *ngIf="enable" fxLayoutAlign="center center">
+    <md-card fxFlex.gt-sm="100%" fxHide.xs="true" [class.calculationselected]="calculationSelected">
+        <form #ff="ngForm">
+            <div fxLayout="column" [ngStyle]="{'padding': '5%'}">
+
+                <div fxLayout="row" [ngStyle.gt-sm]="{'height': '6%'}" class="padding5">
+                    <div [ngStyle]="{'margin': '-6%', 'height': '0'}" class="texIcon linkicon" *ngIf="calculationID > 0" (click)="removeSimulation()">
+                        <i class="material-icons">delete_forever</i></div>
+                    <div fxLayout="row" fxLayoutAlign="center center" style="width: 80%; padding-left: 20%;">
+                        <h3 class="icon" style="margin:0px;">{{ (financialTableSelected && financialTableSelected.promotional?'lb-call-condition':'lb-simulation')
+                            | translate | uppercase}} {{financialTableSelected &&financialTableSelected.promotional?'':calculationID+1}}
+                        </h3>
+                    </div>
+                    <div class="text-comission">
+                        <i class="material-icons linkicon" style="font-size: smaller;" (click)="previuscondition()">keyboard_arrow_left</i>
+                        <span style="font-size: medium;" *ngIf="commisionSelected">{{commisionSelected.description}} </span>
+                        <i class="material-icons linkicon" style="font-size: smaller;" (click)="nextcondition()">keyboard_arrow_right</i></div>
+                    </div>
+                <div fxLayout="row" class="space-component-top">
+                    <md-select placeholder="{{'lb-financial-type' | translate}}" style="width:100%" ngControl [required]="required" [(ngModel)]="financialTypeSelected"
+                        (ngModelChange)="changeFinancialType($event)" #name="ngModel" name="financialType">
+                        <md-option *ngFor="let financialType of financialTypeList" [value]="financialType">
+                            {{ financialType.description }}
+                        </md-option>
+                    </md-select>
+                </div>
+                <div fxLayout="row" class="space-component-top">
+                    <md-select placeholder="{{'lb-table' | translate}}" (ngModelChange)="changeFinancialTable($event)" fxFlex="80%" ngControl
+                        [required]="required" [(ngModel)]="financialTableSelected" #name="ngModel" name="financialTable">
+                        <md-option *ngFor="let financialTable of financialTableList" [value]="financialTable">
+                            {{ financialTable.description }}
+                        </md-option>
+                    </md-select>
+                    <md-icon [ngStyle]="{'margin-top': '4%'}">info</md-icon>
+                </div>
+                <div fxLayout="row" class="space-component-top">
+                    <md-select placeholder="{{'lb-lack' | translate}}" style="width:100%" ngControl required [(ngModel)]="delaySelected" #name="ngModel"
+                        name="carencia" (ngModelChange)="changedelay($event)">
+                        <md-option *ngFor="let delay of delayList" [value]="delay">
+                            {{ delay }}
+                        </md-option>
+                    </md-select>
+                </div>
+
+                
+                <div fxLayout="row" class="space-component-top">
+                    <md-input-container fxFlex="50%">
+                        <input currencyMask mdInput type="text" step="0.01" class="entraceValue" (ngModelChange)="validadeEntryValue($event)" placeholder="{{'lb-entrance-value' | translate}}"
+                            ngControl required [ngModel]="entranceValue" #name="ngModel" name="entraceValue" id="entranceValue">
+                    </md-input-container>
+                    <md-input-container fxFlex="30%">
+                        <input mdInput type="text" currencyMask [options]="{ prefix: ''}" placeholder="{{'lb-entrance-percent' | translate}}" step="0.01" (ngModelChange)="validadeEntryPerc($event)"
+                            ngControl required [ngModel]="entrancePerc" #name="ngModel" name="coeficiente" id="entrancePerc">
+                    </md-input-container>
+                </div>
+
+                <div fxLayout="row" class="space-component-top">
+                    <md-select placeholder="{{'lb-financial-during' | translate}}" style="width:100%" ngControl required [(ngModel)]="termSelected"
+                        (ngModelChange)="changeterm($event)" #name="ngModel" name="term">
+                        <md-option *ngFor="let term of termList" [value]="term">
+                            {{ term }}
+                        </md-option>
+                    </md-select>
+                </div>
+                
+                <div fxLayout="row" *ngIf="showRepackage">
+                    <md-select placeholder="{{'lb-repackage' | translate}}" style="width:100%" ngControl required [(ngModel)]="repackageSelected" #name="ngModel"
+                        name="repackage" (ngModelChange)="changerepackage($event)">
+                        <md-option *ngFor="let repackage of repackageList" [value]="repackage.id">
+                            {{ repackage.importCode }}
+                        </md-option>
+                    </md-select>
+                </div>
+                
+                <div fxLayout="row">
+                    <div fxFlex="30%">
+                        <span >{{'lb-services' | translate}}<br>{{'lb-and' | translate}} {{'lb-insurance' | translate}}</span>
+                    </div>
+                    <div fxFlex="70%" fxLayoutAlign="end none">
+                        <button md-raised-button color="primary" (click)="servicesAndInsurance()">{{'btn-see-services-and-insurance' | translate }}</button>
+                    </div>
+                </div>
+                <!--<div fxLayout="row" class="space-component-top">
+                <div fxFlex="30%">
+                    <span [ngStyle.gt-sm]="{'font-size':'11px'}">Seguro auto</span>
+                </div>
+                <div fxFlex="70%" fxLayoutAlign="end none">
+                    <button md-raised-button color="primary">Cotar seguro auto</button>
+                </div>
+            </div> -->
+
+                <div fxLayout="row" class="space-component-top">
+                    <div fxFlex="50%">
+                        <span  >{{'lb-total-funded' | translate}}</span>
+                    </div>
+                    <div fxFlex="50%" fxLayoutAlign="end none">
+                        <span class="black-color font-bold">{{ simulation.calculations[calculationID].totalValue  | money }}</span>
+                    </div>
+                </div>
+                <div fxLayout="row" class="space-component-top">
+                    <div fxFlex="50%">
+                        <span >{{'lb-monthly' | translate}}</span>
+                    </div>
+                    <div fxFlex="50%" fxLayoutAlign="end none">
+                        <span class="black-color font-bold" >{{ firstInstallments }} {{ firstInstallmentValue | money }}</span>
+                    </div>
+                </div>
+                <div fxLayout="row" *ngIf="enableSecondInstallment">
+                    <div fxFlex="50%"></div>
+                    <div fxFlex="50%" fxLayoutAlign="end none">
+                        <span >{{ secondInstallments }} {{ secondInstallmentValue | money }}</span>
+                    </div>
+                </div>
+                <div fxLayout="row" class="space-component-top">
+                    <div fxFlex="50%">
+                        <span >{{'lb-custumer-rate' | translate}}: </span>
+                    </div>
+                    <div fxFlex="50%" fxLayoutAlign="end none">
+                        <span >{{ coeficient.taxCoefficient }}%</span>
+                    </div>
+                </div>
+                <div fxLayout="row" class="space-component-top">
+                    <div fxFlex="50%">
+                        <button md-raised-button color="primary" (click)="installmentsDialog()">{{'lb-payment-plan' | translate }}</button>
+                    </div>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="center center" class="space-component-top">
+                    <div fxLayoutAlign="center" [ngStyle.gt-sm]="{'padding-bottom':'10px'}" *ngIf="media.isActive('xs') === false" >
+                        <button md-raised-button
+                            [ngClass]="[!ff.form.valid || !financialTableSelected ? 'background-black-disabled' : 'background-black']"    
+                            
+                            [disabled]="!ff.form.valid || !financialTableSelected" (click)="contract()" color="primary" *ngIf="!this.calculationSelected">
+                            {{'lb-contract' | translate | uppercase}}
+                        </button>
+                        <button md-raised-button 
+                            [ngClass]="[!ff.form.valid || !financialTableSelected ? 'background-black-disabled' : 'background-black']"  
+                            [disabled]="!ff.form.valid || !financialTableSelected" (click)="contract()" color="primary" *ngIf="this.calculationSelected">
+                            <div fxLayout="column" fxLayoutAlign="center center">
+                                <div  fxLayout="row" fxFlex.gt-sm="15px">
+                                        <span>{{'lb-contracted' | translate | uppercase}}</span>
+                                </div>
+                                <div fxLayout="row" fxFlex.gt-sm="35px">
+                                        <span [ngStyle]="{'font-size':'10px'}">{{'lb-contracted-sub' | translate | uppercase}}</span>
+                                </div>
+                            </div>
+                        </button>
+                    </div>
+                    <md-toolbar *ngIf="financialTableSelected && !this.calculationSelected &&  media.isActive('xs')" (click)="comparation()" [ngStyle.xs]="{'background': '#000', 'color': 'white', 'position': 'absolute', 'right': 0, top: '100%', 'align-items': 'center'}">
+                        {{'lb-compare' | translate | uppercase}}
+                    </md-toolbar>
+                </div>
+            </div>
+        </form>
+    </md-card>
+</div>
+
+<div fxFlex.gt-sm="100%" fxFlex.sm="100%" *ngIf="!enable" class="back-grey center-center">
+    <div class="center-div">
+        <a (click)="addSimulation()" class="linkicon">
+            <p><i class="material-icons">add_circle_outline</i><br> {{'lb-add-new' | translate}}<br> {{'lb-simulation' | translate}}
+            </p>
+        </a>
+    </div>
+</div>
+

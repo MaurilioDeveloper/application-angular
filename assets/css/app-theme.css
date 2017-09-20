@@ -1,0 +1,4115 @@
+@import url("https://fonts.googleapis.com/css?family=Exo+2:400,700,900");
+@import url(../../node_modules/@swimlane/ngx-datatable/release/index.css);
+@import url(../../node_modules/@swimlane/ngx-datatable/release/themes/material.css);
+@import url(../../node_modules/@swimlane/ngx-datatable/release/assets/icons.css);
+html {
+  font-family: 'Exo 2', sans-serif !important; }
+
+div {
+  font-family: 'Exo 2', sans-serif !important; }
+
+.mat-card {
+  font-family: 'Exo 2', sans-serif !important; }
+
+.mat-button {
+  font-family: 'Exo 2', sans-serif !important;
+  border-radius: 5px !important; }
+
+.mat-raised-button {
+  font-family: 'Exo 2', sans-serif !important;
+  border-radius: 5px !important; }
+
+.mat-icon-button {
+  font-family: 'Exo 2', sans-serif !important; }
+
+.mat-button-wrapper {
+  font-family: 'Exo 2', sans-serif !important;
+  border-radius: 5px !important; }
+
+.mat-checkbox .mat-select {
+  font-family: 'Exo 2', sans-serif !important; }
+
+/**
+ * Applies styles for users in high contrast mode. Note that this only applies
+ * to Microsoft browsers. Chrome can be included by checking for the `html[hc]`
+ * attribute, however Chrome handles high contrast differently.
+ */
+/* Theme for the ripple elements.*/
+/** The mixins below are shared between md-menu and md-select */
+/**
+ * This mixin adds the correct panel transform styles based
+ * on the direction that the menu panel opens.
+ */
+/* stylelint-disable material/no-prefixes */
+/* stylelint-enable */
+/**
+ * This mixin contains shared option styles between the select and
+ * autocomplete components.
+ */
+.mat-elevation-z0 {
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12); }
+
+.mat-elevation-z1 {
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12); }
+
+.mat-elevation-z2 {
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12); }
+
+.mat-elevation-z3 {
+  box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.2), 0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12); }
+
+.mat-elevation-z4 {
+  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12); }
+
+.mat-elevation-z5 {
+  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 5px 8px 0px rgba(0, 0, 0, 0.14), 0px 1px 14px 0px rgba(0, 0, 0, 0.12); }
+
+.mat-elevation-z6 {
+  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12); }
+
+.mat-elevation-z7 {
+  box-shadow: 0px 4px 5px -2px rgba(0, 0, 0, 0.2), 0px 7px 10px 1px rgba(0, 0, 0, 0.14), 0px 2px 16px 1px rgba(0, 0, 0, 0.12); }
+
+.mat-elevation-z8 {
+  box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12); }
+
+.mat-elevation-z9 {
+  box-shadow: 0px 5px 6px -3px rgba(0, 0, 0, 0.2), 0px 9px 12px 1px rgba(0, 0, 0, 0.14), 0px 3px 16px 2px rgba(0, 0, 0, 0.12); }
+
+.mat-elevation-z10 {
+  box-shadow: 0px 6px 6px -3px rgba(0, 0, 0, 0.2), 0px 10px 14px 1px rgba(0, 0, 0, 0.14), 0px 4px 18px 3px rgba(0, 0, 0, 0.12); }
+
+.mat-elevation-z11 {
+  box-shadow: 0px 6px 7px -4px rgba(0, 0, 0, 0.2), 0px 11px 15px 1px rgba(0, 0, 0, 0.14), 0px 4px 20px 3px rgba(0, 0, 0, 0.12); }
+
+.mat-elevation-z12 {
+  box-shadow: 0px 7px 8px -4px rgba(0, 0, 0, 0.2), 0px 12px 17px 2px rgba(0, 0, 0, 0.14), 0px 5px 22px 4px rgba(0, 0, 0, 0.12); }
+
+.mat-elevation-z13 {
+  box-shadow: 0px 7px 8px -4px rgba(0, 0, 0, 0.2), 0px 13px 19px 2px rgba(0, 0, 0, 0.14), 0px 5px 24px 4px rgba(0, 0, 0, 0.12); }
+
+.mat-elevation-z14 {
+  box-shadow: 0px 7px 9px -4px rgba(0, 0, 0, 0.2), 0px 14px 21px 2px rgba(0, 0, 0, 0.14), 0px 5px 26px 4px rgba(0, 0, 0, 0.12); }
+
+.mat-elevation-z15 {
+  box-shadow: 0px 8px 9px -5px rgba(0, 0, 0, 0.2), 0px 15px 22px 2px rgba(0, 0, 0, 0.14), 0px 6px 28px 5px rgba(0, 0, 0, 0.12); }
+
+.mat-elevation-z16 {
+  box-shadow: 0px 8px 10px -5px rgba(0, 0, 0, 0.2), 0px 16px 24px 2px rgba(0, 0, 0, 0.14), 0px 6px 30px 5px rgba(0, 0, 0, 0.12); }
+
+.mat-elevation-z17 {
+  box-shadow: 0px 8px 11px -5px rgba(0, 0, 0, 0.2), 0px 17px 26px 2px rgba(0, 0, 0, 0.14), 0px 6px 32px 5px rgba(0, 0, 0, 0.12); }
+
+.mat-elevation-z18 {
+  box-shadow: 0px 9px 11px -5px rgba(0, 0, 0, 0.2), 0px 18px 28px 2px rgba(0, 0, 0, 0.14), 0px 7px 34px 6px rgba(0, 0, 0, 0.12); }
+
+.mat-elevation-z19 {
+  box-shadow: 0px 9px 12px -6px rgba(0, 0, 0, 0.2), 0px 19px 29px 2px rgba(0, 0, 0, 0.14), 0px 7px 36px 6px rgba(0, 0, 0, 0.12); }
+
+.mat-elevation-z20 {
+  box-shadow: 0px 10px 13px -6px rgba(0, 0, 0, 0.2), 0px 20px 31px 3px rgba(0, 0, 0, 0.14), 0px 8px 38px 7px rgba(0, 0, 0, 0.12); }
+
+.mat-elevation-z21 {
+  box-shadow: 0px 10px 13px -6px rgba(0, 0, 0, 0.2), 0px 21px 33px 3px rgba(0, 0, 0, 0.14), 0px 8px 40px 7px rgba(0, 0, 0, 0.12); }
+
+.mat-elevation-z22 {
+  box-shadow: 0px 10px 14px -6px rgba(0, 0, 0, 0.2), 0px 22px 35px 3px rgba(0, 0, 0, 0.14), 0px 8px 42px 7px rgba(0, 0, 0, 0.12); }
+
+.mat-elevation-z23 {
+  box-shadow: 0px 11px 14px -7px rgba(0, 0, 0, 0.2), 0px 23px 36px 3px rgba(0, 0, 0, 0.14), 0px 9px 44px 8px rgba(0, 0, 0, 0.12); }
+
+.mat-elevation-z24 {
+  box-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.2), 0px 24px 38px 3px rgba(0, 0, 0, 0.14), 0px 9px 46px 8px rgba(0, 0, 0, 0.12); }
+
+.mat-h1, .mat-headline, .mat-typography h1 {
+  font: 400 24px/32px Roboto, "Helvetica Neue", sans-serif;
+  margin: 0 0 16px; }
+
+.mat-h2, .mat-title, .mat-typography h2 {
+  font: 500 20px/32px Roboto, "Helvetica Neue", sans-serif;
+  margin: 0 0 16px; }
+
+.mat-h3, .mat-subheading-2, .mat-typography h3 {
+  font: 400 16px/28px Roboto, "Helvetica Neue", sans-serif;
+  margin: 0 0 16px; }
+
+.mat-h4, .mat-subheading-1, .mat-typography h4 {
+  font: 400 15px/24px Roboto, "Helvetica Neue", sans-serif;
+  margin: 0 0 16px; }
+
+.mat-h5, .mat-typography h5 {
+  font-size: 11.62px;
+  font-weight: 400;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  line-height: 20px;
+  margin: 0 0 12px; }
+
+.mat-h6, .mat-typography h6 {
+  font-size: 9.38px;
+  font-weight: 400;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  line-height: 20px;
+  margin: 0 0 12px; }
+
+.mat-body-strong, .mat-body-2 {
+  font: 500 14px/24px Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-body, .mat-body-1, .mat-typography {
+  font: 400 14px/20px Roboto, "Helvetica Neue", sans-serif; }
+  .mat-body p, .mat-body-1 p, .mat-typography p {
+    margin: 0 0 12px; }
+
+.mat-small, .mat-caption {
+  font: 400 12px/20px Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-display-4, .mat-typography .mat-display-4 {
+  font: 300 112px/112px Roboto, "Helvetica Neue", sans-serif;
+  margin: 0 0 56px;
+  letter-spacing: -0.05em; }
+
+.mat-display-3, .mat-typography .mat-display-3 {
+  font: 400 56px/56px Roboto, "Helvetica Neue", sans-serif;
+  margin: 0 0 64px;
+  letter-spacing: -0.02em; }
+
+.mat-display-2, .mat-typography .mat-display-2 {
+  font: 400 45px/48px Roboto, "Helvetica Neue", sans-serif;
+  margin: 0 0 64px;
+  letter-spacing: -0.005em; }
+
+.mat-display-1, .mat-typography .mat-display-1 {
+  font: 400 34px/40px Roboto, "Helvetica Neue", sans-serif;
+  margin: 0 0 64px; }
+
+.mat-button, .mat-raised-button, .mat-icon-button, .mat-fab, .mat-mini-fab {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 14px;
+  font-weight: 500; }
+
+.mat-button-toggle {
+  font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-card {
+  font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-card-title {
+  font-size: 24px;
+  font-weight: 400; }
+
+.mat-card-subtitle,
+.mat-card-content,
+.mat-card-header .mat-card-title {
+  font-size: 14px; }
+
+.mat-checkbox {
+  font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-checkbox-layout .mat-checkbox-label {
+  line-height: 24px; }
+
+.mat-chip {
+  font-size: 13px;
+  line-height: 18px; }
+  .mat-chip .mat-chip-remove.mat-icon {
+    font-size: 18px; }
+
+.mat-table {
+  font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-header-cell {
+  font-size: 12px;
+  font-weight: 500; }
+
+.mat-cell {
+  font-size: 14px; }
+
+.mat-calendar {
+  font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-calendar-body {
+  font-size: 13px; }
+
+.mat-calendar-body-label,
+.mat-calendar-period-button {
+  font-size: 14px;
+  font-weight: 500; }
+
+.mat-calendar-table-header th {
+  font-size: 11px;
+  font-weight: 400; }
+
+.mat-dialog-title {
+  font: 500 20px/32px Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-expansion-panel-header {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 15px;
+  font-weight: 400; }
+
+.mat-expansion-panel-content {
+  font: 400 14px/20px Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-form-field {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: inherit;
+  font-weight: 400;
+  line-height: 1.125; }
+
+.mat-form-field-wrapper {
+  padding-bottom: 1.25em; }
+
+.mat-form-field-prefix .mat-icon,
+.mat-form-field-suffix .mat-icon {
+  font-size: 150%;
+  line-height: 1.125; }
+
+.mat-form-field-prefix .mat-icon-button,
+.mat-form-field-suffix .mat-icon-button {
+  height: 1.5em;
+  width: 1.5em; }
+  .mat-form-field-prefix .mat-icon-button .mat-icon,
+  .mat-form-field-suffix .mat-icon-button .mat-icon {
+    height: 1.125em;
+    line-height: 1.125; }
+
+.mat-form-field-infix {
+  padding: 0.4375em 0;
+  border-top: 0.84375em solid transparent; }
+
+.mat-form-field-autofill-float:-webkit-autofill + .mat-form-field-placeholder-wrapper .mat-form-field-float {
+  transform: translateY(-1.28125em) scale(0.75) perspective(100px) translateZ(0.001px);
+  -ms-transform: translateY(-1.28125em) scale(0.75);
+  width: 133.33333%; }
+
+.mat-form-field-placeholder-wrapper {
+  top: -0.84375em;
+  padding-top: 0.84375em; }
+
+.mat-form-field-placeholder {
+  top: 1.28125em; }
+  .mat-form-field-placeholder.mat-form-field-float:not(.mat-form-field-empty),
+  .mat-focused .mat-form-field-placeholder.mat-form-field-float {
+    transform: translateY(-1.28125em) scale(0.75) perspective(100px) translateZ(0.001px);
+    -ms-transform: translateY(-1.28125em) scale(0.75);
+    width: 133.33333%; }
+
+.mat-form-field-underline {
+  bottom: 1.25em; }
+
+.mat-form-field-subscript-wrapper {
+  font-size: 75%;
+  margin-top: 0.54167em;
+  top: calc(100% - 1.66667em); }
+
+.mat-grid-tile-header,
+.mat-grid-tile-footer {
+  font-size: 14px; }
+  .mat-grid-tile-header .mat-line,
+  .mat-grid-tile-footer .mat-line {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    box-sizing: border-box; }
+    .mat-grid-tile-header .mat-line:nth-child(n+2),
+    .mat-grid-tile-footer .mat-line:nth-child(n+2) {
+      font-size: 12px; }
+
+input.mat-input-element {
+  margin-top: -0.0625em; }
+
+.mat-menu-item {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 16px; }
+
+.mat-paginator,
+.mat-paginator-page-size .mat-select-trigger {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 12px; }
+
+.mat-radio-button {
+  font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-select {
+  padding-top: 16px;
+  font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-select-trigger {
+  font-size: 16px; }
+
+.mat-slide-toggle-content {
+  font: 400 14px/20px Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-slider-thumb-label-text {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 12px;
+  font-weight: 500; }
+
+.mat-tab-group {
+  font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-tab-label, .mat-tab-link {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 14px;
+  font-weight: 500; }
+
+.mat-toolbar,
+.mat-toolbar h1,
+.mat-toolbar h2,
+.mat-toolbar h3,
+.mat-toolbar h4,
+.mat-toolbar h5,
+.mat-toolbar h6 {
+  font: 500 20px/32px Roboto, "Helvetica Neue", sans-serif;
+  margin: 0; }
+
+.mat-tooltip {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 10px;
+  padding-top: 6px;
+  padding-bottom: 6px; }
+
+.mat-list-item {
+  font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-list-option {
+  font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-list .mat-list-item, .mat-nav-list .mat-list-item, .mat-selection-list .mat-list-item {
+  font-size: 16px; }
+  .mat-list .mat-list-item .mat-line, .mat-nav-list .mat-list-item .mat-line, .mat-selection-list .mat-list-item .mat-line {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    box-sizing: border-box; }
+    .mat-list .mat-list-item .mat-line:nth-child(n+2), .mat-nav-list .mat-list-item .mat-line:nth-child(n+2), .mat-selection-list .mat-list-item .mat-line:nth-child(n+2) {
+      font-size: 14px; }
+
+.mat-list .mat-list-option, .mat-nav-list .mat-list-option, .mat-selection-list .mat-list-option {
+  font-size: 16px; }
+  .mat-list .mat-list-option .mat-line, .mat-nav-list .mat-list-option .mat-line, .mat-selection-list .mat-list-option .mat-line {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    box-sizing: border-box; }
+    .mat-list .mat-list-option .mat-line:nth-child(n+2), .mat-nav-list .mat-list-option .mat-line:nth-child(n+2), .mat-selection-list .mat-list-option .mat-line:nth-child(n+2) {
+      font-size: 14px; }
+
+.mat-list .mat-subheader, .mat-nav-list .mat-subheader, .mat-selection-list .mat-subheader {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 14px;
+  font-weight: 500; }
+
+.mat-list[dense] .mat-list-item, .mat-nav-list[dense] .mat-list-item, .mat-selection-list[dense] .mat-list-item {
+  font-size: 12px; }
+  .mat-list[dense] .mat-list-item .mat-line, .mat-nav-list[dense] .mat-list-item .mat-line, .mat-selection-list[dense] .mat-list-item .mat-line {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    box-sizing: border-box; }
+    .mat-list[dense] .mat-list-item .mat-line:nth-child(n+2), .mat-nav-list[dense] .mat-list-item .mat-line:nth-child(n+2), .mat-selection-list[dense] .mat-list-item .mat-line:nth-child(n+2) {
+      font-size: 12px; }
+
+.mat-list[dense] .mat-list-option, .mat-nav-list[dense] .mat-list-option, .mat-selection-list[dense] .mat-list-option {
+  font-size: 12px; }
+  .mat-list[dense] .mat-list-option .mat-line, .mat-nav-list[dense] .mat-list-option .mat-line, .mat-selection-list[dense] .mat-list-option .mat-line {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    box-sizing: border-box; }
+    .mat-list[dense] .mat-list-option .mat-line:nth-child(n+2), .mat-nav-list[dense] .mat-list-option .mat-line:nth-child(n+2), .mat-selection-list[dense] .mat-list-option .mat-line:nth-child(n+2) {
+      font-size: 12px; }
+
+.mat-list[dense] .mat-subheader, .mat-nav-list[dense] .mat-subheader, .mat-selection-list[dense] .mat-subheader {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 12px;
+  font-weight: 500; }
+
+.mat-option {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 16px; }
+
+.mat-optgroup-label {
+  font: 500 14px/24px Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-simple-snackbar {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 14px; }
+
+.mat-simple-snackbar-action {
+  line-height: 1;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: 500; }
+
+.mat-ripple {
+  overflow: hidden; }
+  @media screen and (-ms-high-contrast: active) {
+    .mat-ripple {
+      display: none; } }
+
+.mat-ripple.mat-ripple-unbounded {
+  overflow: visible; }
+
+.mat-ripple-element {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  transition: opacity, transform 0ms cubic-bezier(0, 0, 0.2, 1);
+  transform: scale(0); }
+
+.mat-option {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  line-height: 48px;
+  height: 48px;
+  padding: 0 16px;
+  text-align: left;
+  text-decoration: none;
+  position: relative;
+  cursor: pointer;
+  outline: none; }
+  .mat-option[disabled] {
+    cursor: default; }
+  [dir='rtl'] .mat-option {
+    text-align: right; }
+  .mat-option .mat-icon {
+    margin-right: 16px; }
+    [dir='rtl'] .mat-option .mat-icon {
+      margin-left: 16px;
+      margin-right: 0; }
+  .mat-option[aria-disabled='true'] {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: default; }
+  .mat-optgroup .mat-option:not(.mat-option-multiple) {
+    padding-left: 32px; }
+    [dir='rtl'] .mat-optgroup .mat-option:not(.mat-option-multiple) {
+      padding-left: 16px;
+      padding-right: 32px; }
+
+.mat-option-ripple {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  pointer-events: none; }
+  @media screen and (-ms-high-contrast: active) {
+    .mat-option-ripple {
+      opacity: 0.5; } }
+
+.mat-option-pseudo-checkbox {
+  margin-right: 8px; }
+  [dir='rtl'] .mat-option-pseudo-checkbox {
+    margin-left: 8px;
+    margin-right: 0; }
+
+.mat-optgroup-label {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  line-height: 48px;
+  height: 48px;
+  padding: 0 16px;
+  text-align: left;
+  text-decoration: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: default; }
+  .mat-optgroup-label[disabled] {
+    cursor: default; }
+  [dir='rtl'] .mat-optgroup-label {
+    text-align: right; }
+  .mat-optgroup-label .mat-icon {
+    margin-right: 16px; }
+    [dir='rtl'] .mat-optgroup-label .mat-icon {
+      margin-left: 16px;
+      margin-right: 0; }
+
+.cdk-visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px; }
+
+.cdk-overlay-container, .cdk-global-overlay-wrapper {
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%; }
+
+.cdk-overlay-container {
+  position: fixed;
+  z-index: 1000; }
+
+.cdk-global-overlay-wrapper {
+  display: flex;
+  position: absolute;
+  z-index: 1000; }
+
+.cdk-overlay-pane {
+  position: absolute;
+  pointer-events: auto;
+  box-sizing: border-box;
+  z-index: 1000; }
+
+.cdk-overlay-backdrop {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  pointer-events: auto;
+  -webkit-tap-highlight-color: transparent;
+  transition: opacity 400ms cubic-bezier(0.25, 0.8, 0.25, 1);
+  opacity: 0; }
+  .cdk-overlay-backdrop.cdk-overlay-backdrop-showing {
+    opacity: 0.48; }
+
+.cdk-overlay-dark-backdrop {
+  background: rgba(0, 0, 0, 0.6); }
+
+.cdk-overlay-transparent-backdrop {
+  background: none; }
+
+.cdk-global-scrollblock {
+  position: fixed;
+  width: 100%;
+  overflow-y: scroll; }
+
+#homePage {
+  background: url("/assets/images/nissan3.png") no-repeat;
+  background-size: contain;
+  width: 70%;
+  height: 70%;
+  position: absolute;
+  top: 8px;
+  right: 16px;
+  font-size: 18px; }
+
+.cursorPointer {
+  cursor: pointer; }
+
+.spaceCard {
+  margin-top: 2%; }
+
+.spaceCard2 {
+  margin-top: 6%; }
+
+.spaceLista {
+  margin-top: 7%; }
+
+.spaceMobileButton {
+  margin-top: 12%; }
+
+#card-menu-login {
+  vertical-align: middle;
+  align-items: center; }
+
+.ql-container {
+  height: 250px !important; }
+
+.ql-align-center {
+  text-align: center; }
+
+.ql-font-serif {
+  font-family: sans-serif; }
+
+label.mat-input-placeholder.mat-float {
+  color: #939598;
+  font-weight: bold; }
+
+.titulo {
+  font-size: 23px;
+  color: #000;
+  padding: 13px 10px; }
+
+.conteudos-content {
+  color: #7f7f7f;
+  font-size: 16px;
+  padding: 20px 12px; }
+
+.card-menu {
+  padding-top: 3% !important; }
+
+.header {
+  height: 65px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 999;
+  background-color: #fff; }
+
+.spaceButtonsMenu {
+  margin-top: 2%; }
+
+.cdk-overlay-pane {
+  padding-top: 36px;
+  /* height: 85%;
+    margin-top: 5%;
+    width: 55%; */ }
+
+.mat-option {
+  background-color: #fff; }
+
+.space-component {
+  margin-top: 10px !important;
+  margin-bottom: 10px !important; }
+
+.space-component-top {
+  margin-top: 10px !important; }
+
+.icone {
+  border-radius: 17px; }
+
+md-card {
+  padding: 0px !important; }
+
+#card-menu-perfil {
+  padding-top: 3% !important; }
+
+ul {
+  list-style: none; }
+
+md-card-header {
+  height: 58px;
+  font-size: 23px !important; }
+
+.space {
+  margin-top: 60px; }
+
+.fonte {
+  font-size: 15px; }
+
+md-card-content #login {
+  padding: 0px !important; }
+
+md-card-content .layouts {
+  padding: 2% !important; }
+
+.content {
+  margin: 10px 10px 10px 10px; }
+
+#bradge {
+  width: 200px;
+  height: 60px;
+  margin-left: 1%; }
+
+#text {
+  z-index: 100;
+  position: absolute;
+  color: #000;
+  font-size: 15px;
+  left: 177px;
+  top: -15px; }
+
+#img-text {
+  top: 18px !important;
+  left: 199px;
+  z-index: 100;
+  position: absolute;
+  font-size: 18px; }
+
+#text-down {
+  position: absolute;
+  left: 44%; }
+
+#img-text-down {
+  position: absolute;
+  left: 49%; }
+
+#logo-login {
+  width: 200px;
+  height: 40px; }
+
+.logo-footer {
+  width: 135px;
+  margin-right: 12px;
+  margin-bottom: 0px; }
+
+span.mat-select-placeholder {
+  color: #939598;
+  font-size: 14px;
+  font-weight: bold; }
+
+.mat-select-trigger {
+  margin: 1em 0;
+  height: 19px !important; }
+
+.circle-white {
+  fill: white; }
+
+.line-default {
+  stroke: #e6e6e6;
+  stroke-width: 4; }
+
+.lineIE {
+  width: 150px;
+  height: 3px;
+  margin-top: 20px;
+  background-color: #e6e6e6;
+  border: 1px solid #e6e6e6; }
+
+.button-radius {
+  width: 100px;
+  height: 100px;
+  border-radius: 4px 4px 20px 20px !important;
+  line-height: 20px !important; }
+
+.btn-alignrd {
+  padding-left: 5%; }
+
+.no-border {
+  box-shadow: 0 3px 1px -2px transparent, 0 2px 2px 0 transparent, 0 1px 5px 0 transparent !important; }
+
+.btn-confg {
+  width: 100px !important;
+  line-height: 20px !important; }
+
+.stepFour {
+  margin-left: -14px; }
+
+.stepNo {
+  margin-left: 0; }
+
+.mat-card {
+  color: #989a9c !important; }
+
+.mat-checkbox-frame {
+  border-color: #989a9c !important; }
+
+.tabcenter .mat-tab-header {
+  align-self: center; }
+
+.cardPromo {
+  width: 90%; }
+
+.imgPromo {
+  height: 40%;
+  width: 40%; }
+
+.btnSalvarPromo {
+  padding-top: 5%; }
+
+.btnDrop {
+  min-width: 35px; }
+
+.imgModelo {
+  margin: 1%;
+  max-height: 200px;
+  max-width: 200px;
+  width: auto;
+  height: auto; }
+
+.cardModelo {
+  width: 200px;
+  height: 200px;
+  padding-left: 7%; }
+
+.btnHideModel {
+  min-width: 18px !important; }
+
+.topUpdadePro {
+  padding: 1%; }
+
+.toUpdateTop {
+  padding-top: 2%;
+  padding-left: 2%; }
+
+.mat-menu-item {
+  font-size: 14px !important; }
+
+.mat-menu-content {
+  padding-top: 0px !important;
+  padding-bottom: 0px !important; }
+
+.dealer-space {
+  margin-top: 2%; }
+
+.btnSearch-model {
+  padding-top: 1%;
+  padding-left: 9%; }
+
+a:hover, a:visited, a:link {
+  text-decoration: none;
+  color: #989a9c !important; }
+
+.top-over {
+  margin-top: -12%; }
+
+.bug-input {
+  padding-top: 12px; }
+
+.text-title {
+  text-transform: uppercase;
+  font-size: 13px; }
+
+.header-title {
+  height: 36px; }
+
+.renault .mat-ripple-element {
+  background-color: rgba(0, 0, 0, 0.1); }
+
+.renault .mat-option {
+  color: rgba(0, 0, 0, 0.87); }
+  .renault .mat-option:hover:not(.mat-option-disabled), .renault .mat-option:focus:not(.mat-option-disabled) {
+    background: rgba(0, 0, 0, 0.04); }
+  .mat-primary .renault .mat-option.mat-selected {
+    color: #f7b100; }
+  .mat-accent .renault .mat-option.mat-selected {
+    color: #eeeeee; }
+  .mat-warn .renault .mat-option.mat-selected {
+    color: #f44336; }
+  .renault .mat-option.mat-selected:not(.mat-option-multiple) {
+    background: rgba(0, 0, 0, 0.04); }
+  .renault .mat-option.mat-active {
+    background: rgba(0, 0, 0, 0.04);
+    color: rgba(0, 0, 0, 0.87); }
+  .renault .mat-option.mat-option-disabled {
+    color: rgba(0, 0, 0, 0.38); }
+
+.renault .mat-optgroup-label {
+  color: rgba(0, 0, 0, 0.54); }
+
+.renault .mat-optgroup-disabled .mat-optgroup-label {
+  color: rgba(0, 0, 0, 0.38); }
+
+.renault .mat-pseudo-checkbox {
+  color: rgba(0, 0, 0, 0.54); }
+  .renault .mat-pseudo-checkbox::after {
+    color: #fafafa; }
+
+.renault .mat-pseudo-checkbox-checked,
+.renault .mat-pseudo-checkbox-indeterminate,
+.renault .mat-accent .mat-pseudo-checkbox-checked,
+.renault .mat-accent .mat-pseudo-checkbox-indeterminate {
+  background: #eeeeee; }
+
+.renault .mat-primary .mat-pseudo-checkbox-checked,
+.renault .mat-primary .mat-pseudo-checkbox-indeterminate {
+  background: #f7b100; }
+
+.renault .mat-warn .mat-pseudo-checkbox-checked,
+.renault .mat-warn .mat-pseudo-checkbox-indeterminate {
+  background: #f44336; }
+
+.renault .mat-pseudo-checkbox-checked.mat-pseudo-checkbox-disabled,
+.renault .mat-pseudo-checkbox-indeterminate.mat-pseudo-checkbox-disabled {
+  background: #b0b0b0; }
+
+.renault .mat-app-background {
+  background-color: #fafafa; }
+
+.renault .mat-theme-loaded-marker {
+  display: none; }
+
+.renault .mat-autocomplete-panel {
+  background: white;
+  color: rgba(0, 0, 0, 0.87); }
+  .renault .mat-autocomplete-panel .mat-option.mat-selected:not(.mat-active):not(:hover) {
+    background: white;
+    color: rgba(0, 0, 0, 0.87); }
+
+.renault .mat-button, .renault .mat-icon-button {
+  background: transparent; }
+  .renault .mat-button.mat-primary .mat-button-focus-overlay, .renault .mat-icon-button.mat-primary .mat-button-focus-overlay {
+    background-color: rgba(247, 177, 0, 0.12); }
+  .renault .mat-button.mat-accent .mat-button-focus-overlay, .renault .mat-icon-button.mat-accent .mat-button-focus-overlay {
+    background-color: rgba(238, 238, 238, 0.12); }
+  .renault .mat-button.mat-warn .mat-button-focus-overlay, .renault .mat-icon-button.mat-warn .mat-button-focus-overlay {
+    background-color: rgba(244, 67, 54, 0.12); }
+  .renault .mat-button[disabled] .mat-button-focus-overlay, .renault .mat-icon-button[disabled] .mat-button-focus-overlay {
+    background-color: transparent; }
+  .renault .mat-button.mat-primary, .renault .mat-icon-button.mat-primary {
+    color: #f7b100; }
+  .renault .mat-button.mat-accent, .renault .mat-icon-button.mat-accent {
+    color: #eeeeee; }
+  .renault .mat-button.mat-warn, .renault .mat-icon-button.mat-warn {
+    color: #f44336; }
+  .renault .mat-button.mat-primary[disabled], .renault .mat-button.mat-accent[disabled], .renault .mat-button.mat-warn[disabled], .renault .mat-button[disabled][disabled], .renault .mat-icon-button.mat-primary[disabled], .renault .mat-icon-button.mat-accent[disabled], .renault .mat-icon-button.mat-warn[disabled], .renault .mat-icon-button[disabled][disabled] {
+    color: rgba(0, 0, 0, 0.38); }
+
+.renault .mat-raised-button, .renault .mat-fab, .renault .mat-mini-fab {
+  color: rgba(0, 0, 0, 0.87);
+  background-color: white; }
+  .renault .mat-raised-button.mat-primary, .renault .mat-fab.mat-primary, .renault .mat-mini-fab.mat-primary {
+    color: black; }
+  .renault .mat-raised-button.mat-accent, .renault .mat-fab.mat-accent, .renault .mat-mini-fab.mat-accent {
+    color: rgba(0, 0, 0, 0.87); }
+  .renault .mat-raised-button.mat-warn, .renault .mat-fab.mat-warn, .renault .mat-mini-fab.mat-warn {
+    color: white; }
+  .renault .mat-raised-button.mat-primary[disabled], .renault .mat-raised-button.mat-accent[disabled], .renault .mat-raised-button.mat-warn[disabled], .renault .mat-raised-button[disabled][disabled], .renault .mat-fab.mat-primary[disabled], .renault .mat-fab.mat-accent[disabled], .renault .mat-fab.mat-warn[disabled], .renault .mat-fab[disabled][disabled], .renault .mat-mini-fab.mat-primary[disabled], .renault .mat-mini-fab.mat-accent[disabled], .renault .mat-mini-fab.mat-warn[disabled], .renault .mat-mini-fab[disabled][disabled] {
+    color: rgba(0, 0, 0, 0.38); }
+  .renault .mat-raised-button.mat-primary, .renault .mat-fab.mat-primary, .renault .mat-mini-fab.mat-primary {
+    background-color: #f7b100; }
+  .renault .mat-raised-button.mat-accent, .renault .mat-fab.mat-accent, .renault .mat-mini-fab.mat-accent {
+    background-color: #eeeeee; }
+  .renault .mat-raised-button.mat-warn, .renault .mat-fab.mat-warn, .renault .mat-mini-fab.mat-warn {
+    background-color: #f44336; }
+  .renault .mat-raised-button.mat-primary[disabled], .renault .mat-raised-button.mat-accent[disabled], .renault .mat-raised-button.mat-warn[disabled], .renault .mat-raised-button[disabled][disabled], .renault .mat-fab.mat-primary[disabled], .renault .mat-fab.mat-accent[disabled], .renault .mat-fab.mat-warn[disabled], .renault .mat-fab[disabled][disabled], .renault .mat-mini-fab.mat-primary[disabled], .renault .mat-mini-fab.mat-accent[disabled], .renault .mat-mini-fab.mat-warn[disabled], .renault .mat-mini-fab[disabled][disabled] {
+    background-color: rgba(0, 0, 0, 0.12); }
+  .renault .mat-raised-button.mat-primary .mat-ripple-element, .renault .mat-fab.mat-primary .mat-ripple-element, .renault .mat-mini-fab.mat-primary .mat-ripple-element {
+    background-color: rgba(0, 0, 0, 0.2); }
+  .renault .mat-raised-button.mat-accent .mat-ripple-element, .renault .mat-fab.mat-accent .mat-ripple-element, .renault .mat-mini-fab.mat-accent .mat-ripple-element {
+    background-color: rgba(0, 0, 0, 0.2); }
+  .renault .mat-raised-button.mat-warn .mat-ripple-element, .renault .mat-fab.mat-warn .mat-ripple-element, .renault .mat-mini-fab.mat-warn .mat-ripple-element {
+    background-color: rgba(255, 255, 255, 0.2); }
+
+.renault .mat-button.mat-primary .mat-ripple-element {
+  background-color: rgba(247, 177, 0, 0.1); }
+
+.renault .mat-button.mat-accent .mat-ripple-element {
+  background-color: rgba(238, 238, 238, 0.1); }
+
+.renault .mat-button.mat-warn .mat-ripple-element {
+  background-color: rgba(244, 67, 54, 0.1); }
+
+.renault .mat-icon-button.mat-primary .mat-ripple-element {
+  background-color: rgba(247, 177, 0, 0.2); }
+
+.renault .mat-icon-button.mat-accent .mat-ripple-element {
+  background-color: rgba(238, 238, 238, 0.2); }
+
+.renault .mat-icon-button.mat-warn .mat-ripple-element {
+  background-color: rgba(244, 67, 54, 0.2); }
+
+.renault .mat-button-toggle {
+  color: rgba(0, 0, 0, 0.38); }
+  .renault .mat-button-toggle.cdk-focused .mat-button-toggle-focus-overlay {
+    background-color: rgba(0, 0, 0, 0.06); }
+
+.renault .mat-button-toggle-checked {
+  background-color: #e0e0e0;
+  color: rgba(0, 0, 0, 0.54); }
+
+.renault .mat-button-toggle-disabled {
+  background-color: #eeeeee;
+  color: rgba(0, 0, 0, 0.38); }
+  .renault .mat-button-toggle-disabled.mat-button-toggle-checked {
+    background-color: #bdbdbd; }
+
+.renault .mat-card {
+  background: white;
+  color: rgba(0, 0, 0, 0.87); }
+
+.renault .mat-card-subtitle {
+  color: rgba(0, 0, 0, 0.54); }
+
+.renault .mat-checkbox-frame {
+  border-color: rgba(0, 0, 0, 0.54); }
+
+.renault .mat-checkbox-checkmark {
+  fill: #fafafa; }
+
+.renault .mat-checkbox-checkmark-path {
+  stroke: #fafafa !important; }
+
+.renault .mat-checkbox-mixedmark {
+  background-color: #fafafa; }
+
+.renault .mat-checkbox-indeterminate.mat-primary .mat-checkbox-background, .renault .mat-checkbox-checked.mat-primary .mat-checkbox-background {
+  background-color: #f7b100; }
+
+.renault .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background, .renault .mat-checkbox-checked.mat-accent .mat-checkbox-background {
+  background-color: #eeeeee; }
+
+.renault .mat-checkbox-indeterminate.mat-warn .mat-checkbox-background, .renault .mat-checkbox-checked.mat-warn .mat-checkbox-background {
+  background-color: #f44336; }
+
+.renault .mat-checkbox-disabled.mat-checkbox-checked .mat-checkbox-background, .renault .mat-checkbox-disabled.mat-checkbox-indeterminate .mat-checkbox-background {
+  background-color: #b0b0b0; }
+
+.renault .mat-checkbox-disabled:not(.mat-checkbox-checked) .mat-checkbox-frame {
+  border-color: #b0b0b0; }
+
+.renault .mat-checkbox-disabled .mat-checkbox-label {
+  color: #b0b0b0; }
+
+.renault .mat-checkbox:not(.mat-checkbox-disabled).mat-primary .mat-checkbox-ripple .mat-ripple-element {
+  background-color: rgba(247, 177, 0, 0.26); }
+
+.renault .mat-checkbox:not(.mat-checkbox-disabled).mat-accent .mat-checkbox-ripple .mat-ripple-element {
+  background-color: rgba(238, 238, 238, 0.26); }
+
+.renault .mat-checkbox:not(.mat-checkbox-disabled).mat-warn .mat-checkbox-ripple .mat-ripple-element {
+  background-color: rgba(244, 67, 54, 0.26); }
+
+.renault .mat-chip:not(.mat-basic-chip) {
+  background-color: #e0e0e0;
+  color: rgba(0, 0, 0, 0.87); }
+  .renault .mat-chip:not(.mat-basic-chip) .mat-chip-remove {
+    color: rgba(0, 0, 0, 0.87);
+    opacity: 0.4; }
+  .renault .mat-chip:not(.mat-basic-chip) .mat-chip-remove:hover {
+    opacity: 0.54; }
+
+.renault .mat-chip.mat-chip-selected.mat-primary {
+  background-color: #f7b100;
+  color: black; }
+  .renault .mat-chip.mat-chip-selected.mat-primary .mat-chip-remove {
+    color: black;
+    opacity: 0.4; }
+  .renault .mat-chip.mat-chip-selected.mat-primary .mat-chip-remove:hover {
+    opacity: 0.54; }
+
+.renault .mat-chip.mat-chip-selected.mat-warn {
+  background-color: #f44336;
+  color: white; }
+  .renault .mat-chip.mat-chip-selected.mat-warn .mat-chip-remove {
+    color: white;
+    opacity: 0.4; }
+  .renault .mat-chip.mat-chip-selected.mat-warn .mat-chip-remove:hover {
+    opacity: 0.54; }
+
+.renault .mat-chip.mat-chip-selected.mat-accent {
+  background-color: #eeeeee;
+  color: rgba(0, 0, 0, 0.87); }
+  .renault .mat-chip.mat-chip-selected.mat-accent .mat-chip-remove {
+    color: rgba(0, 0, 0, 0.87);
+    opacity: 0.4; }
+  .renault .mat-chip.mat-chip-selected.mat-accent .mat-chip-remove:hover {
+    opacity: 0.54; }
+
+.renault .mat-table {
+  background: white; }
+
+.renault .mat-row, .renault .mat-header-row {
+  border-bottom-color: rgba(0, 0, 0, 0.12); }
+
+.renault .mat-header-cell {
+  color: rgba(0, 0, 0, 0.54); }
+
+.renault .mat-cell {
+  color: rgba(0, 0, 0, 0.87); }
+
+.renault .mat-datepicker-content {
+  background-color: white;
+  color: rgba(0, 0, 0, 0.87); }
+
+.renault .mat-calendar-arrow {
+  border-top-color: rgba(0, 0, 0, 0.54); }
+
+.renault .mat-calendar-next-button,
+.renault .mat-calendar-previous-button {
+  color: rgba(0, 0, 0, 0.54); }
+
+.renault .mat-calendar-table-header {
+  color: rgba(0, 0, 0, 0.38); }
+
+.renault .mat-calendar-table-header-divider::after {
+  background: rgba(0, 0, 0, 0.12); }
+
+.renault .mat-calendar-body-label {
+  color: rgba(0, 0, 0, 0.54); }
+
+.renault .mat-calendar-body-cell-content {
+  color: rgba(0, 0, 0, 0.87);
+  border-color: transparent; }
+  .mat-calendar-body-disabled > .renault .mat-calendar-body-cell-content:not(.mat-calendar-body-selected) {
+    color: rgba(0, 0, 0, 0.38); }
+
+.renault :not(.mat-calendar-body-disabled):hover > .mat-calendar-body-cell-content:not(.mat-calendar-body-selected),
+.renault .cdk-keyboard-focused .mat-calendar-body-active > .mat-calendar-body-cell-content:not(.mat-calendar-body-selected) {
+  background-color: rgba(0, 0, 0, 0.04); }
+
+.renault .mat-calendar-body-selected {
+  background-color: #f7b100;
+  color: black; }
+
+.renault .mat-calendar-body-disabled > .mat-calendar-body-selected {
+  background-color: rgba(247, 177, 0, 0.4); }
+
+.renault .mat-calendar-body-today:not(.mat-calendar-body-selected) {
+  border-color: rgba(0, 0, 0, 0.38); }
+
+.renault .mat-calendar-body-today.mat-calendar-body-selected {
+  box-shadow: inset 0 0 0 1px black; }
+
+.renault .mat-calendar-body-disabled > .mat-calendar-body-today:not(.mat-calendar-body-selected) {
+  border-color: rgba(0, 0, 0, 0.18); }
+
+.renault .mat-dialog-container {
+  background: white;
+  color: rgba(0, 0, 0, 0.87); }
+
+.renault .mat-expansion-panel {
+  background: white;
+  color: rgba(0, 0, 0, 0.87); }
+
+.renault .mat-action-row {
+  border-top-color: rgba(0, 0, 0, 0.12); }
+
+.renault .mat-expansion-panel-header:not([aria-disabled='true']).cdk-keyboard-focused, .renault .mat-expansion-panel-header:not([aria-disabled='true']).cdk-program-focused, .renault .mat-expansion-panel-header:not([aria-disabled='true']):hover {
+  background: rgba(0, 0, 0, 0.04); }
+
+.renault .mat-expansion-panel-header-title {
+  color: rgba(0, 0, 0, 0.87); }
+
+.renault .mat-expansion-panel-header-description,
+.renault .mat-expansion-indicator::after {
+  color: rgba(0, 0, 0, 0.54); }
+
+.renault .mat-expansion-panel-header[aria-disabled='true'] {
+  color: rgba(0, 0, 0, 0.38); }
+  .renault .mat-expansion-panel-header[aria-disabled='true'] .mat-expansion-panel-header-title,
+  .renault .mat-expansion-panel-header[aria-disabled='true'] .mat-expansion-panel-header-description {
+    color: inherit; }
+
+.renault .mat-form-field {
+  width: 200px; }
+
+.renault .mat-form-field-placeholder {
+  color: rgba(0, 0, 0, 0.54); }
+
+.renault .mat-hint {
+  color: rgba(0, 0, 0, 0.54); }
+
+.renault .mat-focused .mat-form-field-placeholder {
+  color: #f7b100; }
+  .renault .mat-focused .mat-form-field-placeholder.mat-accent {
+    color: #eeeeee; }
+  .renault .mat-focused .mat-form-field-placeholder.mat-warn {
+    color: #f44336; }
+
+.renault .mat-form-field-autofill-float:-webkit-autofill + .mat-form-field-placeholder .mat-form-field-required-marker,
+.renault .mat-focused .mat-form-field-placeholder.mat-form-field-float .mat-form-field-required-marker {
+  color: #eeeeee; }
+
+.renault .mat-form-field-underline {
+  background-color: rgba(0, 0, 0, 0.42); }
+  .renault .mat-form-field-underline.mat-disabled {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.42) 0%, rgba(0, 0, 0, 0.42) 33%, transparent 0%);
+    background-size: 4px 1px;
+    background-repeat: repeat-x; }
+
+.renault .mat-form-field-ripple {
+  background-color: #f7b100; }
+  .renault .mat-form-field-ripple.mat-accent {
+    background-color: #eeeeee; }
+  .renault .mat-form-field-ripple.mat-warn {
+    background-color: #f44336; }
+
+.renault .mat-form-field-invalid .mat-form-field-placeholder {
+  color: #f44336; }
+  .renault .mat-form-field-invalid .mat-form-field-placeholder.mat-accent,
+  .renault .mat-form-field-invalid .mat-form-field-placeholder.mat-form-field-float .mat-form-field-required-marker {
+    color: #f44336; }
+
+.renault .mat-form-field-invalid .mat-form-field-ripple {
+  background-color: #f44336; }
+
+.renault .mat-error {
+  color: #f44336; }
+
+.renault .mat-icon.mat-primary {
+  color: #f7b100; }
+
+.renault .mat-icon.mat-accent {
+  color: #eeeeee; }
+
+.renault .mat-icon.mat-warn {
+  color: #f44336; }
+
+.renault .mat-input-element:disabled {
+  color: rgba(0, 0, 0, 0.42); }
+
+.renault .mat-list .mat-list-item, .renault .mat-nav-list .mat-list-item, .renault .mat-selection-list .mat-list-item {
+  color: rgba(0, 0, 0, 0.87); }
+
+.renault .mat-list .mat-list-option, .renault .mat-nav-list .mat-list-option, .renault .mat-selection-list .mat-list-option {
+  color: rgba(0, 0, 0, 0.87); }
+
+.renault .mat-list .mat-subheader, .renault .mat-nav-list .mat-subheader, .renault .mat-selection-list .mat-subheader {
+  color: rgba(0, 0, 0, 0.54); }
+
+.renault .mat-list-item-disabled {
+  background-color: #eeeeee; }
+
+.renault .mat-divider {
+  border-top-color: rgba(0, 0, 0, 0.12); }
+
+.renault .mat-nav-list .mat-list-item {
+  outline: none; }
+  .renault .mat-nav-list .mat-list-item:hover, .renault .mat-nav-list .mat-list-item.mat-list-item-focus {
+    background: rgba(0, 0, 0, 0.04); }
+
+.renault .mat-list-option {
+  outline: none; }
+  .renault .mat-list-option:hover, .renault .mat-list-option.mat-list-item-focus {
+    background: rgba(0, 0, 0, 0.04); }
+
+.renault .mat-menu-panel {
+  background: white; }
+
+.renault .mat-menu-item {
+  background: transparent;
+  color: rgba(0, 0, 0, 0.87); }
+  .renault .mat-menu-item[disabled] {
+    color: rgba(0, 0, 0, 0.38); }
+
+.renault .mat-menu-item .mat-icon,
+.renault .mat-menu-item-submenu-trigger::after {
+  color: rgba(0, 0, 0, 0.54); }
+
+.renault .mat-menu-item:hover:not([disabled]),
+.renault .mat-menu-item:focus:not([disabled]),
+.renault .mat-menu-item-highlighted:not([disabled]) {
+  background: rgba(0, 0, 0, 0.04); }
+
+.renault .mat-paginator {
+  background: white; }
+
+.renault .mat-paginator,
+.renault .mat-paginator-page-size .mat-select-trigger {
+  color: rgba(0, 0, 0, 0.54); }
+
+.renault .mat-paginator-increment,
+.renault .mat-paginator-decrement {
+  border-top: 2px solid rgba(0, 0, 0, 0.54);
+  border-right: 2px solid rgba(0, 0, 0, 0.54); }
+
+.renault .mat-icon-button[disabled] .mat-paginator-increment,
+.renault .mat-icon-button[disabled] .mat-paginator-decrement {
+  border-color: rgba(0, 0, 0, 0.38); }
+
+.renault .mat-progress-bar-background {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20version%3D%271.1%27%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20xmlns%3Axlink%3D%27http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%27%20x%3D%270px%27%20y%3D%270px%27%20enable-background%3D%27new%200%200%205%202%27%20xml%3Aspace%3D%27preserve%27%20viewBox%3D%270%200%205%202%27%20preserveAspectRatio%3D%27none%20slice%27%3E%3Ccircle%20cx%3D%271%27%20cy%3D%271%27%20r%3D%271%27%20fill%3D%27black%27%2F%3E%3C%2Fsvg%3E"); }
+
+.renault .mat-progress-bar-buffer {
+  background-color: black; }
+
+.renault .mat-progress-bar-fill::after {
+  background-color: #f7b100; }
+
+.renault .mat-progress-bar.mat-accent .mat-progress-bar-background {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20version%3D%271.1%27%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20xmlns%3Axlink%3D%27http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%27%20x%3D%270px%27%20y%3D%270px%27%20enable-background%3D%27new%200%200%205%202%27%20xml%3Aspace%3D%27preserve%27%20viewBox%3D%270%200%205%202%27%20preserveAspectRatio%3D%27none%20slice%27%3E%3Ccircle%20cx%3D%271%27%20cy%3D%271%27%20r%3D%271%27%20fill%3D%27white%27%2F%3E%3C%2Fsvg%3E"); }
+
+.renault .mat-progress-bar.mat-accent .mat-progress-bar-buffer {
+  background-color: white; }
+
+.renault .mat-progress-bar.mat-accent .mat-progress-bar-fill::after {
+  background-color: #eeeeee; }
+
+.renault .mat-progress-bar.mat-warn .mat-progress-bar-background {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20version%3D%271.1%27%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20xmlns%3Axlink%3D%27http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%27%20x%3D%270px%27%20y%3D%270px%27%20enable-background%3D%27new%200%200%205%202%27%20xml%3Aspace%3D%27preserve%27%20viewBox%3D%270%200%205%202%27%20preserveAspectRatio%3D%27none%20slice%27%3E%3Ccircle%20cx%3D%271%27%20cy%3D%271%27%20r%3D%271%27%20fill%3D%27%23ffcdd2%27%2F%3E%3C%2Fsvg%3E"); }
+
+.renault .mat-progress-bar.mat-warn .mat-progress-bar-buffer {
+  background-color: #ffcdd2; }
+
+.renault .mat-progress-bar.mat-warn .mat-progress-bar-fill::after {
+  background-color: #f44336; }
+
+.renault .mat-progress-spinner path, .renault .mat-spinner path {
+  stroke: #f7b100; }
+
+.renault .mat-progress-spinner.mat-accent path, .renault .mat-spinner.mat-accent path {
+  stroke: #eeeeee; }
+
+.renault .mat-progress-spinner.mat-warn path, .renault .mat-spinner.mat-warn path {
+  stroke: #f44336; }
+
+.renault .mat-radio-outer-circle {
+  border-color: rgba(0, 0, 0, 0.54); }
+
+.renault .mat-radio-disabled .mat-radio-outer-circle {
+  border-color: rgba(0, 0, 0, 0.38); }
+
+.renault .mat-radio-disabled .mat-radio-ripple .mat-ripple-element, .renault .mat-radio-disabled .mat-radio-inner-circle {
+  background-color: rgba(0, 0, 0, 0.38); }
+
+.renault .mat-radio-disabled .mat-radio-label-content {
+  color: rgba(0, 0, 0, 0.38); }
+
+.renault .mat-radio-button.mat-primary.mat-radio-checked .mat-radio-outer-circle {
+  border-color: #f7b100; }
+
+.renault .mat-radio-button.mat-primary .mat-radio-inner-circle {
+  background-color: #f7b100; }
+
+.renault .mat-radio-button.mat-primary .mat-radio-ripple .mat-ripple-element {
+  background-color: rgba(247, 177, 0, 0.26); }
+
+.renault .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+  border-color: #eeeeee; }
+
+.renault .mat-radio-button.mat-accent .mat-radio-inner-circle {
+  background-color: #eeeeee; }
+
+.renault .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
+  background-color: rgba(238, 238, 238, 0.26); }
+
+.renault .mat-radio-button.mat-warn.mat-radio-checked .mat-radio-outer-circle {
+  border-color: #f44336; }
+
+.renault .mat-radio-button.mat-warn .mat-radio-inner-circle {
+  background-color: #f44336; }
+
+.renault .mat-radio-button.mat-warn .mat-radio-ripple .mat-ripple-element {
+  background-color: rgba(244, 67, 54, 0.26); }
+
+.renault .mat-select-trigger,
+.renault .mat-select-arrow {
+  color: rgba(0, 0, 0, 0.54); }
+
+.renault .mat-select-underline {
+  background-color: rgba(0, 0, 0, 0.42); }
+
+.renault [aria-disabled='true'] .mat-select-underline {
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.42) 0%, rgba(0, 0, 0, 0.42) 33%, transparent 0%);
+  background-size: 4px 1px;
+  background-repeat: repeat-x; }
+
+.renault .mat-select-disabled .mat-select-value,
+.renault .mat-select-arrow,
+.renault .mat-select-trigger {
+  color: rgba(0, 0, 0, 0.54); }
+
+.renault .mat-select-content, .renault .mat-select-panel-done-animating {
+  background: white; }
+
+.renault .mat-select-value {
+  color: rgba(0, 0, 0, 0.87); }
+
+.renault .mat-select-panel .mat-option.mat-selected:not(.mat-option-multiple) {
+  background: rgba(0, 0, 0, 0.12); }
+
+.renault .mat-select:focus:not(.mat-select-disabled).mat-primary .mat-select-trigger, .renault .mat-select:focus:not(.mat-select-disabled).mat-primary .mat-select-arrow {
+  color: #f7b100; }
+
+.renault .mat-select:focus:not(.mat-select-disabled).mat-primary .mat-select-underline {
+  background-color: #f7b100; }
+
+.renault .mat-select:focus:not(.mat-select-disabled).mat-accent .mat-select-trigger, .renault .mat-select:focus:not(.mat-select-disabled).mat-accent .mat-select-arrow {
+  color: #eeeeee; }
+
+.renault .mat-select:focus:not(.mat-select-disabled).mat-accent .mat-select-underline {
+  background-color: #eeeeee; }
+
+.renault .mat-select:focus:not(.mat-select-disabled).mat-select-required .mat-select-placeholder::after {
+  color: #f44336; }
+
+.renault .mat-select:focus:not(.mat-select-disabled).mat-warn .mat-select-trigger, .renault .mat-select:focus:not(.mat-select-disabled).mat-warn .mat-select-arrow, .renault .mat-select-invalid .mat-select-trigger, .renault .mat-select-invalid .mat-select-arrow {
+  color: #f44336; }
+
+.renault .mat-select:focus:not(.mat-select-disabled).mat-warn .mat-select-underline, .renault .mat-select-invalid .mat-select-underline {
+  background-color: #f44336; }
+
+.renault .mat-drawer-container {
+  background-color: #fafafa;
+  color: rgba(0, 0, 0, 0.87); }
+
+.renault .mat-drawer {
+  background-color: white;
+  color: rgba(0, 0, 0, 0.87); }
+  .renault .mat-drawer.mat-drawer-push {
+    background-color: white; }
+
+.renault .mat-drawer-backdrop.mat-drawer-shown {
+  background-color: rgba(0, 0, 0, 0.6); }
+
+.renault .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
+  background-color: #9e9e9e; }
+
+.renault .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
+  background-color: rgba(158, 158, 158, 0.5); }
+
+.renault .mat-slide-toggle:not(.mat-checked) .mat-ripple-element {
+  background-color: rgba(0, 0, 0, 0.06); }
+
+.renault .mat-slide-toggle .mat-ripple-element {
+  background-color: rgba(158, 158, 158, 0.12); }
+
+.renault .mat-slide-toggle.mat-primary.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
+  background-color: #e2a507; }
+
+.renault .mat-slide-toggle.mat-primary.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
+  background-color: rgba(226, 165, 7, 0.5); }
+
+.renault .mat-slide-toggle.mat-primary:not(.mat-checked) .mat-ripple-element {
+  background-color: rgba(0, 0, 0, 0.06); }
+
+.renault .mat-slide-toggle.mat-primary .mat-ripple-element {
+  background-color: rgba(226, 165, 7, 0.12); }
+
+.renault .mat-slide-toggle.mat-warn.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
+  background-color: #f44336; }
+
+.renault .mat-slide-toggle.mat-warn.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
+  background-color: rgba(244, 67, 54, 0.5); }
+
+.renault .mat-slide-toggle.mat-warn:not(.mat-checked) .mat-ripple-element {
+  background-color: rgba(0, 0, 0, 0.06); }
+
+.renault .mat-slide-toggle.mat-warn .mat-ripple-element {
+  background-color: rgba(244, 67, 54, 0.12); }
+
+.renault .mat-disabled .mat-slide-toggle-thumb {
+  background-color: #bdbdbd; }
+
+.renault .mat-disabled .mat-slide-toggle-bar {
+  background-color: rgba(0, 0, 0, 0.1); }
+
+.renault .mat-slide-toggle-thumb {
+  background-color: #fafafa; }
+
+.renault .mat-slide-toggle-bar {
+  background-color: rgba(0, 0, 0, 0.38); }
+
+.renault .mat-slider-track-background {
+  background-color: rgba(0, 0, 0, 0.26); }
+
+.renault .mat-primary .mat-slider-track-fill,
+.renault .mat-primary .mat-slider-thumb,
+.renault .mat-primary .mat-slider-thumb-label {
+  background-color: #f7b100; }
+
+.renault .mat-primary .mat-slider-thumb-label-text {
+  color: black; }
+
+.renault .mat-accent .mat-slider-track-fill,
+.renault .mat-accent .mat-slider-thumb,
+.renault .mat-accent .mat-slider-thumb-label {
+  background-color: #eeeeee; }
+
+.renault .mat-accent .mat-slider-thumb-label-text {
+  color: rgba(0, 0, 0, 0.87); }
+
+.renault .mat-warn .mat-slider-track-fill,
+.renault .mat-warn .mat-slider-thumb,
+.renault .mat-warn .mat-slider-thumb-label {
+  background-color: #f44336; }
+
+.renault .mat-warn .mat-slider-thumb-label-text {
+  color: white; }
+
+.renault .mat-slider-focus-ring {
+  background-color: rgba(238, 238, 238, 0.2); }
+
+.renault .mat-slider:hover .mat-slider-track-background,
+.renault .cdk-focused .mat-slider-track-background {
+  background-color: rgba(0, 0, 0, 0.38); }
+
+.renault .mat-slider-disabled .mat-slider-track-background,
+.renault .mat-slider-disabled .mat-slider-track-fill,
+.renault .mat-slider-disabled .mat-slider-thumb {
+  background-color: rgba(0, 0, 0, 0.26); }
+
+.renault .mat-slider-disabled:hover .mat-slider-track-background {
+  background-color: rgba(0, 0, 0, 0.26); }
+
+.renault .mat-slider-min-value .mat-slider-focus-ring {
+  background-color: rgba(0, 0, 0, 0.12); }
+
+.renault .mat-slider-min-value.mat-slider-thumb-label-showing .mat-slider-thumb,
+.renault .mat-slider-min-value.mat-slider-thumb-label-showing .mat-slider-thumb-label {
+  background-color: rgba(0, 0, 0, 0.87); }
+
+.renault .mat-slider-min-value.mat-slider-thumb-label-showing.cdk-focused .mat-slider-thumb,
+.renault .mat-slider-min-value.mat-slider-thumb-label-showing.cdk-focused .mat-slider-thumb-label {
+  background-color: rgba(0, 0, 0, 0.26); }
+
+.renault .mat-slider-min-value:not(.mat-slider-thumb-label-showing) .mat-slider-thumb {
+  border-color: rgba(0, 0, 0, 0.26);
+  background-color: transparent; }
+
+.renault .mat-slider-min-value:not(.mat-slider-thumb-label-showing):hover .mat-slider-thumb, .renault .mat-slider-min-value:not(.mat-slider-thumb-label-showing).cdk-focused .mat-slider-thumb {
+  border-color: rgba(0, 0, 0, 0.38); }
+
+.renault .mat-slider-min-value:not(.mat-slider-thumb-label-showing):hover.mat-slider-disabled .mat-slider-thumb, .renault .mat-slider-min-value:not(.mat-slider-thumb-label-showing).cdk-focused.mat-slider-disabled .mat-slider-thumb {
+  border-color: rgba(0, 0, 0, 0.26); }
+
+.renault .mat-slider-has-ticks .mat-slider-wrapper::after {
+  border-color: rgba(0, 0, 0, 0.7); }
+
+.renault .mat-slider-horizontal .mat-slider-ticks {
+  background-image: repeating-linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) 2px, transparent 0, transparent);
+  background-image: -moz-repeating-linear-gradient(0.0001deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) 2px, transparent 0, transparent); }
+
+.renault .mat-slider-vertical .mat-slider-ticks {
+  background-image: repeating-linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) 2px, transparent 0, transparent); }
+
+.renault .mat-tab-nav-bar,
+.renault .mat-tab-header {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12); }
+
+.renault .mat-tab-group-inverted-header .mat-tab-nav-bar,
+.renault .mat-tab-group-inverted-header .mat-tab-header {
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+  border-bottom: none; }
+
+.renault .mat-tab-label, .renault .mat-tab-link {
+  color: rgba(0, 0, 0, 0.87); }
+  .renault .mat-tab-label.mat-tab-disabled, .renault .mat-tab-link.mat-tab-disabled {
+    color: rgba(0, 0, 0, 0.38); }
+
+.renault .mat-tab-header-pagination-chevron {
+  border-color: rgba(0, 0, 0, 0.87); }
+
+.renault .mat-tab-header-pagination-disabled .mat-tab-header-pagination-chevron {
+  border-color: rgba(0, 0, 0, 0.38); }
+
+.renault .mat-tab-group[class*='mat-background-'] .mat-tab-header,
+.renault .mat-tab-nav-bar[class*='mat-background-'] {
+  border-bottom: none;
+  border-top: none; }
+
+.renault .mat-tab-group.mat-primary .mat-tab-label:focus, .renault .mat-tab-group.mat-primary .mat-tab-link:focus, .renault .mat-tab-nav-bar.mat-primary .mat-tab-label:focus, .renault .mat-tab-nav-bar.mat-primary .mat-tab-link:focus {
+  background-color: rgba(0, 0, 0, 0.3); }
+
+.renault .mat-tab-group.mat-primary .mat-ink-bar, .renault .mat-tab-nav-bar.mat-primary .mat-ink-bar {
+  background-color: #f7b100; }
+
+.renault .mat-tab-group.mat-primary.mat-background-primary .mat-ink-bar, .renault .mat-tab-nav-bar.mat-primary.mat-background-primary .mat-ink-bar {
+  background-color: black; }
+
+.renault .mat-tab-group.mat-accent .mat-tab-label:focus, .renault .mat-tab-group.mat-accent .mat-tab-link:focus, .renault .mat-tab-nav-bar.mat-accent .mat-tab-label:focus, .renault .mat-tab-nav-bar.mat-accent .mat-tab-link:focus {
+  background-color: rgba(255, 255, 255, 0.3); }
+
+.renault .mat-tab-group.mat-accent .mat-ink-bar, .renault .mat-tab-nav-bar.mat-accent .mat-ink-bar {
+  background-color: #eeeeee; }
+
+.renault .mat-tab-group.mat-accent.mat-background-accent .mat-ink-bar, .renault .mat-tab-nav-bar.mat-accent.mat-background-accent .mat-ink-bar {
+  background-color: rgba(0, 0, 0, 0.87); }
+
+.renault .mat-tab-group.mat-warn .mat-tab-label:focus, .renault .mat-tab-group.mat-warn .mat-tab-link:focus, .renault .mat-tab-nav-bar.mat-warn .mat-tab-label:focus, .renault .mat-tab-nav-bar.mat-warn .mat-tab-link:focus {
+  background-color: rgba(255, 205, 210, 0.3); }
+
+.renault .mat-tab-group.mat-warn .mat-ink-bar, .renault .mat-tab-nav-bar.mat-warn .mat-ink-bar {
+  background-color: #f44336; }
+
+.renault .mat-tab-group.mat-warn.mat-background-warn .mat-ink-bar, .renault .mat-tab-nav-bar.mat-warn.mat-background-warn .mat-ink-bar {
+  background-color: white; }
+
+.renault .mat-tab-group.mat-background-primary .mat-tab-label:focus, .renault .mat-tab-group.mat-background-primary .mat-tab-link:focus, .renault .mat-tab-nav-bar.mat-background-primary .mat-tab-label:focus, .renault .mat-tab-nav-bar.mat-background-primary .mat-tab-link:focus {
+  background-color: rgba(0, 0, 0, 0.3); }
+
+.renault .mat-tab-group.mat-background-primary .mat-tab-header, .renault .mat-tab-group.mat-background-primary .mat-tab-links, .renault .mat-tab-nav-bar.mat-background-primary .mat-tab-header, .renault .mat-tab-nav-bar.mat-background-primary .mat-tab-links {
+  background-color: #f7b100; }
+
+.renault .mat-tab-group.mat-background-primary .mat-tab-label, .renault .mat-tab-group.mat-background-primary .mat-tab-link, .renault .mat-tab-nav-bar.mat-background-primary .mat-tab-label, .renault .mat-tab-nav-bar.mat-background-primary .mat-tab-link {
+  color: black; }
+  .renault .mat-tab-group.mat-background-primary .mat-tab-label.mat-tab-disabled, .renault .mat-tab-group.mat-background-primary .mat-tab-link.mat-tab-disabled, .renault .mat-tab-nav-bar.mat-background-primary .mat-tab-label.mat-tab-disabled, .renault .mat-tab-nav-bar.mat-background-primary .mat-tab-link.mat-tab-disabled {
+    color: rgba(0, 0, 0, 0.4); }
+
+.renault .mat-tab-group.mat-background-primary .mat-tab-header-pagination-chevron, .renault .mat-tab-nav-bar.mat-background-primary .mat-tab-header-pagination-chevron {
+  border-color: black; }
+
+.renault .mat-tab-group.mat-background-primary .mat-tab-header-pagination-disabled .mat-tab-header-pagination-chevron, .renault .mat-tab-nav-bar.mat-background-primary .mat-tab-header-pagination-disabled .mat-tab-header-pagination-chevron {
+  border-color: rgba(0, 0, 0, 0.4); }
+
+.renault .mat-tab-group.mat-background-accent .mat-tab-label:focus, .renault .mat-tab-group.mat-background-accent .mat-tab-link:focus, .renault .mat-tab-nav-bar.mat-background-accent .mat-tab-label:focus, .renault .mat-tab-nav-bar.mat-background-accent .mat-tab-link:focus {
+  background-color: rgba(255, 255, 255, 0.3); }
+
+.renault .mat-tab-group.mat-background-accent .mat-tab-header, .renault .mat-tab-group.mat-background-accent .mat-tab-links, .renault .mat-tab-nav-bar.mat-background-accent .mat-tab-header, .renault .mat-tab-nav-bar.mat-background-accent .mat-tab-links {
+  background-color: #eeeeee; }
+
+.renault .mat-tab-group.mat-background-accent .mat-tab-label, .renault .mat-tab-group.mat-background-accent .mat-tab-link, .renault .mat-tab-nav-bar.mat-background-accent .mat-tab-label, .renault .mat-tab-nav-bar.mat-background-accent .mat-tab-link {
+  color: rgba(0, 0, 0, 0.87); }
+  .renault .mat-tab-group.mat-background-accent .mat-tab-label.mat-tab-disabled, .renault .mat-tab-group.mat-background-accent .mat-tab-link.mat-tab-disabled, .renault .mat-tab-nav-bar.mat-background-accent .mat-tab-label.mat-tab-disabled, .renault .mat-tab-nav-bar.mat-background-accent .mat-tab-link.mat-tab-disabled {
+    color: rgba(0, 0, 0, 0.4); }
+
+.renault .mat-tab-group.mat-background-accent .mat-tab-header-pagination-chevron, .renault .mat-tab-nav-bar.mat-background-accent .mat-tab-header-pagination-chevron {
+  border-color: rgba(0, 0, 0, 0.87); }
+
+.renault .mat-tab-group.mat-background-accent .mat-tab-header-pagination-disabled .mat-tab-header-pagination-chevron, .renault .mat-tab-nav-bar.mat-background-accent .mat-tab-header-pagination-disabled .mat-tab-header-pagination-chevron {
+  border-color: rgba(0, 0, 0, 0.4); }
+
+.renault .mat-tab-group.mat-background-warn .mat-tab-label:focus, .renault .mat-tab-group.mat-background-warn .mat-tab-link:focus, .renault .mat-tab-nav-bar.mat-background-warn .mat-tab-label:focus, .renault .mat-tab-nav-bar.mat-background-warn .mat-tab-link:focus {
+  background-color: rgba(255, 205, 210, 0.3); }
+
+.renault .mat-tab-group.mat-background-warn .mat-tab-header, .renault .mat-tab-group.mat-background-warn .mat-tab-links, .renault .mat-tab-nav-bar.mat-background-warn .mat-tab-header, .renault .mat-tab-nav-bar.mat-background-warn .mat-tab-links {
+  background-color: #f44336; }
+
+.renault .mat-tab-group.mat-background-warn .mat-tab-label, .renault .mat-tab-group.mat-background-warn .mat-tab-link, .renault .mat-tab-nav-bar.mat-background-warn .mat-tab-label, .renault .mat-tab-nav-bar.mat-background-warn .mat-tab-link {
+  color: white; }
+  .renault .mat-tab-group.mat-background-warn .mat-tab-label.mat-tab-disabled, .renault .mat-tab-group.mat-background-warn .mat-tab-link.mat-tab-disabled, .renault .mat-tab-nav-bar.mat-background-warn .mat-tab-label.mat-tab-disabled, .renault .mat-tab-nav-bar.mat-background-warn .mat-tab-link.mat-tab-disabled {
+    color: rgba(255, 255, 255, 0.4); }
+
+.renault .mat-tab-group.mat-background-warn .mat-tab-header-pagination-chevron, .renault .mat-tab-nav-bar.mat-background-warn .mat-tab-header-pagination-chevron {
+  border-color: white; }
+
+.renault .mat-tab-group.mat-background-warn .mat-tab-header-pagination-disabled .mat-tab-header-pagination-chevron, .renault .mat-tab-nav-bar.mat-background-warn .mat-tab-header-pagination-disabled .mat-tab-header-pagination-chevron {
+  border-color: rgba(255, 255, 255, 0.4); }
+
+.renault .mat-toolbar {
+  background: whitesmoke;
+  color: rgba(0, 0, 0, 0.87); }
+  .renault .mat-toolbar.mat-primary {
+    background: #f7b100;
+    color: black; }
+  .renault .mat-toolbar.mat-accent {
+    background: #eeeeee;
+    color: rgba(0, 0, 0, 0.87); }
+  .renault .mat-toolbar.mat-warn {
+    background: #f44336;
+    color: white; }
+
+.renault .mat-tooltip {
+  background: rgba(97, 97, 97, 0.9); }
+
+.renault .mat-snack-bar-container {
+  background: #323232;
+  color: white; }
+
+.renault .mat-simple-snackbar-action {
+  color: #eeeeee; }
+
+.renault .resumContainSVG {
+  fill: #f7b100 !important; }
+
+.renault #text {
+  color: black !important; }
+
+.renault #img-text {
+  color: black !important; }
+
+.renault #text-down {
+  color: black !important; }
+
+.renault #img-text-down {
+  color: black !important; }
+
+.renault .color-border-default {
+  border: 1px solid #f7b100; }
+
+.renault .black-color {
+  color: #000; }
+
+.renault .font-bold {
+  font-weight: bold; }
+
+.renault .font-default {
+  color: #939598; }
+
+.renault .background-black {
+  background-color: #000000 !important;
+  color: #ffffff !important; }
+
+.renault .background-black-disabled {
+  background-color: #BBBBBB !important;
+  color: #ffffff !important; }
+
+.renault .active {
+  border-bottom: solid #f7b100; }
+
+.renault .mat-tab-label {
+  font-weight: bold;
+  color: #000; }
+
+.renault .mat-toolbar-row {
+  height: 45px !important; }
+
+.renault .calculationselected {
+  -webkit-box-shadow: inset 0px 0px 0px 5px #f7b100;
+  -moz-box-shadow: inset 0px 0px 0px 5px #f7b100;
+  box-shadow: inset 0px 0px 0px 5px #f7b100 !important;
+  background-color: #fef6e0; }
+
+.renault .selectedcar {
+  -webkit-box-shadow: inset 0px 0px 0px 10px #f7b100;
+  -moz-box-shadow: inset 0px 0px 0px 10px #f7b100;
+  box-shadow: inset 0px 0px 0px 10px #f7b100 !important;
+  background-color: #f7b100;
+  border-radius: 7px;
+  color: black; }
+
+.renault .buttonMobileFooter {
+  background: #4a4a4a !important;
+  color: white !important;
+  min-height: 46px;
+  position: absolute !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  align-items: center !important;
+  margin-top: 20%;
+  left: 0; }
+
+.renault .fieldInvalid .mat-input-placeholder-wrapper {
+  color: red; }
+
+.renault .fieldInvalid .mat-input-placeholder {
+  color: red; }
+
+.renault .fieldInvalid .mat-input-underline {
+  background-color: red; }
+
+.renault .ngx-datatable.material.single-selection .datatable-body-row.active .datatable-row-group {
+  color: #f7b100; }
+
+.renault .newsli {
+  cursor: pointer;
+  display: inline-flex;
+  display: table; }
+
+.renault .news {
+  display: table-cell;
+  vertical-align: middle;
+  display: inline-flex;
+  padding: 10px; }
+
+.renault .spannews {
+  padding-left: 10px; }
+
+.renault .newscircle {
+  width: 7px;
+  height: 7px;
+  background-color: #f7b100;
+  border-radius: 4px;
+  transform: translateY(100%); }
+
+.renault md-card-header {
+  background-color: #f7b100; }
+
+.renault .concessionaria {
+  background-color: #f7b100; }
+
+.renault .notification_background {
+  background-color: #f7b100;
+  border: 2px solid #f7b100; }
+
+.renault .notification_row {
+  border-color: #f7b100; }
+
+.renault .newsli::before {
+  color: #f7b100; }
+
+.renault .icone {
+  background-color: #f7b100;
+  color: #fff; }
+
+.renault .icon {
+  color: #f7b100; }
+
+.renault .color-stepper {
+  fill: #f7b100; }
+
+.renault .color-stepperIE {
+  background-color: #f7b100; }
+
+.renault .lineColorIE {
+  background-color: #f7b100 !important;
+  border: 1px solid #f7b100 !important; }
+
+.renault .line-stepper {
+  stroke: #f7b100;
+  stroke-width: 4; }
+
+.renault .mat-checkbox-checked .mat-checkbox-background {
+  background-color: #f7b100 !important; }
+
+.renault .mat-radio-inner-circle {
+  background-color: #f7b100 !important; }
+
+.renault .mat-radio-checked .mat-radio-outer-circle {
+  border-color: #f7b100 !important; }
+
+.renault .ngx-datatable.material .datatable-header {
+  background-color: #f7b100 !important;
+  height: 36px !important; }
+
+.renault .ngx-datatable.material .datatable-header .datatable-header-cell {
+  background-color: #f7b100 !important;
+  color: black !important;
+  text-transform: uppercase;
+  font-size: 13px;
+  height: 36px !important; }
+
+.renault .datatable-header {
+  height: 36px !important; }
+
+.renault .stepperIE {
+  width: 40px;
+  height: 40px;
+  border-radius: 100px;
+  border: 2px solid #e6e6e6; }
+
+.renault .stepperLineIE {
+  width: 150px;
+  height: 6px;
+  background: #ccc;
+  margin-top: 22px;
+  border: 1px solid #ccc; }
+
+.renault .logo {
+  background-size: contain;
+  width: 70%;
+  height: 70%;
+  position: absolute;
+  top: 8px;
+  right: 16px;
+  font-size: 18px; }
+
+.renault .ic-menu {
+  background: url("/assets/images/ic-menu-renault.png") no-repeat;
+  width: 49px;
+  height: 32px;
+  margin-left: 13px;
+  background-size: contain; }
+
+.renault .logo-footer {
+  background: url("/assets/images/logo_renault.png") no-repeat;
+  background-size: cover;
+  height: 35px; }
+
+.renault #bradge {
+  background: url("/assets/images/logo_renault.png") no-repeat;
+  margin-top: 3%; }
+
+.renault #logo-theme {
+  background: url("/assets/images/background_login_renault.jpg") no-repeat; }
+
+.renault #logo-login {
+  background: url("/assets/images/logo_renault.png") no-repeat; }
+
+.renault md-card-header {
+  color: rgba(0, 0, 0, 0.87); }
+
+.renault .concessionaria {
+  color: rgba(0, 0, 0, 0.87); }
+
+.md-primary {
+  background-color: #3f51b5;
+  color: white; }
+
+.nissan .mat-ripple-element {
+  background-color: rgba(0, 0, 0, 0.1); }
+
+.nissan .mat-option {
+  color: rgba(0, 0, 0, 0.87); }
+  .nissan .mat-option:hover:not(.mat-option-disabled), .nissan .mat-option:focus:not(.mat-option-disabled) {
+    background: rgba(0, 0, 0, 0.04); }
+  .mat-primary .nissan .mat-option.mat-selected {
+    color: #c51733; }
+  .mat-accent .nissan .mat-option.mat-selected {
+    color: #eeeeee; }
+  .mat-warn .nissan .mat-option.mat-selected {
+    color: #f44336; }
+  .nissan .mat-option.mat-selected:not(.mat-option-multiple) {
+    background: rgba(0, 0, 0, 0.04); }
+  .nissan .mat-option.mat-active {
+    background: rgba(0, 0, 0, 0.04);
+    color: rgba(0, 0, 0, 0.87); }
+  .nissan .mat-option.mat-option-disabled {
+    color: rgba(0, 0, 0, 0.38); }
+
+.nissan .mat-optgroup-label {
+  color: rgba(0, 0, 0, 0.54); }
+
+.nissan .mat-optgroup-disabled .mat-optgroup-label {
+  color: rgba(0, 0, 0, 0.38); }
+
+.nissan .mat-pseudo-checkbox {
+  color: rgba(0, 0, 0, 0.54); }
+  .nissan .mat-pseudo-checkbox::after {
+    color: #fafafa; }
+
+.nissan .mat-pseudo-checkbox-checked,
+.nissan .mat-pseudo-checkbox-indeterminate,
+.nissan .mat-accent .mat-pseudo-checkbox-checked,
+.nissan .mat-accent .mat-pseudo-checkbox-indeterminate {
+  background: #eeeeee; }
+
+.nissan .mat-primary .mat-pseudo-checkbox-checked,
+.nissan .mat-primary .mat-pseudo-checkbox-indeterminate {
+  background: #c51733; }
+
+.nissan .mat-warn .mat-pseudo-checkbox-checked,
+.nissan .mat-warn .mat-pseudo-checkbox-indeterminate {
+  background: #f44336; }
+
+.nissan .mat-pseudo-checkbox-checked.mat-pseudo-checkbox-disabled,
+.nissan .mat-pseudo-checkbox-indeterminate.mat-pseudo-checkbox-disabled {
+  background: #b0b0b0; }
+
+.nissan .mat-app-background {
+  background-color: #fafafa; }
+
+.nissan .mat-theme-loaded-marker {
+  display: none; }
+
+.nissan .mat-autocomplete-panel {
+  background: white;
+  color: rgba(0, 0, 0, 0.87); }
+  .nissan .mat-autocomplete-panel .mat-option.mat-selected:not(.mat-active):not(:hover) {
+    background: white;
+    color: rgba(0, 0, 0, 0.87); }
+
+.nissan .mat-button, .nissan .mat-icon-button {
+  background: transparent; }
+  .nissan .mat-button.mat-primary .mat-button-focus-overlay, .nissan .mat-icon-button.mat-primary .mat-button-focus-overlay {
+    background-color: rgba(197, 23, 51, 0.12); }
+  .nissan .mat-button.mat-accent .mat-button-focus-overlay, .nissan .mat-icon-button.mat-accent .mat-button-focus-overlay {
+    background-color: rgba(238, 238, 238, 0.12); }
+  .nissan .mat-button.mat-warn .mat-button-focus-overlay, .nissan .mat-icon-button.mat-warn .mat-button-focus-overlay {
+    background-color: rgba(244, 67, 54, 0.12); }
+  .nissan .mat-button[disabled] .mat-button-focus-overlay, .nissan .mat-icon-button[disabled] .mat-button-focus-overlay {
+    background-color: transparent; }
+  .nissan .mat-button.mat-primary, .nissan .mat-icon-button.mat-primary {
+    color: #c51733; }
+  .nissan .mat-button.mat-accent, .nissan .mat-icon-button.mat-accent {
+    color: #eeeeee; }
+  .nissan .mat-button.mat-warn, .nissan .mat-icon-button.mat-warn {
+    color: #f44336; }
+  .nissan .mat-button.mat-primary[disabled], .nissan .mat-button.mat-accent[disabled], .nissan .mat-button.mat-warn[disabled], .nissan .mat-button[disabled][disabled], .nissan .mat-icon-button.mat-primary[disabled], .nissan .mat-icon-button.mat-accent[disabled], .nissan .mat-icon-button.mat-warn[disabled], .nissan .mat-icon-button[disabled][disabled] {
+    color: rgba(0, 0, 0, 0.38); }
+
+.nissan .mat-raised-button, .nissan .mat-fab, .nissan .mat-mini-fab {
+  color: rgba(0, 0, 0, 0.87);
+  background-color: white; }
+  .nissan .mat-raised-button.mat-primary, .nissan .mat-fab.mat-primary, .nissan .mat-mini-fab.mat-primary {
+    color: white; }
+  .nissan .mat-raised-button.mat-accent, .nissan .mat-fab.mat-accent, .nissan .mat-mini-fab.mat-accent {
+    color: rgba(0, 0, 0, 0.87); }
+  .nissan .mat-raised-button.mat-warn, .nissan .mat-fab.mat-warn, .nissan .mat-mini-fab.mat-warn {
+    color: white; }
+  .nissan .mat-raised-button.mat-primary[disabled], .nissan .mat-raised-button.mat-accent[disabled], .nissan .mat-raised-button.mat-warn[disabled], .nissan .mat-raised-button[disabled][disabled], .nissan .mat-fab.mat-primary[disabled], .nissan .mat-fab.mat-accent[disabled], .nissan .mat-fab.mat-warn[disabled], .nissan .mat-fab[disabled][disabled], .nissan .mat-mini-fab.mat-primary[disabled], .nissan .mat-mini-fab.mat-accent[disabled], .nissan .mat-mini-fab.mat-warn[disabled], .nissan .mat-mini-fab[disabled][disabled] {
+    color: rgba(0, 0, 0, 0.38); }
+  .nissan .mat-raised-button.mat-primary, .nissan .mat-fab.mat-primary, .nissan .mat-mini-fab.mat-primary {
+    background-color: #c51733; }
+  .nissan .mat-raised-button.mat-accent, .nissan .mat-fab.mat-accent, .nissan .mat-mini-fab.mat-accent {
+    background-color: #eeeeee; }
+  .nissan .mat-raised-button.mat-warn, .nissan .mat-fab.mat-warn, .nissan .mat-mini-fab.mat-warn {
+    background-color: #f44336; }
+  .nissan .mat-raised-button.mat-primary[disabled], .nissan .mat-raised-button.mat-accent[disabled], .nissan .mat-raised-button.mat-warn[disabled], .nissan .mat-raised-button[disabled][disabled], .nissan .mat-fab.mat-primary[disabled], .nissan .mat-fab.mat-accent[disabled], .nissan .mat-fab.mat-warn[disabled], .nissan .mat-fab[disabled][disabled], .nissan .mat-mini-fab.mat-primary[disabled], .nissan .mat-mini-fab.mat-accent[disabled], .nissan .mat-mini-fab.mat-warn[disabled], .nissan .mat-mini-fab[disabled][disabled] {
+    background-color: rgba(0, 0, 0, 0.12); }
+  .nissan .mat-raised-button.mat-primary .mat-ripple-element, .nissan .mat-fab.mat-primary .mat-ripple-element, .nissan .mat-mini-fab.mat-primary .mat-ripple-element {
+    background-color: rgba(255, 255, 255, 0.2); }
+  .nissan .mat-raised-button.mat-accent .mat-ripple-element, .nissan .mat-fab.mat-accent .mat-ripple-element, .nissan .mat-mini-fab.mat-accent .mat-ripple-element {
+    background-color: rgba(0, 0, 0, 0.2); }
+  .nissan .mat-raised-button.mat-warn .mat-ripple-element, .nissan .mat-fab.mat-warn .mat-ripple-element, .nissan .mat-mini-fab.mat-warn .mat-ripple-element {
+    background-color: rgba(255, 255, 255, 0.2); }
+
+.nissan .mat-button.mat-primary .mat-ripple-element {
+  background-color: rgba(197, 23, 51, 0.1); }
+
+.nissan .mat-button.mat-accent .mat-ripple-element {
+  background-color: rgba(238, 238, 238, 0.1); }
+
+.nissan .mat-button.mat-warn .mat-ripple-element {
+  background-color: rgba(244, 67, 54, 0.1); }
+
+.nissan .mat-icon-button.mat-primary .mat-ripple-element {
+  background-color: rgba(197, 23, 51, 0.2); }
+
+.nissan .mat-icon-button.mat-accent .mat-ripple-element {
+  background-color: rgba(238, 238, 238, 0.2); }
+
+.nissan .mat-icon-button.mat-warn .mat-ripple-element {
+  background-color: rgba(244, 67, 54, 0.2); }
+
+.nissan .mat-button-toggle {
+  color: rgba(0, 0, 0, 0.38); }
+  .nissan .mat-button-toggle.cdk-focused .mat-button-toggle-focus-overlay {
+    background-color: rgba(0, 0, 0, 0.06); }
+
+.nissan .mat-button-toggle-checked {
+  background-color: #e0e0e0;
+  color: rgba(0, 0, 0, 0.54); }
+
+.nissan .mat-button-toggle-disabled {
+  background-color: #eeeeee;
+  color: rgba(0, 0, 0, 0.38); }
+  .nissan .mat-button-toggle-disabled.mat-button-toggle-checked {
+    background-color: #bdbdbd; }
+
+.nissan .mat-card {
+  background: white;
+  color: rgba(0, 0, 0, 0.87); }
+
+.nissan .mat-card-subtitle {
+  color: rgba(0, 0, 0, 0.54); }
+
+.nissan .mat-checkbox-frame {
+  border-color: rgba(0, 0, 0, 0.54); }
+
+.nissan .mat-checkbox-checkmark {
+  fill: #fafafa; }
+
+.nissan .mat-checkbox-checkmark-path {
+  stroke: #fafafa !important; }
+
+.nissan .mat-checkbox-mixedmark {
+  background-color: #fafafa; }
+
+.nissan .mat-checkbox-indeterminate.mat-primary .mat-checkbox-background, .nissan .mat-checkbox-checked.mat-primary .mat-checkbox-background {
+  background-color: #c51733; }
+
+.nissan .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background, .nissan .mat-checkbox-checked.mat-accent .mat-checkbox-background {
+  background-color: #eeeeee; }
+
+.nissan .mat-checkbox-indeterminate.mat-warn .mat-checkbox-background, .nissan .mat-checkbox-checked.mat-warn .mat-checkbox-background {
+  background-color: #f44336; }
+
+.nissan .mat-checkbox-disabled.mat-checkbox-checked .mat-checkbox-background, .nissan .mat-checkbox-disabled.mat-checkbox-indeterminate .mat-checkbox-background {
+  background-color: #b0b0b0; }
+
+.nissan .mat-checkbox-disabled:not(.mat-checkbox-checked) .mat-checkbox-frame {
+  border-color: #b0b0b0; }
+
+.nissan .mat-checkbox-disabled .mat-checkbox-label {
+  color: #b0b0b0; }
+
+.nissan .mat-checkbox:not(.mat-checkbox-disabled).mat-primary .mat-checkbox-ripple .mat-ripple-element {
+  background-color: rgba(197, 23, 51, 0.26); }
+
+.nissan .mat-checkbox:not(.mat-checkbox-disabled).mat-accent .mat-checkbox-ripple .mat-ripple-element {
+  background-color: rgba(238, 238, 238, 0.26); }
+
+.nissan .mat-checkbox:not(.mat-checkbox-disabled).mat-warn .mat-checkbox-ripple .mat-ripple-element {
+  background-color: rgba(244, 67, 54, 0.26); }
+
+.nissan .mat-chip:not(.mat-basic-chip) {
+  background-color: #e0e0e0;
+  color: rgba(0, 0, 0, 0.87); }
+  .nissan .mat-chip:not(.mat-basic-chip) .mat-chip-remove {
+    color: rgba(0, 0, 0, 0.87);
+    opacity: 0.4; }
+  .nissan .mat-chip:not(.mat-basic-chip) .mat-chip-remove:hover {
+    opacity: 0.54; }
+
+.nissan .mat-chip.mat-chip-selected.mat-primary {
+  background-color: #c51733;
+  color: white; }
+  .nissan .mat-chip.mat-chip-selected.mat-primary .mat-chip-remove {
+    color: white;
+    opacity: 0.4; }
+  .nissan .mat-chip.mat-chip-selected.mat-primary .mat-chip-remove:hover {
+    opacity: 0.54; }
+
+.nissan .mat-chip.mat-chip-selected.mat-warn {
+  background-color: #f44336;
+  color: white; }
+  .nissan .mat-chip.mat-chip-selected.mat-warn .mat-chip-remove {
+    color: white;
+    opacity: 0.4; }
+  .nissan .mat-chip.mat-chip-selected.mat-warn .mat-chip-remove:hover {
+    opacity: 0.54; }
+
+.nissan .mat-chip.mat-chip-selected.mat-accent {
+  background-color: #eeeeee;
+  color: rgba(0, 0, 0, 0.87); }
+  .nissan .mat-chip.mat-chip-selected.mat-accent .mat-chip-remove {
+    color: rgba(0, 0, 0, 0.87);
+    opacity: 0.4; }
+  .nissan .mat-chip.mat-chip-selected.mat-accent .mat-chip-remove:hover {
+    opacity: 0.54; }
+
+.nissan .mat-table {
+  background: white; }
+
+.nissan .mat-row, .nissan .mat-header-row {
+  border-bottom-color: rgba(0, 0, 0, 0.12); }
+
+.nissan .mat-header-cell {
+  color: rgba(0, 0, 0, 0.54); }
+
+.nissan .mat-cell {
+  color: rgba(0, 0, 0, 0.87); }
+
+.nissan .mat-datepicker-content {
+  background-color: white;
+  color: rgba(0, 0, 0, 0.87); }
+
+.nissan .mat-calendar-arrow {
+  border-top-color: rgba(0, 0, 0, 0.54); }
+
+.nissan .mat-calendar-next-button,
+.nissan .mat-calendar-previous-button {
+  color: rgba(0, 0, 0, 0.54); }
+
+.nissan .mat-calendar-table-header {
+  color: rgba(0, 0, 0, 0.38); }
+
+.nissan .mat-calendar-table-header-divider::after {
+  background: rgba(0, 0, 0, 0.12); }
+
+.nissan .mat-calendar-body-label {
+  color: rgba(0, 0, 0, 0.54); }
+
+.nissan .mat-calendar-body-cell-content {
+  color: rgba(0, 0, 0, 0.87);
+  border-color: transparent; }
+  .mat-calendar-body-disabled > .nissan .mat-calendar-body-cell-content:not(.mat-calendar-body-selected) {
+    color: rgba(0, 0, 0, 0.38); }
+
+.nissan :not(.mat-calendar-body-disabled):hover > .mat-calendar-body-cell-content:not(.mat-calendar-body-selected),
+.nissan .cdk-keyboard-focused .mat-calendar-body-active > .mat-calendar-body-cell-content:not(.mat-calendar-body-selected) {
+  background-color: rgba(0, 0, 0, 0.04); }
+
+.nissan .mat-calendar-body-selected {
+  background-color: #c51733;
+  color: white; }
+
+.nissan .mat-calendar-body-disabled > .mat-calendar-body-selected {
+  background-color: rgba(197, 23, 51, 0.4); }
+
+.nissan .mat-calendar-body-today:not(.mat-calendar-body-selected) {
+  border-color: rgba(0, 0, 0, 0.38); }
+
+.nissan .mat-calendar-body-today.mat-calendar-body-selected {
+  box-shadow: inset 0 0 0 1px white; }
+
+.nissan .mat-calendar-body-disabled > .mat-calendar-body-today:not(.mat-calendar-body-selected) {
+  border-color: rgba(0, 0, 0, 0.18); }
+
+.nissan .mat-dialog-container {
+  background: white;
+  color: rgba(0, 0, 0, 0.87); }
+
+.nissan .mat-expansion-panel {
+  background: white;
+  color: rgba(0, 0, 0, 0.87); }
+
+.nissan .mat-action-row {
+  border-top-color: rgba(0, 0, 0, 0.12); }
+
+.nissan .mat-expansion-panel-header:not([aria-disabled='true']).cdk-keyboard-focused, .nissan .mat-expansion-panel-header:not([aria-disabled='true']).cdk-program-focused, .nissan .mat-expansion-panel-header:not([aria-disabled='true']):hover {
+  background: rgba(0, 0, 0, 0.04); }
+
+.nissan .mat-expansion-panel-header-title {
+  color: rgba(0, 0, 0, 0.87); }
+
+.nissan .mat-expansion-panel-header-description,
+.nissan .mat-expansion-indicator::after {
+  color: rgba(0, 0, 0, 0.54); }
+
+.nissan .mat-expansion-panel-header[aria-disabled='true'] {
+  color: rgba(0, 0, 0, 0.38); }
+  .nissan .mat-expansion-panel-header[aria-disabled='true'] .mat-expansion-panel-header-title,
+  .nissan .mat-expansion-panel-header[aria-disabled='true'] .mat-expansion-panel-header-description {
+    color: inherit; }
+
+.nissan .mat-form-field {
+  width: 200px; }
+
+.nissan .mat-form-field-placeholder {
+  color: rgba(0, 0, 0, 0.54); }
+
+.nissan .mat-hint {
+  color: rgba(0, 0, 0, 0.54); }
+
+.nissan .mat-focused .mat-form-field-placeholder {
+  color: #c51733; }
+  .nissan .mat-focused .mat-form-field-placeholder.mat-accent {
+    color: #eeeeee; }
+  .nissan .mat-focused .mat-form-field-placeholder.mat-warn {
+    color: #f44336; }
+
+.nissan .mat-form-field-autofill-float:-webkit-autofill + .mat-form-field-placeholder .mat-form-field-required-marker,
+.nissan .mat-focused .mat-form-field-placeholder.mat-form-field-float .mat-form-field-required-marker {
+  color: #eeeeee; }
+
+.nissan .mat-form-field-underline {
+  background-color: rgba(0, 0, 0, 0.42); }
+  .nissan .mat-form-field-underline.mat-disabled {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.42) 0%, rgba(0, 0, 0, 0.42) 33%, transparent 0%);
+    background-size: 4px 1px;
+    background-repeat: repeat-x; }
+
+.nissan .mat-form-field-ripple {
+  background-color: #c51733; }
+  .nissan .mat-form-field-ripple.mat-accent {
+    background-color: #eeeeee; }
+  .nissan .mat-form-field-ripple.mat-warn {
+    background-color: #f44336; }
+
+.nissan .mat-form-field-invalid .mat-form-field-placeholder {
+  color: #f44336; }
+  .nissan .mat-form-field-invalid .mat-form-field-placeholder.mat-accent,
+  .nissan .mat-form-field-invalid .mat-form-field-placeholder.mat-form-field-float .mat-form-field-required-marker {
+    color: #f44336; }
+
+.nissan .mat-form-field-invalid .mat-form-field-ripple {
+  background-color: #f44336; }
+
+.nissan .mat-error {
+  color: #f44336; }
+
+.nissan .mat-icon.mat-primary {
+  color: #c51733; }
+
+.nissan .mat-icon.mat-accent {
+  color: #eeeeee; }
+
+.nissan .mat-icon.mat-warn {
+  color: #f44336; }
+
+.nissan .mat-input-element:disabled {
+  color: rgba(0, 0, 0, 0.42); }
+
+.nissan .mat-list .mat-list-item, .nissan .mat-nav-list .mat-list-item, .nissan .mat-selection-list .mat-list-item {
+  color: rgba(0, 0, 0, 0.87); }
+
+.nissan .mat-list .mat-list-option, .nissan .mat-nav-list .mat-list-option, .nissan .mat-selection-list .mat-list-option {
+  color: rgba(0, 0, 0, 0.87); }
+
+.nissan .mat-list .mat-subheader, .nissan .mat-nav-list .mat-subheader, .nissan .mat-selection-list .mat-subheader {
+  color: rgba(0, 0, 0, 0.54); }
+
+.nissan .mat-list-item-disabled {
+  background-color: #eeeeee; }
+
+.nissan .mat-divider {
+  border-top-color: rgba(0, 0, 0, 0.12); }
+
+.nissan .mat-nav-list .mat-list-item {
+  outline: none; }
+  .nissan .mat-nav-list .mat-list-item:hover, .nissan .mat-nav-list .mat-list-item.mat-list-item-focus {
+    background: rgba(0, 0, 0, 0.04); }
+
+.nissan .mat-list-option {
+  outline: none; }
+  .nissan .mat-list-option:hover, .nissan .mat-list-option.mat-list-item-focus {
+    background: rgba(0, 0, 0, 0.04); }
+
+.nissan .mat-menu-panel {
+  background: white; }
+
+.nissan .mat-menu-item {
+  background: transparent;
+  color: rgba(0, 0, 0, 0.87); }
+  .nissan .mat-menu-item[disabled] {
+    color: rgba(0, 0, 0, 0.38); }
+
+.nissan .mat-menu-item .mat-icon,
+.nissan .mat-menu-item-submenu-trigger::after {
+  color: rgba(0, 0, 0, 0.54); }
+
+.nissan .mat-menu-item:hover:not([disabled]),
+.nissan .mat-menu-item:focus:not([disabled]),
+.nissan .mat-menu-item-highlighted:not([disabled]) {
+  background: rgba(0, 0, 0, 0.04); }
+
+.nissan .mat-paginator {
+  background: white; }
+
+.nissan .mat-paginator,
+.nissan .mat-paginator-page-size .mat-select-trigger {
+  color: rgba(0, 0, 0, 0.54); }
+
+.nissan .mat-paginator-increment,
+.nissan .mat-paginator-decrement {
+  border-top: 2px solid rgba(0, 0, 0, 0.54);
+  border-right: 2px solid rgba(0, 0, 0, 0.54); }
+
+.nissan .mat-icon-button[disabled] .mat-paginator-increment,
+.nissan .mat-icon-button[disabled] .mat-paginator-decrement {
+  border-color: rgba(0, 0, 0, 0.38); }
+
+.nissan .mat-progress-bar-background {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20version%3D%271.1%27%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20xmlns%3Axlink%3D%27http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%27%20x%3D%270px%27%20y%3D%270px%27%20enable-background%3D%27new%200%200%205%202%27%20xml%3Aspace%3D%27preserve%27%20viewBox%3D%270%200%205%202%27%20preserveAspectRatio%3D%27none%20slice%27%3E%3Ccircle%20cx%3D%271%27%20cy%3D%271%27%20r%3D%271%27%20fill%3D%27white%27%2F%3E%3C%2Fsvg%3E"); }
+
+.nissan .mat-progress-bar-buffer {
+  background-color: white; }
+
+.nissan .mat-progress-bar-fill::after {
+  background-color: #c51733; }
+
+.nissan .mat-progress-bar.mat-accent .mat-progress-bar-background {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20version%3D%271.1%27%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20xmlns%3Axlink%3D%27http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%27%20x%3D%270px%27%20y%3D%270px%27%20enable-background%3D%27new%200%200%205%202%27%20xml%3Aspace%3D%27preserve%27%20viewBox%3D%270%200%205%202%27%20preserveAspectRatio%3D%27none%20slice%27%3E%3Ccircle%20cx%3D%271%27%20cy%3D%271%27%20r%3D%271%27%20fill%3D%27white%27%2F%3E%3C%2Fsvg%3E"); }
+
+.nissan .mat-progress-bar.mat-accent .mat-progress-bar-buffer {
+  background-color: white; }
+
+.nissan .mat-progress-bar.mat-accent .mat-progress-bar-fill::after {
+  background-color: #eeeeee; }
+
+.nissan .mat-progress-bar.mat-warn .mat-progress-bar-background {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20version%3D%271.1%27%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20xmlns%3Axlink%3D%27http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%27%20x%3D%270px%27%20y%3D%270px%27%20enable-background%3D%27new%200%200%205%202%27%20xml%3Aspace%3D%27preserve%27%20viewBox%3D%270%200%205%202%27%20preserveAspectRatio%3D%27none%20slice%27%3E%3Ccircle%20cx%3D%271%27%20cy%3D%271%27%20r%3D%271%27%20fill%3D%27%23ffcdd2%27%2F%3E%3C%2Fsvg%3E"); }
+
+.nissan .mat-progress-bar.mat-warn .mat-progress-bar-buffer {
+  background-color: #ffcdd2; }
+
+.nissan .mat-progress-bar.mat-warn .mat-progress-bar-fill::after {
+  background-color: #f44336; }
+
+.nissan .mat-progress-spinner path, .nissan .mat-spinner path {
+  stroke: #c51733; }
+
+.nissan .mat-progress-spinner.mat-accent path, .nissan .mat-spinner.mat-accent path {
+  stroke: #eeeeee; }
+
+.nissan .mat-progress-spinner.mat-warn path, .nissan .mat-spinner.mat-warn path {
+  stroke: #f44336; }
+
+.nissan .mat-radio-outer-circle {
+  border-color: rgba(0, 0, 0, 0.54); }
+
+.nissan .mat-radio-disabled .mat-radio-outer-circle {
+  border-color: rgba(0, 0, 0, 0.38); }
+
+.nissan .mat-radio-disabled .mat-radio-ripple .mat-ripple-element, .nissan .mat-radio-disabled .mat-radio-inner-circle {
+  background-color: rgba(0, 0, 0, 0.38); }
+
+.nissan .mat-radio-disabled .mat-radio-label-content {
+  color: rgba(0, 0, 0, 0.38); }
+
+.nissan .mat-radio-button.mat-primary.mat-radio-checked .mat-radio-outer-circle {
+  border-color: #c51733; }
+
+.nissan .mat-radio-button.mat-primary .mat-radio-inner-circle {
+  background-color: #c51733; }
+
+.nissan .mat-radio-button.mat-primary .mat-radio-ripple .mat-ripple-element {
+  background-color: rgba(197, 23, 51, 0.26); }
+
+.nissan .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+  border-color: #eeeeee; }
+
+.nissan .mat-radio-button.mat-accent .mat-radio-inner-circle {
+  background-color: #eeeeee; }
+
+.nissan .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
+  background-color: rgba(238, 238, 238, 0.26); }
+
+.nissan .mat-radio-button.mat-warn.mat-radio-checked .mat-radio-outer-circle {
+  border-color: #f44336; }
+
+.nissan .mat-radio-button.mat-warn .mat-radio-inner-circle {
+  background-color: #f44336; }
+
+.nissan .mat-radio-button.mat-warn .mat-radio-ripple .mat-ripple-element {
+  background-color: rgba(244, 67, 54, 0.26); }
+
+.nissan .mat-select-trigger,
+.nissan .mat-select-arrow {
+  color: rgba(0, 0, 0, 0.54); }
+
+.nissan .mat-select-underline {
+  background-color: rgba(0, 0, 0, 0.42); }
+
+.nissan [aria-disabled='true'] .mat-select-underline {
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.42) 0%, rgba(0, 0, 0, 0.42) 33%, transparent 0%);
+  background-size: 4px 1px;
+  background-repeat: repeat-x; }
+
+.nissan .mat-select-disabled .mat-select-value,
+.nissan .mat-select-arrow,
+.nissan .mat-select-trigger {
+  color: rgba(0, 0, 0, 0.54); }
+
+.nissan .mat-select-content, .nissan .mat-select-panel-done-animating {
+  background: white; }
+
+.nissan .mat-select-value {
+  color: rgba(0, 0, 0, 0.87); }
+
+.nissan .mat-select-panel .mat-option.mat-selected:not(.mat-option-multiple) {
+  background: rgba(0, 0, 0, 0.12); }
+
+.nissan .mat-select:focus:not(.mat-select-disabled).mat-primary .mat-select-trigger, .nissan .mat-select:focus:not(.mat-select-disabled).mat-primary .mat-select-arrow {
+  color: #c51733; }
+
+.nissan .mat-select:focus:not(.mat-select-disabled).mat-primary .mat-select-underline {
+  background-color: #c51733; }
+
+.nissan .mat-select:focus:not(.mat-select-disabled).mat-accent .mat-select-trigger, .nissan .mat-select:focus:not(.mat-select-disabled).mat-accent .mat-select-arrow {
+  color: #eeeeee; }
+
+.nissan .mat-select:focus:not(.mat-select-disabled).mat-accent .mat-select-underline {
+  background-color: #eeeeee; }
+
+.nissan .mat-select:focus:not(.mat-select-disabled).mat-select-required .mat-select-placeholder::after {
+  color: #f44336; }
+
+.nissan .mat-select:focus:not(.mat-select-disabled).mat-warn .mat-select-trigger, .nissan .mat-select:focus:not(.mat-select-disabled).mat-warn .mat-select-arrow, .nissan .mat-select-invalid .mat-select-trigger, .nissan .mat-select-invalid .mat-select-arrow {
+  color: #f44336; }
+
+.nissan .mat-select:focus:not(.mat-select-disabled).mat-warn .mat-select-underline, .nissan .mat-select-invalid .mat-select-underline {
+  background-color: #f44336; }
+
+.nissan .mat-drawer-container {
+  background-color: #fafafa;
+  color: rgba(0, 0, 0, 0.87); }
+
+.nissan .mat-drawer {
+  background-color: white;
+  color: rgba(0, 0, 0, 0.87); }
+  .nissan .mat-drawer.mat-drawer-push {
+    background-color: white; }
+
+.nissan .mat-drawer-backdrop.mat-drawer-shown {
+  background-color: rgba(0, 0, 0, 0.6); }
+
+.nissan .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
+  background-color: #9e9e9e; }
+
+.nissan .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
+  background-color: rgba(158, 158, 158, 0.5); }
+
+.nissan .mat-slide-toggle:not(.mat-checked) .mat-ripple-element {
+  background-color: rgba(0, 0, 0, 0.06); }
+
+.nissan .mat-slide-toggle .mat-ripple-element {
+  background-color: rgba(158, 158, 158, 0.12); }
+
+.nissan .mat-slide-toggle.mat-primary.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
+  background-color: #ff0a00; }
+
+.nissan .mat-slide-toggle.mat-primary.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
+  background-color: rgba(255, 10, 0, 0.5); }
+
+.nissan .mat-slide-toggle.mat-primary:not(.mat-checked) .mat-ripple-element {
+  background-color: rgba(0, 0, 0, 0.06); }
+
+.nissan .mat-slide-toggle.mat-primary .mat-ripple-element {
+  background-color: rgba(255, 10, 0, 0.12); }
+
+.nissan .mat-slide-toggle.mat-warn.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
+  background-color: #f44336; }
+
+.nissan .mat-slide-toggle.mat-warn.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
+  background-color: rgba(244, 67, 54, 0.5); }
+
+.nissan .mat-slide-toggle.mat-warn:not(.mat-checked) .mat-ripple-element {
+  background-color: rgba(0, 0, 0, 0.06); }
+
+.nissan .mat-slide-toggle.mat-warn .mat-ripple-element {
+  background-color: rgba(244, 67, 54, 0.12); }
+
+.nissan .mat-disabled .mat-slide-toggle-thumb {
+  background-color: #bdbdbd; }
+
+.nissan .mat-disabled .mat-slide-toggle-bar {
+  background-color: rgba(0, 0, 0, 0.1); }
+
+.nissan .mat-slide-toggle-thumb {
+  background-color: #fafafa; }
+
+.nissan .mat-slide-toggle-bar {
+  background-color: rgba(0, 0, 0, 0.38); }
+
+.nissan .mat-slider-track-background {
+  background-color: rgba(0, 0, 0, 0.26); }
+
+.nissan .mat-primary .mat-slider-track-fill,
+.nissan .mat-primary .mat-slider-thumb,
+.nissan .mat-primary .mat-slider-thumb-label {
+  background-color: #c51733; }
+
+.nissan .mat-primary .mat-slider-thumb-label-text {
+  color: white; }
+
+.nissan .mat-accent .mat-slider-track-fill,
+.nissan .mat-accent .mat-slider-thumb,
+.nissan .mat-accent .mat-slider-thumb-label {
+  background-color: #eeeeee; }
+
+.nissan .mat-accent .mat-slider-thumb-label-text {
+  color: rgba(0, 0, 0, 0.87); }
+
+.nissan .mat-warn .mat-slider-track-fill,
+.nissan .mat-warn .mat-slider-thumb,
+.nissan .mat-warn .mat-slider-thumb-label {
+  background-color: #f44336; }
+
+.nissan .mat-warn .mat-slider-thumb-label-text {
+  color: white; }
+
+.nissan .mat-slider-focus-ring {
+  background-color: rgba(238, 238, 238, 0.2); }
+
+.nissan .mat-slider:hover .mat-slider-track-background,
+.nissan .cdk-focused .mat-slider-track-background {
+  background-color: rgba(0, 0, 0, 0.38); }
+
+.nissan .mat-slider-disabled .mat-slider-track-background,
+.nissan .mat-slider-disabled .mat-slider-track-fill,
+.nissan .mat-slider-disabled .mat-slider-thumb {
+  background-color: rgba(0, 0, 0, 0.26); }
+
+.nissan .mat-slider-disabled:hover .mat-slider-track-background {
+  background-color: rgba(0, 0, 0, 0.26); }
+
+.nissan .mat-slider-min-value .mat-slider-focus-ring {
+  background-color: rgba(0, 0, 0, 0.12); }
+
+.nissan .mat-slider-min-value.mat-slider-thumb-label-showing .mat-slider-thumb,
+.nissan .mat-slider-min-value.mat-slider-thumb-label-showing .mat-slider-thumb-label {
+  background-color: rgba(0, 0, 0, 0.87); }
+
+.nissan .mat-slider-min-value.mat-slider-thumb-label-showing.cdk-focused .mat-slider-thumb,
+.nissan .mat-slider-min-value.mat-slider-thumb-label-showing.cdk-focused .mat-slider-thumb-label {
+  background-color: rgba(0, 0, 0, 0.26); }
+
+.nissan .mat-slider-min-value:not(.mat-slider-thumb-label-showing) .mat-slider-thumb {
+  border-color: rgba(0, 0, 0, 0.26);
+  background-color: transparent; }
+
+.nissan .mat-slider-min-value:not(.mat-slider-thumb-label-showing):hover .mat-slider-thumb, .nissan .mat-slider-min-value:not(.mat-slider-thumb-label-showing).cdk-focused .mat-slider-thumb {
+  border-color: rgba(0, 0, 0, 0.38); }
+
+.nissan .mat-slider-min-value:not(.mat-slider-thumb-label-showing):hover.mat-slider-disabled .mat-slider-thumb, .nissan .mat-slider-min-value:not(.mat-slider-thumb-label-showing).cdk-focused.mat-slider-disabled .mat-slider-thumb {
+  border-color: rgba(0, 0, 0, 0.26); }
+
+.nissan .mat-slider-has-ticks .mat-slider-wrapper::after {
+  border-color: rgba(0, 0, 0, 0.7); }
+
+.nissan .mat-slider-horizontal .mat-slider-ticks {
+  background-image: repeating-linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) 2px, transparent 0, transparent);
+  background-image: -moz-repeating-linear-gradient(0.0001deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) 2px, transparent 0, transparent); }
+
+.nissan .mat-slider-vertical .mat-slider-ticks {
+  background-image: repeating-linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) 2px, transparent 0, transparent); }
+
+.nissan .mat-tab-nav-bar,
+.nissan .mat-tab-header {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12); }
+
+.nissan .mat-tab-group-inverted-header .mat-tab-nav-bar,
+.nissan .mat-tab-group-inverted-header .mat-tab-header {
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+  border-bottom: none; }
+
+.nissan .mat-tab-label, .nissan .mat-tab-link {
+  color: rgba(0, 0, 0, 0.87); }
+  .nissan .mat-tab-label.mat-tab-disabled, .nissan .mat-tab-link.mat-tab-disabled {
+    color: rgba(0, 0, 0, 0.38); }
+
+.nissan .mat-tab-header-pagination-chevron {
+  border-color: rgba(0, 0, 0, 0.87); }
+
+.nissan .mat-tab-header-pagination-disabled .mat-tab-header-pagination-chevron {
+  border-color: rgba(0, 0, 0, 0.38); }
+
+.nissan .mat-tab-group[class*='mat-background-'] .mat-tab-header,
+.nissan .mat-tab-nav-bar[class*='mat-background-'] {
+  border-bottom: none;
+  border-top: none; }
+
+.nissan .mat-tab-group.mat-primary .mat-tab-label:focus, .nissan .mat-tab-group.mat-primary .mat-tab-link:focus, .nissan .mat-tab-nav-bar.mat-primary .mat-tab-label:focus, .nissan .mat-tab-nav-bar.mat-primary .mat-tab-link:focus {
+  background-color: rgba(255, 255, 255, 0.3); }
+
+.nissan .mat-tab-group.mat-primary .mat-ink-bar, .nissan .mat-tab-nav-bar.mat-primary .mat-ink-bar {
+  background-color: #c51733; }
+
+.nissan .mat-tab-group.mat-primary.mat-background-primary .mat-ink-bar, .nissan .mat-tab-nav-bar.mat-primary.mat-background-primary .mat-ink-bar {
+  background-color: white; }
+
+.nissan .mat-tab-group.mat-accent .mat-tab-label:focus, .nissan .mat-tab-group.mat-accent .mat-tab-link:focus, .nissan .mat-tab-nav-bar.mat-accent .mat-tab-label:focus, .nissan .mat-tab-nav-bar.mat-accent .mat-tab-link:focus {
+  background-color: rgba(255, 255, 255, 0.3); }
+
+.nissan .mat-tab-group.mat-accent .mat-ink-bar, .nissan .mat-tab-nav-bar.mat-accent .mat-ink-bar {
+  background-color: #eeeeee; }
+
+.nissan .mat-tab-group.mat-accent.mat-background-accent .mat-ink-bar, .nissan .mat-tab-nav-bar.mat-accent.mat-background-accent .mat-ink-bar {
+  background-color: rgba(0, 0, 0, 0.87); }
+
+.nissan .mat-tab-group.mat-warn .mat-tab-label:focus, .nissan .mat-tab-group.mat-warn .mat-tab-link:focus, .nissan .mat-tab-nav-bar.mat-warn .mat-tab-label:focus, .nissan .mat-tab-nav-bar.mat-warn .mat-tab-link:focus {
+  background-color: rgba(255, 205, 210, 0.3); }
+
+.nissan .mat-tab-group.mat-warn .mat-ink-bar, .nissan .mat-tab-nav-bar.mat-warn .mat-ink-bar {
+  background-color: #f44336; }
+
+.nissan .mat-tab-group.mat-warn.mat-background-warn .mat-ink-bar, .nissan .mat-tab-nav-bar.mat-warn.mat-background-warn .mat-ink-bar {
+  background-color: white; }
+
+.nissan .mat-tab-group.mat-background-primary .mat-tab-label:focus, .nissan .mat-tab-group.mat-background-primary .mat-tab-link:focus, .nissan .mat-tab-nav-bar.mat-background-primary .mat-tab-label:focus, .nissan .mat-tab-nav-bar.mat-background-primary .mat-tab-link:focus {
+  background-color: rgba(255, 255, 255, 0.3); }
+
+.nissan .mat-tab-group.mat-background-primary .mat-tab-header, .nissan .mat-tab-group.mat-background-primary .mat-tab-links, .nissan .mat-tab-nav-bar.mat-background-primary .mat-tab-header, .nissan .mat-tab-nav-bar.mat-background-primary .mat-tab-links {
+  background-color: #c51733; }
+
+.nissan .mat-tab-group.mat-background-primary .mat-tab-label, .nissan .mat-tab-group.mat-background-primary .mat-tab-link, .nissan .mat-tab-nav-bar.mat-background-primary .mat-tab-label, .nissan .mat-tab-nav-bar.mat-background-primary .mat-tab-link {
+  color: white; }
+  .nissan .mat-tab-group.mat-background-primary .mat-tab-label.mat-tab-disabled, .nissan .mat-tab-group.mat-background-primary .mat-tab-link.mat-tab-disabled, .nissan .mat-tab-nav-bar.mat-background-primary .mat-tab-label.mat-tab-disabled, .nissan .mat-tab-nav-bar.mat-background-primary .mat-tab-link.mat-tab-disabled {
+    color: rgba(255, 255, 255, 0.4); }
+
+.nissan .mat-tab-group.mat-background-primary .mat-tab-header-pagination-chevron, .nissan .mat-tab-nav-bar.mat-background-primary .mat-tab-header-pagination-chevron {
+  border-color: white; }
+
+.nissan .mat-tab-group.mat-background-primary .mat-tab-header-pagination-disabled .mat-tab-header-pagination-chevron, .nissan .mat-tab-nav-bar.mat-background-primary .mat-tab-header-pagination-disabled .mat-tab-header-pagination-chevron {
+  border-color: rgba(255, 255, 255, 0.4); }
+
+.nissan .mat-tab-group.mat-background-accent .mat-tab-label:focus, .nissan .mat-tab-group.mat-background-accent .mat-tab-link:focus, .nissan .mat-tab-nav-bar.mat-background-accent .mat-tab-label:focus, .nissan .mat-tab-nav-bar.mat-background-accent .mat-tab-link:focus {
+  background-color: rgba(255, 255, 255, 0.3); }
+
+.nissan .mat-tab-group.mat-background-accent .mat-tab-header, .nissan .mat-tab-group.mat-background-accent .mat-tab-links, .nissan .mat-tab-nav-bar.mat-background-accent .mat-tab-header, .nissan .mat-tab-nav-bar.mat-background-accent .mat-tab-links {
+  background-color: #eeeeee; }
+
+.nissan .mat-tab-group.mat-background-accent .mat-tab-label, .nissan .mat-tab-group.mat-background-accent .mat-tab-link, .nissan .mat-tab-nav-bar.mat-background-accent .mat-tab-label, .nissan .mat-tab-nav-bar.mat-background-accent .mat-tab-link {
+  color: rgba(0, 0, 0, 0.87); }
+  .nissan .mat-tab-group.mat-background-accent .mat-tab-label.mat-tab-disabled, .nissan .mat-tab-group.mat-background-accent .mat-tab-link.mat-tab-disabled, .nissan .mat-tab-nav-bar.mat-background-accent .mat-tab-label.mat-tab-disabled, .nissan .mat-tab-nav-bar.mat-background-accent .mat-tab-link.mat-tab-disabled {
+    color: rgba(0, 0, 0, 0.4); }
+
+.nissan .mat-tab-group.mat-background-accent .mat-tab-header-pagination-chevron, .nissan .mat-tab-nav-bar.mat-background-accent .mat-tab-header-pagination-chevron {
+  border-color: rgba(0, 0, 0, 0.87); }
+
+.nissan .mat-tab-group.mat-background-accent .mat-tab-header-pagination-disabled .mat-tab-header-pagination-chevron, .nissan .mat-tab-nav-bar.mat-background-accent .mat-tab-header-pagination-disabled .mat-tab-header-pagination-chevron {
+  border-color: rgba(0, 0, 0, 0.4); }
+
+.nissan .mat-tab-group.mat-background-warn .mat-tab-label:focus, .nissan .mat-tab-group.mat-background-warn .mat-tab-link:focus, .nissan .mat-tab-nav-bar.mat-background-warn .mat-tab-label:focus, .nissan .mat-tab-nav-bar.mat-background-warn .mat-tab-link:focus {
+  background-color: rgba(255, 205, 210, 0.3); }
+
+.nissan .mat-tab-group.mat-background-warn .mat-tab-header, .nissan .mat-tab-group.mat-background-warn .mat-tab-links, .nissan .mat-tab-nav-bar.mat-background-warn .mat-tab-header, .nissan .mat-tab-nav-bar.mat-background-warn .mat-tab-links {
+  background-color: #f44336; }
+
+.nissan .mat-tab-group.mat-background-warn .mat-tab-label, .nissan .mat-tab-group.mat-background-warn .mat-tab-link, .nissan .mat-tab-nav-bar.mat-background-warn .mat-tab-label, .nissan .mat-tab-nav-bar.mat-background-warn .mat-tab-link {
+  color: white; }
+  .nissan .mat-tab-group.mat-background-warn .mat-tab-label.mat-tab-disabled, .nissan .mat-tab-group.mat-background-warn .mat-tab-link.mat-tab-disabled, .nissan .mat-tab-nav-bar.mat-background-warn .mat-tab-label.mat-tab-disabled, .nissan .mat-tab-nav-bar.mat-background-warn .mat-tab-link.mat-tab-disabled {
+    color: rgba(255, 255, 255, 0.4); }
+
+.nissan .mat-tab-group.mat-background-warn .mat-tab-header-pagination-chevron, .nissan .mat-tab-nav-bar.mat-background-warn .mat-tab-header-pagination-chevron {
+  border-color: white; }
+
+.nissan .mat-tab-group.mat-background-warn .mat-tab-header-pagination-disabled .mat-tab-header-pagination-chevron, .nissan .mat-tab-nav-bar.mat-background-warn .mat-tab-header-pagination-disabled .mat-tab-header-pagination-chevron {
+  border-color: rgba(255, 255, 255, 0.4); }
+
+.nissan .mat-toolbar {
+  background: whitesmoke;
+  color: rgba(0, 0, 0, 0.87); }
+  .nissan .mat-toolbar.mat-primary {
+    background: #c51733;
+    color: white; }
+  .nissan .mat-toolbar.mat-accent {
+    background: #eeeeee;
+    color: rgba(0, 0, 0, 0.87); }
+  .nissan .mat-toolbar.mat-warn {
+    background: #f44336;
+    color: white; }
+
+.nissan .mat-tooltip {
+  background: rgba(97, 97, 97, 0.9); }
+
+.nissan .mat-snack-bar-container {
+  background: #323232;
+  color: white; }
+
+.nissan .mat-simple-snackbar-action {
+  color: #eeeeee; }
+
+.nissan .resumContainSVG {
+  fill: #c51733 !important; }
+
+.nissan #text {
+  color: white !important; }
+
+.nissan #img-text {
+  color: white !important; }
+
+.nissan #text-down {
+  color: white !important; }
+
+.nissan #img-text-down {
+  color: white !important; }
+
+.nissan .color-border-default {
+  border: 1px solid #c51733; }
+
+.nissan .black-color {
+  color: #000; }
+
+.nissan .font-bold {
+  font-weight: bold; }
+
+.nissan .font-default {
+  color: #939598; }
+
+.nissan .background-black {
+  background-color: #000000 !important;
+  color: #ffffff !important; }
+
+.nissan .background-black-disabled {
+  background-color: #BBBBBB !important;
+  color: #ffffff !important; }
+
+.nissan .active {
+  border-bottom: solid #c51733; }
+
+.nissan .mat-tab-label {
+  font-weight: bold;
+  color: #000; }
+
+.nissan .mat-toolbar-row {
+  height: 45px !important; }
+
+.nissan .calculationselected {
+  -webkit-box-shadow: inset 0px 0px 0px 5px #c51733;
+  -moz-box-shadow: inset 0px 0px 0px 5px #c51733;
+  box-shadow: inset 0px 0px 0px 5px #c51733 !important;
+  background-color: #fdd0cd; }
+
+.nissan .selectedcar {
+  -webkit-box-shadow: inset 0px 0px 0px 10px #c51733;
+  -moz-box-shadow: inset 0px 0px 0px 10px #c51733;
+  box-shadow: inset 0px 0px 0px 10px #c51733 !important;
+  background-color: #c51733;
+  border-radius: 7px;
+  color: white; }
+
+.nissan .buttonMobileFooter {
+  background: #4a4a4a !important;
+  color: white !important;
+  min-height: 46px;
+  position: absolute !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  align-items: center !important;
+  margin-top: 20%;
+  left: 0; }
+
+.nissan .fieldInvalid .mat-input-placeholder-wrapper {
+  color: red; }
+
+.nissan .fieldInvalid .mat-input-placeholder {
+  color: red; }
+
+.nissan .fieldInvalid .mat-input-underline {
+  background-color: red; }
+
+.nissan .ngx-datatable.material.single-selection .datatable-body-row.active .datatable-row-group {
+  color: #c51733; }
+
+.nissan .newsli {
+  cursor: pointer;
+  display: inline-flex;
+  display: table; }
+
+.nissan .news {
+  display: table-cell;
+  vertical-align: middle;
+  display: inline-flex;
+  padding: 10px; }
+
+.nissan .spannews {
+  padding-left: 10px; }
+
+.nissan .newscircle {
+  width: 7px;
+  height: 7px;
+  background-color: #c51733;
+  border-radius: 4px;
+  transform: translateY(100%); }
+
+.nissan md-card-header {
+  background-color: #c51733; }
+
+.nissan .concessionaria {
+  background-color: #c51733; }
+
+.nissan .notification_background {
+  background-color: #c51733;
+  border: 2px solid #c51733; }
+
+.nissan .notification_row {
+  border-color: #c51733; }
+
+.nissan .newsli::before {
+  color: #c51733; }
+
+.nissan .icone {
+  background-color: #c51733;
+  color: #fff; }
+
+.nissan .icon {
+  color: #c51733; }
+
+.nissan .color-stepper {
+  fill: #c51733; }
+
+.nissan .color-stepperIE {
+  background-color: #c51733; }
+
+.nissan .lineColorIE {
+  background-color: #c51733 !important;
+  border: 1px solid #c51733 !important; }
+
+.nissan .line-stepper {
+  stroke: #c51733;
+  stroke-width: 4; }
+
+.nissan .mat-checkbox-checked .mat-checkbox-background {
+  background-color: #c51733 !important; }
+
+.nissan .mat-radio-inner-circle {
+  background-color: #c51733 !important; }
+
+.nissan .mat-radio-checked .mat-radio-outer-circle {
+  border-color: #c51733 !important; }
+
+.nissan .ngx-datatable.material .datatable-header {
+  background-color: #c51733 !important;
+  height: 36px !important; }
+
+.nissan .ngx-datatable.material .datatable-header .datatable-header-cell {
+  background-color: #c51733 !important;
+  color: white !important;
+  text-transform: uppercase;
+  font-size: 13px;
+  height: 36px !important; }
+
+.nissan .datatable-header {
+  height: 36px !important; }
+
+.nissan .stepperIE {
+  width: 40px;
+  height: 40px;
+  border-radius: 100px;
+  border: 2px solid #e6e6e6; }
+
+.nissan .stepperLineIE {
+  width: 150px;
+  height: 6px;
+  background: #ccc;
+  margin-top: 22px;
+  border: 1px solid #ccc; }
+
+.nissan .logo {
+  background-size: contain;
+  width: 70%;
+  height: 70%;
+  position: absolute;
+  top: 8px;
+  right: 16px;
+  font-size: 18px; }
+
+.nissan .ic-menu {
+  background: url("/assets/images/ic-menu-nissan.png") no-repeat;
+  width: 49px;
+  height: 32px;
+  margin-left: 13px;
+  background-size: contain; }
+
+.nissan .logo-footer {
+  background: url("/assets/images/logo_nissan.png") no-repeat;
+  background-size: cover;
+  height: 35px; }
+
+.nissan #bradge {
+  background: url("/assets/images/logo_nissan.png") no-repeat;
+  margin-top: 3%; }
+
+.nissan #logo-theme {
+  background: url("/assets/images/background_login-nissan.jpg") no-repeat; }
+
+.nissan #logo-login {
+  background: url("/assets/images/logo_nissan.png") no-repeat; }
+
+.nissan .mat-input-placeholder {
+  color: #ccc; }
+
+.nissan .mat-input-underline {
+  border-color: #ccc !important; }
+
+.nissan md-card-header {
+  color: white; }
+
+.nissan .concessionaria {
+  color: white; }
+
+.rci .mat-ripple-element {
+  background-color: rgba(0, 0, 0, 0.1); }
+
+.rci .mat-option {
+  color: rgba(0, 0, 0, 0.87); }
+  .rci .mat-option:hover:not(.mat-option-disabled), .rci .mat-option:focus:not(.mat-option-disabled) {
+    background: rgba(0, 0, 0, 0.04); }
+  .mat-primary .rci .mat-option.mat-selected {
+    color: #ef6c00; }
+  .mat-accent .rci .mat-option.mat-selected {
+    color: #eeeeee; }
+  .mat-warn .rci .mat-option.mat-selected {
+    color: #f44336; }
+  .rci .mat-option.mat-selected:not(.mat-option-multiple) {
+    background: rgba(0, 0, 0, 0.04); }
+  .rci .mat-option.mat-active {
+    background: rgba(0, 0, 0, 0.04);
+    color: rgba(0, 0, 0, 0.87); }
+  .rci .mat-option.mat-option-disabled {
+    color: rgba(0, 0, 0, 0.38); }
+
+.rci .mat-optgroup-label {
+  color: rgba(0, 0, 0, 0.54); }
+
+.rci .mat-optgroup-disabled .mat-optgroup-label {
+  color: rgba(0, 0, 0, 0.38); }
+
+.rci .mat-pseudo-checkbox {
+  color: rgba(0, 0, 0, 0.54); }
+  .rci .mat-pseudo-checkbox::after {
+    color: #fafafa; }
+
+.rci .mat-pseudo-checkbox-checked,
+.rci .mat-pseudo-checkbox-indeterminate,
+.rci .mat-accent .mat-pseudo-checkbox-checked,
+.rci .mat-accent .mat-pseudo-checkbox-indeterminate {
+  background: #eeeeee; }
+
+.rci .mat-primary .mat-pseudo-checkbox-checked,
+.rci .mat-primary .mat-pseudo-checkbox-indeterminate {
+  background: #ef6c00; }
+
+.rci .mat-warn .mat-pseudo-checkbox-checked,
+.rci .mat-warn .mat-pseudo-checkbox-indeterminate {
+  background: #f44336; }
+
+.rci .mat-pseudo-checkbox-checked.mat-pseudo-checkbox-disabled,
+.rci .mat-pseudo-checkbox-indeterminate.mat-pseudo-checkbox-disabled {
+  background: #b0b0b0; }
+
+.rci .mat-app-background {
+  background-color: #fafafa; }
+
+.rci .mat-theme-loaded-marker {
+  display: none; }
+
+.rci .mat-autocomplete-panel {
+  background: white;
+  color: rgba(0, 0, 0, 0.87); }
+  .rci .mat-autocomplete-panel .mat-option.mat-selected:not(.mat-active):not(:hover) {
+    background: white;
+    color: rgba(0, 0, 0, 0.87); }
+
+.rci .mat-button, .rci .mat-icon-button {
+  background: transparent; }
+  .rci .mat-button.mat-primary .mat-button-focus-overlay, .rci .mat-icon-button.mat-primary .mat-button-focus-overlay {
+    background-color: rgba(239, 108, 0, 0.12); }
+  .rci .mat-button.mat-accent .mat-button-focus-overlay, .rci .mat-icon-button.mat-accent .mat-button-focus-overlay {
+    background-color: rgba(238, 238, 238, 0.12); }
+  .rci .mat-button.mat-warn .mat-button-focus-overlay, .rci .mat-icon-button.mat-warn .mat-button-focus-overlay {
+    background-color: rgba(244, 67, 54, 0.12); }
+  .rci .mat-button[disabled] .mat-button-focus-overlay, .rci .mat-icon-button[disabled] .mat-button-focus-overlay {
+    background-color: transparent; }
+  .rci .mat-button.mat-primary, .rci .mat-icon-button.mat-primary {
+    color: #ef6c00; }
+  .rci .mat-button.mat-accent, .rci .mat-icon-button.mat-accent {
+    color: #eeeeee; }
+  .rci .mat-button.mat-warn, .rci .mat-icon-button.mat-warn {
+    color: #f44336; }
+  .rci .mat-button.mat-primary[disabled], .rci .mat-button.mat-accent[disabled], .rci .mat-button.mat-warn[disabled], .rci .mat-button[disabled][disabled], .rci .mat-icon-button.mat-primary[disabled], .rci .mat-icon-button.mat-accent[disabled], .rci .mat-icon-button.mat-warn[disabled], .rci .mat-icon-button[disabled][disabled] {
+    color: rgba(0, 0, 0, 0.38); }
+
+.rci .mat-raised-button, .rci .mat-fab, .rci .mat-mini-fab {
+  color: rgba(0, 0, 0, 0.87);
+  background-color: white; }
+  .rci .mat-raised-button.mat-primary, .rci .mat-fab.mat-primary, .rci .mat-mini-fab.mat-primary {
+    color: white; }
+  .rci .mat-raised-button.mat-accent, .rci .mat-fab.mat-accent, .rci .mat-mini-fab.mat-accent {
+    color: rgba(0, 0, 0, 0.87); }
+  .rci .mat-raised-button.mat-warn, .rci .mat-fab.mat-warn, .rci .mat-mini-fab.mat-warn {
+    color: white; }
+  .rci .mat-raised-button.mat-primary[disabled], .rci .mat-raised-button.mat-accent[disabled], .rci .mat-raised-button.mat-warn[disabled], .rci .mat-raised-button[disabled][disabled], .rci .mat-fab.mat-primary[disabled], .rci .mat-fab.mat-accent[disabled], .rci .mat-fab.mat-warn[disabled], .rci .mat-fab[disabled][disabled], .rci .mat-mini-fab.mat-primary[disabled], .rci .mat-mini-fab.mat-accent[disabled], .rci .mat-mini-fab.mat-warn[disabled], .rci .mat-mini-fab[disabled][disabled] {
+    color: rgba(0, 0, 0, 0.38); }
+  .rci .mat-raised-button.mat-primary, .rci .mat-fab.mat-primary, .rci .mat-mini-fab.mat-primary {
+    background-color: #ef6c00; }
+  .rci .mat-raised-button.mat-accent, .rci .mat-fab.mat-accent, .rci .mat-mini-fab.mat-accent {
+    background-color: #eeeeee; }
+  .rci .mat-raised-button.mat-warn, .rci .mat-fab.mat-warn, .rci .mat-mini-fab.mat-warn {
+    background-color: #f44336; }
+  .rci .mat-raised-button.mat-primary[disabled], .rci .mat-raised-button.mat-accent[disabled], .rci .mat-raised-button.mat-warn[disabled], .rci .mat-raised-button[disabled][disabled], .rci .mat-fab.mat-primary[disabled], .rci .mat-fab.mat-accent[disabled], .rci .mat-fab.mat-warn[disabled], .rci .mat-fab[disabled][disabled], .rci .mat-mini-fab.mat-primary[disabled], .rci .mat-mini-fab.mat-accent[disabled], .rci .mat-mini-fab.mat-warn[disabled], .rci .mat-mini-fab[disabled][disabled] {
+    background-color: rgba(0, 0, 0, 0.12); }
+  .rci .mat-raised-button.mat-primary .mat-ripple-element, .rci .mat-fab.mat-primary .mat-ripple-element, .rci .mat-mini-fab.mat-primary .mat-ripple-element {
+    background-color: rgba(255, 255, 255, 0.2); }
+  .rci .mat-raised-button.mat-accent .mat-ripple-element, .rci .mat-fab.mat-accent .mat-ripple-element, .rci .mat-mini-fab.mat-accent .mat-ripple-element {
+    background-color: rgba(0, 0, 0, 0.2); }
+  .rci .mat-raised-button.mat-warn .mat-ripple-element, .rci .mat-fab.mat-warn .mat-ripple-element, .rci .mat-mini-fab.mat-warn .mat-ripple-element {
+    background-color: rgba(255, 255, 255, 0.2); }
+
+.rci .mat-button.mat-primary .mat-ripple-element {
+  background-color: rgba(239, 108, 0, 0.1); }
+
+.rci .mat-button.mat-accent .mat-ripple-element {
+  background-color: rgba(238, 238, 238, 0.1); }
+
+.rci .mat-button.mat-warn .mat-ripple-element {
+  background-color: rgba(244, 67, 54, 0.1); }
+
+.rci .mat-icon-button.mat-primary .mat-ripple-element {
+  background-color: rgba(239, 108, 0, 0.2); }
+
+.rci .mat-icon-button.mat-accent .mat-ripple-element {
+  background-color: rgba(238, 238, 238, 0.2); }
+
+.rci .mat-icon-button.mat-warn .mat-ripple-element {
+  background-color: rgba(244, 67, 54, 0.2); }
+
+.rci .mat-button-toggle {
+  color: rgba(0, 0, 0, 0.38); }
+  .rci .mat-button-toggle.cdk-focused .mat-button-toggle-focus-overlay {
+    background-color: rgba(0, 0, 0, 0.06); }
+
+.rci .mat-button-toggle-checked {
+  background-color: #e0e0e0;
+  color: rgba(0, 0, 0, 0.54); }
+
+.rci .mat-button-toggle-disabled {
+  background-color: #eeeeee;
+  color: rgba(0, 0, 0, 0.38); }
+  .rci .mat-button-toggle-disabled.mat-button-toggle-checked {
+    background-color: #bdbdbd; }
+
+.rci .mat-card {
+  background: white;
+  color: rgba(0, 0, 0, 0.87); }
+
+.rci .mat-card-subtitle {
+  color: rgba(0, 0, 0, 0.54); }
+
+.rci .mat-checkbox-frame {
+  border-color: rgba(0, 0, 0, 0.54); }
+
+.rci .mat-checkbox-checkmark {
+  fill: #fafafa; }
+
+.rci .mat-checkbox-checkmark-path {
+  stroke: #fafafa !important; }
+
+.rci .mat-checkbox-mixedmark {
+  background-color: #fafafa; }
+
+.rci .mat-checkbox-indeterminate.mat-primary .mat-checkbox-background, .rci .mat-checkbox-checked.mat-primary .mat-checkbox-background {
+  background-color: #ef6c00; }
+
+.rci .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background, .rci .mat-checkbox-checked.mat-accent .mat-checkbox-background {
+  background-color: #eeeeee; }
+
+.rci .mat-checkbox-indeterminate.mat-warn .mat-checkbox-background, .rci .mat-checkbox-checked.mat-warn .mat-checkbox-background {
+  background-color: #f44336; }
+
+.rci .mat-checkbox-disabled.mat-checkbox-checked .mat-checkbox-background, .rci .mat-checkbox-disabled.mat-checkbox-indeterminate .mat-checkbox-background {
+  background-color: #b0b0b0; }
+
+.rci .mat-checkbox-disabled:not(.mat-checkbox-checked) .mat-checkbox-frame {
+  border-color: #b0b0b0; }
+
+.rci .mat-checkbox-disabled .mat-checkbox-label {
+  color: #b0b0b0; }
+
+.rci .mat-checkbox:not(.mat-checkbox-disabled).mat-primary .mat-checkbox-ripple .mat-ripple-element {
+  background-color: rgba(239, 108, 0, 0.26); }
+
+.rci .mat-checkbox:not(.mat-checkbox-disabled).mat-accent .mat-checkbox-ripple .mat-ripple-element {
+  background-color: rgba(238, 238, 238, 0.26); }
+
+.rci .mat-checkbox:not(.mat-checkbox-disabled).mat-warn .mat-checkbox-ripple .mat-ripple-element {
+  background-color: rgba(244, 67, 54, 0.26); }
+
+.rci .mat-chip:not(.mat-basic-chip) {
+  background-color: #e0e0e0;
+  color: rgba(0, 0, 0, 0.87); }
+  .rci .mat-chip:not(.mat-basic-chip) .mat-chip-remove {
+    color: rgba(0, 0, 0, 0.87);
+    opacity: 0.4; }
+  .rci .mat-chip:not(.mat-basic-chip) .mat-chip-remove:hover {
+    opacity: 0.54; }
+
+.rci .mat-chip.mat-chip-selected.mat-primary {
+  background-color: #ef6c00;
+  color: white; }
+  .rci .mat-chip.mat-chip-selected.mat-primary .mat-chip-remove {
+    color: white;
+    opacity: 0.4; }
+  .rci .mat-chip.mat-chip-selected.mat-primary .mat-chip-remove:hover {
+    opacity: 0.54; }
+
+.rci .mat-chip.mat-chip-selected.mat-warn {
+  background-color: #f44336;
+  color: white; }
+  .rci .mat-chip.mat-chip-selected.mat-warn .mat-chip-remove {
+    color: white;
+    opacity: 0.4; }
+  .rci .mat-chip.mat-chip-selected.mat-warn .mat-chip-remove:hover {
+    opacity: 0.54; }
+
+.rci .mat-chip.mat-chip-selected.mat-accent {
+  background-color: #eeeeee;
+  color: rgba(0, 0, 0, 0.87); }
+  .rci .mat-chip.mat-chip-selected.mat-accent .mat-chip-remove {
+    color: rgba(0, 0, 0, 0.87);
+    opacity: 0.4; }
+  .rci .mat-chip.mat-chip-selected.mat-accent .mat-chip-remove:hover {
+    opacity: 0.54; }
+
+.rci .mat-table {
+  background: white; }
+
+.rci .mat-row, .rci .mat-header-row {
+  border-bottom-color: rgba(0, 0, 0, 0.12); }
+
+.rci .mat-header-cell {
+  color: rgba(0, 0, 0, 0.54); }
+
+.rci .mat-cell {
+  color: rgba(0, 0, 0, 0.87); }
+
+.rci .mat-datepicker-content {
+  background-color: white;
+  color: rgba(0, 0, 0, 0.87); }
+
+.rci .mat-calendar-arrow {
+  border-top-color: rgba(0, 0, 0, 0.54); }
+
+.rci .mat-calendar-next-button,
+.rci .mat-calendar-previous-button {
+  color: rgba(0, 0, 0, 0.54); }
+
+.rci .mat-calendar-table-header {
+  color: rgba(0, 0, 0, 0.38); }
+
+.rci .mat-calendar-table-header-divider::after {
+  background: rgba(0, 0, 0, 0.12); }
+
+.rci .mat-calendar-body-label {
+  color: rgba(0, 0, 0, 0.54); }
+
+.rci .mat-calendar-body-cell-content {
+  color: rgba(0, 0, 0, 0.87);
+  border-color: transparent; }
+  .mat-calendar-body-disabled > .rci .mat-calendar-body-cell-content:not(.mat-calendar-body-selected) {
+    color: rgba(0, 0, 0, 0.38); }
+
+.rci :not(.mat-calendar-body-disabled):hover > .mat-calendar-body-cell-content:not(.mat-calendar-body-selected),
+.rci .cdk-keyboard-focused .mat-calendar-body-active > .mat-calendar-body-cell-content:not(.mat-calendar-body-selected) {
+  background-color: rgba(0, 0, 0, 0.04); }
+
+.rci .mat-calendar-body-selected {
+  background-color: #ef6c00;
+  color: white; }
+
+.rci .mat-calendar-body-disabled > .mat-calendar-body-selected {
+  background-color: rgba(239, 108, 0, 0.4); }
+
+.rci .mat-calendar-body-today:not(.mat-calendar-body-selected) {
+  border-color: rgba(0, 0, 0, 0.38); }
+
+.rci .mat-calendar-body-today.mat-calendar-body-selected {
+  box-shadow: inset 0 0 0 1px white; }
+
+.rci .mat-calendar-body-disabled > .mat-calendar-body-today:not(.mat-calendar-body-selected) {
+  border-color: rgba(0, 0, 0, 0.18); }
+
+.rci .mat-dialog-container {
+  background: white;
+  color: rgba(0, 0, 0, 0.87); }
+
+.rci .mat-expansion-panel {
+  background: white;
+  color: rgba(0, 0, 0, 0.87); }
+
+.rci .mat-action-row {
+  border-top-color: rgba(0, 0, 0, 0.12); }
+
+.rci .mat-expansion-panel-header:not([aria-disabled='true']).cdk-keyboard-focused, .rci .mat-expansion-panel-header:not([aria-disabled='true']).cdk-program-focused, .rci .mat-expansion-panel-header:not([aria-disabled='true']):hover {
+  background: rgba(0, 0, 0, 0.04); }
+
+.rci .mat-expansion-panel-header-title {
+  color: rgba(0, 0, 0, 0.87); }
+
+.rci .mat-expansion-panel-header-description,
+.rci .mat-expansion-indicator::after {
+  color: rgba(0, 0, 0, 0.54); }
+
+.rci .mat-expansion-panel-header[aria-disabled='true'] {
+  color: rgba(0, 0, 0, 0.38); }
+  .rci .mat-expansion-panel-header[aria-disabled='true'] .mat-expansion-panel-header-title,
+  .rci .mat-expansion-panel-header[aria-disabled='true'] .mat-expansion-panel-header-description {
+    color: inherit; }
+
+.rci .mat-form-field {
+  width: 200px; }
+
+.rci .mat-form-field-placeholder {
+  color: rgba(0, 0, 0, 0.54); }
+
+.rci .mat-hint {
+  color: rgba(0, 0, 0, 0.54); }
+
+.rci .mat-focused .mat-form-field-placeholder {
+  color: #ef6c00; }
+  .rci .mat-focused .mat-form-field-placeholder.mat-accent {
+    color: #eeeeee; }
+  .rci .mat-focused .mat-form-field-placeholder.mat-warn {
+    color: #f44336; }
+
+.rci .mat-form-field-autofill-float:-webkit-autofill + .mat-form-field-placeholder .mat-form-field-required-marker,
+.rci .mat-focused .mat-form-field-placeholder.mat-form-field-float .mat-form-field-required-marker {
+  color: #eeeeee; }
+
+.rci .mat-form-field-underline {
+  background-color: rgba(0, 0, 0, 0.42); }
+  .rci .mat-form-field-underline.mat-disabled {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.42) 0%, rgba(0, 0, 0, 0.42) 33%, transparent 0%);
+    background-size: 4px 1px;
+    background-repeat: repeat-x; }
+
+.rci .mat-form-field-ripple {
+  background-color: #ef6c00; }
+  .rci .mat-form-field-ripple.mat-accent {
+    background-color: #eeeeee; }
+  .rci .mat-form-field-ripple.mat-warn {
+    background-color: #f44336; }
+
+.rci .mat-form-field-invalid .mat-form-field-placeholder {
+  color: #f44336; }
+  .rci .mat-form-field-invalid .mat-form-field-placeholder.mat-accent,
+  .rci .mat-form-field-invalid .mat-form-field-placeholder.mat-form-field-float .mat-form-field-required-marker {
+    color: #f44336; }
+
+.rci .mat-form-field-invalid .mat-form-field-ripple {
+  background-color: #f44336; }
+
+.rci .mat-error {
+  color: #f44336; }
+
+.rci .mat-icon.mat-primary {
+  color: #ef6c00; }
+
+.rci .mat-icon.mat-accent {
+  color: #eeeeee; }
+
+.rci .mat-icon.mat-warn {
+  color: #f44336; }
+
+.rci .mat-input-element:disabled {
+  color: rgba(0, 0, 0, 0.42); }
+
+.rci .mat-list .mat-list-item, .rci .mat-nav-list .mat-list-item, .rci .mat-selection-list .mat-list-item {
+  color: rgba(0, 0, 0, 0.87); }
+
+.rci .mat-list .mat-list-option, .rci .mat-nav-list .mat-list-option, .rci .mat-selection-list .mat-list-option {
+  color: rgba(0, 0, 0, 0.87); }
+
+.rci .mat-list .mat-subheader, .rci .mat-nav-list .mat-subheader, .rci .mat-selection-list .mat-subheader {
+  color: rgba(0, 0, 0, 0.54); }
+
+.rci .mat-list-item-disabled {
+  background-color: #eeeeee; }
+
+.rci .mat-divider {
+  border-top-color: rgba(0, 0, 0, 0.12); }
+
+.rci .mat-nav-list .mat-list-item {
+  outline: none; }
+  .rci .mat-nav-list .mat-list-item:hover, .rci .mat-nav-list .mat-list-item.mat-list-item-focus {
+    background: rgba(0, 0, 0, 0.04); }
+
+.rci .mat-list-option {
+  outline: none; }
+  .rci .mat-list-option:hover, .rci .mat-list-option.mat-list-item-focus {
+    background: rgba(0, 0, 0, 0.04); }
+
+.rci .mat-menu-panel {
+  background: white; }
+
+.rci .mat-menu-item {
+  background: transparent;
+  color: rgba(0, 0, 0, 0.87); }
+  .rci .mat-menu-item[disabled] {
+    color: rgba(0, 0, 0, 0.38); }
+
+.rci .mat-menu-item .mat-icon,
+.rci .mat-menu-item-submenu-trigger::after {
+  color: rgba(0, 0, 0, 0.54); }
+
+.rci .mat-menu-item:hover:not([disabled]),
+.rci .mat-menu-item:focus:not([disabled]),
+.rci .mat-menu-item-highlighted:not([disabled]) {
+  background: rgba(0, 0, 0, 0.04); }
+
+.rci .mat-paginator {
+  background: white; }
+
+.rci .mat-paginator,
+.rci .mat-paginator-page-size .mat-select-trigger {
+  color: rgba(0, 0, 0, 0.54); }
+
+.rci .mat-paginator-increment,
+.rci .mat-paginator-decrement {
+  border-top: 2px solid rgba(0, 0, 0, 0.54);
+  border-right: 2px solid rgba(0, 0, 0, 0.54); }
+
+.rci .mat-icon-button[disabled] .mat-paginator-increment,
+.rci .mat-icon-button[disabled] .mat-paginator-decrement {
+  border-color: rgba(0, 0, 0, 0.38); }
+
+.rci .mat-progress-bar-background {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20version%3D%271.1%27%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20xmlns%3Axlink%3D%27http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%27%20x%3D%270px%27%20y%3D%270px%27%20enable-background%3D%27new%200%200%205%202%27%20xml%3Aspace%3D%27preserve%27%20viewBox%3D%270%200%205%202%27%20preserveAspectRatio%3D%27none%20slice%27%3E%3Ccircle%20cx%3D%271%27%20cy%3D%271%27%20r%3D%271%27%20fill%3D%27white%27%2F%3E%3C%2Fsvg%3E"); }
+
+.rci .mat-progress-bar-buffer {
+  background-color: white; }
+
+.rci .mat-progress-bar-fill::after {
+  background-color: #ef6c00; }
+
+.rci .mat-progress-bar.mat-accent .mat-progress-bar-background {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20version%3D%271.1%27%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20xmlns%3Axlink%3D%27http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%27%20x%3D%270px%27%20y%3D%270px%27%20enable-background%3D%27new%200%200%205%202%27%20xml%3Aspace%3D%27preserve%27%20viewBox%3D%270%200%205%202%27%20preserveAspectRatio%3D%27none%20slice%27%3E%3Ccircle%20cx%3D%271%27%20cy%3D%271%27%20r%3D%271%27%20fill%3D%27white%27%2F%3E%3C%2Fsvg%3E"); }
+
+.rci .mat-progress-bar.mat-accent .mat-progress-bar-buffer {
+  background-color: white; }
+
+.rci .mat-progress-bar.mat-accent .mat-progress-bar-fill::after {
+  background-color: #eeeeee; }
+
+.rci .mat-progress-bar.mat-warn .mat-progress-bar-background {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20version%3D%271.1%27%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20xmlns%3Axlink%3D%27http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%27%20x%3D%270px%27%20y%3D%270px%27%20enable-background%3D%27new%200%200%205%202%27%20xml%3Aspace%3D%27preserve%27%20viewBox%3D%270%200%205%202%27%20preserveAspectRatio%3D%27none%20slice%27%3E%3Ccircle%20cx%3D%271%27%20cy%3D%271%27%20r%3D%271%27%20fill%3D%27%23ffcdd2%27%2F%3E%3C%2Fsvg%3E"); }
+
+.rci .mat-progress-bar.mat-warn .mat-progress-bar-buffer {
+  background-color: #ffcdd2; }
+
+.rci .mat-progress-bar.mat-warn .mat-progress-bar-fill::after {
+  background-color: #f44336; }
+
+.rci .mat-progress-spinner path, .rci .mat-spinner path {
+  stroke: #ef6c00; }
+
+.rci .mat-progress-spinner.mat-accent path, .rci .mat-spinner.mat-accent path {
+  stroke: #eeeeee; }
+
+.rci .mat-progress-spinner.mat-warn path, .rci .mat-spinner.mat-warn path {
+  stroke: #f44336; }
+
+.rci .mat-radio-outer-circle {
+  border-color: rgba(0, 0, 0, 0.54); }
+
+.rci .mat-radio-disabled .mat-radio-outer-circle {
+  border-color: rgba(0, 0, 0, 0.38); }
+
+.rci .mat-radio-disabled .mat-radio-ripple .mat-ripple-element, .rci .mat-radio-disabled .mat-radio-inner-circle {
+  background-color: rgba(0, 0, 0, 0.38); }
+
+.rci .mat-radio-disabled .mat-radio-label-content {
+  color: rgba(0, 0, 0, 0.38); }
+
+.rci .mat-radio-button.mat-primary.mat-radio-checked .mat-radio-outer-circle {
+  border-color: #ef6c00; }
+
+.rci .mat-radio-button.mat-primary .mat-radio-inner-circle {
+  background-color: #ef6c00; }
+
+.rci .mat-radio-button.mat-primary .mat-radio-ripple .mat-ripple-element {
+  background-color: rgba(239, 108, 0, 0.26); }
+
+.rci .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+  border-color: #eeeeee; }
+
+.rci .mat-radio-button.mat-accent .mat-radio-inner-circle {
+  background-color: #eeeeee; }
+
+.rci .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
+  background-color: rgba(238, 238, 238, 0.26); }
+
+.rci .mat-radio-button.mat-warn.mat-radio-checked .mat-radio-outer-circle {
+  border-color: #f44336; }
+
+.rci .mat-radio-button.mat-warn .mat-radio-inner-circle {
+  background-color: #f44336; }
+
+.rci .mat-radio-button.mat-warn .mat-radio-ripple .mat-ripple-element {
+  background-color: rgba(244, 67, 54, 0.26); }
+
+.rci .mat-select-trigger,
+.rci .mat-select-arrow {
+  color: rgba(0, 0, 0, 0.54); }
+
+.rci .mat-select-underline {
+  background-color: rgba(0, 0, 0, 0.42); }
+
+.rci [aria-disabled='true'] .mat-select-underline {
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.42) 0%, rgba(0, 0, 0, 0.42) 33%, transparent 0%);
+  background-size: 4px 1px;
+  background-repeat: repeat-x; }
+
+.rci .mat-select-disabled .mat-select-value,
+.rci .mat-select-arrow,
+.rci .mat-select-trigger {
+  color: rgba(0, 0, 0, 0.54); }
+
+.rci .mat-select-content, .rci .mat-select-panel-done-animating {
+  background: white; }
+
+.rci .mat-select-value {
+  color: rgba(0, 0, 0, 0.87); }
+
+.rci .mat-select-panel .mat-option.mat-selected:not(.mat-option-multiple) {
+  background: rgba(0, 0, 0, 0.12); }
+
+.rci .mat-select:focus:not(.mat-select-disabled).mat-primary .mat-select-trigger, .rci .mat-select:focus:not(.mat-select-disabled).mat-primary .mat-select-arrow {
+  color: #ef6c00; }
+
+.rci .mat-select:focus:not(.mat-select-disabled).mat-primary .mat-select-underline {
+  background-color: #ef6c00; }
+
+.rci .mat-select:focus:not(.mat-select-disabled).mat-accent .mat-select-trigger, .rci .mat-select:focus:not(.mat-select-disabled).mat-accent .mat-select-arrow {
+  color: #eeeeee; }
+
+.rci .mat-select:focus:not(.mat-select-disabled).mat-accent .mat-select-underline {
+  background-color: #eeeeee; }
+
+.rci .mat-select:focus:not(.mat-select-disabled).mat-select-required .mat-select-placeholder::after {
+  color: #f44336; }
+
+.rci .mat-select:focus:not(.mat-select-disabled).mat-warn .mat-select-trigger, .rci .mat-select:focus:not(.mat-select-disabled).mat-warn .mat-select-arrow, .rci .mat-select-invalid .mat-select-trigger, .rci .mat-select-invalid .mat-select-arrow {
+  color: #f44336; }
+
+.rci .mat-select:focus:not(.mat-select-disabled).mat-warn .mat-select-underline, .rci .mat-select-invalid .mat-select-underline {
+  background-color: #f44336; }
+
+.rci .mat-drawer-container {
+  background-color: #fafafa;
+  color: rgba(0, 0, 0, 0.87); }
+
+.rci .mat-drawer {
+  background-color: white;
+  color: rgba(0, 0, 0, 0.87); }
+  .rci .mat-drawer.mat-drawer-push {
+    background-color: white; }
+
+.rci .mat-drawer-backdrop.mat-drawer-shown {
+  background-color: rgba(0, 0, 0, 0.6); }
+
+.rci .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
+  background-color: #9e9e9e; }
+
+.rci .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
+  background-color: rgba(158, 158, 158, 0.5); }
+
+.rci .mat-slide-toggle:not(.mat-checked) .mat-ripple-element {
+  background-color: rgba(0, 0, 0, 0.06); }
+
+.rci .mat-slide-toggle .mat-ripple-element {
+  background-color: rgba(158, 158, 158, 0.12); }
+
+.rci .mat-slide-toggle.mat-primary.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
+  background-color: #ff0a00; }
+
+.rci .mat-slide-toggle.mat-primary.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
+  background-color: rgba(255, 10, 0, 0.5); }
+
+.rci .mat-slide-toggle.mat-primary:not(.mat-checked) .mat-ripple-element {
+  background-color: rgba(0, 0, 0, 0.06); }
+
+.rci .mat-slide-toggle.mat-primary .mat-ripple-element {
+  background-color: rgba(255, 10, 0, 0.12); }
+
+.rci .mat-slide-toggle.mat-warn.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
+  background-color: #f44336; }
+
+.rci .mat-slide-toggle.mat-warn.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
+  background-color: rgba(244, 67, 54, 0.5); }
+
+.rci .mat-slide-toggle.mat-warn:not(.mat-checked) .mat-ripple-element {
+  background-color: rgba(0, 0, 0, 0.06); }
+
+.rci .mat-slide-toggle.mat-warn .mat-ripple-element {
+  background-color: rgba(244, 67, 54, 0.12); }
+
+.rci .mat-disabled .mat-slide-toggle-thumb {
+  background-color: #bdbdbd; }
+
+.rci .mat-disabled .mat-slide-toggle-bar {
+  background-color: rgba(0, 0, 0, 0.1); }
+
+.rci .mat-slide-toggle-thumb {
+  background-color: #fafafa; }
+
+.rci .mat-slide-toggle-bar {
+  background-color: rgba(0, 0, 0, 0.38); }
+
+.rci .mat-slider-track-background {
+  background-color: rgba(0, 0, 0, 0.26); }
+
+.rci .mat-primary .mat-slider-track-fill,
+.rci .mat-primary .mat-slider-thumb,
+.rci .mat-primary .mat-slider-thumb-label {
+  background-color: #ef6c00; }
+
+.rci .mat-primary .mat-slider-thumb-label-text {
+  color: white; }
+
+.rci .mat-accent .mat-slider-track-fill,
+.rci .mat-accent .mat-slider-thumb,
+.rci .mat-accent .mat-slider-thumb-label {
+  background-color: #eeeeee; }
+
+.rci .mat-accent .mat-slider-thumb-label-text {
+  color: rgba(0, 0, 0, 0.87); }
+
+.rci .mat-warn .mat-slider-track-fill,
+.rci .mat-warn .mat-slider-thumb,
+.rci .mat-warn .mat-slider-thumb-label {
+  background-color: #f44336; }
+
+.rci .mat-warn .mat-slider-thumb-label-text {
+  color: white; }
+
+.rci .mat-slider-focus-ring {
+  background-color: rgba(238, 238, 238, 0.2); }
+
+.rci .mat-slider:hover .mat-slider-track-background,
+.rci .cdk-focused .mat-slider-track-background {
+  background-color: rgba(0, 0, 0, 0.38); }
+
+.rci .mat-slider-disabled .mat-slider-track-background,
+.rci .mat-slider-disabled .mat-slider-track-fill,
+.rci .mat-slider-disabled .mat-slider-thumb {
+  background-color: rgba(0, 0, 0, 0.26); }
+
+.rci .mat-slider-disabled:hover .mat-slider-track-background {
+  background-color: rgba(0, 0, 0, 0.26); }
+
+.rci .mat-slider-min-value .mat-slider-focus-ring {
+  background-color: rgba(0, 0, 0, 0.12); }
+
+.rci .mat-slider-min-value.mat-slider-thumb-label-showing .mat-slider-thumb,
+.rci .mat-slider-min-value.mat-slider-thumb-label-showing .mat-slider-thumb-label {
+  background-color: rgba(0, 0, 0, 0.87); }
+
+.rci .mat-slider-min-value.mat-slider-thumb-label-showing.cdk-focused .mat-slider-thumb,
+.rci .mat-slider-min-value.mat-slider-thumb-label-showing.cdk-focused .mat-slider-thumb-label {
+  background-color: rgba(0, 0, 0, 0.26); }
+
+.rci .mat-slider-min-value:not(.mat-slider-thumb-label-showing) .mat-slider-thumb {
+  border-color: rgba(0, 0, 0, 0.26);
+  background-color: transparent; }
+
+.rci .mat-slider-min-value:not(.mat-slider-thumb-label-showing):hover .mat-slider-thumb, .rci .mat-slider-min-value:not(.mat-slider-thumb-label-showing).cdk-focused .mat-slider-thumb {
+  border-color: rgba(0, 0, 0, 0.38); }
+
+.rci .mat-slider-min-value:not(.mat-slider-thumb-label-showing):hover.mat-slider-disabled .mat-slider-thumb, .rci .mat-slider-min-value:not(.mat-slider-thumb-label-showing).cdk-focused.mat-slider-disabled .mat-slider-thumb {
+  border-color: rgba(0, 0, 0, 0.26); }
+
+.rci .mat-slider-has-ticks .mat-slider-wrapper::after {
+  border-color: rgba(0, 0, 0, 0.7); }
+
+.rci .mat-slider-horizontal .mat-slider-ticks {
+  background-image: repeating-linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) 2px, transparent 0, transparent);
+  background-image: -moz-repeating-linear-gradient(0.0001deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) 2px, transparent 0, transparent); }
+
+.rci .mat-slider-vertical .mat-slider-ticks {
+  background-image: repeating-linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) 2px, transparent 0, transparent); }
+
+.rci .mat-tab-nav-bar,
+.rci .mat-tab-header {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12); }
+
+.rci .mat-tab-group-inverted-header .mat-tab-nav-bar,
+.rci .mat-tab-group-inverted-header .mat-tab-header {
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+  border-bottom: none; }
+
+.rci .mat-tab-label, .rci .mat-tab-link {
+  color: rgba(0, 0, 0, 0.87); }
+  .rci .mat-tab-label.mat-tab-disabled, .rci .mat-tab-link.mat-tab-disabled {
+    color: rgba(0, 0, 0, 0.38); }
+
+.rci .mat-tab-header-pagination-chevron {
+  border-color: rgba(0, 0, 0, 0.87); }
+
+.rci .mat-tab-header-pagination-disabled .mat-tab-header-pagination-chevron {
+  border-color: rgba(0, 0, 0, 0.38); }
+
+.rci .mat-tab-group[class*='mat-background-'] .mat-tab-header,
+.rci .mat-tab-nav-bar[class*='mat-background-'] {
+  border-bottom: none;
+  border-top: none; }
+
+.rci .mat-tab-group.mat-primary .mat-tab-label:focus, .rci .mat-tab-group.mat-primary .mat-tab-link:focus, .rci .mat-tab-nav-bar.mat-primary .mat-tab-label:focus, .rci .mat-tab-nav-bar.mat-primary .mat-tab-link:focus {
+  background-color: rgba(255, 255, 255, 0.3); }
+
+.rci .mat-tab-group.mat-primary .mat-ink-bar, .rci .mat-tab-nav-bar.mat-primary .mat-ink-bar {
+  background-color: #ef6c00; }
+
+.rci .mat-tab-group.mat-primary.mat-background-primary .mat-ink-bar, .rci .mat-tab-nav-bar.mat-primary.mat-background-primary .mat-ink-bar {
+  background-color: white; }
+
+.rci .mat-tab-group.mat-accent .mat-tab-label:focus, .rci .mat-tab-group.mat-accent .mat-tab-link:focus, .rci .mat-tab-nav-bar.mat-accent .mat-tab-label:focus, .rci .mat-tab-nav-bar.mat-accent .mat-tab-link:focus {
+  background-color: rgba(255, 255, 255, 0.3); }
+
+.rci .mat-tab-group.mat-accent .mat-ink-bar, .rci .mat-tab-nav-bar.mat-accent .mat-ink-bar {
+  background-color: #eeeeee; }
+
+.rci .mat-tab-group.mat-accent.mat-background-accent .mat-ink-bar, .rci .mat-tab-nav-bar.mat-accent.mat-background-accent .mat-ink-bar {
+  background-color: rgba(0, 0, 0, 0.87); }
+
+.rci .mat-tab-group.mat-warn .mat-tab-label:focus, .rci .mat-tab-group.mat-warn .mat-tab-link:focus, .rci .mat-tab-nav-bar.mat-warn .mat-tab-label:focus, .rci .mat-tab-nav-bar.mat-warn .mat-tab-link:focus {
+  background-color: rgba(255, 205, 210, 0.3); }
+
+.rci .mat-tab-group.mat-warn .mat-ink-bar, .rci .mat-tab-nav-bar.mat-warn .mat-ink-bar {
+  background-color: #f44336; }
+
+.rci .mat-tab-group.mat-warn.mat-background-warn .mat-ink-bar, .rci .mat-tab-nav-bar.mat-warn.mat-background-warn .mat-ink-bar {
+  background-color: white; }
+
+.rci .mat-tab-group.mat-background-primary .mat-tab-label:focus, .rci .mat-tab-group.mat-background-primary .mat-tab-link:focus, .rci .mat-tab-nav-bar.mat-background-primary .mat-tab-label:focus, .rci .mat-tab-nav-bar.mat-background-primary .mat-tab-link:focus {
+  background-color: rgba(255, 255, 255, 0.3); }
+
+.rci .mat-tab-group.mat-background-primary .mat-tab-header, .rci .mat-tab-group.mat-background-primary .mat-tab-links, .rci .mat-tab-nav-bar.mat-background-primary .mat-tab-header, .rci .mat-tab-nav-bar.mat-background-primary .mat-tab-links {
+  background-color: #ef6c00; }
+
+.rci .mat-tab-group.mat-background-primary .mat-tab-label, .rci .mat-tab-group.mat-background-primary .mat-tab-link, .rci .mat-tab-nav-bar.mat-background-primary .mat-tab-label, .rci .mat-tab-nav-bar.mat-background-primary .mat-tab-link {
+  color: white; }
+  .rci .mat-tab-group.mat-background-primary .mat-tab-label.mat-tab-disabled, .rci .mat-tab-group.mat-background-primary .mat-tab-link.mat-tab-disabled, .rci .mat-tab-nav-bar.mat-background-primary .mat-tab-label.mat-tab-disabled, .rci .mat-tab-nav-bar.mat-background-primary .mat-tab-link.mat-tab-disabled {
+    color: rgba(255, 255, 255, 0.4); }
+
+.rci .mat-tab-group.mat-background-primary .mat-tab-header-pagination-chevron, .rci .mat-tab-nav-bar.mat-background-primary .mat-tab-header-pagination-chevron {
+  border-color: white; }
+
+.rci .mat-tab-group.mat-background-primary .mat-tab-header-pagination-disabled .mat-tab-header-pagination-chevron, .rci .mat-tab-nav-bar.mat-background-primary .mat-tab-header-pagination-disabled .mat-tab-header-pagination-chevron {
+  border-color: rgba(255, 255, 255, 0.4); }
+
+.rci .mat-tab-group.mat-background-accent .mat-tab-label:focus, .rci .mat-tab-group.mat-background-accent .mat-tab-link:focus, .rci .mat-tab-nav-bar.mat-background-accent .mat-tab-label:focus, .rci .mat-tab-nav-bar.mat-background-accent .mat-tab-link:focus {
+  background-color: rgba(255, 255, 255, 0.3); }
+
+.rci .mat-tab-group.mat-background-accent .mat-tab-header, .rci .mat-tab-group.mat-background-accent .mat-tab-links, .rci .mat-tab-nav-bar.mat-background-accent .mat-tab-header, .rci .mat-tab-nav-bar.mat-background-accent .mat-tab-links {
+  background-color: #eeeeee; }
+
+.rci .mat-tab-group.mat-background-accent .mat-tab-label, .rci .mat-tab-group.mat-background-accent .mat-tab-link, .rci .mat-tab-nav-bar.mat-background-accent .mat-tab-label, .rci .mat-tab-nav-bar.mat-background-accent .mat-tab-link {
+  color: rgba(0, 0, 0, 0.87); }
+  .rci .mat-tab-group.mat-background-accent .mat-tab-label.mat-tab-disabled, .rci .mat-tab-group.mat-background-accent .mat-tab-link.mat-tab-disabled, .rci .mat-tab-nav-bar.mat-background-accent .mat-tab-label.mat-tab-disabled, .rci .mat-tab-nav-bar.mat-background-accent .mat-tab-link.mat-tab-disabled {
+    color: rgba(0, 0, 0, 0.4); }
+
+.rci .mat-tab-group.mat-background-accent .mat-tab-header-pagination-chevron, .rci .mat-tab-nav-bar.mat-background-accent .mat-tab-header-pagination-chevron {
+  border-color: rgba(0, 0, 0, 0.87); }
+
+.rci .mat-tab-group.mat-background-accent .mat-tab-header-pagination-disabled .mat-tab-header-pagination-chevron, .rci .mat-tab-nav-bar.mat-background-accent .mat-tab-header-pagination-disabled .mat-tab-header-pagination-chevron {
+  border-color: rgba(0, 0, 0, 0.4); }
+
+.rci .mat-tab-group.mat-background-warn .mat-tab-label:focus, .rci .mat-tab-group.mat-background-warn .mat-tab-link:focus, .rci .mat-tab-nav-bar.mat-background-warn .mat-tab-label:focus, .rci .mat-tab-nav-bar.mat-background-warn .mat-tab-link:focus {
+  background-color: rgba(255, 205, 210, 0.3); }
+
+.rci .mat-tab-group.mat-background-warn .mat-tab-header, .rci .mat-tab-group.mat-background-warn .mat-tab-links, .rci .mat-tab-nav-bar.mat-background-warn .mat-tab-header, .rci .mat-tab-nav-bar.mat-background-warn .mat-tab-links {
+  background-color: #f44336; }
+
+.rci .mat-tab-group.mat-background-warn .mat-tab-label, .rci .mat-tab-group.mat-background-warn .mat-tab-link, .rci .mat-tab-nav-bar.mat-background-warn .mat-tab-label, .rci .mat-tab-nav-bar.mat-background-warn .mat-tab-link {
+  color: white; }
+  .rci .mat-tab-group.mat-background-warn .mat-tab-label.mat-tab-disabled, .rci .mat-tab-group.mat-background-warn .mat-tab-link.mat-tab-disabled, .rci .mat-tab-nav-bar.mat-background-warn .mat-tab-label.mat-tab-disabled, .rci .mat-tab-nav-bar.mat-background-warn .mat-tab-link.mat-tab-disabled {
+    color: rgba(255, 255, 255, 0.4); }
+
+.rci .mat-tab-group.mat-background-warn .mat-tab-header-pagination-chevron, .rci .mat-tab-nav-bar.mat-background-warn .mat-tab-header-pagination-chevron {
+  border-color: white; }
+
+.rci .mat-tab-group.mat-background-warn .mat-tab-header-pagination-disabled .mat-tab-header-pagination-chevron, .rci .mat-tab-nav-bar.mat-background-warn .mat-tab-header-pagination-disabled .mat-tab-header-pagination-chevron {
+  border-color: rgba(255, 255, 255, 0.4); }
+
+.rci .mat-toolbar {
+  background: whitesmoke;
+  color: rgba(0, 0, 0, 0.87); }
+  .rci .mat-toolbar.mat-primary {
+    background: #ef6c00;
+    color: white; }
+  .rci .mat-toolbar.mat-accent {
+    background: #eeeeee;
+    color: rgba(0, 0, 0, 0.87); }
+  .rci .mat-toolbar.mat-warn {
+    background: #f44336;
+    color: white; }
+
+.rci .mat-tooltip {
+  background: rgba(97, 97, 97, 0.9); }
+
+.rci .mat-snack-bar-container {
+  background: #323232;
+  color: white; }
+
+.rci .mat-simple-snackbar-action {
+  color: #eeeeee; }
+
+.rci .resumContainSVG {
+  fill: #ef6c00 !important; }
+
+.rci #text {
+  color: white !important; }
+
+.rci #img-text {
+  color: white !important; }
+
+.rci #text-down {
+  color: white !important; }
+
+.rci #img-text-down {
+  color: white !important; }
+
+.rci .color-border-default {
+  border: 1px solid #ef6c00; }
+
+.rci .black-color {
+  color: #000; }
+
+.rci .font-bold {
+  font-weight: bold; }
+
+.rci .font-default {
+  color: #939598; }
+
+.rci .background-black {
+  background-color: #000000 !important;
+  color: #ffffff !important; }
+
+.rci .background-black-disabled {
+  background-color: #BBBBBB !important;
+  color: #ffffff !important; }
+
+.rci .active {
+  border-bottom: solid #ef6c00; }
+
+.rci .mat-tab-label {
+  font-weight: bold;
+  color: #000; }
+
+.rci .mat-toolbar-row {
+  height: 45px !important; }
+
+.rci .calculationselected {
+  -webkit-box-shadow: inset 0px 0px 0px 5px #ef6c00;
+  -moz-box-shadow: inset 0px 0px 0px 5px #ef6c00;
+  box-shadow: inset 0px 0px 0px 5px #ef6c00 !important;
+  background-color: #fdd0cd; }
+
+.rci .selectedcar {
+  -webkit-box-shadow: inset 0px 0px 0px 10px #ef6c00;
+  -moz-box-shadow: inset 0px 0px 0px 10px #ef6c00;
+  box-shadow: inset 0px 0px 0px 10px #ef6c00 !important;
+  background-color: #ef6c00;
+  border-radius: 7px;
+  color: white; }
+
+.rci .buttonMobileFooter {
+  background: #4a4a4a !important;
+  color: white !important;
+  min-height: 46px;
+  position: absolute !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  align-items: center !important;
+  margin-top: 20%;
+  left: 0; }
+
+.rci .fieldInvalid .mat-input-placeholder-wrapper {
+  color: red; }
+
+.rci .fieldInvalid .mat-input-placeholder {
+  color: red; }
+
+.rci .fieldInvalid .mat-input-underline {
+  background-color: red; }
+
+.rci .ngx-datatable.material.single-selection .datatable-body-row.active .datatable-row-group {
+  color: #ef6c00; }
+
+.rci .newsli {
+  cursor: pointer;
+  display: inline-flex;
+  display: table; }
+
+.rci .news {
+  display: table-cell;
+  vertical-align: middle;
+  display: inline-flex;
+  padding: 10px; }
+
+.rci .spannews {
+  padding-left: 10px; }
+
+.rci .newscircle {
+  width: 7px;
+  height: 7px;
+  background-color: #ef6c00;
+  border-radius: 4px;
+  transform: translateY(100%); }
+
+.rci md-card-header {
+  background-color: #ef6c00; }
+
+.rci .concessionaria {
+  background-color: #ef6c00; }
+
+.rci .notification_background {
+  background-color: #ef6c00;
+  border: 2px solid #ef6c00; }
+
+.rci .notification_row {
+  border-color: #ef6c00; }
+
+.rci .newsli::before {
+  color: #ef6c00; }
+
+.rci .icone {
+  background-color: #ef6c00;
+  color: #fff; }
+
+.rci .icon {
+  color: #ef6c00; }
+
+.rci .color-stepper {
+  fill: #ef6c00; }
+
+.rci .color-stepperIE {
+  background-color: #ef6c00; }
+
+.rci .lineColorIE {
+  background-color: #ef6c00 !important;
+  border: 1px solid #ef6c00 !important; }
+
+.rci .line-stepper {
+  stroke: #ef6c00;
+  stroke-width: 4; }
+
+.rci .mat-checkbox-checked .mat-checkbox-background {
+  background-color: #ef6c00 !important; }
+
+.rci .mat-radio-inner-circle {
+  background-color: #ef6c00 !important; }
+
+.rci .mat-radio-checked .mat-radio-outer-circle {
+  border-color: #ef6c00 !important; }
+
+.rci .ngx-datatable.material .datatable-header {
+  background-color: #ef6c00 !important;
+  height: 36px !important; }
+
+.rci .ngx-datatable.material .datatable-header .datatable-header-cell {
+  background-color: #ef6c00 !important;
+  color: white !important;
+  text-transform: uppercase;
+  font-size: 13px;
+  height: 36px !important; }
+
+.rci .datatable-header {
+  height: 36px !important; }
+
+.rci .stepperIE {
+  width: 40px;
+  height: 40px;
+  border-radius: 100px;
+  border: 2px solid #e6e6e6; }
+
+.rci .stepperLineIE {
+  width: 150px;
+  height: 6px;
+  background: #ccc;
+  margin-top: 22px;
+  border: 1px solid #ccc; }
+
+.rci .logo {
+  background-size: contain;
+  width: 70%;
+  height: 70%;
+  position: absolute;
+  top: 8px;
+  right: 16px;
+  font-size: 18px; }
+
+.rci .ic-menu {
+  background: url("/assets/images/ic-menu-rci.png") no-repeat;
+  width: 49px;
+  height: 32px;
+  margin-left: 13px;
+  background-size: contain; }
+
+.rci .logo-footer {
+  background: url("/assets/images/logo_rci.png") no-repeat;
+  background-size: cover;
+  height: 50px; }
+
+.rci #bradge {
+  background: url("/assets/images/logo_rci.png") no-repeat;
+  background-size: cover;
+  margin-top: -7px; }
+
+.rci #logo-theme {
+  background: url("/assets/images/background_login-nissan.jpg") no-repeat; }
+
+.rci #logo-login {
+  background: url("/assets/images/logo_rci.png") no-repeat; }
+
+.rci #secondColor {
+  background-color: #282832;
+  color: white; }
+
+.rci md-card-header {
+  color: rgba(255, 255, 255, 0.87); }
+
+.rci .concessionaria {
+  color: rgba(255, 255, 255, 0.87); }
+
+.divButtonBigLeft {
+  max-width: 130px;
+  min-width: 130px; }
+
+.divButtonBigRight {
+  max-width: 130px;
+  min-width: 130px; }
+
+.fontblack {
+  color: #000; }
+
+.miniicon {
+  font-size: 12px; }
+
+carselect {
+  min-width: 100%; }
+
+listversion {
+  min-width: 100%; }
+
+.mat-calendar {
+  background-color: white; }
+
+.mat-dialog-container {
+  background-color: white; }
+
+.font-small {
+  font-size: small; }
+
+#logo-theme {
+  background-size: cover !important;
+  height: 510px; }
+
+.mat-menu-panel {
+  max-width: initial !important; }
+
+.ngx-datatable .datatable-body-cell, .ngx-datatable .datatable-header-cell {
+  user-select: initial !important;
+  height: 36px !important; }
+
+.back-grey {
+  background-color: #CfCfCf; }
+
+.center-center {
+  border: 1px solid #C0C0C0; }
+
+.center-div {
+  height: 50%;
+  top: 50%;
+  text-align: center;
+  vertical-align: middle; }
+
+.padding5 {
+  padding: 2px; }
+
+.texIcon {
+  background-color: #EfEfEF;
+  text-align: center;
+  width: 40px;
+  font-size: xx-large; }
+
+.linkicon {
+  cursor: pointer; }
+
+.text-comission {
+  font-size: small;
+  float: right;
+  margin-left: auto;
+  margin-right: 0; }
+
+md-button-toggle-group#toggleGroup {
+  box-shadow: none !important; }
+
+.widthStep {
+  width: 25%; }
+
+/**
+ * Mobile CSS
+*/
+.mobileHeader {
+  margin-left: 10% !important;
+  margin-top: 1%;
+  position: absolute !important;
+  right: 0 !important;
+  top: 9% !important;
+  height: 100px;
+  background-color: rgba(235, 235, 235, 0.69) !important; }
+
+.mobileButtonCalc {
+  background: #000 !important;
+  color: white !important;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  align-items: center;
+  min-height: 50px !important; }
+
+.mobileButtonSave {
+  margin-top: -5% !important;
+  border-radius: 36px !important;
+  min-height: 68px !important;
+  min-width: 68px !important; }
+
+.margin-top-mobile {
+  margin-top: 17% !important; }
+
+.spaceMobile {
+  margin-top: 18%; }
+
+#positionMobile {
+  position: absolute;
+  left: 0;
+  margin-top: 13%; }
+
+.sendButtonMobile {
+  margin-top: 20%;
+  min-height: 46px;
+  background: rgba(0, 0, 0, 0.12);
+  position: absolute;
+  right: 0;
+  left: 0;
+  color: rgba(0, 0, 0, 0.38);
+  bottom: 0; }
+
+/**
+ *	Style only IE 11
+*/
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  #flexBasisIE {
+    flex-basis: auto !important; }
+  .flexBasisIE {
+    flex-basis: auto !important; }
+  .buttons-IE {
+    flex-basis: auto !important; }
+  .margin-botIE {
+    margin-bottom: 5%; } }
+
+/**
+ * 	Style only EDGE
+*/
+/*@supports (-ms-ime-align: auto) {
+	#homePageMozilaEdge{
+		margin-top: 35% !important;
+	}
+}*/
+/**
+ * 	Style only Mozila Firefox
+*/
+@-moz-document url-prefix() {
+  #homePageMozilaEdge {
+    margin-top: 35% !important; }
+  .space-mozila-important {
+    margin-top: 45% !important; }
+  .mozilaMenu {
+    display: unset !important; }
+  .btnGroupMozila {
+    margin-top: 5%; }
+  .mozilaMenuBtn {
+    margin-top: 2%; }
+  .marginTableMozila {
+    margin-top: 50% !important; }
+  .space-mozila {
+    margin-top: 15%; }
+  .space-mozila-top {
+    margin-top: 2%; }
+  .padding-top-mozila {
+    padding-top: 10%; }
+  #stepperMozila {
+    width: 100%; }
+  .mozilaMargin {
+    margin-top: 23%; } }

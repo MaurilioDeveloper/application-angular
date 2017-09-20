@@ -1,0 +1,107 @@
+<div class="" fxFlex="100">
+    <!--   <md-content class="md-padding" layout-xs="column" layout="row">
+
+    </md-content>-->
+    <div class="spaceCard" fxLayout="row" fxLayoutAlign="center center">
+        <md-card fxFlex.gt-sm="70" fxFlex.xs="100%">
+            <md-card-header fxLayoutAlign="start center" class="header-title">
+                <span class="mozilaMargin text-title">{{'lb-submission-process-configuration' | translate}}</span>
+            </md-card-header>
+
+            <md-card-content>
+                <form class="example-form" #f="ngForm" [ngStyle]="{'padding': '4%'}">
+                    <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="5%">
+                        <div fxFlex.gt-sm="40%" fxFlex.xs="34%">
+                            <md-select fxFlex.gt-sm="100%" fxFlex.gt-xs="20%" placeholder="Tipo de alteração" [(ngModel)]="typeUpdadeSelect"
+                                #name="ngModel" name="tipoAlteracao" required>
+                                <md-option ng-value="0">{{'lb-select-type-change' | translate}}</md-option>
+                                <md-option *ngFor="let typeUpdade of typesUpdade" [value]="typeUpdade.value">
+                                    {{typeUpdade.viewValue}}
+                                </md-option>
+                            </md-select>
+                        </div>
+
+                        <div fxFlex.gt-sm="40%" fxFlex.xs="34%" *ngIf="typeUpdadeSelect === 2">
+                            <md-select [ngStyle.xs]="{'width': '35%'}" fxFlex.gt-sm="100%" fxFlex.gt-xs="35%" placeholder="{{'lb-dealership' | translate}}" [(ngModel)]="request.structureId" #name="ngModel"
+                                name="concessionaria" required>
+                                <md-option *ngFor="let structure of listStructure" [value]="structure.structureId">
+                                    {{structure.description}}
+                                </md-option>
+                            </md-select>
+                        </div>
+
+                        <div fxFlex.gt-sm="20%" fxFlex.xs="15%">
+                            <button *ngIf="typeUpdadeSelect === 1" class="text-title" fxFlex.xs="60%" md-raised-button color="primary" [disabled]="!f.form.valid" (click)="consultSubmitUser()"> 
+                                {{'btn-search' | translate}}
+                            </button>
+                            <button *ngIf="typeUpdadeSelect === 2" class="text-title" fxFlex.xs="60%" md-raised-button color="primary" [disabled]="!f.form.valid" (click)="consultSubmitRole()"> 
+                                {{'btn-search' | translate}}
+                            </button>
+                        </div>
+                    </div>
+                </form>
+
+            </md-card-content>
+            <md-card-content [ngStyle]="{'padding': '1%'}" *ngIf="resultUser" fxLayoutWrap>
+                <ngx-datatable fxFlex="100"
+                    class='material'
+                    [rows]="listUser"
+                    [columnMode]="'force'"
+                    [headerHeight]="40"
+                    [footerHeight]="40"
+                    [rowHeight]="'auto'"
+                    [limit]="20">
+                    <ngx-datatable-column name="Nome" [width]="300">
+                        <ng-template let-row="row" ngx-datatable-cell-template>
+                        {{row.namePerson}}
+                        </ng-template>
+                    </ngx-datatable-column>
+                    <ngx-datatable-column name="Envio de proposta para análise de crédito" [width]="300">
+                        <ng-template let-row="row" ngx-datatable-cell-template>
+                            <md-radio-group [(ngModel)]="row.dossierSubmitAllowed" >
+                                    <md-radio-button [value]="1">{{'lb-authorized' | translate}}</md-radio-button>
+                                    <md-radio-button [value]="0">{{'lb-not-authorized' | translate}}</md-radio-button>
+                            </md-radio-group>
+                        </ng-template>
+                    </ngx-datatable-column>
+                </ngx-datatable>
+                <div fxLayout="row" fxFlex="100" fxLayoutAlign="end end" [ngStyle]="{'padding': '10px'}">
+                    <div fxFlex.gt-sm="20%" fxFlex.xs="100%">
+                        <button fxFlex.xs="100%" md-raised-button color="primary" (click)="saveSubmitUser()"> {{'btn-save' | translate}}</button>
+                    </div>
+                </div>
+            </md-card-content>
+            <md-card-content [ngStyle]="{'padding': '1%'}" *ngIf="resultSubmitRole" fxLayoutWrap>
+                <ngx-datatable fxFlex="100"
+                    class='material'
+                    [rows]="listSubmitRole"
+                    [columnMode]="'force'"
+                    [headerHeight]="40"
+                    [footerHeight]="40"
+                    [rowHeight]="'auto'"
+                    [limit]="20">
+                    <ngx-datatable-column name="Nome" [width]="300">
+                        <ng-template let-row="row" ngx-datatable-cell-template>
+                        {{row.description}}
+                        </ng-template>
+                    </ngx-datatable-column>
+                    <ngx-datatable-column name="Envio de proposta para análise de crédito" [width]="300">
+                        <ng-template let-row="row" ngx-datatable-cell-template>
+                            <md-radio-group [(ngModel)]="row.allowed" >
+                                    <md-radio-button [value]="1">{{'lb-authorized' | translate}}</md-radio-button>
+                                    <md-radio-button [value]="0">{{'lb-not-authorized' | translate}}</md-radio-button>
+                            </md-radio-group>
+                        </ng-template>
+                    </ngx-datatable-column>
+                </ngx-datatable>
+                <div fxLayout="row" fxFlex="100" fxLayoutAlign="end end" [ngStyle]="{'padding': '1%'}">
+                    <div fxFlex.gt-sm="20%" fxFlex.xs="100%">
+                        <button fxFlex.xs="100%" md-raised-button color="primary" class="text-title" (click)="saveSubmitRole()">
+                             {{'btn-save' | translate}}
+                        </button>
+                    </div>
+                </div>
+            </md-card-content>
+        </md-card>
+    </div>
+</div>

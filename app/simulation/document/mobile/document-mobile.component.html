@@ -1,0 +1,30 @@
+<div fxFlex.xs="100%" fxLayoutWrap>
+    <ngx-datatable class='material space-mozila' [headerHeight]="50" [limit]="20" [rowHeight]="50" [columnMode]="'force'" [rows]="getListDocuments()">
+        <ngx-datatable-column name="{{'lb-name' | translate | uppercase}}">
+            <ng-template let-column="column" ngx-datatable-header-template>
+                {{'lb-name' | translate | uppercase}}
+            </ng-template>
+            <ng-template let-row="row" ngx-datatable-cell-template>
+                <span>{{row.nameDoc}}</span>
+            </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="{{'lb-description' | translate | uppercase}}">
+            <ng-template let-column="column" ngx-datatable-header-template>
+                {{'lb-description' | translate | uppercase}}
+            </ng-template>
+            <ng-template let-row="row" ngx-datatable-cell-template>
+                {{row.description}}
+            </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+                <div [ngStyle]="{'text-align': 'center' }"><a class="returnToStepCursor" (click)="downloadDoc(row)">{{'btn-print' | translate}}{{row.numberDocDownload}}</a></div>
+            </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="" class="alignTable">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+                <div [ngStyle]="{'text-align': 'center' }"><span><a class="returnToStepCursor" (click)="sendEmail(row)">Email</a></span></div>
+            </ng-template>
+        </ngx-datatable-column>
+    </ngx-datatable>
+</div>

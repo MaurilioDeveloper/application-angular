@@ -1,0 +1,180 @@
+<div fxLayout="row" fxFlex.xs="100%">
+    <h4 class="black-color">{{ 'lb-the-proposal-number' | translate }} - </h4>
+    <h4>{{ getSimulation().dossierNumber }}</h4>
+</div>
+<div fxLayout="row" fxFlex.xs="100%">
+    <hr class="color-border-default" [ngStyle]="{'margin-top': '-2px', 'width': '100%'}" />
+</div>
+<div fxLayout="row" [ngStyle]="{'padding-top':'5%'}" fxFlex.xs="100%">
+    <div fxFlex.sm="100%" [ngStyle]="{'padding-left':'10%'}">
+        <label class="black-color">{{ 'lb-credit-report' | translate }}</label>
+    </div>
+</div>
+<div fxLayout="row" [ngStyle]="{'padding-top':'3%'}" *ngIf='getSimulation().calculationSelected' fxFlex.xs="100%">
+    <div fxFlex.sm="100%" [ngStyle]="{'padding-left':'10%'}">
+        <label>Proposta {{getSimulation().calculationSelected.creditReport}}</label>
+    </div>
+</div>
+
+<div fxLayout="row" [ngStyle]="{'padding-top':'5%'}" fxLayoutAlign="center center">
+    <ngx-datatable class="material" fxFlex="100%" [headerHeight]="50" [limit]="20" [rowHeight]="50"
+        [columnMode]="'force'" [rows]="getList()">
+        <ngx-datatable-column name="{{ 'lb-status' | translate | uppercase}}">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+                <span>{{row.details}}</span>
+            </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="{{ 'lb-actor' | translate | uppercase }}">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+                {{row.userName}}
+            </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="{{ 'lb-date' | translate | uppercase }}">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+                {{row.dateEvent | date: 'dd/MM/yyyy'}}
+            </ng-template>
+        </ngx-datatable-column>
+    </ngx-datatable>
+</div>
+<div fxLayout="column" [ngStyle]="{'padding-top':'7%'}">
+    <div fxLayout="row" fxFlex.xs="100%">
+        <label class="black-color">Nome do cliente</label>
+    </div>
+    <div fxLayout="row" fxFlex.xs="100%">
+        <label>{{ getSimulation().client.name }}</label>
+    </div>
+</div>
+<div fxLayout="column" [ngStyle]="{'padding-top':'4%'}">
+    <div fxLayout="row" fxFlex.xs="100%">
+        <label class="black-color">CPF</label>
+    </div>
+    <div fxLayout="row" fxFlex.xs="100%">
+        <label>{{  getSimulation().client.cpfCnpj }}</label>
+    </div>
+</div>
+<div fxLayout="column" [ngStyle]="{'padding-top':'4%'}">
+    <div fxLayout="row" fxFlex.xs="100%">
+        <label class="black-color">Tipo de cliente</label>
+    </div>
+    <div fxLayout="row" fxFlex.xs="100%">
+        <label>{{getSimulation().client.typePerson }}</label>
+    </div>
+</div>
+<div fxLayout="column" [ngStyle]="{'padding-top':'4%'}">
+    <div fxLayout="row" fxFlex.xs="100%">
+        <label class="black-color">Tipo de venda</label>
+    </div>
+    <div fxLayout="row" fxFlex.xs="100%">
+        <label>{{getSimulation().saleType }}</label>
+    </div>
+</div>
+<div fxLayout="column" [ngStyle]="{'padding-top':'4%'}">
+    <div fxLayout="row" fxFlex.xs="100%">
+        <label class="black-color">
+                        <b><u>CLIENTE COM ISENÇÃO<i class="material-icons" [ngStyle]="{'font-size': '14px'}">help</i></u></b>
+                    </label>
+    </div>
+    <div fxLayout="row" fxFlex.xs="100%">
+        <label>{{ getSimulation().client.tc | translate }}</label>
+    </div>
+</div>
+<div fxLayout="column" [ngStyle]="{'padding-top':'4%'}">
+    <div fxFlex.xs="100%" fxLayout="row">
+        <label class="black-color">{{'lb-state' | translate}}</label>
+    </div>
+    <div fxFlex.xs="100%" fxLayout="row">
+        <label>{{ getSimulation().client.address.province.description }}</label>
+    </div>
+</div>
+<div fxLayout="row" [ngStyle]="{'padding-top':'2%'}">
+    <h4 class="black-color">{{ 'lb-proposal-history' | translate | uppercase }}</h4>
+</div>
+<div fxLayout="column" [ngStyle]="{'padding-top':'4%'}">
+    <div fxFlex.xs="100%" fxLayout="row">
+        <label class="black-color">{{ 'lbl-vehicle' | translate }}</label>
+    </div>
+    <div fxFlex.xs="100%" fxLayout="row">
+        <label>{{ getSimulation().car.description }}</label>
+    </div>
+</div>
+<div fxLayout="column" [ngStyle]="{'padding-top':'4%'}">
+    <div fxFlex.xs="100%" fxFlex.gt-sm="25%">
+        <label class="black-color">{{ 'lb-manufacturing-year' | translate }}</label><br>
+        <label>{{ getSimulation().car.version.yearManufacture }}</label>
+    </div>
+    <div fxFlex.xs="100%" fxFlex.gt-sm="25%">
+        <label class="black-color">{{ 'lb-model-year' | translate }}</label><br>
+        <label>{{getSimulation().car.version.yearModel }}</label>
+    </div>
+</div>
+<div fxLayout="column" [ngStyle]="{'padding-top':'4%'}">
+    <div fxFlex.xs="100%" fxLayout="row">
+        <label class="black-color">{{ 'lb-vehicle-type' | translate }}</label>
+    </div>
+    <div fxFlex.xs="100%" fxLayout="row">
+        <label *ngIf="!getSimulation().specialTypes || getSimulation().specialTypes.length ===0">{{ 'normal' | translate }}</label>
+    </div>
+    <div fxFlex.xs="100%" fxLayout="row">
+        <label *ngIf="getSimulation().specialTypes && getSimulation().specialTypes.length >0">
+                         <label  *ngFor="let type of getSimulation().specialTypes">
+                            {{type.description}}
+                         </label>
+        </label>
+    </div>
+</div>
+<div fxLayout="column" [ngStyle]="{'padding-top':'4%'}">
+    <div fxFlex.xs="100%" fxLayout="row">
+        <label class="black-color">{{ 'lb-value-car' | translate }}</label>
+    </div>
+    <div fxFlex.xs="100%" fxLayout="row">
+        <label>R${{ getSimulation().car.version.price }}</label>
+    </div>
+    <div fxFlex.xs="100%" fxLayout="row">
+        <label class="black-color">{{ 'lb-total-value' | translate }}<i class="material-icons" [ngStyle]="{'font-size': '14px'}">help</i></label>
+    </div>
+    <div fxFlex.xs="100%" fxLayout="row">
+        <label>R${{ getSimulation().car.totalprice }}</label>
+    </div>
+</div>
+<div fxLayout="column" [ngStyle]="{'padding-top':'4%'}" *ngFor="let calculation of getSelected(getSimulation().calculations)">
+    <div fxFlex.xs="100%" fxLayout="row">
+        <label class="black-color">{{ 'lbl-input-value' | translate }}</label>
+    </div>
+    <div fxFlex.xs="100%" fxLayout="row">
+        <label>R${{ calculation.entraceValue }}</label>
+    </div>
+    <div fxFlex.xs="100%" fxLayout="row">
+        <label class="black-color">{{ 'lb-total-funded' | translate }}</label>
+    </div>
+    <div fxFlex.xs="100%" fxLayout="row">
+        <label>R${{ calculation.entraceValue - calculation.totalValue}}</label>
+    </div>
+    <div fxFlex.xs="100%" fxLayout="row">
+        <label class="black-color">{{ 'lbl-plot-amount' | translate }}</label>
+    </div>
+    <div fxFlex.xs="100%" fxLayout="row">
+        <label>{{calculation.dutarion}}x R${{ calculation.installments[0].value}}</label>
+    </div>
+</div>
+<div fxLayout="column" [ngStyle.xs]="{'padding-top':'4%'}">
+    <div fxFlex.xs="100%" fxLayout="row" class="flexBasisIE">
+        <label class="black-color">{{ 'lbl-customer-contacts' | translate }}</label>
+    </div>
+    <div fxFlex.xs="100%" fxLayout="row" class="flexBasisIE" *ngIf='getSimulation().client.phone' [ngStyle.xs]="{'padding-top':'2%'}">
+        <label>{{ 'lb-telephone'| translate }}: {{ getSimulation().client.phone.number }}</label>
+    </div>
+    <div fxFlex.xs="100%" fxLayout="row" class="flexBasisIE" *ngIf='getSimulation().client.cellphone' [ngStyle.xs]="{'padding-top':'2%'}">
+        <label>{{ 'lb-cel-phone'| translate }}: {{ getSimulation().client.cellphone.number }}</label>
+    </div>
+    <div fxFlex.xs="100%" fxLayout="row" class="flexBasisIE" [ngStyle.xs]="{'padding-top':'6%'}">
+        <label>{{ 'lbl-email'| translate }}: {{ getSimulation().client.email }}</label>
+    </div>
+</div>
+<div fxLayout="row">
+    <!-- ACTIVE BUTTON -->
+    <md-toolbar (click)="backAndNext(true)" class="buttonMobileFooter">
+        <div fxFlex.xs="100%" fxLayoutAlign="center center">
+            <label>{{'btn-available-documentation' | translate | uppercase}}</label>
+        </div>
+    </md-toolbar>
+</div>

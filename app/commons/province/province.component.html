@@ -1,0 +1,13 @@
+<div fxLayout="row" fxLayoutWrap fxLayoutAlign="start none" fxLayoutWrap>
+    <div fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.gt-sm="100%" fxLayoutGap="10%">
+        <span><b class="black-color">{{'lb-state' | translate}}</b> ({{'lb-required-field' | translate}})</span>
+        <div fxLayout="row" class="space-component" fxLayoutWrap fxLayoutAlign="start none">
+            <div fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.gt-sm="100%">
+                <md-select ngControl fxFlex.gt-sm="60%" fxFlex.gt-xs="100%" placeholder="{{'lb-state' | translate}}" name="state" 
+                [(ngModel)]="provinceSelected" (ngModelChange)="changes(provinceSelected)" #name="ngModel" required>
+                    <md-option *ngFor="let province of listProvinces" [value]="province">{{province.description}}</md-option>
+                </md-select>
+            </div>
+        </div>
+    </div>
+</div>

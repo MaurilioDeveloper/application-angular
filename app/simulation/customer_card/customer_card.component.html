@@ -1,0 +1,424 @@
+<!-- DESKTOP -->
+<div *ngIf="!media.isActive('xs')" fxFlex.xs="100%" fxFlex.gt-sm="100%" fxLayoutAlign="center center" class="spaceCard">
+  <md-card fxFlex.gt-sm="100%" fxFlex.sm="100%" fxFlex.xs="100%" class="no-border">
+    <div fxLayout="row" fxFlex.gt-sm="100%" fxFlex.sm="100%" fxFlex.xs="100%" fxLayoutWrap>
+      <div fxFlex.gt-sm="100%" fxFlex.sm="100%" fxFlex.xs="100%">
+          <div fxLayout="row" fxLayoutGap="1%">
+              <button md-raised-button color="primary" class="btnHideModel" (click)="clicked()">
+                      <i class="material-icons">{{varBtnMarca}}</i>
+                  </button>
+              <h4 class="black-color">{{'lb-proposal-number' | translate | uppercase}}: {{  getSimulation().dossierNumber }}</h4>
+          </div>
+          <div fxLayout="row">
+              <hr class="color-border-default" [ngStyle]="{'margin-top': '-2px'}" fxFlex.gt-sm="100%" />
+          </div>
+      </div>
+      <div fxLayout="row" fxFlex.gt-sm="100%" fxFlex.sm="100%" fxFlex.xs="100%">
+          <div fxLayout="column" fxFlex.gt-sm="100%" [ngStyle]="{'height': '75%'}"  *ngIf="drop==false">
+              <painel-proposal [steep]="steep"></painel-proposal>
+              
+              <div fxLayout="row" fxFlex.gt-sm="100%" fxFlex.sm="100%" fxFlex.xs="100%" [ngStyle]="{'padding-top':'5%'}" class="flexBasisIE">
+                  <div fxFlex.gt-sm="35%">
+                      <label class="black-color font-bold">{{'lb-state' | translate}}</label><br>
+                      <label>{{ getSimulation().client.address.province.description }}</label>
+                  </div>
+              </div>
+
+              <painel-proposal-two [ngStyle]="{'margin-top': '-2%'}" fxLayout="column" ></painel-proposal-two>
+              
+              <div fxLayout="row" [ngStyle]="{'margin-top': '3%'}">
+                  <hr class="color-border-default" fxFlex.gt-sm="100%" />
+              </div>
+          </div>
+      </div>
+
+      <md-card fxFlex.gt-sm="100%" fxFlex.xs="100%" class="no-border" fxLayoutWrap>
+
+        <div fxLayout="row" fxFlex.gt-sm="100%" fxFlex.sm="100%" fxFlex.xs="100%" fxLayoutWrap>
+
+          <ol class="list-group vertical-steps" fxFlex.gt-sm="100%" fxFlex.sm="100%">
+
+            <li class="list-group-item" [ngClass]="{
+              'completed': [getControlDynamicSteps()] > 1, 
+              'active,primary': [getControlDynamicSteps()] == 1 }">
+
+              <div fxLayout="row" fxFlex.xs="100%" fxFlex.gt-sm="100%" fxFlex.sm="100%" fxLayoutWrap>
+                <div fxLayout="row" fxFlex.xs="100%" fxFlex.gt-sm="100%" fxFlex.sm="100%">
+                  <div fxFlex.gt-sm="50%" fxFlex.sm="50%" [ngStyle]="{'padding-left':'10px'}">
+                    <label class="black-color font-bold">{{'lb-submission' | translate | uppercase}}</label>
+                  </div>
+                  <div fxFlex.gt-sm="50%" fxFlex.sm="50%">
+                    <a class="returnToStepCursor black-color font-bold" (click)="returnToStep(1)"><i class="fa fa-pencil"></i> {{'btn-edit-information' | translate}}</a>
+                  </div>
+                </div>
+                <div fxLayout="row" fxFlex.xs="100%" fxFlex.gt-sm="100%" fxFlex.sm="100%">
+                  <submission-cc fxFlex.xs="100%" (countClient)="countClient($event)" fxFlex.gt-sm="100%" fxFlex.sm="100%" (controlDynamicStepsM)="controlDynamicStepsM($event)"
+                    [controlDynamicStepsIn]="getControlDynamicSteps()">
+                  </submission-cc>
+                </div>
+              </div>
+            </li>
+
+            <li class="list-group-item" [ngClass]="{'completed': [getControlDynamicSteps()] > 2, 'active': [getControlDynamicSteps()] == 2 }">
+              <div fxLayout="row" fxFlex.sm="100%" fxFlex.gt-sm="100%" fxLayoutWrap>
+                <div fxLayout="row" fxFlex.sm="100%" fxFlex.gt-sm="100%">
+                  <div fxFlex.gt-sm="50%" fxFlex.sm="50%" [ngStyle]="{'padding-left':'10px'}" class="black-color font-bold">
+                    {{'lb-custumer-data' | translate | uppercase}}
+                  </div>
+                  <div fxFlex.gt-sm="50%" fxFlex.sm="50%">
+                    <a class="returnToStepCursor black-color font-bold" (click)="returnToStep(2)">
+                      <i class="fa fa-pencil"></i> {{'btn-edit-information' | translate}}</a>
+                  </div>
+                </div>
+                <div fxLayout="row" fxFlex.xs="100%" fxFlex.gt-sm="100%" fxFlex.sm="100%">
+                  <client-data-cc (changeSpouse)="changeSpouse($event)" fxFlex.xs="100%" fxFlex.gt-sm="100%" fxFlex.sm="100%" (controlDynamicStepsM)="controlDynamicStepsM($event)"
+                    [controlDynamicStepsIn]="getControlDynamicSteps()" (countClient)="countClient($event)">
+                  </client-data-cc>
+                </div>
+              </div>
+            </li>
+
+            <li *ngIf="isPhysicalPerson()" class="list-group-item" [ngClass]="{ 'completed': [getControlDynamicSteps()] > 3, 'active': [getControlDynamicSteps()]== 3 }">
+              <div fxLayout="row" fxFlex.sm="100%" fxFlex.gt-sm="100%" fxLayoutWrap>
+                <div fxLayout="row" fxFlex.sm="100%" fxFlex.gt-sm="100%">
+                  <div fxFlex.gt-sm="50%" fxFlex.sm="50%" [ngStyle]="{'padding-left':'10px'}" class="black-color font-bold">
+                    {{'lb-residential-data' | translate | uppercase}}
+                  </div>
+                  <div fxFlex.gt-sm="50%" fxFlex.sm="50%">
+                    <a class="returnToStepCursor black-color font-bold" (click)="returnToStep(3)"><i class="fa fa-pencil"></i> {{'btn-edit-information' | translate}}</a>
+                  </div>
+                </div>
+                <div fxLayout="row" fxFlex.xs="100%" fxFlex.gt-sm="100%" fxFlex.sm="100%" class="black-color font-bold">
+                  <address-data-cc [showSpouse]="getShowSpouse()" fxFlex.xs="100%" fxFlex.gt-sm="100%" fxFlex.sm="100%" (controlDynamicStepsM)="controlDynamicStepsM($event)"
+                    [controlDynamicStepsIn]="getControlDynamicSteps()" (countClient)="countClient($event)">
+                  </address-data-cc>
+                </div>
+              </div>
+            </li>
+
+            <li *ngIf="isPhysicalPerson() && getShowSpouse()" class="list-group-item" [ngClass]="{'completed': [getControlDynamicSteps()] > 4 , 'active': [getControlDynamicSteps()] == 4 }">
+              <div fxLayout="row" fxFlex.sm="100%" fxFlex.gt-sm="100%" fxLayoutWrap>
+                <div fxLayout="row" fxFlex.sm="100%" fxFlex.gt-sm="100%">
+                  <div fxFlex.gt-sm="50%" fxFlex.sm="50%" [ngStyle]="{'padding-left':'10px'}" class="black-color font-bold">
+                    {{'lb-spouse' | translate | uppercase}}
+                  </div>
+                  <div fxFlex.gt-sm="50%" fxFlex.sm="50%">
+                    <a class="returnToStepCursor black-color font-bold" (click)="returnToStep(4)"><i class="fa fa-pencil"  ></i> {{'btn-edit-information' | translate}}</a>
+                  </div>
+                </div>
+                <div fxLayout="row" fxFlex.xs="100%" fxFlex.gt-sm="100%" fxFlex.sm="100%">
+                  <spouse-cc fxFlex.xs="100%" fxFlex.gt-sm="100%" fxFlex.sm="100%" (controlDynamicStepsM)="controlDynamicStepsM($event)" [controlDynamicStepsIn]="getControlDynamicSteps()"
+                    (countClient)="countClient($event)">
+                  </spouse-cc>
+                </div>
+              </div>
+            </li>
+
+            <li *ngIf="isPhysicalPerson()" class="list-group-item" [ngClass]="{'completed': [getControlDynamicSteps()] > 5 , 'active': [getControlDynamicSteps()] == 5 }">
+              <div fxLayout="row" fxFlex.sm="100%" fxFlex.gt-sm="100%" fxLayoutWrap>
+                <div fxLayout="row" fxFlex.sm="100%" fxFlex.gt-sm="100%">
+                  <div fxFlex.gt-sm="50%" fxFlex.sm="50%" [ngStyle]="{'padding-left':'10px'}" class="black-color font-bold">
+                    {{'lb-professional-data' | translate | uppercase}}
+                  </div>
+                  <div fxFlex.gt-sm="50%" fxFlex.sm="50%">
+                    <a class="returnToStepCursor black-color font-bold" (click)="returnToStep(5)"><i class="fa fa-pencil"></i> {{'btn-edit-information' | translate}}</a>
+                  </div>
+                </div>
+                <div fxLayout="row" fxFlex.xs="100%" fxFlex.gt-sm="100%" fxFlex.sm="100%">
+                  <professional-data-cc fxFlex.xs="100%" fxFlex.gt-sm="100%" fxFlex.sm="100%" (controlDynamicStepsM)="controlDynamicStepsM($event)"
+                    [controlDynamicStepsIn]="getControlDynamicSteps()" (countClient)="countClient($event)">
+                  </professional-data-cc>
+                </div>
+              </div>
+            </li>
+
+            <li *ngIf="isPhysicalPerson()" class="list-group-item" [ngClass]="{'completed': [getControlDynamicSteps()] > 6 , 'active': [getControlDynamicSteps()] == 6 }">
+              <div fxLayout="row" fxFlex.sm="100%" fxFlex.gt-sm="100%" fxLayoutWrap>
+                <div fxLayout="row" fxFlex.sm="100%" fxFlex.gt-sm="100%">
+                  <div fxFlex.gt-sm="50%" fxFlex.sm="50%" [ngStyle]="{'padding-left':'10px'}" class="black-color font-bold">
+                    {{'lb-personal-references' | translate | uppercase}}
+                  </div>
+                  <div fxFlex.gt-sm="50%" fxFlex.sm="50%">
+                    <a class="returnToStepCursor black-color font-bold" (click)="returnToStep(6)"><i class="fa fa-pencil"></i> {{'btn-edit-information' | translate}}</a>
+                  </div>
+                </div>
+                <div fxLayout="row" fxFlex.xs="100%" fxFlex.gt-sm="100%" fxFlex.sm="100%">
+                  <person-data-cc fxFlex.xs="100%" fxFlex.gt-sm="100%" fxFlex.sm="100%" (controlDynamicStepsM)="controlDynamicStepsM($event)"
+                    [controlDynamicStepsIn]="getControlDynamicSteps()" (countClient)="countClient($event)">
+                  </person-data-cc>
+                </div>
+              </div>
+            </li>
+
+            <li class="list-group-item" [ngClass]="{'completed': [getControlDynamicSteps()] > 7 , 'active': [getControlDynamicSteps()] == 7 }">
+              <div fxLayout="row" fxFlex.sm="100%" fxFlex.gt-sm="100%" fxLayoutWrap>
+                <div fxLayout="row" fxFlex.sm="100%" fxFlex.gt-sm="100%">
+                  <div fxFlex.gt-sm="50%" fxFlex.sm="50%" [ngStyle]="{'padding-left':'10px'}" class="black-color font-bold">
+                    {{'lb-bank-data' | translate | uppercase}}
+                  </div>
+                  <div fxFlex.gt-sm="50%" fxFlex.sm="50%">
+                    <a class="returnToStepCursor black-color font-bold" (click)="returnToStep(7)"><i class="fa fa-pencil"></i> {{'btn-edit-information' | translate}}</a>
+                  </div>
+                </div>
+                <div fxLayout="row" fxFlex.xs="100%" fxFlex.gt-sm="100%" fxFlex.sm="100%">
+                  <banking-references-cc fxFlex.xs="100%" fxFlex.gt-sm="100%" fxFlex.sm="100%" (countClient)="countClient($event)" (controlDynamicStepsM)="controlDynamicStepsM($event)"
+                    [controlDynamicStepsIn]="getControlDynamicSteps()">
+                  </banking-references-cc>
+                </div>
+              </div>
+            </li>
+
+            <li class="list-group-item" [ngClass]="{'completed': [getControlDynamicSteps()] > 8 , 'active': [getControlDynamicSteps()] == 8 }">
+              <div fxLayout="row" fxFlex.sm="100%" fxFlex.gt-sm="100%" fxLayoutWrap>
+                <div fxLayout="row" fxFlex.sm="100%" fxFlex.gt-sm="100%">
+                  <div fxFlex.gt-sm="50%" fxFlex.sm="50%" [ngStyle]="{'padding-left':'10px'}" class="black-color font-bold">
+                    {{'lb-vehicle-data' | translate | uppercase}}
+                  </div>
+                  <div fxFlex.gt-sm="50%" fxFlex.sm="50%">
+                    <a class="returnToStepCursor black-color font-bold" (click)="returnToStep(8)"><i class="fa fa-pencil"></i> {{'btn-edit-information' | translate}}</a>
+                  </div>
+                </div>
+                <div fxLayout="row" fxFlex.xs="100%" fxFlex.gt-sm="100%" fxFlex.sm="100%">
+                  <vehicle-data-cc fxFlex.xs="100%" fxFlex.gt-sm="100%" fxFlex.sm="100%" (controlDynamicStepsM)="controlDynamicStepsM($event)"
+                    [controlDynamicStepsIn]="getControlDynamicSteps()" (countClient)="countClient($event)">
+                  </vehicle-data-cc>
+                </div>
+              </div>
+            </li>
+
+            <li class="list-group-item" [ngClass]="{'completed': [getControlDynamicSteps()] > 9 ,'active': [getControlDynamicSteps()] == 9 }">
+              <div fxLayout="row" fxFlex.sm="100%" fxFlex.gt-sm="100%" fxLayoutWrap>
+                <div fxLayout="row" fxFlex.sm="100%" fxFlex.gt-sm="100%">
+                  <div fxFlex.gt-sm="50%" fxFlex.sm="50%" [ngStyle]="{'padding-left':'10px'}" class="black-color font-bold">
+                    {{'lb-guarantor-data' | translate | uppercase}} - {{'lb-guarantor' | translate | uppercase}} 1
+                  </div> 
+                  <div fxFlex.gt-sm="50%" fxFlex.sm="50%">
+                    <a class="returnToStepCursor black-color font-bold" (click)="returnToStep(9)"><i class="fa fa-pencil"></i> {{'btn-edit-information' | translate}}</a>
+                  </div>
+                </div>
+                <div fxLayout="row" fxFlex.xs="100%" fxFlex.gt-sm="100%" fxFlex.sm="100%">
+                  <guarantor-1-client-cc (changeGuarantor1)="changeGuarantor1($event)" (changeSpouseGuarantor1)="changeSpouseGuarantor1($event)" fxFlex.xs="100%" fxFlex.gt-sm="100%" fxFlex.sm="100%" (controlDynamicStepsM)="controlDynamicStepsM($event)"
+                    [controlDynamicStepsIn]="getControlDynamicSteps()" (countClient)="countClient($event)">
+                  </guarantor-1-client-cc>
+                </div>
+              </div>
+            </li>
+
+
+            <li *ngIf="getShowGuarantor1()"  class="list-group-item" [ngClass]="{'completed': [getControlDynamicSteps()] > 10 , 'active': [getControlDynamicSteps()] == 10 }">
+              <div fxLayout="row" fxFlex.sm="100%" fxFlex.gt-sm="100%" fxLayoutWrap>
+                <div fxLayout="row" fxFlex.sm="100%" fxFlex.gt-sm="100%">
+                  <div fxFlex.gt-sm="50%" fxFlex.sm="50%" [ngStyle]="{'padding-left':'10px'}" class="black-color font-bold">
+                    {{'lb-residential-data' | translate | uppercase}} - {{'lb-guarantor' | translate | uppercase}} 1
+                  </div>
+                  <div fxFlex.gt-sm="50%" fxFlex.sm="50%">
+                    <a class="returnToStepCursor black-color font-bold" (click)="returnToStep(10)"><i class="fa fa-pencil"></i> {{'btn-edit-information' | translate}}</a>
+                  </div>
+                </div>
+                <div fxLayout="row" fxFlex.xs="100%" fxFlex.gt-sm="100%" fxFlex.sm="100%">
+                  <guarantor-1-address-cc [showSpouseGuarantor1]="getShowSpouseGuarantor1()" fxFlex.xs="100%" fxFlex.gt-sm="100%" fxFlex.sm="100%" (controlDynamicStepsM)="controlDynamicStepsM($event)"
+                    [controlDynamicStepsIn]="getControlDynamicSteps()" (countClient)="countClient($event)">
+                  </guarantor-1-address-cc>
+                </div>
+              </div>
+            </li>
+
+            <li *ngIf="getVerifyPhysicalSpouseGuarantor1()" class="list-group-item" [ngClass]="{'completed': [getControlDynamicSteps()] > 11 , 'active': [controlDynamicSteps] == 11 }">
+              <div fxLayout="row" fxFlex.sm="100%" fxFlex.gt-sm="100%" fxLayoutWrap>
+                <div fxLayout="row" fxFlex.sm="100%" fxFlex.gt-sm="100%">
+                  <div fxFlex.gt-sm="50%" fxFlex.sm="50%" [ngStyle]="{'padding-left':'10px'}" class="black-color font-bold">
+                    {{'lb-spouse' | translate | uppercase}} - {{'lb-guarantor' | translate | uppercase}} 1
+                  </div>
+                  <div fxFlex.gt-sm="50%" fxFlex.sm="50%">
+                    <a class="returnToStepCursor black-color font-bold" (click)="returnToStep(11)"><i class="fa fa-pencil"></i> {{'btn-edit-information' | translate}}</a>
+                  </div>
+                </div>
+                <div fxLayout="row" fxFlex.xs="100%" fxFlex.gt-sm="100%" fxFlex.sm="100%">
+                  <guarantor-1-spouse-cc fxFlex.xs="100%" fxFlex.gt-sm="100%" fxFlex.sm="100%" (controlDynamicStepsM)="controlDynamicStepsM($event)"
+                    [controlDynamicStepsIn]="getControlDynamicSteps()" (countClient)="countClient($event)">
+                  </guarantor-1-spouse-cc>
+                </div>
+              </div>
+            </li>
+
+
+            <li *ngIf="getShowGuarantor1()"  class="list-group-item" [ngClass]="{'completed': [getControlDynamicSteps()] > 12 , 'active': [getControlDynamicSteps()] == 12 }">
+              <div fxLayout="row" fxFlex.sm="100%" fxFlex.gt-sm="100%" fxLayoutWrap>
+                <div fxLayout="row" fxFlex.sm="100%" fxFlex.gt-sm="100%">
+                  <div fxFlex.gt-sm="50%" fxFlex.sm="50%" [ngStyle]="{'padding-left':'10px'}" class="black-color font-bold">
+                    {{'lb-professional-data' | translate | uppercase}} - AVALISTA 1
+                  </div>
+                  <div fxFlex.gt-sm="50%" fxFlex.sm="50%">
+                    <a class="returnToStepCursor black-color font-bold" (click)="returnToStep(12)"><i class="fa fa-pencil"></i> {{'btn-edit-information' | translate}}</a>
+                  </div>
+                </div>
+                <div fxLayout="row" fxFlex.xs="100%" fxFlex.gt-sm="100%" fxFlex.sm="100%">
+                  <guarantor-1-professional-cc fxFlex.xs="100%" fxFlex.gt-sm="100%" fxFlex.sm="100%" (controlDynamicStepsM)="controlDynamicStepsM($event)"
+                    [controlDynamicStepsIn]="getControlDynamicSteps()" (countClient)="countClient($event)">
+                  </guarantor-1-professional-cc>
+                </div>
+              </div>
+            </li>
+
+            <li *ngIf="getShowGuarantor1()"  class="list-group-item" [ngClass]="{'completed': [getControlDynamicSteps()] > 13 , 'active': [getControlDynamicSteps()] == 13 }">
+              <div fxLayout="row" fxFlex.sm="100%" fxFlex.gt-sm="100%" fxLayoutWrap>
+                <div fxLayout="row" fxFlex.sm="100%" fxFlex.gt-sm="100%">
+                  <div fxFlex.gt-sm="50%" fxFlex.sm="50%" [ngStyle]="{'padding-left':'10px'}" class="black-color font-bold">
+                    {{'lb-personal-references' | translate | uppercase}} - {{'lb-guarantor' | translate | uppercase}} 1
+                  </div>
+                  <div fxFlex.gt-sm="50%" fxFlex.sm="50%">
+                    <a class="returnToStepCursor black-color font-bold" (click)="returnToStep(13)"><i class="fa fa-pencil"></i> {{'btn-edit-information' | translate}}</a>
+                  </div>
+                </div>
+                <div fxLayout="row" fxFlex.xs="100%" fxFlex.gt-sm="100%" fxFlex.sm="100%">
+                  <guarantor-1-person-cc fxFlex.xs="100%" fxFlex.gt-sm="100%" fxFlex.sm="100%" (controlDynamicStepsM)="controlDynamicStepsM($event)"
+                    [controlDynamicStepsIn]="getControlDynamicSteps()" (countClient)="countClient($event)">
+                  </guarantor-1-person-cc>
+                </div>
+              </div>
+            </li>
+
+            <li *ngIf="getShowGuarantor1()"  class="list-group-item" [ngClass]="{'completed': [getControlDynamicSteps()] > 14 , 'active': [getControlDynamicSteps()] == 14 }">
+              <div fxLayout="row" fxFlex.sm="100%" fxFlex.gt-sm="100%" fxLayoutWrap>
+                <div fxLayout="row" fxFlex.sm="100%" fxFlex.gt-sm="100%">
+                  <div fxFlex.gt-sm="50%" fxFlex.sm="50%" [ngStyle]="{'padding-left':'10px'}" class="black-color font-bold">
+                    {{'lb-bank-data' | translate | uppercase}} - {{'lb-guarantor' | translate | uppercase}} 1
+                  </div>
+                  <div fxFlex.gt-sm="50%" fxFlex.sm="50%">
+                    <a class="returnToStepCursor black-color font-bold" (click)="returnToStep(14)"><i class="fa fa-pencil"></i> {{'btn-edit-information' | translate}}</a>
+                  </div>
+                </div>
+                <div fxLayout="row" fxFlex.xs="100%" fxFlex.gt-sm="100%" fxFlex.sm="100%">
+                  <guarantor-1-banking-cc fxFlex.xs="100%" fxFlex.gt-sm="100%" fxFlex.sm="100%" (controlDynamicStepsM)="controlDynamicStepsM($event)"
+                    [controlDynamicStepsIn]="getControlDynamicSteps()">
+                  </guarantor-1-banking-cc>
+                </div>
+              </div>
+            </li>
+
+            <li class="list-group-item" [ngClass]="{'completed': [getControlDynamicSteps()] > 15 , 'active': [getControlDynamicSteps()] == 15 }">
+              <div fxLayout="row" fxFlex.sm="100%" fxFlex.gt-sm="100%" fxLayoutWrap>
+                <div fxLayout="row" fxFlex.sm="100%" fxFlex.gt-sm="100%">
+                  <div fxFlex.gt-sm="50%" fxFlex.sm="50%" [ngStyle]="{'padding-left':'10px'}" class="black-color font-bold">
+                    {{'lb-guarantor-data' | translate | uppercase}} - {{'lb-guarantor' | translate | uppercase}} 2
+                  </div>
+                  <div fxFlex.gt-sm="50%" fxFlex.sm="50%">
+                    <a class="returnToStepCursor black-color font-bold" (click)="returnToStep(15)"><i class="fa fa-pencil"></i> {{'btn-edit-information' | translate}}</a>
+                  </div>
+                </div>
+                <div fxLayout="row" fxFlex.xs="100%" fxFlex.gt-sm="100%" fxFlex.sm="100%">
+                  <guarantor-2-client-cc (changeSpouseGuarantor2)="changeSpouseGuarantor2($event)" (changeGuarantor2)="changeGuarantor2($event)" (changeSpouseGuarantor2)="changeSpouseGuarantor2($event)" fxFlex.xs="100%" fxFlex.gt-sm="100%" fxFlex.sm="100%" (controlDynamicStepsM)="controlDynamicStepsM($event)"
+                    [controlDynamicStepsIn]="getControlDynamicSteps()">
+                  </guarantor-2-client-cc>
+                </div>
+              </div>
+            </li>
+
+            <li *ngIf="getShowGuarantor2()"  class="list-group-item" [ngClass]="{'completed': [getControlDynamicSteps()] > 16 , 'active': [getControlDynamicSteps()] == 16 }">
+              <div fxLayout="row" fxFlex.sm="100%" fxFlex.gt-sm="100%" fxLayoutWrap>
+                <div fxLayout="row" fxFlex.sm="100%" fxFlex.gt-sm="100%">
+                  <div fxFlex.gt-sm="50%" fxFlex.sm="50%" [ngStyle]="{'padding-left':'10px'}" class="black-color font-bold">
+                    {{'lb-residential-data' | translate | uppercase}} - {{'lb-guarantor' | translate | uppercase}} 2
+                  </div>
+                  <div fxFlex.gt-sm="50%" fxFlex.sm="50%">
+                    <a class="returnToStepCursor black-color font-bold" (click)="returnToStep(16)"><i class="fa fa-pencil"></i> {{'btn-edit-information' | translate}}</a>
+                  </div>
+                </div>
+                <div fxLayout="row" fxFlex.xs="100%" fxFlex.gt-sm="100%" fxFlex.sm="100%">
+                  <guarantor-2-address-cc [showSpouseGuarantor2]="getShowSpouseGuarantor2()" fxFlex.xs="100%" fxFlex.gt-sm="100%" fxFlex.sm="100%" (controlDynamicStepsM)="controlDynamicStepsM($event)"
+                    [controlDynamicStepsIn]="getControlDynamicSteps()" (countClient)="countClient($event)">
+                  </guarantor-2-address-cc>
+                </div>
+              </div>
+            </li>
+
+            <li *ngIf="getVerifyPhysicalSpouseGuarantor2()" class="list-group-item" [ngClass]="{'completed': [getControlDynamicSteps()] > 17 , 'active': [getControlDynamicSteps()] == 17 }">
+              <div fxLayout="row" fxFlex.sm="100%" fxFlex.gt-sm="100%" fxLayoutWrap>
+                <div fxLayout="row" fxFlex.sm="100%" fxFlex.gt-sm="100%">
+                  <div fxFlex.gt-sm="50%" fxFlex.sm="50%" [ngStyle]="{'padding-left':'10px'}" class="black-color font-bold">
+                    {{'lb-spouse' | translate | uppercase}} - {{'lb-guarantor' | translate | uppercase}} 2
+                  </div>
+                  <div fxFlex.gt-sm="50%" fxFlex.sm="50%">
+                    <a class="returnToStepCursor black-color font-bold" (click)="returnToStep(17)"><i class="fa fa-pencil"></i> {{'btn-edit-information' | translate}}</a>
+                  </div>
+                </div>
+                <div fxLayout="row" fxFlex.xs="100%" fxFlex.gt-sm="100%" fxFlex.sm="100%">
+                  <guarantor-2-spouse-cc fxFlex.xs="100%" fxFlex.gt-sm="100%" fxFlex.sm="100%" (controlDynamicStepsM)="controlDynamicStepsM($event)"
+                    [controlDynamicStepsIn]="getControlDynamicSteps()">
+                  </guarantor-2-spouse-cc>
+                </div>
+              </div>
+            </li>
+
+            <li *ngIf="getShowGuarantor2()" class="list-group-item" [ngClass]="{'completed': [getControlDynamicSteps()] > 18 , 'active': [getControlDynamicSteps()] == 18 }">
+              <div fxLayout="row" fxFlex.sm="100%" fxFlex.gt-sm="100%" fxLayoutWrap>
+                <div fxLayout="row" fxFlex.sm="100%" fxFlex.gt-sm="100%">
+                  <div fxFlex.gt-sm="50%" fxFlex.sm="50%" [ngStyle]="{'padding-left':'10px'}" class="black-color font-bold">
+                    {{'lb-professional-data' | translate | uppercase}} - {{'lb-guarantor' | translate | uppercase}} 2
+                  </div>
+                  <div fxFlex.gt-sm="50%" fxFlex.sm="50%">
+                    <a class="returnToStepCursor black-color font-bold" (click)="returnToStep(18)"><i class="fa fa-pencil"></i> {{'btn-edit-information' | translate}}</a>
+                  </div>
+                </div>
+                <div fxLayout="row" fxFlex.xs="100%" fxFlex.gt-sm="100%" fxFlex.sm="100%">
+                  <guarantor-2-professional-cc fxFlex.xs="100%" fxFlex.gt-sm="100%" fxFlex.sm="100%" (controlDynamicStepsM)="controlDynamicStepsM($event)"
+                    [controlDynamicStepsIn]="getControlDynamicSteps()">
+                  </guarantor-2-professional-cc>
+                </div>
+              </div>
+            </li>
+
+            <li *ngIf="getShowGuarantor2()" class="list-group-item" [ngClass]="{'completed': [getControlDynamicSteps()] > 19 , 'active': [getControlDynamicSteps()] == 19 }">
+              <div fxLayout="row" fxFlex.sm="100%" fxFlex.gt-sm="100%" fxLayoutWrap>
+                <div fxLayout="row" fxFlex.sm="100%" fxFlex.gt-sm="100%">
+                  <div fxFlex.gt-sm="50%" fxFlex.sm="50%" [ngStyle]="{'padding-left':'10px'}" class="black-color font-bold">
+                    {{'lb-personal-references' | translate | uppercase}} - {{'lb-guarantor' | translate | uppercase}} 2
+                  </div>
+                  <div fxFlex.gt-sm="50%" fxFlex.sm="50%">
+                    <a class="returnToStepCursor black-color font-bold" (click)="returnToStep(19)"><i class="fa fa-pencil"></i> {{'btn-edit-information' | translate}}</a>
+                  </div>
+                </div>
+                <div fxLayout="row" fxFlex.xs="100%" fxFlex.gt-sm="100%" fxFlex.sm="100%">
+                  <guarantor-2-person-cc fxFlex.xs="100%" fxFlex.gt-sm="100%" fxFlex.sm="100%" (controlDynamicStepsM)="controlDynamicStepsM($event)"
+                    [controlDynamicStepsIn]="getControlDynamicSteps()" (countClient)="countClient($event)">
+                  </guarantor-2-person-cc>
+                </div>
+              </div>
+            </li>
+
+            <li *ngIf="getShowGuarantor2()" class="list-group-item" [ngClass]="{'completed': [getControlDynamicSteps()] > 20 , 'active': [getControlDynamicSteps()] == 20 }">
+              <div fxLayout="row" fxFlex.sm="100%" fxFlex.gt-sm="100%" fxLayoutWrap>
+                <div fxLayout="row" fxFlex.sm="100%" fxFlex.gt-sm="100%">
+                  <div fxFlex.gt-sm="50%" fxFlex.sm="50%" [ngStyle]="{'padding-left':'10px'}" class="black-color font-bold">
+                    {{'lb-banking-references' | translate | uppercase}} - {{'lb-guarantor' | translate | uppercase}} 2
+                  </div>
+                  <div fxFlex.gt-sm="50%" fxFlex.sm="50%">
+                    <a class="returnToStepCursor black-color font-bold" (click)="returnToStep(20)"><i class="fa fa-pencil"></i> {{'btn-edit-information' | translate}}</a>
+                  </div>
+                </div>
+                <div fxLayout="row" fxFlex.xs="100%" fxFlex.gt-sm="100%" fxFlex.sm="100%">
+                  <guarantor-2-banking-cc fxFlex.xs="100%" fxFlex.gt-sm="100%" fxFlex.sm="100%" (controlDynamicStepsM)="controlDynamicStepsM($event)"
+                    [controlDynamicStepsIn]="getControlDynamicSteps()" (countClient)="countClient($event)">
+                  </guarantor-2-banking-cc>
+                </div>
+              </div>
+            </li>
+          </ol>
+        
+        </div>
+        <div fxLayout="column" fxFlex.gt-sm="100%" fxFlex.sm="100%" fxFlex.xs="100%" fxLayoutWrap>
+          <div *ngIf="browser != 'firefox'" fxLayout="row" fxFlex.gt-sm="100%" fxFlex.sm="100%" [ngStyle]="{'padding-top':'3%'}">
+            <div fxLayout="row"  fxFlex.gt-sm="100%" fxFlex.sm="100%" fxLayoutAlign="center center">
+                <button type="button" md-raised-button (click)="change(false)" fxFlex.xs="30%" fxFlex.gt-sm="30%" fxFlex.sm="30%"
+                                                        color="primary">{{'lb-edit-simulation' | translate | uppercase}}</button>
+            </div>
+            <div fxLayout="row" fxFlex.gt-sm="100%" fxFlex.sm="100%" fxLayoutAlign="center center">
+                <button type="button" (click)="saveDossier()" fxFlex.xs="30%" fxFlex.gt-sm="30%" fxFlex.sm="30%"  
+                                                    md-raised-button color="primary">{{'btn-send-proposal' | translate | uppercase}}</button>
+            </div>
+          </div>
+        </div>
+      </md-card>
+    </div>
+  </md-card>
+</div>

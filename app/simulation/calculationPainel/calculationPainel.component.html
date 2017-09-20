@@ -1,0 +1,197 @@
+<div fxFlex.xs="100%" fxFlex.gt-sm="100%" fxLayoutAlign="center center" class="spaceCard" *ngIf="simulation.calculationSelected">
+    <md-card fxFlex.gt-sm="100%" fxFlex.sm="100%" fxFlex.xs="100%" class="no-border">
+        <div fxLayout="row" fxFlex.gt-sm="100%" fxFlex.sm="100%" fxFlex.xs="100%" fxLayoutWrap>
+            <div fxFlex.gt-sm="100%" fxFlex.sm="100%" fxFlex.xs="100%">
+                <div fxLayout="row" fxLayoutGap="1%">
+                    <button md-raised-button color="primary" class="btnHideModel" (click)="clicked()">
+                            <i class="material-icons">{{varBtnMarca}}</i>
+                        </button>
+                    <h4 class="black-color">{{'lb-proposal-number' | translate | uppercase}}: {{ simulation.dossierNumber }}</h4>
+                </div>
+                <div fxLayout="row">
+                    <hr class="color-border-default" [ngStyle]="{'margin-top': '-2px'}" fxFlex.gt-sm="100%" />
+                </div>
+            </div>
+            <div fxLayout="row" fxFlex.gt-sm="100%" fxFlex.sm="100%" fxFlex.xs="100%">
+                <div fxLayout="column" fxFlex.gt-sm="100%" [ngStyle]="{'height': '250px'}"  *ngIf="drop==false">
+                    <painel-proposal [steep]="steep"></painel-proposal>
+                   
+                    <div fxLayout="row" fxFlex.gt-sm="100%" fxFlex.sm="100%" fxFlex.xs="100%" [ngStyle]="{'padding-top':'55px'}" class="flexBasisIE">
+                        <div fxFlex.gt-sm="35%">
+                            <label class="black-color font-bold">{{'lb-state' | translate}}</label>
+                        </div>
+                    </div>
+                    <div fxLayout="row" fxFlex.gt-sm="100%" fxFlex.sm="100%" fxFlex.xs="100%" [ngStyle.gt-sm]="{'margin-top':'-3%'}" class="flexBasisIE">
+                        <div fxFlex.gt-sm="35%">
+                            <label>{{ simulation.client.address.province.description }}</label>
+                        </div>
+                    </div>
+                    
+                    <painel-proposal-two fxLayout="column" ></painel-proposal-two>
+                    
+                    <div fxLayout="row" [ngStyle]="{'margin-top': '70px'}">
+                        <hr class="color-border-default" fxFlex.gt-sm="100%" />
+                    </div>
+ 
+                </div>
+            </div>
+            <div fxLayout="column" fxFlex.gt-sm="50%" fxFlex.sm="100%" fxFlex.xs="100%" 
+                class="flexBasisIE space-mozila-top">
+                
+                <div fxLayout="row"  class="flexBasisIE">
+                    <h4 class="black-color font-bold">{{'lb-review-connected-simulation' | translate | uppercase}}</h4>
+                </div>
+                <div fxLayout="row" fxFlex.gt-sm="100%" fxFlex.sm="100%" [ngStyle]="{'padding-top':'8%'}" class="flexBasisIE space-mozila-top">
+                    <div fxFlex.gt-sm="100%" fxFlex.sm="100%" [ngStyle]="{'padding-top':'4%'}">
+                        <label class="black-color font-bold">{{'lb-financial-type' | translate}}</label><br>
+                        <label>{{ simulation.calculationSelected.financialType.description }}</label>
+                    </div>
+                </div>
+                <div fxLayout="row" fxFlex.gt-sm="100%" fxFlex.sm="100%" [ngStyle]="{'padding-top':'8%'}" class="flexBasisIE space-mozila-top">
+                    <div fxFlex.gt-sm="100%" fxFlex.sm="100%">
+                        <label class="black-color font-bold">{{'lb-table' | translate}}</label><br>
+                        <label>{{ simulation.calculationSelected.financialTable.description }}</label>
+                    </div>
+                </div>
+                <div fxLayout="row" fxFlex.gt-sm="100%" fxFlex.sm="100%" [ngStyle]="{'padding-top':'4%'}" class="flexBasisIE space-mozila-top">
+                    <div fxFlex.gt-sm="100%" fxFlex.sm="100%">
+                        <label class="black-color font-bold">{{'lb-delay' | translate}}</label><br>
+                        <label>{{ simulation.calculationSelected.delay }}</label>
+                    </div>
+                </div>
+                <div fxLayout="row" fxFlex.gt-sm="100%" fxFlex.sm="100%" [ngStyle]="{'padding-top':'4%'}" class="flexBasisIE space-mozila-top">
+                    <div fxFlex.gt-sm="100%" fxFlex.sm="100%">
+                        <label class="black-color font-bold">{{'lb-entrance' | translate}}</label><br>
+                        <label>{{ simulation.calculationSelected.entranceValue | money }}</label>
+                    </div>
+                </div>
+                <div fxLayout="row" fxFlex.gt-sm="100%" fxFlex.sm="100%" [ngStyle]="{'padding-top':'4%'}" class="flexBasisIE space-mozila-top">
+                    <div fxFlex.gt-sm="100%" fxFlex.sm="100%">
+                        <label class="black-color font-bold">{{'lb-financial-during' | translate}}</label><br>
+                        <label>{{ simulation.calculationSelected.term }}</label>
+                    </div>
+                </div>
+
+                <div fxLayout="row" fxFlex.gt-sm="100%" fxFlex.sm="100%" [ngStyle]="{'padding-top':'4%'}" class="flexBasisIE space-mozila-top">
+                    <label class="black-color font-bold">{{'lb-contracted-services' | translate}}</label>
+                </div>
+
+                <div fxLayout="row" class="space-mozila-top flexBasisIE" fxFlex.gt-sm="100%" fxFlex.sm="100%" [ngStyle]="{'padding-top':'2%'}"
+                    *ngFor="let service of simulation.calculationSelected.services">
+                    <div fxFlex.gt-sm="70%">
+                        <label>{{ service.description }}</label>
+                    </div>
+                    <div fxFlex.gt-sm="30%">
+                        <label>{{ service.amount | money }}</label>
+                    </div>
+                </div>
+
+                <div fxLayout="row" fxFlex.gt-sm="100%" fxFlex.sm="100%" class="flexBasisIE space-mozila-top">
+                    <div fxFlex.gt-sm="70%">
+                        <label class="black-color font-bold">{{'lb-total-funded' | translate}}</label>
+                    </div>
+                    <div fxFlex.gt-sm="30%">
+                        <label class="black-color font-bold">{{ simulation.calculationSelected.financedAmount | money }}</label>
+                    </div>
+                </div>
+                <div fxLayout="row" fxFlex.gt-sm="100%" fxFlex.sm="100%" class="flexBasisIE space-mozila-top" *ngFor="let termTemp of simulation.calculationSelected.terms">
+                    <div fxFlex.gt-sm="70%">
+                        <h4 class="black-color font-bold">{{'lb-monthly' | translate}}</h4>
+                    </div>
+                    <div fxFlex.gt-sm="30%">
+                        <h4 class="black-color font-bold">{{ termTemp.quantity }}x {{ termTemp.value | money }}</h4>
+                    </div>
+                </div>
+
+                <div fxLayout="row" fxFlex.gt-sm="100%" fxFlex.sm="100%" [ngStyle]="{'padding-top':'5%'}" class="flexBasisIE space-mozila-top">
+                    <div fxFlex.gt-sm="50%">
+                        <label>{{'lb-custumer-rate' | translate}}: {{ simulation.calculationSelected.montlyRate }}%</label>
+                    </div>
+                </div>
+
+                <div fxLayout="row" fxFlex.gt-sm="100%" fxFlex.sm="100%" class="padding-top-mozila flexBasisIE space-mozila-top" [ngStyle]="{'padding-top':'2%'}">
+                    <div fxFlex.gt-sm="100%">
+                        <button md-raised-button color="primary" [ngStyle]="{'min-width':'56px'}" (click)="hide()">
+                            <i class="material-icons">{{varBtnDrop}}</i>
+                        </button>
+                        <label class="black-color font-bold" [ngStyle]="{'padding-left':'4%'}">{{'lb-payment-plan' | translate}}</label><br>
+                    </div>
+                </div>
+                <div class="padding-top-mozila space-mozila-top" *ngIf="browser == 'firefox' && drop2 === false" fxLayout="row" fxFlex.gt-sm="100%"
+                    fxFlex.sm="100%" [ngStyle]="{'padding-top':'2%', 'padding-bottom': '2%'}">
+                    <div fxFlex.gt-sm="50%" fxFlex.sm="50%" fxLayoutAlign="center center">
+                        <button md-raised-button (click)="change(false)" color="primary">{{'lb-custumer-card' | translate | uppercase}}</button>
+                    </div>
+                    <div fxFlex.gt-sm="50%" fxFlex.sm="50%" fxLayoutAlign="center center">
+                        <button md-raised-button (click)="change(true)" [disabled]="!simulation.step3CanNext" color="primary" fxLayoutAlign="center center">{{'lb-edit-vehicle' | translate | uppercase}}</button>
+                    </div>
+                </div>
+            </div>
+
+            <div fxLayout="column" fxFlex.gt-sm="100%" fxFlex.sm="100%" fxFlex.xs="100%" [ngStyle]="{'padding-top':'2%','padding':'1%'}"
+                class="flexBasisIE space-mozila-top">
+                <div *ngIf="drop2" fxLayout="column">
+                    <!--<div fxLayout="column" fxFlex.gt-sm="100%" fxFlex.sm="100%">-->
+                    <div fxLayout="row" fxFlex.gt-sm="100%" [ngStyle]="{'padding-top':'6%'}" class="flexBasisIE space-mozila-top">
+                        <div fxFlex.gt-sm="10%">
+                            <label><b>{{'lb-installments' | translate}}</b></label>
+                        </div>
+                        <div fxFlex.gt-sm="90%">
+                            <label class="black-color"></label>
+                        </div>
+                    </div>
+                    <!--</div>-->
+                    <!--<div fxLayout="column" fxFlex.gt-sm="100%" fxFlex.sm="100%">-->
+                    <div fxLayout="row" fxFlex.gt-sm="100%" class="space-component flexBasisIE space-mozila-important">
+                        <ngx-datatable fxFlex="100" class='material' [rows]="simulation.calculationSelected.installments" [columnMode]="'force'"
+                            [headerHeight]="40" [footerHeight]="40" [rowHeight]="'auto'" [limit]="20">
+                            <ngx-datatable-column name="{{'lb-name' | translate}}" [width]="200">
+                                <ng-template let-column="column" ngx-datatable-header-template>
+                                    N° Parcela
+                                </ng-template>
+                                <ng-template let-row="row" ngx-datatable-cell-template>
+                                    {{row.numberInstallment}}
+                                </ng-template>
+                            </ngx-datatable-column>
+                            <ngx-datatable-column name="Data Vencimento" [width]="200">
+                                <ng-template let-column="column" ngx-datatable-header-template>
+                                    Data Vencimento
+                                </ng-template>
+                                <ng-template let-row="row" ngx-datatable-cell-template>
+                                    {{row.dueDate | date: 'dd/MM/yyyy'}}
+                                </ng-template>
+                            </ngx-datatable-column>
+                            <ngx-datatable-column name="Parcela" [width]="200">
+                                <ng-template let-column="column" ngx-datatable-header-template>
+                                    Parcela
+                                </ng-template>
+                                <ng-template let-row="row" ngx-datatable-cell-template>
+                                    {{row.amount | money}}
+                                </ng-template>
+                            </ngx-datatable-column>
+                        </ngx-datatable>
+                    </div>
+                    <div fxLayoutAlign="center center">
+                        <div *ngIf="browser == 'firefox'" fxLayout="row" fxFlex.gt-sm="100%" fxFlex.sm="100%" [ngStyle]="{'padding-top':'3%'}">
+                            <div fxFlex.gt-sm="50%" fxFlex.sm="50%" fxLayoutAlign="center center">
+                                <button md-raised-button (click)="change(false)" color="primary">{{'lb-custumer-card' | translate | uppercase}}</button>
+                            </div>
+                            <div fxFlex.gt-sm="50%" fxFlex.sm="50%" fxLayoutAlign="center center">
+                                <button md-raised-button (click)="change(true)" [disabled]="!simulation.step3CanNext" color="primary" fxLayoutAlign="center center">{{'lb-edit-vehicle' | translate | uppercase}}</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div *ngIf="browser != 'firefox'" fxLayout="row" fxFlex.gt-sm="100%" fxFlex.sm="100%" [ngStyle]="{'padding-top':'3%'}">
+                <div fxFlex.gt-sm="50%" fxFlex.sm="50%" fxLayoutAlign="center center">
+                    <button md-raised-button (click)="change(false)" color="primary">{{'lb-edit-vehicle' | translate | uppercase}}</button>
+                </div>
+                <div fxFlex.gt-sm="50%" fxFlex.sm="50%" fxLayoutAlign="center center">
+                    <button md-raised-button (click)="change(true)" [disabled]="!simulation.step3CanNext" color="primary" fxLayoutAlign="center center">{{'lb-custumer-card' | translate | uppercase}}</button>
+                </div>
+            </div>
+        </div>
+    </md-card>
+</div>

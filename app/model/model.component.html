@@ -1,0 +1,310 @@
+<div fxFlex.xs="100%" 
+     fxFlex.gt-sm="100%" 
+     fxLayoutAlign="center center" 
+     class="spaceCard" fxLayoutWrap>
+    <md-card fxFlex.gt-sm="60%" fxFlex.xs="100%" class="no-border">
+        <div>
+            <div fxLayout="row" fxLayoutGap="1%">    
+            <button md-raised-button 
+                color="primary" 
+                class="btnHideModel"
+                (click)="clicked('1')"><i class="material-icons">{{varBtnBrand}}</i></button>            
+                <h4 class="black-color">{{'lb-brand' | translate | uppercase}}</h4>
+            </div>
+            <div fxLayout="row">
+                <hr class="color-border-default" [ngStyle]="{'margin-top': '-2px'}" fxFlex.gt-sm="100%"/>
+            </div>
+        </div>
+<!--MARCA-->
+        <div *ngIf="btnHideBrand">
+            <div fxLayout="row" 
+                fxLayoutWrap 
+                fxLayoutAlign="start none" 
+                fxLayoutWrap>
+                <div fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.gt-sm="100%" fxLayoutGap="10%">
+                    <span><b class="black-color">{{'lb-brand' | translate | uppercase}}</b></span>
+                </div>
+            </div>
+            <div fxLayout="row" class="space-component">
+                <div fxFlex.gt-sm="35%" fxFlex.xs="100%">  
+                    <md-select fxFlex.gt-sm="100%" placeholder="Marca de Veículo" name="brand" [(ngModel)]="vehicleBrandId" (ngModelChange)="loadVehicleModel(); loadFileVehicleBrand()">
+                        <md-option *ngFor="let brand of listVehicleBrand" [value]="brand">
+                        {{ brand.description }}
+                        </md-option>
+                    </md-select>
+                </div>
+            </div>
+            <div *ngIf="fileVehicleBrand.fileLink != null">
+                <div fxLayout="row" fxLayoutAlign.xs="center center">
+                    <div class="cardModelo" >
+                        <img *ngIf="!filePreviewBrand" width="100%" src="{{this.appService.getURLS3()}}{{fileVehicleBrand.fileLink}}" alt="" class="imgModelo">
+                        <img *ngIf="filePreviewBrand" [src]="filePreviewBrand" class="imgModelo">
+                    </div>
+                </div>
+                <div fxLayout="row" fxLayoutGap="1%" class="btnSearch-model" [ngStyle.xs]="{'padding-left':'0%'}">
+                    <div fxFlex.xs="100%"  fxFlex.gt-sm="20%" >
+                        <input id="input-file-id" class="ng-hide" accept=".jpg, .png, .jpeg, .gif " type="file" [ngStyle]="{'display': 'none'}" 
+                            (change)="fileBrandChangeEvent($event, fileVehicleBrand.fileId, fileVehicleBrand.fileObjectId)" #fileBrandChange>
+                        <label fxFlex.xs="100%"
+                            for="input-file-id"
+                            class="mat-raised-button mat-primary" 
+                            md-colors="{color: 'primary'}">
+                            <i class="fa fa-upload">
+                        </i> {{'btn-choose-file' | translate}}</label>                           
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="fileVehicleBrand.fileLink == null && vehicleBrandId">
+                <div fxLayout="row" fxLayoutAlign.xs="center center">
+                        <div class="cardModelo" >
+                            <img *ngIf="!filePreviewBrand" width="100%" src="../assets/images/sem_imagem.png" alt="" class="imgModelo">
+                            <img *ngIf="filePreviewBrand" [src]="filePreviewBrand" class="imgModelo">
+                        </div>
+                </div>
+                <div fxLayout="row" fxLayoutGap="1%" class="btnSearch-model" [ngStyle.xs]="{'padding-left':'0%'}">
+                    <div fxFlex.xs="100%"  fxFlex.gt-sm="20%" >
+                        <input id="input-file-id" class="ng-hide" accept=".jpg, .png, .jpeg, .gif " type="file" [ngStyle]="{'display': 'none'}" 
+                            (change)="fileBrandChangeEvent($event, null, vehicleBrandId.id)" #fileBrandChange>
+                        <label fxFlex.xs="100%"
+                            for="input-file-id"
+                            class="mat-raised-button mat-primary"
+                            md-colors="{color: 'primary'}">
+                            <i class="fa fa-upload">
+                        </i> {{'btn-choose-file' | translate}}</label>
+                    </div>
+                </div>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="space-between" [ngStyle]="{'padding-top': '1%' }" fxLayoutGap.xs="1%">
+                <div fxFlex.xs="100%" fxFlex.gt-sm="20%" *ngIf="fileVehicleBrand.fileLink != null && vehicleBrandId">
+                <button md-raised-button fxFlex.xs="100%" class="text-title" color="primary" (click)="deleteFileBrand(fileVehicleBrand.fileId, fileVehicleBrand.fileObjectId)">
+                    {{'btn-remove' | translate}}
+                </button>
+                </div>
+                <div fxFlex.xs="100%" fxFlex.gt-sm="20%">
+                <button md-raised-button fxFlex.xs="100%" color="primary" (click)="saveFileBrand()" class="text-title">
+                    {{'btn-save' | translate}}
+                </button>
+                </div>
+            </div>
+        </div>
+    </md-card>
+<!--MODELO-->
+    <md-card fxFlex.gt-sm="60%" fxFlex.xs="100%" class="no-border">
+        <div fxLayout="row" fxLayoutGap="1%" [ngStyle]="{'padding-top':'1%'}">    
+            <button md-raised-button 
+                color="primary" 
+                class="btnHideModel" 
+                (click)="clicked('2')"><i class="material-icons">{{varBtnModel}}</i></button>            
+            <h4 class="black-color">MODELO</h4>
+        </div>
+        <div fxLayout="row">
+            <hr class="color-border-default" [ngStyle]="{'margin-top': '-2px'}" fxFlex.gt-sm="100%"/>
+        </div>
+        <div *ngIf="btnHideModel">
+            <div fxLayout="row" 
+                    fxLayoutWrap 
+                    fxLayoutAlign="start none" 
+                    fxLayoutWrap>
+                <div fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.gt-sm="100%" fxLayoutGap="10%">
+                    <span><b class="black-color">{{'lb-brand' | translate | uppercase}}</b></span>
+                </div>
+            </div>
+            <div fxLayout="row" class="space-component">
+                <div fxFlex.gt-sm="35%" fxFlex.xs="100%">  
+                    <md-select fxFlex.gt-sm="100%" placeholder="Marca de Veículo" name="modelbrand" [(ngModel)]="vehicleBrandId" (ngModelChange)="loadVehicleModel(); loadFileVehicleBrand()">
+                        <md-option *ngFor="let brand of listVehicleBrand" [value]="brand">
+                        {{ brand.description }}
+                        </md-option>
+                    </md-select>
+                </div>
+            </div>
+            <div fxLayout="row" 
+                    fxLayoutWrap 
+                    fxLayoutAlign="start none" 
+                    fxLayoutWrap>
+                <div fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.gt-sm="100%" fxLayoutGap="10%">
+                    <span><b class="black-color">{{'lb-model' | translate | uppercase}}</b></span>
+                </div>
+            </div>
+            <div fxLayout="row" class="space-component">
+                <div fxFlex.gt-sm="35%" fxFlex.xs="100%">  
+                    <md-select fxFlex.gt-sm="100%" placeholder="{{'lb-vehicle-model' | translate}}" name="modelmodel" [(ngModel)]="vehicleModelId" (ngModelChange)="loadVehicleVersion(); loadFileVehicleModel()">
+                        <md-option *ngFor="let model of listVehicleModel" [value]="model" >
+                        {{ model.description }}
+                        </md-option>
+                    </md-select>
+                </div>
+            </div>
+            <div *ngIf="fileVehicleModel.fileLink != null">
+                <div fxLayout="row" fxLayoutAlign.xs="center center">
+                    <div class="cardModelo" >
+                        <img *ngIf="!filePreviewModel" width="100%" src="{{this.appService.getURLS3()}}{{fileVehicleModel.fileLink}}" alt="" class="imgModelo">
+                        <img *ngIf="filePreviewModel" [src]="filePreviewModel" class="imgModelo">
+                    </div>
+                </div>
+                <div fxLayout="row" fxLayoutGap="1%" class="btnSearch-model" [ngStyle.xs]="{'padding-left':'0%'}">
+                    <div fxFlex.xs="100%"  fxFlex.gt-sm="20%" >
+                        <input id="input-file-id" class="ng-hide" accept=".jpg, .png, .jpeg, .gif " type="file" [ngStyle]="{'display': 'none'}" 
+                            (change)="fileModelChangeEvent($event, fileVehicleModel.fileId, fileVehicleModel.fileObjectId)" #fileModelChange>
+                        <label fxFlex.xs="100%"
+                            for="input-file-id"
+                            class="mat-raised-button mat-primary" 
+                            md-colors="{color: 'primary'}">
+                            <i class="fa fa-upload">
+                        </i> {{'btn-choose-file' | translate}}</label>   
+                                             
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="fileVehicleModel.fileLink == null && vehicleModelId">
+                <div fxLayout="row" fxLayoutAlign.xs="center center">
+                        <div class="cardModelo" >
+                            <img *ngIf="!filePreviewModel" width="100%" src="../assets/images/sem_imagem.png" alt="" class="imgModelo">
+                            <img *ngIf="filePreviewModel" [src]="filePreviewModel" class="imgModelo">
+                        </div>
+                </div>
+                <div fxLayout="row" fxLayoutGap="1%" class="btnSearch-model" [ngStyle.xs]="{'padding-left':'0%'}">
+                    <div fxFlex.xs="100%"  fxFlex.gt-sm="20%" >
+                        <input id="input-file-id" class="ng-hide" accept=".jpg, .png, .jpeg, .gif " type="file" [ngStyle]="{'display': 'none'}" 
+                            (change)="fileModelChangeEvent($event, null, vehicleModelId.id)" #fileModelChange>
+                        <label fxFlex.xs="100%"
+                            for="input-file-id"
+                            class="mat-raised-button mat-primary"
+                            md-colors="{color: 'primary'}">
+                            <i class="fa fa-upload">
+                        </i> {{'btn-choose-file' | translate}}</label>
+                    </div>
+                </div>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="space-between" [ngStyle]="{'padding-top': '1%' }" fxLayoutGap.xs="1%">
+                <div fxFlex.xs="100%" fxFlex.gt-sm="20%" *ngIf="fileVehicleModel.fileLink != null && vehicleModelId">
+                    <button md-raised-button fxFlex.xs="100%" color="primary" (click)="deleteFileModel(fileVehicleModel.fileId, fileVehicleModel.fileObjectId)">{{'btn-remove' | translate}}</button>
+                </div>
+                    <div fxFlex.xs="100%" fxFlex.gt-sm="20%">
+                    <button md-raised-button fxFlex.xs="100%" color="primary"  class="text-title" 
+                        (click)="saveFileModel()" >
+                        {{'btn-save' | translate}}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </md-card>
+<!--VERSÃO-->
+    <md-card fxFlex.gt-sm="60%" fxFlex.xs="100%" class="no-border">
+        <div fxLayout="row" fxLayoutGap="1%" [ngStyle]="{'padding-top':'1%'}">    
+            <button md-raised-button 
+                color="primary" 
+                class="btnHideModel" 
+                (click)="clicked('3')"><i class="material-icons">{{varBtnVersion}}</i></button>            
+            <h4 class="black-color">{{'lb-version' | translate | uppercase}}</h4>
+        </div>
+        <div fxLayout="row">
+            <hr class="color-border-default" [ngStyle]="{'margin-top': '-2px'}" fxFlex.gt-sm="100%"/>
+        </div>
+        <div *ngIf="btnHideVersion">
+            <div fxLayout="row" 
+                    fxLayoutWrap 
+                    fxLayoutAlign="start none" 
+                    fxLayoutWrap>
+                <div fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.gt-sm="100%" fxLayoutGap="10%">
+                    <span><b class="black-color">{{'lb-brand' | translate | uppercase}}</b></span>
+                </div>
+            </div>
+            <div fxLayout="row" class="space-component">
+                <div fxFlex.gt-sm="35%" fxFlex.xs="100%">  
+                    <md-select fxFlex.gt-sm="100%" placeholder="Marca de Veículo" name="versionbrand" [(ngModel)]="vehicleBrandId" (ngModelChange)="loadVehicleModel(); loadFileVehicleBrand()" >
+                        <md-option *ngFor="let brand of listVehicleBrand" [value]="brand">
+                        {{ brand.description }}
+                        </md-option>
+                    </md-select>
+                </div>
+            </div>
+            <div fxLayout="row" 
+                    fxLayoutWrap 
+                    fxLayoutAlign="start none" 
+                    fxLayoutWrap>
+                <div fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.gt-sm="100%" fxLayoutGap="10%">
+                    <span><b class="black-color">{{'lb-model' | translate | uppercase}}</b></span>
+                </div>
+            </div>
+            <div fxLayout="row" class="space-component">
+                <div fxFlex.gt-sm="35%" fxFlex.xs="100%">  
+                    <md-select fxFlex.gt-sm="100%" placeholder="{{'lb-vehicle-model' | translate}}" name="versionmodel" [(ngModel)]="vehicleModelId" (ngModelChange)="loadVehicleVersion(); loadFileVehicleModel()">
+                        <md-option *ngFor="let model of listVehicleModel" [value]="model" >
+                        {{ model.description }}
+                        </md-option>
+                    </md-select>
+                </div>
+            </div>
+            <div fxLayout="row" 
+                    fxLayoutWrap 
+                    fxLayoutAlign="start none" 
+                    fxLayoutWrap>
+                <div fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.gt-sm="100%" fxLayoutGap="10%">
+                    <span><b class="black-color">{{'lb-version' | translate | uppercase}}</b></span>
+                </div>
+            </div>
+             <div fxLayout="row" class="space-component">
+                <div fxFlex.gt-sm="35%" fxFlex.xs="100%">  
+                    <md-select fxFlex.gt-sm="100%" placeholder="{{'lb-vehicle-version' | translate}}" name="versionversion" [(ngModel)]="vehicleVersionId" (ngModelChange)="loadFileVehicleVersion()">
+                        <md-option *ngFor="let version of listVehicleVersion" [value]="version" >
+                        {{ version.description }}
+                        </md-option>
+                    </md-select>
+                </div>
+            </div>
+            <div *ngIf="fileVehicleVersion.fileLink != null">
+                <div fxLayout="row" fxLayoutAlign.xs="center center">
+                    <div class="cardModelo" >
+                        <img *ngIf="!filePreviewVersion" width="100%" src="{{this.appService.getURLS3()}}{{fileVehicleVersion.fileLink}}" alt="" class="imgModelo">
+                        <img *ngIf="filePreviewVersion" [src]="filePreviewVersion" class="imgModelo">
+                    </div>
+                </div>
+                <div fxLayout="row" fxLayoutGap="1%" class="btnSearch-model" [ngStyle.xs]="{'padding-left':'0%'}">
+                    <div fxFlex.xs="100%"  fxFlex.gt-sm="20%" >
+                        <input id="input-file-id" class="ng-hide" accept=".jpg, .png, .jpeg, .gif " type="file" [ngStyle]="{'display': 'none'}" 
+                        (change)="fileVersionChangeEvent($event, fileVehicleVersion.fileId, fileVehicleVersion.fileObjectId)" #fileVersionChange>
+                        <label fxFlex.xs="100%"
+                            for="input-file-id"
+                            class="mat-raised-button mat-primary"
+                            md-colors="{color: 'primary'}">
+                            <i class="fa fa-upload">
+                        </i> {{'btn-choose-file' | translate}}</label>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="fileVehicleVersion.fileLink == null && vehicleVersionId">
+                <div fxLayout="row" fxLayoutAlign.xs="center center">
+                        <div class="cardModelo" >
+                            <img *ngIf="!filePreviewVersion" width="100%" src="../assets/images/sem_imagem.png" alt="" class="imgModelo">
+                            <img *ngIf="filePreviewVersion" [src]="filePreviewVersion" class="imgModelo">
+                        </div>
+                </div>
+                <div fxLayout="row" fxLayoutGap="1%" class="btnSearch-model" [ngStyle.xs]="{'padding-left':'0%'}">
+                    <div fxFlex.xs="100%"  fxFlex.gt-sm="20%" >
+                        <input id="input-file-id" class="ng-hide" accept=".jpg, .png, .jpeg, .gif " type="file" [ngStyle]="{'display': 'none'}" 
+                            (change)="fileVersionChangeEvent($event, null, vehicleVersionId.versionId)"  #fileVersionChange>
+                        <label fxFlex.xs="100%"
+                            for="input-file-id"
+                            class="mat-raised-button mat-primary"
+                            md-colors="{color: 'primary'}">
+                            <i class="fa fa-upload">
+                        </i> {{'btn-choose-file' | translate}}</label>
+                    </div>
+                </div>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="space-between" [ngStyle]="{'padding-top': '1%' }" fxLayoutGap.xs="1%">
+                <div fxFlex.xs="100%" fxFlex.gt-sm="20%" *ngIf="fileVehicleVersion.fileLink != null && vehicleVersionId">
+                    <button md-raised-button fxFlex.xs="100%" class="text-title" (click)="deleteFileVersion(fileVehicleVersion.fileId, fileVehicleVersion.fileObjectId)" color="primary">
+                        {{'btn-remove' | translate}}
+                    </button>
+                </div>
+                    <div fxFlex.xs="100%" fxFlex.gt-sm="20%">
+                    <button md-raised-button fxFlex.xs="100%" (click)="saveFileVersion()" color="primary"  class="text-title">
+                        {{'btn-save' | translate}}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </md-card>
+</div>

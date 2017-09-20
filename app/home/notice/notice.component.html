@@ -1,0 +1,16 @@
+<div class="" fxFlex="100" [ngStyle.xs]="{'margin-top.px': 45}">
+	<div fxLayoutAlign="center" >
+		<md-card fxFlex.gt-sm="80%" fxFlex.xs="100%">
+			<md-card-header id="card-menu-proposta">				
+				<span fxLayoutAlign="end none" [ngStyle]="{'padding-top':'2%'}">{{notice.title}}</span>
+			</md-card-header>
+			<md-card-content>
+				<div fxLayoutAlign="end none">
+					<span [ngStyle]="{'margin-right': '10px', 'margin-top': '10px'}">{{ notice.dtInsert | datex }}</span>
+				</div>
+				<div [innerHTML]="notice.notice | safeHtml"></div>
+				<!--<span [innerHtml]="notice.notice"></span>-->
+			</md-card-content>
+		</md-card>
+	</div>
+</div>

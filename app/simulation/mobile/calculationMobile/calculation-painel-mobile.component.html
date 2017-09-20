@@ -1,0 +1,110 @@
+<div fxLayout.xs="column" *ngIf="simulation.showResumMobile===false && simulation.reviewContractSimulation === false">
+  <div fxLayout.xs="column" fxFlex.xs="100%">
+    <calculation-mobile fxFlex.xs="100%" [simulation]="simulation" [enable]="calculationqta > 0" [calculationID]="0"></calculation-mobile>
+  </div>
+  <div fxLayout.xs="column" fxFlex.xs="100%">
+    <calculation-mobile fxFlex.xs="100%" [simulation]="simulation" [enable]="calculationqta > 1" [calculationID]="1"></calculation-mobile>
+  </div>
+  <div fxLayout.xs="column" fxFlex.xs="100%">
+    <calculation-mobile fxFlex.xs="100%" [simulation]="simulation" [enable]="calculationqta > 2" [calculationID]="2"></calculation-mobile>
+  </div>
+</div>
+
+<div fxFlex.xs="100%" fxLayout.xs="column" *ngIf="simulation.reviewContractSimulation && simulation.showResumMobile===false">
+
+  <div fxLayout="column" [ngStyle]="{'padding': '5%'}">
+
+    <div fxLayout="row" [ngStyle.gt-sm]="{'height': '6%'}" >
+      <div fxLayout="row" fxLayoutAlign="center center">
+        <h2 class="black-color">{{'lb-review-contracted-simulation' | translate | uppercase }}</h2>
+      </div>
+    </div>
+
+    <div fxLayout="row">
+      <label class="black-color"> {{'lb-financial-type' | translate}} </label>
+    </div>
+
+    <div fxLayout="row" class="space-component-top">
+      <label> {{ simulation.calculationSelected.financialType.description }} </label>
+    </div>
+
+
+    <div fxLayout="row" class="space-component-top">
+      <label class="black-color">{{'lb-table' | translate}}</label>
+    </div>
+
+    <div fxLayout="row" class="space-component-top">
+      <label>{{ simulation.calculationSelected.financialTable.description }}</label>
+    </div>
+
+
+    <div fxLayout="row" class="space-component-top">
+      <label class="black-color">{{ 'lb-delay' | translate }}</label>
+    </div>
+
+    <div fxLayout="row" class="space-component-top">
+      <label>{{ simulation.calculationSelected.delay }} {{'lb-days' | translate}}</label>
+    </div>
+
+    <div fxLayout="row" class="space-component-top">
+      <label class="black-color">{{'lb-entrance-value' | translate}}</label>
+    </div>
+
+    <div fxLayout="row" class="space-component-top">
+      <label>{{ simulation.calculationSelected.entranceValue }}</label>
+    </div>
+
+    <div fxLayout="row" class="space-component-top">
+      <label class="black-color">{{'lb-financial-during' | translate}}</label>
+    </div>
+
+    <div fxLayout="row" class="space-component-top">
+      <label>{{ simulation.calculationSelected.term }} {{'lb-months' | translate}}</label>
+    </div>
+
+    <div fxLayout="row" class="space-mozila-top flexBasisIE" fxFlex.xs="100%" [ngStyle]="{'padding-top':'3%'}"
+      *ngFor="let service of simulation.calculationSelected.services">
+      <div fxFlex.xs="70%">
+        <label>{{ service.description }}</label>
+      </div>
+      <div fxFlex.xs="30%">
+        <label>{{ service.amount | money }}</label>
+      </div>
+    </div>
+
+    <div fxLayout="row"  fxFlex.xs="100%" class="flexBasisIE space-mozila-top">
+      <div fxFlex.xs="70%">
+        <label class="black-color">{{'lb-total-funded' | translate}}</label>
+      </div>
+      <div fxFlex.xs="30%">
+        <label class="black-color">{{ simulation.calculationSelected.financedAmount | money }}</label>
+      </div>
+    </div>
+    <div fxLayout="row" fxFlex.xs="100%" class="flexBasisIE space-mozila-top" *ngFor="let termTemp of simulation.calculationSelected.terms">
+      <div fxFlex.xs="70%">
+        <h4 class="black-color">{{'lb-monthly' | translate}}</h4>
+      </div>
+      <div fxFlex.xs="30%">
+        <h4 class="black-color">{{ termTemp.quantity }}x {{ termTemp.value | money }}</h4>
+      </div>
+    </div>
+
+    <div fxLayout="row" fxFlex.xs="100%" [ngStyle]="{'padding-top':'5%'}" class="flexBasisIE space-mozila-top">
+      <div fxFlex.xs="50%">
+        <label>{{'lb-custumer-rate' | translate}}: {{ simulation.calculationSelected.montlyRate }}%</label>
+      </div>
+      <div fxFlex.xs="50%">
+        <!-- TODO installmentsDialog (MAURILIO) -->
+        <button md-raised-button color="primary" (click)="installmentsDialog()">{{'lb-payment-plan' | translate}}</button>
+      </div>
+    </div>
+
+    <div fxLayout="row">
+      <md-toolbar (click)="change(true)" class="buttonMobileFooter">
+        <div fxFlex.xs="100%" fxLayoutAlign="center center" fxFlex.sm="100%">
+          <span>{{'btn-fill-customer-card' |  translate }}</span>
+        </div>
+      </md-toolbar>
+    </div>
+  </div>
+</div>

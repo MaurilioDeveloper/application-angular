@@ -1,0 +1,22 @@
+<div class="{{theme}}" fxLayout="row">
+	<div fxFlex.gt-sm="100" fxFlex="100">
+
+		<div *ngIf="isShowHeader() && router!='/login'">
+			<app-menu></app-menu>
+		</div>
+		<div fxLayout="column">
+			<div fxFlex.gt-sm="10" fxFlex="10"></div>
+		</div>
+		<div id="main"  [ngStyle.gt-sm]="{'margin-top': '100px'}" [ngStyle.sm]="{'margin-top': '100px'}" [ngStyle.xs]="{'margin-top': '115px'}">
+			<router-outlet></router-outlet>
+		</div>
+		<p>
+		</p>
+		<!-- spinner loader -->
+		<span *ngIf="showLoader" class="loading"></span>
+		<!--<spinner-component></spinner-component>-->
+		<app-footer fxHide.xs="true"></app-footer>
+	</div>
+</div>
+
+<!--[ngStyle.gt-sm]="{'margin-top': '5%'}" [ngStyle.sm]="{'margin-top': '15%'}" [ngStyle.xs]="{'margin-top': '18%'}"-->

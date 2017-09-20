@@ -1,0 +1,60 @@
+<div fxLayout="row" fxLayoutWrap fxLayoutAlign="space-around stretch" class="space-component padding20" [style.xs]="{'padding-left': '5px','padding-right':'5px'}">
+  <div fxFlex.xs="100%" fxFlex.sm="45%" fxFlex.gt-sm="45%" style="border-right:2px solid">
+    <div fxFlex.xs="100%" fxFlex.sm="50%" fxFlex.gt-sm="50%">
+      <img height="95%" width="95%" [src]="appService.getURLS3()+(versionSelected.url?versionSelected.url:simulation.car.url)">
+    </div>
+    <div fxFlex.xs="100%" fxFlex.sm="50%" fxFlex.gt-sm="50%" class="black-color font-bold">
+      {{simulation.car.description | uppercase}}
+    </div>
+  </div>
+  <div fxFlex.xs="100%" fxFlex.sm="45%" fxFlex.gt-sm="45%">
+    <b class="black-color font-bold">{{'lb-vehicle-type' | translate | uppercase}}</b>
+    <br>
+    <br>
+    <div fxLayout="row" >
+      <div *ngFor="let specialType of specialTypes" [ngStyle]="{'width': '50%'}">
+          <md-checkbox >{{specialType.description}}</md-checkbox>
+      </div>
+    </div>
+  </div>
+</div>
+<hr>
+
+<md-radio-group class="example-radio-group" [(ngModel)]="verselect" fxLayout="row" fxLayoutWrap fxLayoutAlign="space-around stretch"
+  class="space-component padding20" [style.xs]="{'padding-left': '5px','padding-right':'5px'}">
+  <md-radio-button [value]="ver" (change)="changeVersion($event)" fxFlex.xs="45%" fxFlex.sm="33%" fxFlex.gt-sm="33%" *ngFor="let ver of versions"
+     style="padding-top: 10px;">
+    {{ver.description}}
+  </md-radio-button>
+</md-radio-group>
+
+<hr>
+
+<div fxLayout="row" fxLayoutWrap fxLayoutAlign="space-around stretch" class="space-component padding20" [style.xs]="{'padding-left': '5px','padding-right':'5px'}">
+  <div fxFlex.xs="100%" fxFlex.sm="33%" fxFlex.gt-sm="33%" >
+    <md-select placeholder="{{'lb-manufacturing-year' | translate}}" [(ngModel)]="yearSelect" (change)="changeManuYear($event)" name="food">
+      <md-option *ngFor="let year of yearManu" [value]="year" >
+        {{year}}
+      </md-option>
+    </md-select>
+  </div>
+
+  <div fxFlex.xs="100%" fxFlex.sm="33%" fxFlex.gt-sm="33%" >
+    <md-select placeholder="{{'lb-model-year' | translate}}"  [(ngModel)]="versionSelected" (change)="getValue($event)" name="food">
+      <md-option *ngFor="let versionyear of versionsYears" [value]="versionyear">
+        {{versionyear.yearModel}}
+      </md-option>
+    </md-select>
+  </div>
+
+  <div fxFlex.xs="100%" fxFlex.sm="33%" fxFlex.gt-sm="33%">
+    <div fxLayout="row">
+      <div >
+        <b class="black-color font-bold textsmall">{{'lb-total' | translate | uppercase}}</b>
+        <br>
+        <span *ngIf="simulation.car.version" >{{simulation.car.version.price |  money }}</span>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,44 @@
+<div fxFlex.gt-sm="100%" fxFlex.sm="100%" fxLayoutAlign="center center" fxLayoutWrap>
+    <div fxLayout="row" fxFlex.gt-sm="100%" fxFlex.sm="100%" fxLayoutAlign="center center">
+        <h4 class="black-color" fxLayoutAlign="center center">{{ 'lb-the-proposal-number' | translate }} - </h4>
+        <h4>{{getSimulation().dossierNumber}}</h4>
+    </div>
+    <div fxLayout="row" fxFlex.sm="100%" fxFlex.gt-sm="100%">
+        <hr class="color-border-default" fxFlex.gt-sm="100%" />
+    </div>
+    <div fxFlex.gt-sm="80%" style="padding-top: 5%">
+        <ngx-datatable class='material space-mozila' [headerHeight]="50" [limit]="20" [rowHeight]="50" [columnMode]="'force'" [rows]="getListDocuments()">
+            <ngx-datatable-column name="{{'lb-name' | translate | uppercase}}">
+                <ng-template let-column="column" ngx-datatable-header-template>
+                    {{'lb-name' | translate | uppercase}}
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                    <span>{{row.nameDoc}}</span>
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="{{'lb-description' | translate | uppercase}}">
+                <ng-template let-column="column" ngx-datatable-header-template>
+                    {{'lb-description' | translate | uppercase}}
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                    {{row.description}}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="">
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                    <div [ngStyle]="{'text-align': 'center' }"><a class="returnToStepCursor" (click)="downloadDoc(row)">{{'btn-print' | translate}}{{row.numberDocDownload}}</a></div>
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="" class="alignTable">
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                    <div [ngStyle]="{'text-align': 'center' }"><span><a class="returnToStepCursor" (click)="sendEmail(row)">Email</a></span></div>
+                </ng-template>
+            </ngx-datatable-column>
+        </ngx-datatable>
+    </div>
+    <div fxLayout="row">
+        <div fxFlex.gt-sm="100%" [ngStyle]="{'padding-top':'10%'}" class="flexBasisIE">
+            <button class="space-mozila" md-raised-button color="primary" (click)="voltar()">{{'btn-back-to-custumer-card' | translate | uppercase}}</button>
+        </div>
+    </div>
+</div>

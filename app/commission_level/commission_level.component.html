@@ -1,0 +1,130 @@
+<div class="" fxFlex="100">
+    <div class="spaceCard" fxLayout="row" fxLayoutAlign="center center">
+        <md-card fxFlex.gt-sm="80" fxFlex="100">
+            <md-card-header fxLayoutAlign="start center" class="header-title">
+                <span class="mozilaMargin text-title">{{'lb-commission-level' | translate}}</span>
+            </md-card-header>
+
+            <md-card-content class="layouts">
+                <div [ngStyle]="{'padding': '1%'}">
+                    <form #f="ngForm">
+                        <div fxLayout="row" fxLayoutWrap fxLayoutAlign="center center" fxLayoutGap="5%">
+                            <div fxFlex.gt-sm="30" fxFlex.xs="100%">
+                                <md-select fxFlex.gt-sm="100%" fxFlex.gt-xs="100%" placeholder="{{'lb-vendor-manager' | translate}}" [(ngModel)]="request.salesmanId"
+                                    #name="ngModel" name="concessionaria" required (ngModelChange)="loadCommissionTemp()">
+                                    <md-option>{{'lb-select-a' | translate}} {{'lb-vendor-manager' | translate}}</md-option>
+                                    <md-option *ngFor="let person of listPerson" [value]="person.userId">
+                                        {{person.name}}
+                                    </md-option>
+                                </md-select>
+                            </div>
+                            <div fxFlex.gt-sm="10" fxFlex.xs="100%">
+                                <md-select fxFlex.gt-sm="100%" fxFlex.gt-xs="100%" placeholder="{{'lb-product' | translate}}" [(ngModel)]="request.financeTypeId"
+                                    #name="ngModel" name="produto" required (ngModelChange)="loadUserCommission()">
+                                    <md-option>{{'lb-select-a' | translate}} {{'lb-product' | translate}}</md-option>
+                                    <md-option *ngFor="let financeType of listFinanceType" [value]="financeType.financeTypeId">
+                                        {{financeType.description}}
+                                    </md-option>
+                                </md-select>
+                            </div>
+                            <div fxFlex.gt-sm="13" fxFlex.xs="100%">
+                                <md-select fxFlex.gt-sm="100%" fxFlex.gt-xs="100%" placeholder="{{'lb-sale-type' | translate}}" [(ngModel)]="request.saleTypeId"
+                                    #name="ngModel" name="tipoVenda" required (ngModelChange)="loadUserCommission()">
+                                    <md-option>{{'lb-select-a' | translate}} {{'lb-sale-type' | translate}}</md-option>
+                                    <md-option *ngFor="let saleType of listSaletype" [value]="saleType.id">
+                                        {{saleType.description}}
+                                    </md-option>
+                                </md-select>
+                            </div>
+                            <div fxFlex.gt-sm="17" fxFlex.xs="100%">
+                                <md-select fxFlex.gt-sm="100%" fxFlex.gt-xs="100%" placeholder="{{'lb-commission-level' | translate}}" [(ngModel)]="request.commissionId"
+                                    #name="ngModel" name="codFrota" required>
+                                    <md-option>{{'lb-select-return' | translate}}</md-option>
+                                    <md-option *ngFor="let userCommission of listUserCommission" [value]="userCommission.commisonId">
+                                        {{userCommission.description}}
+                                    </md-option>
+                                </md-select>
+                            </div>
+                            <div fxFlex.gt-sm="10" fxFlex.xs="100%">
+                                <button fxFlex.xs="100%" md-raised-button color="primary" [disabled]="!f.form.valid" 
+                                    (click)="saveCommissionTemp()" class="text-title"> 
+                                    {{'btn-release' | translate}}
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </md-card-content>
+            <md-card-content [ngStyle]="{'padding': '1%'}" *ngIf="showDataTable">
+                <ngx-datatable #table class="material" [rows]="listUserCommissionTemp" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50"
+                    [rowHeight]="'auto'" [limit]="20" [messages]="{emptyMessage: 'Não há liberações para este usuário.'}" >
+                    <ngx-datatable-column *ngIf="!media.isActive('xs')" name="{{'lb-commission-level-date' | translate}}">
+                        <ng-template let-column="column" ngx-datatable-header-template>
+                            {{'lb-commission-level-date' | translate}}
+                        </ng-template>
+                        <ng-template let-row="row" ngx-datatable-cell-template>
+                            {{row.insertDate | datex }}
+                        </ng-template>
+                    </ngx-datatable-column>
+                    <ngx-datatable-column *ngIf="!media.isActive('xs')" name="{{'lb-release-by' | translate}}">
+                        <ng-template let-column="column" ngx-datatable-header-template>
+                            {{'lb-release-by' | translate}}
+                        </ng-template>
+                        <ng-template let-row="row" ngx-datatable-cell-template>
+                            {{row.userName}}
+                        </ng-template>
+                    </ngx-datatable-column>
+                    <ngx-datatable-column *ngIf="!media.isActive('xs')" name="{{'lb-vendor-manager' | translate}}">
+                        <ng-template let-column="column" ngx-datatable-header-template>
+                            {{'lb-vendor-manager' | translate}}
+                        </ng-template>
+                        <ng-template let-row="row" ngx-datatable-cell-template>
+                            {{row.salesmanName}}
+                        </ng-template>
+                    </ngx-datatable-column>
+                    <ngx-datatable-column name="{{'lb-released-level' | translate}}">
+                        <ng-template let-column="column" ngx-datatable-header-template>
+                            {{'lb-released-level' | translate}}
+                        </ng-template>
+                        <ng-template let-row="row" ngx-datatable-cell-template>
+                            {{row.commission}}
+                        </ng-template>
+                    </ngx-datatable-column>
+                    <ngx-datatable-column name="{{'lb-product' | translate}}">
+                        <ng-template let-column="column" ngx-datatable-header-template>
+                            {{'lb-product' | translate}}
+                        </ng-template>
+                        <ng-template let-row="row" ngx-datatable-cell-template>
+                            {{row.financeType}}
+                        </ng-template>
+                    </ngx-datatable-column>
+                    <ngx-datatable-column name="{{'lb-sale-type' | translate}}">
+                         <ng-template let-column="column" ngx-datatable-header-template>
+                            {{'lb-sale-type' | translate}}
+                        </ng-template>
+                        <ng-template let-row="row" ngx-datatable-cell-template>
+                            {{row.saleType}}
+                        </ng-template>
+                    </ngx-datatable-column>
+                    <ngx-datatable-column *ngIf="!media.isActive('xs')" name="{{'lb-validate' | translate}}">
+                        <ng-template let-column="column" ngx-datatable-header-template>
+                            {{'lb-validate' | translate}}
+                        </ng-template>
+                        <ng-template let-row="row" ngx-datatable-cell-template>
+                            {{row.expireDate | datex }}
+                        </ng-template>
+                    </ngx-datatable-column>
+                    <ngx-datatable-column *ngIf="!media.isActive('xs')" name="{{'lb-proposal' | translate}}">
+                        <ng-template let-column="column" ngx-datatable-header-template>
+                            {{'lb-proposal' | translate}}
+                        </ng-template>
+                        <ng-template let-row="row" ngx-datatable-cell-template>
+                            {{row.proposalId}}
+                        </ng-template>
+                    </ngx-datatable-column>
+                </ngx-datatable>
+            </md-card-content>
+        </md-card>
+    </div>
+</div>

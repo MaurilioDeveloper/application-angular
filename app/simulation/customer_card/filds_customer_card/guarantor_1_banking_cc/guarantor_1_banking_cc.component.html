@@ -1,0 +1,100 @@
+<div fxLayout="column" fxFlex.xs="100%" fxFlex.gt-sm="100%" fxFlex.sm="100%" [ngStyle]="{'padding': '2%'}">
+    
+    <form #ff="ngForm" *ngIf="controlDynamicStepsIn == 14">
+
+        <div fxLayout="row">
+            <div fxFlex.sm="50%" fxFlex.gt-sm="50%">
+                <!-- BANCO -->
+                <md-select fxFlex.gt-sm="80%" fxFlex.sm="70%" class="bug-input" placeholder="{{'lb-bank' | translate | uppercase}}" (change)="validBankSelected()"
+                    #cmdbankguar1 name="bankguarantor1" [(ngModel)]="getSimulation().client.guarantor1.bankDetails.bank.id">
+                    <md-option *ngFor="let lb of getListBank()" [value]="lb.id">
+                        {{ lb.description }}
+                    </md-option>
+                </md-select>
+            </div>
+            <div fxFlex.sm="50%" fxFlex.gt-sm="50%">
+                <!-- CODIGO BANCO -->
+                <md-input-container fxFlex.gt-sm="80%" fxFlex.sm="70%">
+                    <input mdInput type="text" maxlength="3" (change)="validCodeBankSelected()" placeholder="{{'lb-code-bank' | translate | uppercase}}" name="codeBank"
+                        [(ngModel)]="getSimulation().client.guarantor1.bankDetails.bank.importCode">
+                </md-input-container>
+            </div>
+        </div>
+        
+        <div fxLayout="row">
+            <div fxFlex.sm="50%" fxFlex.gt-sm="50%">
+                <!-- AGENCIA -->
+                <md-input-container fxFlex.gt-sm="80%" fxFlex.sm="70%">
+                    <input mdInput type="text" maxlength="5" placeholder="{{'lb-branch' | translate | uppercase}}" name="branchGuarantor2" [required]="getIsRequiredBanking()" 
+                    [(ngModel)]="getSimulation().client.guarantor1.bankDetails.branch">
+                </md-input-container>
+            </div>
+            <div fxFlex.sm="50%" fxFlex.gt-sm="50%">
+                 <!-- DIGITO AGENCIA -->
+                <md-input-container fxFlex.gt-sm="80%" fxFlex.sm="70%">
+                    <input mdInput type="text" maxlength="1" placeholder="{{'lb-digit' | translate | uppercase}}" [required]="getIsRequiredBanking()" name="branchDigitGuarantor2" 
+                    [(ngModel)]="getSimulation().client.guarantor1.bankDetails.branchDigit">
+                </md-input-container>
+            </div>
+        </div>
+        <div fxLayout="row">
+            <div fxFlex.gt-sm="50%" fxFlex.sm="50%">
+                <!-- CONTA CORRENTE -->
+                <md-input-container fxFlex.gt-sm="80%" fxFlex.sm="70%">
+                    <input mdInput type="text" maxlength="13" placeholder="{{'lb-account' | translate | uppercase}}" [required]="getIsRequiredBanking()"
+                        name="account" [(ngModel)]="getSimulation().client.guarantor1.bankDetails.account">
+                </md-input-container>
+            </div>
+            <div fxFlex.gt-sm="50%" fxFlex.sm="50%">
+                <!-- DIGITO CONTA CORRENTE -->
+                <md-input-container fxFlex.gt-sm="80%" fxFlex.sm="70%">
+                    <input mdInput type="text" maxlength="1" placeholder="{{'lb-digit' | translate | uppercase}}" [required]="getIsRequiredBanking()" 
+                    name="accountDigit"  [(ngModel)]="getSimulation().client.guarantor1.bankDetails.accountDigit">
+                </md-input-container>
+            </div>
+        </div>
+
+        <div fxLayout="row">
+            <div fxFlex.sm="50%" fxFlex.gt-sm="50%">
+                <!-- CLIENTE DESDE -->
+                <md-input-container fxFlex.gt-sm="80%" fxFlex.sm="70%">
+                    <input mdInput [mdDatepicker]="picker1" placeholder="CLIENTE DESDE" [required]="getIsRequiredBanking()" name="customerSinceGuarantor1"
+                        [(ngModel)]="getSimulation().client.guarantor1.bankDetails.customerSince">
+                    <md-datepicker-toggle mdSuffix [for]="picker1"></md-datepicker-toggle>
+                </md-input-container>
+                <md-datepicker #picker1></md-datepicker>
+            </div>
+            <div fxFlex.sm="50%" fxFlex.gt-sm="50%">
+                <!-- TIPO DE CONTA -->
+                <md-select placeholder="TIPO DE CONTA" fxFlex.gt-sm="80%" fxFlex.sm="70%" class="bug-input" name="accountTypeGuarantor1"
+                    [(ngModel)]="getSimulation().client.guarantor1.bankDetails.accountType">
+                    <md-option *ngFor="let lat of getListAccountType()" [value]="lat.description">
+                        {{ lat.description }}
+                    </md-option>
+                </md-select>
+            </div>
+        </div>
+
+        <div fxLayout="row">
+            <div fxFlex.sm="50%" fxFlex.gt-sm="50%">
+                <!-- TELEFONE DA AGENCIA -->
+                <md-input-container fxFlex.gt-sm="80%" fxFlex.sm="70%">
+                    <input mdInput maxlength="14" ngControl placeholder="{{'lb-phone-number' | translate | uppercase}}" omegamask="(99)99999-9999" type="text" name="phoneAgencyGuarantor1"
+                        [(ngModel)]="getSimulation().client.guarantor1.bankDetails.phoneBranch.number" />
+                </md-input-container>
+            </div>
+            <div fxFlex.sm="50%" fxFlex.gt-sm="50%">
+            </div>
+        </div>
+
+        <div fxLayout="row">
+            <div fxFlex.gt-sm="50%" fxFlex.sm="50%" fxLayoutAlign="end none">
+            </div>
+            <div fxFlex.gt-sm="50%" fxFlex.sm="50%" fxLayoutAlign="center center" [ngStyle]="{'padding-top':'15px'}">
+                <button type="button" fxFlex.xs="100%" fxFlex.gt-sm="50%" fxFlex.sm="100%" [disabled]="!ff.form.valid" (click)="nextStep()" md-raised-button
+                    color="primary">AVALISTA 2</button>
+            </div>
+        </div>
+
+    </form>
+</div>

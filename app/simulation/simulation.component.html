@@ -1,0 +1,107 @@
+<!-- DESKTOP | MOBILE (ABAIXO) -->
+<!--  SIMULATION DESKTOP  -->
+<div *ngIf="!media.isActive('xs')" fxLayout="row" fxFlex.xs="100%" fxHide.xs="true" fxFlex.gt-sm="100%" fxLayoutAlign="center center"
+    [ngStyle.gt-sm]="{'margin-top.px': '3'}">
+    <md-card fxFlex.gt-sm="80%" fxFlex.xs="100%" class="no-border" fxLayoutWrap>
+
+        <div *ngIf="simulation.salesmanStructure != null && appService.hasRole('ADMINISTRADOR')">
+            <div fxLayout="row">
+                <label [ngClass]="fonte" id="flexBasisIE" fxFlex.xs="100%" fxFlex.gt-sm="100%">Vendedor: {{simulation.salesmanStructure.salesmanName | uppercase}} ({{simulation.salesmanStructure.structureDescription}}) 
+                </label>
+            </div>
+            <div fxLayout="row">
+                <a [ngClass]="fonte" style="cursor:pointer; color: blue" (click)="openDialog()"> Voltar para seu perfil </a>
+            </div>
+        </div>
+
+        <div fxLayout="row" fxHide.sm fxFlex.gt-sm="100%" *ngIf="simulation.id != null || simulation.showBtnSave" fxLayoutAlign="end" fxLayoutGap="1%" [ngStyle]="{'margin-top': '1%'}">
+            <button *ngIf="simulation.id != null" md-raised-button (click)="sendByEmail(simulation.id)"><md-icon>mail_outline</md-icon>E-mail</button>
+            <button *ngIf="simulation.id != null" md-raised-button (click)="print(simulation.id)"><md-icon>print</md-icon> {{'lb-simulation-print' | translate}}</button>
+            <button *ngIf="simulation.showBtnSave" md-raised-button (click)="saveDossier()" color="primary" class="btn-confg"><div><span>{{'btn-save' | translate | uppercase}}</span><br><span>{{'btn-simulation' | translate | uppercase}}</span></div></button>
+        </div>
+        <div fxFlex.gt-sm="100%" fxHide.xs="true" [ngStyle]="{'border-bottom': '1px solid #C0C0C0','border-top': '1px solid #C0C0C0', 'margin-top':'5px'}">
+            <div fxLayout="row" fxFlex.gt-sm="100%" fxHide.xs="true" fxHide.sm="true" fxLayoutAlign="end" [ngStyle]="{'margin-top.px': '5'}">
+                <stepper id="stepperMozila" [steep]="simulation.step" (changeStep)="changeStep($event)"></stepper>
+            </div>
+        </div>
+
+        <form-client id="formClient" fxFlex.gt-sm="100%" *ngIf="simulation.step===getStep().STEP_CLIENT" (changeStep)="changeStep($event)"
+            fxLayoutAlign="center center">
+        </form-client>
+
+        <carselect *ngIf="simulation.step===getStep().STEP_VEHICLE && simulation.showNewOnes != true" (changeStep)="changeStep($event)"
+            (changecar)="changecar($event)">
+        </carselect>
+
+        <new-ones fxFlex.gt-sm="100%" *ngIf="simulation.step===getStep().STEP_VEHICLE && simulation.showNewOnes == true" (changeStep)="changeStep($event)">
+        </new-ones>
+
+        <div fxFlex.gt-sm="100%" fxFlex.sm="100%">
+            <calculationpainel *ngIf="simulation.step===getStep().STEP_SIMULATION" (changeStep)="changeStep($event)">
+            </calculationpainel>
+        </div>
+
+        <div fxFlex.gt-sm="100%">
+            <customer-card *ngIf="simulation.step===getStep().STEP_CUSTOMER_CARD" (changeStep)="changeStep($event)">
+            </customer-card>
+        </div>
+        <div fxFlex.gt-sm="100%" fxFlex.sm="100%">
+            <send *ngIf="simulation.step===getStep().STEP_SEND" (changeStep)="changeStep($event)"></send>
+        </div>
+
+        <div fxFlex.gt-sm="100%" fxFlex.sm="100%" fxLayoutAlign="center center">
+            <doc-simulation *ngIf="simulation.step===getStep().STEP_DOCUMENT" (changeStep)="changeStep($event)" fxFlex.gt-sm="80%"></doc-simulation>
+        </div>
+    </md-card>
+</div>
+<!--  FIM SIMULATION DESKTOP  -->
+
+
+
+<!--  INICIO SIMULATION MOBILE  -->
+<div *ngIf="media.isActive('xs')" fxFlex.xs="100%">
+
+    <!--<md-card fxFlex.xs="100%" class="no-border" fxLayoutWrap>-->
+    <!--<form-client-mobile *ngIf="steep===0" (changeStep)="changeStep($event)" fxLayoutAlign="center center" [simulation]="simulation"></form-client-mobile>-->
+    <!--</md-card>-->
+
+    <stepper-mobile [steep]="simulation.step" (changeStep)="changeStep($event)"></stepper-mobile>
+    <md-card fxLayoutAlign="center center" class="spaceMobile" [ngStyle]="{'box-shadow': '0px 0px 32px #888888', 'margin-top': 0}"
+        [ngStyle.xs]="{'margin-left': '-10px', 'margin-right': '-2%'}">
+        <!--<md-card-content *ngIf="steep===0"  fxFlex.xs="90%" [ngStyle]="{'margin-bottom': '15%'}">-->
+        <md-card-content fxLayout="column" fxFlex.xs="90%" [ngStyle]="{'margin-bottom': '15%'}">
+
+            <div [ngStyle.xs]="{'margin-right': '-5%', 'margin-left': '-5%'}" fxLayout="row" *ngIf="simulation.step > 0 && simulation.step!=getStep().STEP_DOCUMENT" fxFlex.xs="100%">
+                <resum-mobile fxFlex.xs="100%" fxLayout="column" (changeStep)="changeStep($event)"></resum-mobile>
+            </div>
+
+            <div fxLayout="row">
+                <form-client id="formClient" fxFlex.gt-sm="100%" *ngIf="simulation.step===getStep().STEP_CLIENT" (changeStep)="changeStep($event)"
+                    fxLayoutAlign="center center"></form-client>
+                <carselect *ngIf="simulation.step===getStep().STEP_VEHICLE && simulation.showNewOnes != true" (changeStep)="changeStep($event)"
+                    (changecar)="changecar($event)">
+                </carselect>
+                <new-ones fxFlex.gt-sm="100%" *ngIf="simulation.step===getStep().STEP_VEHICLE && simulation.showNewOnes == true"> </new-ones>
+
+                <calculationpainel-mobile fxLayout="column" fxFlex.xs="100%" *ngIf="simulation.step===getStep().STEP_SIMULATION && simulation.showNewOnes != true"
+                    [simulation]="simulation" (changeStep)="changeStep($event)">
+                </calculationpainel-mobile>
+
+                <customer-card-mobile [steep]="simulation.step" (changeStep)="changeStep($event)" fxFlex.xs="100%" fxLayoutAlign="center center"
+                    *ngIf="(simulation.step===getStep().STEP_CUSTOMER_CARD || simulation.step > 5) && simulation.showNewOnes != true"></customer-card-mobile>
+
+
+                <send-mobile *ngIf="simulation.step===getStep().STEP_SEND" (changeStep)="changeStep($event)" [ngStyle.xs]="{'width': '100%', 'display': 'block'}"></send-mobile>
+                <doc-simulation-mobile [ngStyle.xs]="{'width': '100%'}" *ngIf="simulation.step===getStep().STEP_DOCUMENT && simulation.showNewOnes != true" (changeStep)="changeStep($event)">
+                </doc-simulation-mobile>
+            </div>
+            <div fxLayout="row" fxLayoutWrap fxLayoutAlign="end none" fxHide fxHide.xs="false" *ngIf="simulation.step!=getStep().STEP_DOCUMENT">
+                <button type="button" md-raised-button color="primary" class="mobileButtonSave" ><i [ngStyle]="{'font-size': '32px'}" class="fa fa-save"></i></button>
+            </div>
+        </md-card-content>
+    </md-card>
+    <app-footer fxLayout="row" fxLayoutAlign="center start"></app-footer>
+
+</div>
+
+<!--  FIM SIMULATION MOBILE  -->

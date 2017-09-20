@@ -1,0 +1,31 @@
+<div fxFlex="100%" fxLayout="column">
+    <div fxLayout="row">
+        <div fxLayoutAlign="start none" fxFlex="80%">
+            <h1 class="icon">{{'lb-services' | translate}}</h1>
+
+        </div>
+        <div fxLayoutAlign="end none" fxFlex="20%">
+            <h2 [ngStyle]="{'cursor': 'pointer'}"><i class="material-icons" (click)="dialogRef.close(true)">close</i></h2>
+        </div>
+    </div>
+    <div fxLayout="row">
+        <h2>{{'lb-insurance' | translate}} </h2>
+    </div>
+    <div fxLayout="row" *ngFor="let service of serviceList"  class="divlong">
+        <md-checkbox fxFlex="50" color="primary" [(ngModel)]="service.checked" [disabled]="itsSaleMan&&service.required">
+            <span>{{service.description}} </span>
+        </md-checkbox>
+        <md-input-container *ngIf="service.importCodeOmega > 0 ">
+            <input mdInput [disabled]="!service.maxAmount || !service.minAmount"
+            (focus)="onfocus(service)" (change)="validate($event,service)"
+            [(ngModel)]="service.amount" placeholder="Valor" type="number">
+        </md-input-container>
+    </div>
+    <div fxLayout="column">
+        <div fxLayoutAlign="end none">
+            <button fxLayoutAlign="end"  md-raised-button color="primary" (click)="dialogRef.close(true)" >
+                 {{'btn-contract-service' | translate}}
+            </button>
+        </div>
+    </div>
+</div>

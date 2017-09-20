@@ -1,0 +1,62 @@
+<md-card fxFlex="100%">
+    <md-card-header color="primary" class="header-title" fxLayoutAlign="start center">
+        <span class="mozilaMargin text-title" >{{'lb-select-profile' | translate}}</span>
+    </md-card-header>
+    <md-card-content class="layouts">
+        <div fxLayout="row" fxLayoutWrap fxLayoutAlign="space-around stretch" class="space-component">
+            <md-input-container fxFlex="75%"  >
+                <input mdInput placeholder="{{'lb-dealership' | translate}}" name="dealership" [(ngModel)]="structureSearch.structureName">
+            </md-input-container>
+            <md-input-container fxFlex="75%" >
+                <input mdInput placeholder="{{'lb-dealership-code' | translate}}" name="dealershipCode" [(ngModel)]="structureSearch.structureCode">
+            </md-input-container>
+
+            <div fxFlex.gt-sm="45%" fxFlex.xs="100%" (click)="resetFields()">
+                <button fxFlex.xs="100%" md-raised-button color="primary" class="text-title">
+                    {{'btn-reset' | translate}}
+                </button>
+            </div>
+            <div fxFlex.gt-sm="45%" fxFlex.xs="100%" (click)="loadStructure()" >
+                <button fxFlex.xs="100%" md-raised-button color="primary" class="text-title">{{'btn-search' | translate}}</button>
+            </div>
+        </div>
+    </md-card-content>
+    <md-card-content *ngIf="showConsult" [ngStyle]="{'padding': '1%'}">
+        <ngx-datatable class="material my-agreement" [rows]="listStructure"
+            [columnMode]="'force'" 
+            [headerHeight]="'auto'" 
+            [footerHeight]="'auto'"
+            [rowHeight]="'auto'" 
+            [selected]="dealershipSelected" [selectionType]="'single'" [limit]="5" (select)='loadSalesman()'>
+            <ngx-datatable-column name="{{'lb-dealership' | translate}}">
+                <ng-template let-column="column" ngx-datatable-header-template>
+                    {{'lb-dealership' | translate}}
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                    {{row.structureName}}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="{{'lb-dealership-code' | translate}}">
+                <ng-template let-column="column" ngx-datatable-header-template>
+                    {{'lb-dealership-code' | translate}}
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                    {{row.structureCode}}
+                </ng-template>
+            </ngx-datatable-column>
+        </ngx-datatable>
+    </md-card-content>
+    <md-card-content  *ngIf="showConsult" >
+        <div fxLayout="row" fxLayoutWrap fxLayoutAlign="space-around stretch" class="space-component">
+            <md-select ngControl fxFlex="75%" placeholder="{{'lb-salesman' | translate}}" name="salesman" (ngModelChange)="selectSalesman()"
+                #name="ngModel" required [(ngModel)]="salesmanSelected">
+                <md-option *ngFor="let saleman of listSalesman" [value]="saleman">{{saleman.name}}</md-option>
+            </md-select>
+            <div fxFlex.gt-sm="45%" fxFlex.xs="100%" *ngIf="showContinue">
+                    <button (click)='continue()' fxFlex="100%" md-raised-button color="primary" [disabled]="!isSalesmanSelected">
+                        {{'btn-continue' | translate |uppercase}}
+                    </button>
+                </div>
+        </div>
+    </md-card-content>
+</md-card>

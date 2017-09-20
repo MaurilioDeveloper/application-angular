@@ -1,0 +1,84 @@
+<div fxFlex.xs="100%" fxFlex.gt-sm="100%" fxLayoutAlign="center center" class="spaceCard" >
+    <md-card fxFlex.gt-sm="80%" fxFlex.xs="100%" class.xs="no-border" >
+
+        <md-card-header id="card-menu-proposta" class="header-title"  fxLayoutAlign="start center">
+            <span class="mozilaMargin text-title" >{{'lb-promotional-images' | translate}}</span>
+        </md-card-header>
+        <md-card-content class="layouts" [ngStyle]="{'padding': '1%'}">
+            <div fxLayout="row" class="space-component" fxLayoutWrap fxLayoutAlign="space-around center">
+                <div fxFlex.gt-sm="45%" fxFlex.xs="100%">
+                    <md-select placeholder="{{'lb-select-brand' | translate}}"
+                        [(ngModel)]="financialBrandSelected" 
+                        fxFlex.xs="90%" 
+                        fxFlex.gt-sm="100%" 
+                        [ngStyle.xs]="{'margin-top.px':8}">
+                        <md-option *ngFor="let lfb of listFinancialBrand" [value]="lfb.id" fxFlex.xs="100%">
+                        {{ lfb.description }}
+                        </md-option>
+                    </md-select>
+                </div>
+
+                <div fxFlex.gt-sm="15%" fxFlex.xs="100%">
+                    <button md-raised-button fxFlex.xs="100%" color="primary" class="text-title"  (click)="searchImage()">
+                        {{'btn-search' | translate}}
+                    </button>
+                </div>
+            </div>
+        </md-card-content>
+        <md-card-content [ngStyle]="{'padding': '1%'}">
+            <div *ngIf="showCard">
+                <div *ngIf="file.fileLink != null">
+                    <div fxLayout="row" fxLayoutAlign="space-around stretch" [ngStyle]="{'padding-top':'1%'}">
+                        <img *ngIf="!filePreview" src="{{this.appService.getURLS3()}}{{file.fileLink}}" alt="" class="imgPromo">
+                        <img *ngIf="filePreview" [src]="filePreview" class="imgPromo">
+                     </div>
+                    <div fxLayout="row" fxLayoutAlign="space-around stretch" >
+                        <label>{{'msg-image-size' | translate}}</label>
+                    </div>
+                    <div fxLayout="row" fxLayoutAlign="space-around stretch" [ngStyle]="{'padding-top':'10px'}">
+                        <div fxFlex="20%">
+                            <input fxFlex="100%" id="input-file-id" class="ng-hide" accept=".jpg, .png, .jpeg, .gif " type="file" [ngStyle]="{'display': 'none'}" 
+                                (change)="fileFinancialBrandChangeEvent($event, file.fileId, financialBrandSelected)" #fileChange>
+                            <label fxFlex="100%"
+                                for="input-file-id"
+                                class="mat-raised-button mat-primary" 
+                                md-colors="{color: 'primary'}">
+                                <i class="fa fa-upload">
+                            </i> {{'btn-choose-file' | translate}}</label>                           
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="file.fileLink == null && financialBrandSelected" >
+                    <div fxLayout="row" fxLayoutAlign="space-around stretch">
+                        <img *ngIf="!filePreview" src="../assets/images/sem_imagem.png" alt="">
+                        <img *ngIf="filePreview" [src]="filePreview" class="imgPromo">
+                    </div>
+                    <div fxLayout="row" fxLayoutAlign="space-around stretch" [ngStyle]="{'padding-top':'1%'}" >
+                        <label>{{'msg-image-size' | translate}}</label>
+                    </div>
+                    <div fxLayout="row" fxLayoutAlign="space-around stretch" [ngStyle]="{'padding-top':'10px'}">  
+                        <div fxFlex="20%">
+                            <input fxFlex="100%" id="input-file-id" class="ng-hide" accept=".jpg, .png, .jpeg, .gif " type="file" [ngStyle]="{'display': 'none'}" 
+                            (change)="fileFinancialBrandChangeEvent($event, null, financialBrandSelected)" #fileChange>
+                            <label fxFlex="100%"
+                                for="input-file-id"
+                                class="mat-raised-button mat-primary"
+                                md-colors="{color: 'primary'}">
+                                <i class="fa fa-upload">
+                            </i> {{'btn-choose-file' | translate}}</label>
+                        </div>
+                    </div>
+                </div>
+                <div fxLayout="row" fxLayoutWrap fxLayoutAlign="space-around" [ngStyle]="{'padding-top':'2%'}">
+                    <div fxFlex.xs="100%" fxFlex.gt-sm="20%" *ngIf="file.fileLink != null && financialBrandSelected">
+                        <button md-raised-button fxFlex.xs="100%" color="primary"  class="text-title" (click)="delete(file.fileId, financialBrandSelected)">{{'btn-remove' | translate}}</button>
+                    </div>
+                    <div fxFlex.xs="100%" fxFlex.gt-sm="20%">
+                        <button md-raised-button fxFlex.xs="100%" color="primary" class="text-title"
+                         (click)="saveFileFinancialBrand()">{{'btn-save' | translate}}</button>
+                    </div>
+                </div>
+            </div>
+        </md-card-content>
+    </md-card>
+</div>

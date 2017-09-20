@@ -1,0 +1,68 @@
+<div class="" fxFlex="100">
+    <!--   <md-content class="md-padding" layout-xs="column" layout="row">
+
+    </md-content>-->
+    <div class="spaceCard" fxLayout="row" fxLayoutAlign="center center">
+        <md-card fxFlex.gt-sm="70" fxFlex="100">
+            <md-card-header fxLayoutAlign="start center" class="header-title">
+                <span class="mozilaMargin text-title">{{'lb-avaliable-services' | translate}}</span>
+            </md-card-header>
+
+            <md-card-content>
+                   <form class="example-form" #f="ngForm" [ngStyle]="{'padding': '5%'}">
+                    <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5%">
+                        <div fxFlex.gt-sm="80" fxFlex.xs="100%">
+                            <md-select fxFlex.gt-sm="100%" fxFlex.gt-xs="100%" placeholder="{{'lb-dealerships' | translate}}" [(ngModel)]="structureSelect" #name="ngModel"
+                                name="structure" required>
+                                <md-option *ngFor="let structure of listStructure" [value]="structure.structureId">
+                                    {{structure.description}}
+                                </md-option>
+                            </md-select>
+                        </div>
+                        <div fxFlex.gt-sm="20" fxFlex.xs="100%">
+                            <button fxFlex.xs="100%" md-raised-button color="primary" [disabled]="!f.form.valid" 
+                            (click)="consult()" class="text-title"> {{'btn-search' | translate}}</button>
+                        </div>
+                    </div>
+                </form>
+            </md-card-content>
+
+            <md-card-content [ngStyle]="{'padding': '1%'}" *ngIf="result" fxLayoutWrap >
+                <ngx-datatable #table fxFlex="100"
+                    class="material"
+                    
+                    [rows]="listService"
+                    [columnMode]="'force'"
+                    [headerHeight]="'auto'"
+                    [footerHeight]="'auto'"
+                    [rowHeight]="'auto'"
+                    [limit]="20">
+                    <ngx-datatable-column  name="{{'lb-name' | translate}}" [width]="300">
+                        <ng-template let-column="column" ngx-datatable-header-template >
+							{{'lb-name' | translate | uppercase}}
+						</ng-template>
+                        <ng-template let-row="row" ngx-datatable-cell-template>
+                        {{row.description}}
+                        </ng-template>
+                    </ngx-datatable-column>
+                    <ngx-datatable-column name="{{'lb-avaliable-service' | translate}}" [width]="300">
+                        <ng-template let-column="column" ngx-datatable-header-template>
+							{{'lb-avaliable-service' | translate | uppercase}}
+						</ng-template>
+                        <ng-template let-row="row" ngx-datatable-cell-template>
+                            <md-radio-group [(ngModel)]="row.activeStructure"  >
+                                    <md-radio-button [value]="true">{{'lb-avaliable' | translate}}</md-radio-button>
+                                    <md-radio-button [value]="false">{{'lb-not-avaliable' | translate}}</md-radio-button>
+                            </md-radio-group>
+                        </ng-template>
+                    </ngx-datatable-column>
+                </ngx-datatable>
+                <div fxLayout="row" fxFlex="100" fxLayoutAlign="end end" [ngStyle]="{'padding': '1%'}">
+                    <div fxFlex.gt-sm="20%" fxFlex.xs="100%">
+                        <button fxFlex.xs="100%" md-raised-button color="primary" class="text-title" (click)="save()"> {{'btn-save' | translate}}</button>
+                    </div>
+                </div>
+            </md-card-content>
+        </md-card>
+    </div>
+</div>

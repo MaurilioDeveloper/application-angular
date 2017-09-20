@@ -1,0 +1,19 @@
+<div (click)="clickedResum()" *ngIf="drop==false" fxFlex.xs="100%">
+    <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="35" viewBox="0 0 480 40">
+        <path class="resumContainSVG" fill-rule="evenodd" d="M323.728 3l-18.04 24.676c-7.286 9.966-23.205 18.045-35.55 18.045h-61.087c-12.347 0-28.268-8.085-35.549-18.045L155.462 3H0V0h480v3H323.728z"
+        />
+    </svg>
+    <p id="text">{{'lb-resum' | translate | uppercase}}</p>
+    <i class="fa fa-angle-double-down" id="img-text"></i>
+</div>
+<div fxHide fxHide.xs="false" fxLayout="row" *ngIf="simulation.client && drop==true" fxFlex.xs="100%" [ngStyle.xs]="{'margin-top': '10%'}">
+    <painel-proposal-mobile [simulation]="simulation" fxFlex.xs="100%"></painel-proposal-mobile>
+</div>
+<div (click)="clickedResum()"  fxFlex.xs="100%" *ngIf="drop==true" fxLayout="row" [ngStyle.xs]="{'margin-top': '10%'}">
+    <svg transform="translate(0, 0) rotate(180 0 0)" xmlns="http://www.w3.org/2000/svg" width="100%" height="35" viewBox="0 0 480 40">
+        <path class="resumContainSVG" fill-rule="evenodd" d="M323.728 3l-18.04 24.676c-7.286 9.966-23.205 18.045-35.55 18.045h-61.087c-12.347 0-28.268-8.085-35.549-18.045L155.462 3H0V0h480v3H323.728z"
+        />
+    </svg>
+    <p id="text-down">{{'lb-resum' | translate | uppercase}}</p>
+    <i class="fa fa-angle-double-up" id="img-text-down"></i>
+</div>

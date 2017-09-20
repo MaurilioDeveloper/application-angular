@@ -1,0 +1,149 @@
+<div fxLayout="column" fxFlex.xs="100%" [ngStyle]="{'padding': '2%'}">
+    <form #ff="ngForm">
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                <!-- NOME -->
+                <md-input-container fxFlex.xs="100%">
+                    <input mdInput type="text" maxlength="60" placeholder="{{'lb-name' | translate | uppercase}}" [required]="getIsRequiredSpouse()"
+                        name="nameSpouse" [(ngModel)]="getSimulation().client.spouse.name">
+                </md-input-container>
+            </div>
+        </div>
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                <!-- CPF -->
+                <md-input-container fxFlex.gt-sm="80%" fxFlex.sm="70%">
+                    <input mdInput type="text" placeholder="CPF" customcpfcnpj maxlength="14" [required]="getIsRequiredSpouse()" name="cpfSpouse" [(ngModel)]="getSimulation().client.spouse.cpf">
+                </md-input-container>
+            </div>
+        </div>
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+               <!-- SEXO -->
+                <md-select fxFlex.gt-sm="80%" fxFlex.sm="70%" class="bug-input" placeholder="{{'lb-gender' | translate | uppercase}}" [required]="getIsRequiredSpouse()"
+                    name="sexSpouse" [(ngModel)]="getSimulation().client.spouse.sex">
+                    <md-option *ngFor="let ls of getListSex()" [value]="ls.name">
+                        {{ ls.name }}
+                    </md-option>
+                </md-select>
+            </div>
+        </div>
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                <!-- DATA DE NASCIMENTO -->
+                <md-input-container fxFlex.xs="100%">
+                    <input mdInput [mdDatepicker]="picker" placeholder="{{'lb-date-of-birth' | translate | uppercase}}" [required]="getIsRequiredSpouse()"
+                        name="dateSpouseBirthday" [(ngModel)]="getSimulation().client.spouse.birthDate">
+                    <md-datepicker-toggle mdSuffix [for]="picker"></md-datepicker-toggle>
+                </md-input-container>
+                <md-datepicker #picker></md-datepicker>
+            </div>
+        </div>
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                <!-- UF NATURALIDADE -->
+                <md-select placeholder="UF" fxFlex.gt-sm="80%" fxFlex.sm="70%" class="bug-input" name="provinceSpouse" [(ngModel)]="getSimulation().client.spouse.province.id">
+                    <md-option *ngFor="let lp of getListProvince()" [value]="lp.id">
+                        {{ lp.description }}
+                    </md-option>
+                </md-select>
+            </div>
+        </div>
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                <!-- NUMERO DO DOCUMENTO -->
+                <md-input-container fxFlex.xs="100%">
+                    <input mdInput type="text" maxlength="20" placeholder="{{'lb-document-number' | translate | uppercase}}" name="numberDocumentSpouse"
+                        [(ngModel)]="getSimulation().client.numberDocumentSpouse">
+                </md-input-container>
+            </div>
+        </div>
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                 <!-- ÔRGÃO EMISSOR -->
+                <md-select fxFlex.gt-sm="80%" fxFlex.sm="70%" class="bug-input" placeholder="{{'lb-issuing-board' | translate | uppercase}}"
+                    name="issuingBodySpouse" [(ngModel)]="getSimulation().client.spouse.issuingBody.id">
+                    <md-option *ngFor="let lib of getListIssuingBody()" [value]="lib.id">
+                        {{ lib.description }}
+                    </md-option>
+                </md-select>
+            </div>
+        </div>
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                <!-- NOME DA EMPRESA -->
+                <md-input-container fxFlex.xs="100%">
+                    <input mdInput type="text" maxlength="40" placeholder="{{'lb-company-name' | translate | uppercase}}" name="nameCompanySpouse"
+                        [(ngModel)]="getSimulation().client.spouse.company.name">
+                </md-input-container>
+            </div>
+        </div>
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                 <!-- OCUPACAO -->
+                <md-select fxFlex.gt-sm="80%" fxFlex.sm="70%" class="bug-input" placeholder="{{'lb-occupation' | translate | uppercase}}"
+                    name="occupationSpouse" [(ngModel)]="getSimulation().client.spouse.company.occupation.id">
+                    <md-option *ngFor="let lo of getListOccupation()" [value]="lo.id">
+                        {{ lo.description }}
+                    </md-option>
+                </md-select>
+            </div>
+        </div>
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+               <!-- CARGO / FUNCAO -->
+                <md-select placeholder="{{'lb-office' | translate | uppercase}} / {{'lb-role' | translate | uppercase}}" fxFlex.gt-sm="80%"
+                    fxFlex.sm="70%" class="bug-input" name="positionFunctionSpouse" [(ngModel)]="getSimulation().client.spouse.company.profession.id">
+                    <md-option *ngFor="let lpf of getListPositionFunction()" [value]="lpf.id">
+                        {{ lpf.description }}
+                    </md-option>
+                </md-select>
+            </div>
+        </div>
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                <!-- DATA DE ADMISSAO -->
+                <md-input-container fxFlex.xs="100%">
+                    <input mdInput [mdDatepicker]="picker2" placeholder="{{'lb-admission-date' | translate | uppercase}}" name="admissionDateSpouse"
+                        [(ngModel)]="getSimulation().client.spouse.company.admissionDate">
+                    <md-datepicker-toggle mdSuffix [for]="picker2"></md-datepicker-toggle>
+                </md-input-container>
+                <md-datepicker #picker2></md-datepicker>
+            </div>
+        </div>
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                <!--RENDA MENSAL -->
+                <md-input-container fxFlex.xs="100%">
+                    <input mdInput type="text" currencyMask placeholder="{{'lb-monthly-income' | translate | uppercase}}" name="monthlyIncomeSpouse"
+                        [(ngModel)]="getSimulation().client.spouse.company.monthlyIncome">
+                </md-input-container>
+            </div>
+        </div>
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                <!-- TELEFONE CELULAR -->
+                <md-input-container fxFlex.xs="100%">
+                    <input mdInput ngControl maxlength="10" placeholder="{{'lb-cel-phone' | translate | uppercase}}" omegamask="(99)99999-9999"
+                        type="text" name="phoneSpouse" [(ngModel)]="getSimulation().client.spouse.company.comercialPhone.number" />
+                </md-input-container>
+            </div>
+        </div>
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                <!--RAMAL -->
+                <md-input-container fxFlex.xs="100%">
+                    <input mdInput type="text" maxlength="4" placeholder="{{'lb-telephone-extension' | translate | uppercase}}" name="branchSpouse"
+                        [(ngModel)]="getSimulation().client.spouse.company.comercialPhone.extension">
+                </md-input-container>
+            </div>
+        </div>
+
+        <div fxLayout="row">
+            <md-toolbar (click)="nextStep()" class="buttonMobileFooter">
+                {{'btn-professional-data' | translate | uppercase}}
+            </md-toolbar>
+        </div>
+
+    </form>
+</div>

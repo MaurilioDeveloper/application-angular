@@ -1,0 +1,134 @@
+<div fxLayout="row">
+    <div class="divButtonBigLeft tinyBreakLine">
+        <button md-raised-button color="primary" class="button-radius" *ngIf="steep!=0" (click)="change(false)">
+             <md-icon >{{leftIcon}}</md-icon><br><span [innerHtml]="leftText"></span></button>
+    </div>
+
+    <div fxLayout="row" [ngStyle]="{'padding':'10px'}" [ngStyle.md]="{'font-size': '12px'}">
+        <div fxLayout="column" class="widthStep">
+            <label><b class="black-color">{{'lb-client' | translate}}</b></label>
+            <div *ngIf="browser === 'IE'">
+                <div style="display: inline-flex">
+                    <div class="color-stepperIE stepperIE"></div>
+                    <hr [ngClass]="steep > getStep().STEP_CLIENT ? ['lineIE', 'lineColorIE'] : 'lineIE'" />
+                </div>
+            </div>
+            <div *ngIf="browser != 'IE'">
+                <svg height="80" width="100%" xml:space="preserve">
+                    <circle stroke-dasharray="0" stroke-dashoffset="0" cx="27" cy="47" r="21" stroke="#e6e6e6" stroke-width="2px" class="circle-white"
+                    />
+                    <circle stroke-dasharray="0" stroke-dashoffset="0" cx="27" cy="47" r="19" stroke="#e6e6e6" stroke-width="1px" class="color-stepper"
+                    />
+                    <line x1="48" x2="100%" y1="45" y2="45" [ngClass]="steep > getStep().STEP_CLIENT ? 'line-stepper' : 'line-default'" />
+                </svg>
+            </div>
+        </div>
+        <div fxLayout="column" class="widthStep">
+            <label><b class="black-color">{{'lb-vehicle' | translate}}</b></label>
+            <div *ngIf="browser === 'IE'">
+                <div style="display: inline-flex">
+                    <div [ngClass]="steep > getStep().STEP_CLIENT ? ['color-stepperIE', 'stepperIE'] : ['circle-white', 'stepperIE']"></div>
+                    <hr [ngClass]="steep > getStep().STEP_VEHICLE ? ['lineIE', 'lineColorIE'] : 'lineIE'" />
+                </div>
+            </div>
+
+            <div *ngIf="browser != 'IE'">
+                <svg height="80" width="100%" xml:space="preserve">
+                    <circle cx="21" cy="47" r="21" stroke="#e6e6e6" stroke-width="2" class="circle-white" />
+                    <circle cx="21" cy="47" r="19" stroke="#e6e6e6" stroke-width="1" [ngClass]="steep > getStep().STEP_CLIENT ? 'color-stepper' : 'circle-white'"
+                    />
+
+                    <line x1="42" x2="100%" y1="45" y2="45" [ngClass]="steep > getStep().STEP_VEHICLE ? 'line-stepper' : 'line-default'" />
+                </svg>
+            </div>
+        </div>
+        <div fxLayout="column" class="widthStep">
+            <label [ngStyle.gt-sm]="{'margin-left':'-5%'}"><b class="black-color">{{'lb-simulation' | translate}}</b></label>
+            <div *ngIf="browser === 'IE'">
+                <div style="display: inline-flex">
+                    <div [ngClass]="steep > getStep().STEP_VEHICLE ? ['color-stepperIE', 'stepperIE'] : ['circle-white', 'stepperIE']"></div>
+                    <hr [ngClass]="steep > getStep().STEP_SIMULATION ? ['lineIE', 'lineColorIE'] : 'lineIE'" />
+                </div>
+            </div>
+
+            <div *ngIf="browser != 'IE'">
+                <svg height="80" width="100%" xml:space="preserve">
+                    <circle cx="21" cy="47" r="21" stroke="#e6e6e6" stroke-width="2" class="circle-white" />
+                    <circle cx="21" cy="47" r="19" stroke="#e6e6e6" stroke-width="1" [ngClass]="steep > getStep().STEP_VEHICLE ? 'color-stepper' : 'circle-white'"
+                    />
+                    <line x1="42" x2="100%" y1="45" y2="45" [ngClass]="steep > getStep().STEP_SIMULATION ? 'line-stepper' : 'line-default'" />
+                </svg>
+            </div>
+        </div>
+        <div fxLayout="column" class="widthStep">
+            <label [ngStyle.gt-sm]="{'margin-left':'-15%'}" [ngStyle.sm]="{'margin-top.px':'-20'}"><b class="black-color">{{'lb-custumer-card' | translate}}</b></label>
+            <div *ngIf="browser === 'IE'">
+                <div style="display: inline-flex">
+                    <div [ngClass]="steep > getStep().STEP_SIMULATION ? ['color-stepperIE', 'stepperIE'] : ['circle-white', 'stepperIE']"></div>
+                    <hr [ngClass]="steep > getStep().STEP_CUSTOMER_CARD ? ['lineIE', 'lineColorIE'] : 'lineIE'" />
+                </div>
+            </div>
+
+            <div *ngIf="browser != 'IE'">
+                <svg height="80" width="100%" xml:space="preserve">
+                    <circle cx="21" cy="47" r="21" stroke="#e6e6e6" stroke-width="2" class="circle-white" />
+                    <circle cx="21" cy="47" r="19" stroke="#e6e6e6" stroke-width="1" [ngClass]="steep > getStep().STEP_SIMULATION ? 'color-stepper' : 'circle-white'"
+                    />
+                    <line x1="42" x2="100%" y1="45" y2="45" [ngClass]="steep > getStep().STEP_CUSTOMER_CARD ? 'line-stepper' : 'line-default'" />
+                </svg>
+            </div>
+        </div>
+        <div fxLayout="column" style="width: 10%">
+            <label><b class="black-color">{{'lb-send' | translate}}</b></label>
+            <div *ngIf="browser === 'IE'">
+                <div [ngClass]="steep > getStep().STEP_CUSTOMER_CARD ? ['color-stepperIE', 'stepperIE'] : ['circle-white', 'stepperIE']" class="stepperIE"></div>
+            </div>
+            <div *ngIf="browser != 'IE'">
+                <svg height="80" width="100%" xml:space="preserve">
+                    <circle cx="21" cy="47" r="21" stroke="#e6e6e6" stroke-width="2" class="circle-white" />
+                    <circle cx="21" cy="47" r="19" stroke="#e6e6e6" stroke-width="1" [ngClass]="steep > getStep().STEP_CUSTOMER_CARD ? 'color-stepper' : 'circle-white'"
+                    />
+                </svg>
+            </div>
+        </div>
+
+    </div>
+    <div class="divButtonBigRight" fxLayoutAlign="end">
+        <button *ngIf="steep===getStep().STEP_CLIENT" [disabled]="!simulation.step1CanNext" md-raised-button color="primary" class="button-radius" (click)="change(true)">
+                <md-icon>{{rightIcon}}</md-icon>
+                <br>
+                <span [innerHtml]="rightText" class="{{stepFour}}"></span>
+        </button>
+
+        <button *ngIf="steep===getStep().STEP_VEHICLE" [disabled]="!simulation.step2CanNext" md-raised-button color="primary" class="button-radius" (click)="change(true)">
+                <md-icon>{{rightIcon}}</md-icon>
+                <br>
+                <span [innerHtml]="rightText" class="{{stepFour}}"></span>
+        </button>
+
+        <button *ngIf="steep===getStep().STEP_SIMULATION" [disabled]="!simulation.step3CanNext" md-raised-button color="primary" class="button-radius" (click)="change(true)">
+                <md-icon>{{rightIcon}}</md-icon>
+                <br>
+                <span [innerHtml]="rightText" class="{{stepFour}}"></span>
+        </button>
+
+        <button *ngIf="steep===getStep().STEP_CUSTOMER_CARD" [disabled]="!simulation.step4CanNext" md-raised-button color="primary" class="button-radius" (click)="change(true)">
+                <md-icon>{{rightIcon}}</md-icon>
+                <br>
+                <span [innerHtml]="rightText" class="{{stepFour}}"></span>
+        </button>
+
+        <button *ngIf="steep===getStep().STEP_SEND" [disabled]="!simulation.step5CanNext" md-raised-button color="primary" class="button-radius" (click)="change(true)">
+                <md-icon>{{rightIcon}}</md-icon>
+                <br>
+                <span [innerHtml]="rightText" class="{{stepFour}}"></span>
+        </button>
+        <button *ngIf="steep===getStep().STEP_DOCUMENT" [disabled]="!simulation.step6CanNext" md-raised-button color="primary" class="button-radius" (click)="change(true)">
+                <md-icon>{{rightIcon}}</md-icon>
+                <br>
+                <span [innerHtml]="rightText" class="{{stepFour}}"></span>
+        </button>
+
+
+    </div>
+</div>

@@ -1,0 +1,109 @@
+<div fxLayout="column" fxFlex.xs="100%" fxFlex.gt-sm="100%" fxFlex.sm="100%" [ngStyle]="{'padding': '2%'}">
+    <form #ff="ngForm" *ngIf="controlDynamicStepsIn == 10">
+        
+        <div fxLayout="row">
+            <div fxFlex.sm="50%" fxFlex.gt-sm="50%">
+                <!-- CEP -->
+                <md-input-container fxFlex.gt-sm="80%" fxFlex.sm="70%">
+                    <input mdInput type="text" maxlength="10" placeholder="CEP" omegamask="99.999-999" name="cepGuarantor1" [required]="getSimulation().client.guarantor1.isRequired" 
+                    [(ngModel)]="getSimulation().client.guarantor1.address.cep">
+                </md-input-container>
+            </div>
+            <div fxFlex.sm="50%" fxFlex.gt-sm="50%">
+                <!-- NUMERO -->
+                <md-input-container fxFlex.gt-sm="80%" fxFlex.sm="70%">
+                    <input mdInput type="text" maxlength="5" placeholder="{{'lb-number' | translate | uppercase}}" [required]="getSimulation().client.guarantor1.isRequired"
+                        name="numeroGuarantor1" [(ngModel)]="getSimulation().client.guarantor1.address.number">
+                </md-input-container>
+            </div>
+        </div>
+        <div fxLayout="row">
+            <div fxFlex.sm="50%" fxFlex.gt-sm="50%">
+                <!-- ENDERECO -->
+                <md-input-container fxFlex.gt-sm="80%" fxFlex.sm="70%">
+                    <input mdInput type="text" maxlength="50" placeholder="{{'lb-address' | translate | uppercase}}" [required]="getSimulation().client.guarantor1.isRequired"
+                        name="enderecoGuarantor1" [(ngModel)]="getSimulation().client.guarantor1.address.address">
+                </md-input-container>
+            </div>
+            <div fxFlex.sm="50%" fxFlex.gt-sm="50%">
+                <!-- COMPLEMENTO -->
+                <md-input-container fxFlex.gt-sm="80%" fxFlex.sm="70%">
+                    <input mdInput type="text" maxlength="20" placeholder="{{'lb-complement' | translate | uppercase}}" [required]="getSimulation().client.guarantor1.isRequired"
+                        name="complementoGuarantor1" [(ngModel)]="getSimulation().client.guarantor1.address.complement">
+                </md-input-container>
+            </div>
+        </div>
+        <div fxLayout="row">
+            <div fxFlex.sm="50%" fxFlex.gt-sm="50%">
+                <!-- BAIRRO -->
+                <md-input-container fxFlex.gt-sm="80%" fxFlex.sm="70%">
+                    <input mdInput type="text" maxlength="20" placeholder="{{'lb-neighborhood' | translate | uppercase}}" [required]="getSimulation().client.guarantor1.isRequired"
+                        name="bairroGuarantor1" [(ngModel)]="getSimulation().client.guarantor1.address.neighborhood">
+                </md-input-container>
+            </div>
+            <div fxFlex.sm="50%" fxFlex.gt-sm="50%">
+                <!-- CIDADE -->
+                <md-input-container fxFlex.gt-sm="80%" fxFlex.sm="70%">
+                    <input mdInput type="text" maxlength="40" placeholder="{{'lb-city' | translate | uppercase}}" [required]="getSimulation().client.guarantor1.isRequired"
+                        name="cidadeGuarantor1" [(ngModel)]="getSimulation().client.guarantor1.address.city">
+                </md-input-container>
+            </div>
+        </div>
+        <div fxLayout="row">
+            <div fxFlex.sm="50%" fxFlex.gt-sm="50%">
+                <!-- TIPO DE RESIDENCIA -->
+                <md-select placeholder="{{'lb-type-of-residence' | translate | uppercase}}" fxFlex.gt-sm="80%" fxFlex.sm="70%" class="bug-input"
+                    [required]="getSimulation().client.guarantor1.isRequired" name="typeResidenceGuarantor1" [(ngModel)]="getSimulation().client.guarantor1.address.residenceType.id">
+                    <md-option *ngFor="let ltr of getListTypeResidence()" [value]="ltr.id">
+                        {{ ltr.description }}
+                    </md-option>
+                </md-select>
+            </div>
+            <div fxFlex.sm="50%" fxFlex.gt-sm="50%">
+                <!-- RESIDE NO ENDERECO DESDE -->
+                <md-input-container fxFlex.gt-sm="80%" fxFlex.sm="70%">
+                    <input mdInput [mdDatepicker]="picker1" placeholder="{{'lb-lives-in-address-from' | translate | uppercase}}" [required]="getSimulation().client.guarantor1.isRequired"
+                        name="residesInAddressFromGuarantor1" [(ngModel)]="getSimulation().client.guarantor1.address.residesInAddressSince">
+                    <md-datepicker-toggle mdSuffix [for]="picker1"></md-datepicker-toggle>
+                </md-input-container>
+                <md-datepicker #picker1></md-datepicker>
+            </div>
+        </div>
+        <div fxLayout="row">
+            <div fxFlex.sm="50%" fxFlex.gt-sm="50%">
+                <!-- ENDERECO DE CORRESPONDENCIA -->
+                <md-select placeholder="{{'lb-mailing-address' | translate | uppercase}}" [required]="getSimulation().client.guarantor1.isRequired"
+                    fxFlex.gt-sm="80%" fxFlex.sm="70%" class="bug-input" name="mailingAddressGuarantor1" 
+                    [(ngModel)]="getSimulation().client.guarantor1.address.mailingAddress.id">
+                    <md-option *ngFor="let lma of getListMailingAddress()" [value]="lma.id">
+                        {{ lma.description }}
+                    </md-option>
+                </md-select>
+            </div>
+            <div fxFlex.sm="50%" fxFlex.gt-sm="50%">
+            </div>
+        </div>
+
+        <div fxLayout="row">
+            <div *ngIf="isPhysicalPerson && showSpouseGuarantor1" 
+                 fxFlex.gt-sm="50%" fxFlex.sm="50%" fxLayoutAlign="center center" 
+                 [ngStyle]="{'padding-top':'15px'}">
+                <button  type="button" (click)="nextStep()" 
+                        fxFlex.xs="100%" fxFlex.gt-sm="60%" 
+                        [disabled]="!ff.form.valid"
+                        fxFlex.sm="100%" md-raised-button color="primary">CONJUGUE AVALISTA 1
+                </button>
+            </div>
+            <div *ngIf="!isPhysicalPerson || !showSpouseGuarantor1"
+                 fxFlex.sm="50%" fxFlex.gt-sm="50%" fxLayoutAlign="center center"
+                 [ngStyle]="{'padding-top':'15px'}">
+                    <button type="button" fxFlex.xs="100%" 
+                            fxFlex.gt-sm="62%" fxFlex.sm="100%"
+                            (click)="nextStep()"
+                            [disabled]="!ff.form.valid"
+                            md-raised-button color="primary">DADOS PROFISSIONAIS AVALISTA 1
+                    </button>
+            </div>
+        </div>
+    </form>
+</div>        

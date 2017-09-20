@@ -1,0 +1,16 @@
+<div fxFlex.gt-sm="100%" fxFlex.sm="100%" >
+    <div fxLayout="row">
+    <h3>{{'lbl-aviso'|translate}}</h3>
+    </div>
+    <div fxLayout="row">
+        <label>{{'text-warning-conjugue' | translate}}</label>
+    </div>
+    <div fxLayout="row" [ngStyle]="{'padding-top':'15px'}">
+        <div fxFlex.sm="50%" fxFlex.gt-sm="50%">
+        </div>
+        <div fxFlex.sm="50%" fxFlex.gt-sm="50%" fxLayoutGap="3%">
+            <button fxFlex.xs="100%" fxFlex.gt-sm="50%" fxFlex.sm="100%" (click)="associateSpouse(true)"  md-raised-button color="primary">{{'lb-yes'|translate|uppercase}}</button>
+            <button fxFlex.xs="100%" fxFlex.gt-sm="50%" fxFlex.sm="100%" (click)="associateSpouse(false)"  md-raised-button color="primary">{{'lb-no'|translate|uppercase}}</button>
+        </div>
+    </div>
+</div>

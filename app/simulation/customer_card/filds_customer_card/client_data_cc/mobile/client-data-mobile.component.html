@@ -1,0 +1,437 @@
+<div fxLayout="column" fxFlex.xs="100%" [ngStyle]="{'padding': '2%'}">
+    <form #ff="ngForm" *ngIf="clientCustumerService.isPhysicalPerson">
+        <div fxLayout="row" fxLayoutAlign="space-around stretch">
+            <!-- NOME DO CLIENTE -->
+            <div fxFlex.sm="100%" fxFlex.gt-sm="100%">
+                <md-input-container fxFlex.xs="100%">
+                    <input mdInput type="text" maxlength="60" placeholder="{{'lb-client-name' | translate | uppercase}}" name="nameClient" [(ngModel)]="getSimulation().client.name"
+                        required>
+                </md-input-container>
+            </div>
+        </div>
+        <div fxLayout="row">
+            <!-- CPF -->
+            <div fxFlex.xs="100%">
+                <md-input-container fxFlex.xs="100%">
+                    <input required mdInput type="text" customcpfcnpj placeholder="CPF" name="cpf" [(ngModel)]="getSimulation().client.cpfCnpj">
+                </md-input-container>
+            </div>
+        </div>
+        <div fxLayout="row">
+            <!-- SEXO-->
+            <div fxFlex.xs="100%">
+                <md-select fxFlex.xs="100%" required class="bug-input" placeholder="{{'lb-gender' | translate | uppercase}}" name="sex" [(ngModel)]="getSimulation().client.sex">
+                    <md-option *ngFor="let ls of getListSex()" [value]="ls.name">
+                        {{ ls.name }}
+                    </md-option>
+                </md-select>
+            </div>
+        </div>
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                <!-- DATA DE NASCIMENTO -->
+                <md-input-container fxFlex.xs="100%">
+                    <input mdInput [mdDatepicker]="picker" placeholder="{{'lb-date-of-birth' | translate | uppercase}}" name="birthDate" [(ngModel)]="getSimulation().client.birthDate"
+                        required>
+                    <md-datepicker-toggle mdSuffix [for]="picker"></md-datepicker-toggle>
+                </md-input-container>
+                <md-datepicker #picker></md-datepicker>
+            </div>
+        </div>
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                <!-- ESTADO CIVIL -->
+                <md-select fxFlex.gt-sm="80%" fxFlex.sm="70%" class="bug-input" placeholder="{{'lb-marital-status' | translate | uppercase}}"
+                    (change)="onChangeSpouse($event)" required name="civilState" [(ngModel)]="getSimulation().client.civilState.id">
+                    <md-option *ngFor="let lcs of getListCivilState()" [value]="lcs.id">
+                        {{ lcs.description }}
+                    </md-option>
+                </md-select>
+            </div>
+        </div>
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                <!-- TELEFONE RESIDENCIAL -->
+                <md-input-container fxFlex.xs="100%">
+                    <!--<input mdInput ngControl customphone placeholder="{{'lb-residencial-number' | translate | uppercase}}" type="text" name="FixPhone"
+                        [(ngModel)]="getSimulation().client.phone.number" required/>-->
+                    <input mdInput placeholder="{{'lb-residencial-number' | translate | uppercase}}" type="text" name="FixPhone" [(ngModel)]="getSimulation().client.phone.number"
+                        customphone maxlength="15" required/>
+                </md-input-container>
+            </div>
+        </div>
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                <!-- TIPO DE TELEFONE -->
+                <md-select fxFlex.xs="100%" class="bug-input" placeholder="{{'lb-phone-type' | translate | uppercase}}" name="typePhone"
+                    [(ngModel)]="getSimulation().client.phoneType" required>
+                    <md-option *ngFor="let ltp of getListTypePhone()" [value]="ltp.importCode">
+                        {{ ltp.name }}
+                    </md-option>
+                </md-select>
+            </div>
+        </div>
+
+        <div fxLayout="row" *ngIf="getSimulation().client.cellphone">
+            <div fxFlex.xs="100%">
+                <!-- TELEFONE CELULAR -->
+                <md-input-container fxFlex.xs="100%">
+                    <input mdInput ngControl maxlength="15" placeholder="{{'lb-cel-phone' | translate | uppercase}}" customphone maxlength="15"
+                        type="text" name="phone" [(ngModel)]="getSimulation().client.cellphone.number" required/>
+                </md-input-container>
+            </div>
+        </div>
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                <!-- E-MAIL -->
+                <md-input-container fxFlex.xs="100%">
+                    <input mdInput maxlength="60" ngControl placeholder="E-MAIL" required type="email" name="email" [(ngModel)]="getSimulation().client.email"
+                        pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" />
+                </md-input-container>
+            </div>
+        </div>
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                <!-- NACIONALIDADE -->
+                <md-select fxFlex.xs="100%" class="bug-input" placeholder="{{'lb-nationality' | translate | uppercase}}" name="country" [(ngModel)]="getSimulation().client.country"
+                    required>
+                    <md-option *ngFor="let lc of getListCountry()" [value]="lc">
+                        {{ lc.description }}
+                    </md-option>
+                </md-select>
+            </div>
+        </div>
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                <!-- UF NATURALIDADE BUG REQUIRED ARRUMAR-->
+                <md-select fxFlex.xs="100%" class="bug-input" placeholder="UF ({{'lb-naturalness' | translate | uppercase}})" name="province"
+                    [(ngModel)]="getSimulation().client.province" required>
+                    <md-option *ngFor="let lp of getListProvince()" [value]="lp">
+                        {{ lp.description }}
+                    </md-option>
+                </md-select>
+            </div>
+        </div>
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                <!-- NATURALIDADE -->
+                <md-input-container fxFlex.xs="100%">
+                    <input mdInput type="text" maxlength="40" placeholder="{{'lb-naturalness' | translate | uppercase}}" name="naturalness" [(ngModel)]="getSimulation().client.naturalness"
+                        required>
+                </md-input-container>
+            </div>
+        </div>
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                <!-- PESSOA POLITICAMENTE EXPOSTA -->
+                <md-select fxFlex.xs="100%" class="bug-input" placeholder="{{'lb-person-politically-exposed' | translate | uppercase}}" name="politicalExposition"
+                    [(ngModel)]="getSimulation().client.politicalExposition">
+                    <md-option *ngFor="let lpe of getListPoliticalExposition()" [value]="lpe">
+                        {{ lpe.description }}
+                    </md-option>
+                </md-select>
+            </div>
+        </div>
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                <!-- GRAU DE INSTRUÇÃO - BUG REQUIRED NÃO FUNCIONA-->
+                <md-select fxFlex.xs="100%" required class="bug-input" placeholder="{{'lb-education-degree' | translate | uppercase}}" name="educationDegree"
+                    [(ngModel)]="getSimulation().client.educationDegree">
+                    <md-option *ngFor="let led of getListEducationDegree()" [value]="led">
+                        {{ led.description }}
+                    </md-option>
+                </md-select>
+            </div>
+        </div>
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                <!-- DEFICIENCIA FISICA -->
+                <md-select fxFlex.xs="100%" class="bug-input" placeholder="{{'lb-physical-deficiency' | translate | uppercase}}" name="handicapped"
+                    [(ngModel)]="getSimulation().client.handicapped">
+                    <md-option *ngFor="let lhp of getListHandicapped()" [value]="lhp.status">
+                        {{ lhp.description }}
+                    </md-option>
+                </md-select>
+            </div>
+        </div>
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                <!-- NOME DO PAI -->
+                <md-input-container fxFlex.xs="100%">
+                    <input mdInput type="text" maxlength="60" placeholder="{{'lb-name-of-the-father' | translate | uppercase}}" name="nameFather"
+                        [(ngModel)]="getSimulation().client.fathersName">
+                </md-input-container>
+            </div>
+        </div>
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                <!-- NOME DA MÃE -->
+                <md-input-container fxFlex.xs="100%">
+                    <input mdInput type="text" maxlength="60" placeholder="{{'lb-name-of-the-mother' | translate | uppercase}}" name="nameMother"
+                        [(ngModel)]="getSimulation().client.mothersName" required>
+                </md-input-container>
+            </div>
+        </div>
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                <!-- TIPO DE DOCUMENTO -->
+                <md-select fxFlex.xs="100%" class="bug-input" placeholder="{{'lb-document-type' | translate | uppercase}}" name="documentType"
+                    [(ngModel)]="getSimulation().client.documentType" required>
+                    <md-option *ngFor="let ldt of getListDocumentType()" [value]="ldt">
+                        {{ ldt.description }}
+                    </md-option>
+                </md-select>
+            </div>
+        </div>
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                <!-- NUMERO DO DOCUMENTO -->
+                <md-input-container fxFlex.xs="100%">
+                    <input mdInput type="text" maxlength="20" placeholder="{{'lb-document-number' | translate | uppercase}}" name="numberDocument"
+                        [(ngModel)]="getSimulation().client.numberDocument" required>
+                </md-input-container>
+            </div>
+        </div>
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                <!-- PAIS DOCUMENTO -->
+                <md-select fxFlex.xs="100%" class="bug-input" placeholder="{{'lb-document-country' | translate | uppercase}}" name="countryDocument"
+                    [(ngModel)]="getSimulation().client.countryDocument" [required]="true">
+                    <md-option *ngFor="let lc of getListCountry()" [value]="lc">
+                        {{ lc.description }}
+                    </md-option>
+                </md-select>
+            </div>
+        </div>
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                <!-- UF DO DOCUMENTO -->
+                <md-select fxFlex.xs="100%" class="bug-input" placeholder="{{'lb-uf-document' | translate | uppercase}}" name="provinceDocument"
+                    [(ngModel)]="getSimulation().client.provinceDocument" [required]="true">
+                    <md-option *ngFor="let lp of getListProvince()" [value]="lp">
+                        {{ lp.description }}
+                    </md-option>
+                </md-select>
+            </div>
+        </div>
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                <!-- DATA DA EMISSAO -->
+                <md-input-container fxFlex.xs="100%">
+                    <input mdInput [mdDatepicker]="picker2" placeholder="{{'lb-emission-date' | translate | uppercase}}" name="dateIssue" [(ngModel)]="getSimulation().client.dateIssue"
+                        required>
+                    <md-datepicker-toggle mdSuffix [for]="picker2"></md-datepicker-toggle>
+                </md-input-container>
+                <md-datepicker #picker2></md-datepicker>
+            </div>
+        </div>
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                <!-- ÔRGÃO EMISSOR -->
+                <md-select fxFlex.xs="100%" class="bug-input" placeholder="{{'lb-issuing-board' | translate | uppercase}}" name="issuingBody"
+                    required [(ngModel)]="getSimulation().client.issuingBody">
+                    <md-option *ngFor="let lib of getListIssuingBody()" [value]="lib">
+                        {{ lib.description }}
+                    </md-option>
+                </md-select>
+            </div>
+        </div>
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                <!-- VALIDADE -->
+                <md-input-container fxFlex.xs="100%">
+                    <input mdInput [mdDatepicker]="picker3" placeholder="VALIDADE" name="dateValid" [(ngModel)]="getSimulation().client.dateValid">
+                    <md-datepicker-toggle mdSuffix [for]="picker3"></md-datepicker-toggle>
+                </md-input-container>
+                <md-datepicker #picker3></md-datepicker>
+            </div>
+        </div>
+        <!-- TODO (Maurilio) | MOBILE ff.form.valid - disabled -->
+        <div fxLayout="row" class="spaceMobileButton">
+            <md-toolbar (click)="nextStep()" class="buttonMobileFooter">
+                {{'lb-residential-data' | translate | uppercase}}
+            </md-toolbar>
+        </div>
+    </form>
+
+    <form #gg="ngForm" *ngIf="!clientCustumerService.isPhysicalPerson">
+        <!-- DADOS DO CLIENTE - PJ -->
+        <div fxLayout="row" fxLayoutAlign="space-around stretch">
+            <div fxFlex.sm="100%" fxFlex.gt-sm="100%">
+                <!-- NOME DA EMPRESA -->
+                <md-input-container fxFlex.gt-sm="90%" fxFlex.sm="90%">
+                    <input mdInput type="text" maxlength="40" required placeholder="{{'lb-company-name' | translate | uppercase}}" name="nameCompany"
+                        [(ngModel)]="getSimulation().client.name">
+                </md-input-container>
+            </div>
+        </div>
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                <!-- CNPJ -->
+                <md-input-container fxFlex.xs="100%">
+                     <input mdInput type="text" placeholder="CNPJ" maxlength="40" customcnpj required name="cpfCnpj" [(ngModel)]="getSimulation().client.cpfCnpj">
+                </md-input-container>
+            </div>
+        </div>
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                <!-- NATUREZA JURIDICA -->
+                <md-select placeholder="{{'lb-legal-nature' | translate | uppercase}}" fxFlex.xs="100%" class="bug-input" name="legalnature"
+                    [(ngModel)]="getSimulation().client.legalNature" required>
+                    <md-option *ngFor="let lln of getListLegalNature()" [value]="lln">
+                        {{ lln.description }}
+                    </md-option>
+                </md-select>
+            </div>
+        </div>
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                <!-- CEP -->
+                <md-input-container fxFlex.xs="100%">
+                    <input mdInput type="text" maxlength="8" required placeholder="CEP" name="cep" [(ngModel)]="getSimulation().client.address.cep">
+                </md-input-container>
+            </div>
+        </div>
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                <!-- NUMERO -->
+                <md-input-container fxFlex.xs="100%">
+                    <input mdInput type="text" maxlength="5" required placeholder="{{'lb-number' | translate | uppercase}}" name="numero" [(ngModel)]="getSimulation().client.address.number">
+                </md-input-container>
+            </div>
+        </div>
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                <!-- ENDERECO -->
+                <md-input-container fxFlex.xs="100%">
+                    <input mdInput type="text" maxlength="50" required placeholder="{{'lb-address' | translate | uppercase}}" name="endereco"
+                        [(ngModel)]="getSimulation().client.address.address">
+                </md-input-container>
+            </div>
+        </div>
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                <!-- COMPLEMENTO -->
+                <md-input-container fxFlex.xs="100%">
+                    <input mdInput type="text" maxlength="20" placeholder="{{'lb-complement' | translate | uppercase}}" name="complemento" [(ngModel)]="getSimulation().client.address.complement">
+                </md-input-container>
+            </div>
+        </div>
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                <!-- BAIRRO -->
+                <md-input-container fxFlex.xs="100%">
+                    <input mdInput type="text" maxlength="20" required placeholder="{{'lb-neighborhood' | translate | uppercase}}" name="bairro"
+                        [(ngModel)]="getSimulation().client.address.neighborhood">
+                </md-input-container>
+            </div>
+        </div>
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                <!-- CIDADE -->
+                <md-input-container fxFlex.xs="100%">
+                    <input mdInput type="text" maxlength="40" required placeholder="{{'lb-city' | translate | uppercase}}" name="cidade" [(ngModel)]="getSimulation().client.address.city">
+                </md-input-container>
+            </div>
+        </div>
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                <!-- UF -->
+                <md-select placeholder="{{'lb-uf' | translate | uppercase}}" name="province" fxFlex.xs="100%" class="bug-input" required
+                    [(ngModel)]="getSimulation().client.address.province">
+                    <md-option *ngFor="let lp of getListProvince()" [value]="lp">
+                        {{ lp.description }}
+                    </md-option>
+                </md-select>
+            </div>
+        </div>
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                <!-- TELEFONE -->
+                <md-input-container fxFlex.xs="100%">
+                    <input mdInput ngControl maxlength="10" placeholder="{{'lb-telephone' | translate | uppercase}}" type="text" name="phone"
+                        [(ngModel)]="getSimulation().client.phone.number" required/>
+                </md-input-container>
+            </div>
+        </div>
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                <!-- RAMAL -->
+                <md-input-container fxFlex.xs="100%">
+                    <input mdInput type="text" maxlength="4" placeholder="{{'lb-telephone-extension' | translate | uppercase}}" name="ramal"
+                        [(ngModel)]="getSimulation().client.phone.extension">
+                </md-input-container>
+            </div>
+        </div>
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                <!-- DATA DE ABERTURA -->
+                <md-input-container fxFlex.xs="100%">
+                    <input mdInput [mdDatepicker]="picker4" placeholder="{{'lb-open-date' | translate | uppercase}}" name="openingDate" [(ngModel)]="getSimulation().client.birthDate"
+                        required>
+                    <md-datepicker-toggle mdSuffix [for]="picker4"></md-datepicker-toggle>
+                </md-input-container>
+                <md-datepicker #picker4></md-datepicker>
+            </div>
+        </div>
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                <!-- TAMANHO DA EMPRESA -->
+                <md-select placeholder="{{'lb-company-size' | translate | uppercase}}" name="sizeCompany" fxFlex.xs="100%" class="bug-input"
+                    required [(ngModel)]="getSimulation().client.companySize">
+                    <md-option *ngFor="let lsc of getListSizeCompany()" [value]="lsc.id">
+                        {{ lsc.description }}
+                    </md-option>
+                </md-select>
+            </div>
+        </div>
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                <!-- SEDE PROPRIA -->
+                <md-select placeholder="{{'lb-head-office' | translate | uppercase}}" name="ownSeat" fxFlex.xs="100%" class="bug-input" required
+                    [(ngModel)]="getSimulation().client.ownSeat">
+                    <md-option *ngFor="let los of getListOwnSeat()" [value]="los.status">
+                        {{ los.description }}
+                    </md-option>
+                </md-select>
+            </div>
+        </div>
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                <!-- FATURAMENTO MENSAL -->
+                <md-input-container fxFlex.xs="100%">
+                    <input mdInput type="text" required currencyMask placeholder="{{'lb-monthly-billing' | translate | uppercase}}" name="faturamentoMensal"
+                        [(ngModel)]="getSimulation().client.monthlyBilling">
+                </md-input-container>
+            </div>
+        </div>
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                <!-- GRUPOS ATIVIDADE ECONOMICA -->
+                <md-select placeholder="{{'lb-groups-activity-economic' | translate  | uppercase}}" fxFlex.xs="100%" class="bug-input" required
+                    name="economicActivityGroup" [(ngModel)]="getSimulation().client.economicActivityGroup">
+                    <md-option *ngFor="let leag of getListEconomicActivityGroup()" [value]="leag.id">
+                        {{ leag.description }}
+                    </md-option>
+                </md-select>
+            </div>
+        </div>
+        <div fxLayout="row">
+            <div fxFlex.xs="100%">
+                <!-- ATIVIDADE ECONOMICA -->
+                <md-select placeholder="{{'lb-activity-economic' | translate | uppercase}}" required fxFlex.xs="100%" class="bug-input" required
+                    name="economicActivity" [(ngModel)]="getSimulation().client.economicActivity">
+                    <md-option *ngFor="let lea of getListEconomicActivity()" [value]="lea.id">
+                        {{ lea.description }}
+                    </md-option>
+                </md-select>
+            </div>
+        </div>
+        <!-- TODO (Maurilio) | MOBILE ff.form.valid - disabled -->
+        <div fxLayout="row" class="spaceMobileButton">
+            <md-toolbar (click)="nextStep()" class="buttonMobileFooter">
+                {{'lb-residential-data' | translate | uppercase}}
+            </md-toolbar>
+        </div>
+    </form>
+</div>

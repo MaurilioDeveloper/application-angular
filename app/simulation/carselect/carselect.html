@@ -1,0 +1,40 @@
+<simulationInfo></simulationInfo>
+<div *ngIf="getSimulation().showResumMobile === false" [ngStyle.xs]="{'margin-top': '15px'}">
+        <listcars *ngIf="getShowcar()" [cars]="getCars()" [utilitarios]="getUtilitarios()" (carselect)="carselect($event)"></listcars>
+
+        <!-- DESKTOP AND IPAD -->
+        <listversion *ngIf="!getShowcar() && !media.isActive('xs')" (versionselect)="versionselect($event)"></listversion>
+
+        <!-- MOBILE -->
+        <listversion-mobile *ngIf="!getShowcar() && media.isActive('xs')" (versionselect)="versionselect($event)"></listversion-mobile>
+
+        <!-- DESKTOP AND IPAD -->
+        <div fxLayout="row" class="space-component" [ngStyle]="{'margin-top':'10px'}" fxLayoutWrap fxLayoutAlign="end none" *ngIf="!getShowcar() && !media.isActive('xs')">
+                <div class="centerText" fxFlex.xs="100%" fxFlex.sm="33%" fxFlex.gt-sm="33%" fxHide.xs="true">
+                        <button (click)="change(false)" md-raised-button color="primary">{{'lb-custumer-edit' | translate | uppercase}}</button>
+                </div>
+                <div class="centerText" fxFlex.xs="100%" fxFlex.sm="33%" fxFlex.gt-sm="33%" fxLayoutAlign="center center">
+                        <button *ngIf="getSimulation().car" (click)="acessorios()" md-raised-button color="primary">{{'lb-insert-optionals-and-accessories' | translate | uppercase}}</button>
+                </div>
+                <div fxFlex.xs="100%" fxFlex.sm="33%" fxFlex.gt-sm="33%" style="text-align: right;">
+                        <button [ngStyle.xs]="{'width': '100%'}" (click)="change(true)" [disabled]="!getSimulation().step2CanNext" md-raised-button color="primary">{{'lb-simulation' | translate | uppercase }}</button>
+                </div>
+        </div>
+
+
+        <!-- MOBILE -->
+        <div fxLayout="row" class="space-component" fxLayoutWrap fxLayoutAlign="end none" *ngIf="!getShowcar() && media.isActive('xs')">
+                <div class="centerText" fxFlex.xs="100%" fxLayout="row" fxLayoutAlign="start none">
+                        <button *ngIf="getSimulation().car" (click)="acessorios()" md-raised-button color="primary">{{'lb-insert-optionals-and-accessories' | translate | uppercase}}</button>
+                </div>
+                <!-- ACTIVE BUTTON -->
+                <md-toolbar [ngStyle.xs]="{'margin-top': '20%', 'min-height': '46px', 'background': '#4a4a4a', 'position': 'absolute', 'right': 0, 'left': 0, color: 'white', 'bottom': 0}">
+                        <div fxFlex.xs="100%" fxLayoutAlign="start none" fxFlex.sm="100%">
+                                <span class="icon" *ngIf="getSimulation().car.version">{{getSimulation().car.version.price |  money }}</span>
+                        </div>
+                        <div (click)="change(true)" fxFlex.xs="100%" fxLayoutAlign="end none" fxFlex.sm="100%">
+                                <label>{{'btn-simulation' | translate | uppercase}} <i class="fa fa-arrow-right"></i></label>
+                        </div>
+                </md-toolbar>
+        </div>
+</div>

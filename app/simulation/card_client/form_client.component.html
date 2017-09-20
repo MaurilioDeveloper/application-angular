@@ -1,0 +1,140 @@
+<div *ngIf="getSimulation().client" fxFlex.gt-sm="100%">
+    <form #ff="ngForm" id="ff">
+        
+        <h4 class="black-color">{{'lb-custumer-personal-data' | translate}}</h4>
+        <hr class="color-border-default" />
+        <div fxLayout="row" fxLayoutWrap fxLayoutAlign="start none" fxLayoutWrap>
+            <div fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.gt-sm="100%" fxLayoutGap="10%">
+                <span><b class="black-color">{{'lb-cpf-cnpj' | translate}}</b> ({{'lb-required-field' | translate}})</span>
+            </div>
+        </div>
+        <div fxLayout="row" class="space-component" fxLayoutWrap fxLayoutAlign="start none">
+            <div fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.gt-sm="100%">
+                <md-input-container fxFlex.xs="100%" fxFlex.gt-sm="60%">
+                    <!--<input mdInput ngControl placeholder="CPF or CNPJ" type="text" [(ngModel)]="getSimulation().client.cpf"  pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" (ngModelChange)="handelInput($event)"    #name="ngModel" name="cpf"-->
+                    <div>
+                        <input required id="cpfCnpjId" #name="ngModel" #cpfcnpjElement autocomplete="off" mdInput ngControl placeholder="{{'lb-cpf-cnpj' | translate}}"
+                            type="text" [(ngModel)]="getSimulation().client.cpfCnpj" maxlength="19" customcpfcnpj name="cpfCnpj" />
+                    </div>
+                    <!--<md-error>{{ 'field-required' | translate }}</md-error>-->
+                </md-input-container>
+
+            </div>
+            <div fxLayout="row" class="space-component" fxLayoutWrap>
+                <div fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.gt-sm="100%" fxLayoutGap="10%" class="flexBasisIE">
+                    <span><b class="black-color">{{'lb-client-name' | translate}}</b> ({{'lb-required-field' | translate}})</span>
+                </div>
+            </div>
+            <div class="space-component" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.gt-sm="100%">
+                <md-input-container fxFlex.xs="100%" fxFlex.gt-sm="60%">
+                    <input mdInput ngControl maxlenght="40" autocomplete="off" placeholder="{{'lb-client-name' | translate}}" type="text" [(ngModel)]="getSimulation().client.name"
+                        #name="ngModel" name="name" required/>
+                    <!--<md-error>{{ 'field-required' | translate }}</md-error>-->
+                </md-input-container>
+            </div>
+        </div>
+        <div fxLayout="row" class="space-component" fxLayoutWrap fxLayoutAlign="start none">
+            <div fxLayout="row" class="space-component" fxLayoutWrap>
+                <div fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.gt-sm="100%" fxLayoutGap="10%" class="flexBasisIE">
+                    <span><b class="black-color">Email</b> ({{'lb-required-field' | translate}})</span>
+                </div>
+            </div>
+            <div class="space-component" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.gt-sm="100%">
+                <md-input-container fxFlex.xs="100%" fxFlex.gt-sm="60%">
+
+                    <!--<input mdInput ngControl placeholder="Email" type="email" [(ngModel)]="getSimulation().client.email" #name="ngModel" name="email"
+                        required/>-->
+
+                    <input mdInput ngModel id="emailValid" autocomplete="off" #emailElement placeholder="Email" type="email" [(ngModel)]="getSimulation().client.email"
+                        #name="ngModel" name="email" [email]="true" (blur)="blurEmail($event)" required maxlength="150" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+                    />
+
+                </md-input-container>
+
+            </div>
+        </div>
+        <div class="spaceCard">
+            <h4 class="black-color">{{'lb-contact-information' | translate}}</h4>
+            <hr class="color-border-default" />
+            <div fxLayout="row" fxLayoutWrap fxLayoutAlign="start none" fxLayoutWrap>
+                <div fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.gt-sm="100%" fxLayoutGap="10%">
+                    <span><b class="black-color">{{'lb-phone-number' | translate}}</b> ({{'lb-required-field' | translate}})</span>
+                </div>
+            </div>
+            <div fxLayout="row" class="space-component" fxLayoutWrap fxLayoutAlign="center center">
+                <div fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.gt-sm="100%">
+                    <md-input-container fxFlex.xs="100%" fxFlex.gt-sm="60%">
+                        <div>
+                            <input #phoneElement autocomplete="off" mdInput ngControl maxlength="15" placeholder="{{'lb-phone-number' | translate}}"
+                                customphone id="phoneMaskId" type="text" [(ngModel)]="getSimulation().client.phone.number" #name="ngModel"
+                                name="phone" required/>
+                            <!--<md-error>{{ 'field-required' | translate }}</md-error> omegamask="(99)9999-9999"-->
+                        </div>
+                    </md-input-container>
+                </div>
+            </div>
+        </div>
+        <div class="spaceCard">
+            <h4 class="black-color">{{'lb-localization' | translate}}</h4>
+            <hr class="color-border-default" />
+     
+            <div fxLayout="row" fxLayoutWrap fxLayoutAlign="start none" fxLayoutWrap>
+                <div fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.gt-sm="100%" fxLayoutGap="10%">
+                    <span><b class="black-color">{{'lb-state' | translate}}</b> ({{'lb-required-field' | translate}})</span>
+                    <div fxLayout="row" class="space-component" fxLayoutWrap fxLayoutAlign="start none">
+                        <div fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.gt-sm="100%">
+                            <md-select ngControl fxFlex.gt-sm="60%" fxFlex.gt-xs="100%" placeholder="{{'lb-state' | translate}}" name="state" [(ngModel)]="getSimulation().client.address.province"
+                                #name="ngModel" required>
+                                <md-option *ngFor="let province of getListProvinces()" [value]="province">{{province.description}}</md-option>
+                            </md-select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="spaceCard">
+            <h4 class="black-color">{{'lb-simulation-information' | translate}}</h4>
+            <hr class="color-border-default" />
+            <div fxLayout="row" fxLayoutWrap fxLayoutAlign="start none" fxLayoutWrap>
+                <div fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.gt-sm="100%" fxLayoutGap="10%">
+                    <span><b class="black-color">{{'lb-sale-type' | translate}}</b> ({{'lb-required-field' | translate}})</span>
+                </div>
+            </div>
+            <div fxLayout="row" class="space-component" fxLayoutWrap fxLayoutAlign="start none">
+                <div fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.gt-sm="100%">
+                    <md-radio-group [(ngModel)]="getSimulation().saleType" (change)="changeSaleType($event)" name="saleType" #name="ngModel" fxLayoutGap="5%"
+                        required>
+                        <md-radio-button ngControl ngDefaultControl [value]="saleType" *ngFor="let saleType of getListSaleType()">
+                            {{saleType.description}}
+                        </md-radio-button>
+                    </md-radio-group>
+                </div>
+            </div>
+        </div>
+        
+        <!-- DESKTOP AND IPAD -->
+        <div *ngIf="!media.isActive('xs')"  fxLayout="row" fxLayoutWrap fxLayoutAlign="end none" fxLayoutWrap>
+            <div fxFlex.xs="100%" fxLayoutAlign="end none" fxFlex.sm="100%" fxFlex.gt-sm="100%">
+                <button type="button" [ngStyle.xs]="{'margin': '15px 0px 30px 0px', 'width': '100%'}" (click)="change(true)" [disabled]="!validForm(ff.form.valid)"
+                    md-raised-button color="primary"><label fxHide.xs="true" [ngStyle]="{'text-transform': 'uppercase'}">{{'btn-choose-vehicle' | translate}}</label> <label fxHide fxHide.xs="false">{{'btn-vehicle' | translate | uppercase}}</label>   </button>
+            </div>
+        </div>
+
+        <!-- MOBILE -->
+
+        <!-- DISABLED BUTTON -->
+        <md-toolbar  *ngIf="media.isActive('xs') && !ff.form.valid" [ngStyle.xs]="{'margin-top': '20%', 'min-height': '46px', 'background': 'rgba(0,0,0,.12)', 'position': 'absolute', 'right': 0, 'left': 0, color: 'rgba(0, 0, 0, 0.38)', 'bottom': 0}">
+            <div fxFlex.xs="100%" fxLayoutAlign="center center" fxFlex.sm="100%">
+               <label>{{'btn-vehicle' | translate | uppercase}}</label> 
+            </div>
+        </md-toolbar>
+
+        <!-- ACTIVE BUTTON -->
+        <md-toolbar  (click)="change(true)"  *ngIf="media.isActive('xs') && ff.form.valid" class="buttonMobileFooter">
+            <div fxFlex.xs="100%" fxLayoutAlign="center center" fxFlex.sm="100%">
+               <label>{{'btn-vehicle' | translate | uppercase}}</label> 
+            </div>
+        </md-toolbar>
+
+    </form>
+</div>

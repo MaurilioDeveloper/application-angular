@@ -1,0 +1,67 @@
+<div fxLayout="row" *ngIf="file">
+    <!--<div id="myCarousel" fxFlex.gt-sm="100%" fxFlex.xs="100%" class="carousel slide" data-ride="carousel">-->
+        <!-- Indicators -->
+        <!--<ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+        </ol>-->
+
+        <!-- Wrapper for slides -->
+        <!--<div class="carousel-inner">-->
+            <div *ngIf="file.fileLink != null" class="item"  [ngStyle]="{'position': 'absolute', 'left': 0, 'right': 0, 'margin-top': '-65px'}" [ngStyle.gt-sm]="{'height': '350px'}">
+                <img width="100%" src="{{this.appService.getURLS3()}}{{file.fileLink}}" height="100%" [ngStyle.gt-sm]="{'object-fit': 'cover'}">
+            </div>
+            <div *ngIf="file.fileLink == null" class="item"  [ngStyle]="{'position': 'absolute', 'left': 0, 'right': 0, 'margin-top': '-65px'}" [ngStyle.gt-sm]="{'height': '350px'}">
+                <img width="100%" src="../assets/images/sem_imagem_brand.png" height="100%" [ngStyle.gt-sm]="{'object-fit': 'cover'}">
+            </div>
+
+            <!--<div class="item" [ngStyle.gt-sm]="{'max-height.px': 430}">-->
+                <!--<img width="100%" src="../assets/images/nissan3.png">-->
+            <!--</div>-->
+        <!--</div>-->
+
+        <!-- Left and right controls -->
+        <!--<a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>-->
+</div>
+<div fxLayout="row" id="homePageMozilaEdge">
+    <div fxFlex.gt-sm="100%" fxFlex.xs="100%" fxLayoutAlign="center center" fxLayoutGap="3%"  [ngStyle.gt-sm]="{'margin-top': '23%'}" [ngStyle.sm]="{'margin-top': '37%'}" [ngStyle.xs]="{'margin-top': '37%'}">
+        <md-card fxFlex.gt-sm="45%" fxFlex.xs="100%" [ngStyle]="{'border-radius.px': 8}" [ngStyle.gt-sm]="{'height.px': 295}" [ngStyle.xs]="{'height.px': 430}" [ngStyle.sm]="{'height.px': 360}">
+            <md-card-header [ngStyle]="{'height.px': 11, 'border-top-right-radius.px': 8, 'border-top-left-radius.px': 8}" >
+            </md-card-header>
+            <md-card-content>
+                <div class="titulo">
+                    <i class="material-icons icon">library_books</i>
+                    <span><b>{{'lb-news' | translate | uppercase}}</b></span>
+                </div>
+                <div class="conteudos-content" [ngStyle.gt-sm]="{'overflow-y': 'scroll', 'max-height': '170px'}" [ngStyle.xs]="{'overflow-y': 'scroll', 'max-height': '290px'}">
+                    <app-notice-list></app-notice-list>
+                </div>
+            </md-card-content>
+        </md-card>
+
+
+        <md-card fxFlex.gt-sm="45%" id="flexBasisIE" fxFlex.xs="100%" [ngStyle]="{'border-radius.px': 8, 'flex-basis': '100%'}" [ngStyle.gt-sm]="{'height.px': 295}" [ngStyle.xs]="{'height.px': 430}" [ngStyle.sm]="{'height.px': 360}">
+            <md-card-header  [ngStyle]="{'height.px': 11, 'border-top-right-radius.px': 8, 'border-top-left-radius.px': 8}" >
+            </md-card-header>
+            <md-card-content>
+                <div class="titulo">
+                    <i class="material-icons icon">record_voice_over</i>
+                    <span><b>{{'lb-support' | translate | uppercase}}</b></span>
+                </div>
+                <div class="conteudos-content">
+                    <p>{{'lb-help-desk' | translate}}</p>
+                    <p>{{'lb-phone-help-desk' | translate}}</p>
+                    <p>{{'lb-email-support' | translate}}</p>
+                </div>
+            </md-card-content>
+        </md-card>
+    </div>
+</div>

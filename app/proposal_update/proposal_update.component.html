@@ -1,0 +1,25 @@
+<div fxFlex.xs="100%" fxFlex.gt-sm="100%" fxLayoutAlign="center center" class="spaceCard">
+    <md-card fxFlex.gt-sm="60%" fxFlex.xs="100%" [ngStyle.xs]="{'padding-top':'10px'}">
+        <md-card-content>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr class="concessionaria">
+                            <th [ngStyle]="{'text-align': 'initial'}">{{'update-button-behavior-configuration' | translate}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <md-radio-group  [(ngModel)]="paramDto.paramBoolean">
+                                <md-radio-button *ngFor="let param of paramList" [value]="param.value" >
+                                    {{param.valueView}}
+                                </md-radio-button>
+                        </md-radio-group>
+                    </tbody>
+                </table>
+                <div fxLayoutAlign="end none">
+                    <div fxFlex.gt-sm="20%" fxFlex.xs="100%">
+                        <button fxFlex.xs="100%" md-raised-button color="primary" (click)="save()"> {{'btn-save' | translate}}</button>
+                    </div>
+                </div>
+        </md-card-content>
+    </md-card>
+</div>

@@ -1,0 +1,43 @@
+
+.content_notification {
+    overflow: auto;
+    overflow-x: hidden;
+    background-color: #fff;
+    
+}
+
+.dropdown-menu {
+    z-index: 1000;
+    padding: .5rem 0;
+    margin: .125rem 0 0;
+    color: #292b2c;
+    text-align: left;
+    list-style: none;
+    background-clip: padding-box;
+    font-size: inherit;
+    border-radius: 5px;
+}
+
+.notification_background {
+	opacity: 0.9;
+}
+
+.notification_row {
+	border-bottom-style: dotted;
+	border-width: 1px;
+	opacity: 0.8;
+    padding: 5px;
+    font-size: x-small;
+}
+
+.notification_view_all {
+	font-size: medium;
+}
+
+
+.not_connected {
+  opacity: 0.4 ;
+  top: 78px;
+  position: relative;
+  left: 79px;
+}

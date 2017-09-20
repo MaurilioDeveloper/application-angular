@@ -1,0 +1,51 @@
+<div *ngIf="notificationHide"
+fxLayout="row" [ngStyle]="{'position' : 'absolute', 'top':'55px', 'right': 0}" class="notification_background dropdown-menu">
+  <div fxLayout="column">
+    <div fxFlex.xs="250px" fxFlex.sm="250px" fxFlex.gt-sm="250px">
+      <div fxLayout="row">
+        <div fxFlex.xs="250px" fxFlex.sm="250px" fxFlex.gt-sm="250px">
+
+          <div fxLayout="row" class="content_notification">
+            <div fxLayout="column">
+              <!-- Caso nao esteja conectado mostra a  div abaixo -->
+              <div *ngIf="notConnected" fxFlex.xs="230px" fxFlex.sm="230px" fxFlex.gt-sm="230px">
+                <div fxLayout="column" >
+                      <div fxLayout="row" fxFlex="100%" title="note">
+                        <div class="not_connected">
+                          <i class="fa fa-bell-slash fa-5x" aria-hidden="true" title="{{'msg-not-connected' | translate}}"></i>
+                        </div>
+                      </div>
+                </div>
+              </div>
+
+              <!-- Caso esteja conectado mostra a  div abaixo -->
+              <div *ngIf="!notConnected" fxFlex.xs="230px" fxFlex.sm="230px" fxFlex.gt-sm="230px">
+                <div *ngFor="let notification of notificationList; let i=index" fxLayout="row">
+                   <div fxLayout="column">
+                      <div fxLayout="row">
+                        <div  #notification_row fxFlex.xs="250px" fxFlex.sm="250px" fxFlex.gt-sm="250px" class="notification_row">
+                        {{notification}}
+                        </div>
+                      </div>
+                      
+                   </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div fxLayout="row" fxLayoutAlign="center center" class="notification_background">
+            <div fxLayout="column">
+              <div fxFlex.xs="20px" fxFlex.sm="20px" fxFlex.gt-sm="20px">
+                <div fxLayout="row"  fxLayoutAlign="center center" >
+                        <span class="notification_view_all">
+                          <a  routerLink="./notification" routerLinkActive="active">{{'lb-all-notification' | translate}}</a>
+                        </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
